@@ -1,0 +1,6 @@
+
+enum Role {
+  admin,
+  user
+}
+
