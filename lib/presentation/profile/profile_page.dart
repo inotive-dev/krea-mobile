@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:koperasi/core/style/custom_text_style.dart';
+import 'package:koperasi/core/style/custom_widget_style.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
@@ -63,15 +65,12 @@ class _ProfilePageState extends State<ProfilePage> {
       success: (data) async {
         await Navigator.pushReplacementNamed(context, LoginPage.routeName);
       },
-      error: (failure) {
-        print(failure);
-      },
+      error: (failure) {},
       orElse: () => null,
     );
   }
 
   _handleGetUser(User? user) {
-    print('NAME: ${user?.name}');
     setState(() {
       _nameController.text = user?.name ?? '-';
       _emailController.text = user?.email ?? '-';
@@ -84,170 +83,126 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     context.read<ProfileCubit>().getUser();
 
-    return Container(
+    return SingleChildScrollView(
+      child: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
         padding: EdgeInsets.symmetric(
           vertical: Sizes.width16,
-          horizontal: Sizes.height20,
+          horizontal: Sizes.height28,
         ),
         child: context.select(
           (ProfileCubit value) {
             final user = value.state.user;
             _handleGetUser(user);
-            return ListView(
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: Sizes.height40,
-                ),
+                SizedBox(height: Sizes.height10),
                 Stack(
                   children: <Widget>[
-                    const Align(
+                    Align(
                       alignment: Alignment.center,
                       child: CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/images/dummy_avatar.png'),
+                        radius: Sizes.width50,
+                        backgroundImage: const AssetImage('assets/images/dummy_avatar.png'),
                       ),
                     ),
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        height: Sizes.width40,
-                        width: Sizes.height40,
+                        height: Sizes.width43,
+                        width: Sizes.width43,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
                         margin: const EdgeInsets.only(left: 70, top: 70),
                         child: InkWell(
-                            onTap: () {},
-                            child: const Icon(
-                              Icons.camera_alt_rounded,
-                              size: 20,
-                            )),
+                          onTap: () {},
+                          child: Icon(
+                            Icons.camera_alt_rounded,
+                            size: Sizes.width24,
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
+                SizedBox(height: Sizes.height16),
                 Text(
                   Strings.nama,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: Sizes.sp14,
-                  ),
+                  style: CustomTextStyle.textFormStyle,
                 ),
+                SizedBox(height: Sizes.height7),
                 TextFormField(
                   controller: _nameController,
-                  decoration: InputDecoration(
-                    labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                    filled: true,
-                    fillColor: ColorPalettes.bgGreyForm,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: ColorPalettes.greyBorderColor,
-                        width: 1,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.only(
-                        left: Sizes.width10, right: Sizes.width10, top: Sizes.height10, bottom: Sizes.height10),
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
                   ),
+                  decoration: CustomWidgetStyle.formInputDecoration,
                 ),
+                SizedBox(height: Sizes.height19),
                 Text(
                   Strings.email,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: Sizes.sp14,
-                  ),
+                  style: CustomTextStyle.textFormStyle,
                 ),
+                SizedBox(height: Sizes.height7),
                 TextFormField(
                   controller: _emailController,
-                  decoration: InputDecoration(
-                    labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                    filled: true,
-                    fillColor: ColorPalettes.bgGreyForm,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: ColorPalettes.greyBorderColor,
-                        width: 1,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.only(
-                        left: Sizes.width10, right: Sizes.width10, top: Sizes.height10, bottom: Sizes.height10),
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
                   ),
+                  decoration: CustomWidgetStyle.formInputDecoration,
                 ),
+                SizedBox(height: Sizes.height19),
                 Text(
                   Strings.password,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: Sizes.sp14,
-                  ),
+                  style: CustomTextStyle.textFormStyle,
                 ),
+                SizedBox(height: Sizes.height7),
                 TextFormField(
                   controller: _passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                    filled: true,
-                    fillColor: ColorPalettes.bgGreyForm,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: ColorPalettes.greyBorderColor,
-                        width: 1,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.only(
-                        left: Sizes.width10, right: Sizes.width10, top: Sizes.height10, bottom: Sizes.height10),
-                  ),
-                ),
-                Text(
-                  Strings.confirmPassword,
                   style: TextStyle(
-                    fontWeight: FontWeight.w400,
+                    color: ColorPalettes.textNeutral,
                     fontSize: Sizes.sp14,
                   ),
+                  obscureText: true,
+                  decoration: CustomWidgetStyle.formInputDecoration,
                 ),
+                SizedBox(height: Sizes.height19),
+                Text(
+                  Strings.confirmPassword,
+                  style: CustomTextStyle.textFormStyle,
+                ),
+                SizedBox(height: Sizes.height7),
                 TextFormField(
                   controller: _confirmPasswordController,
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
+                  ),
                   obscureText: true,
-                  decoration: InputDecoration(
-                    labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                    filled: true,
-                    fillColor: ColorPalettes.bgGreyForm,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                  decoration: CustomWidgetStyle.formInputDecoration,
+                ),
+                SizedBox(height: Sizes.height20),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Update',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: Sizes.sp18,
+                      fontWeight: FontWeight.w400,
                     ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: const BorderSide(
-                        color: ColorPalettes.greyBorderColor,
-                        width: 1,
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.only(
-                        left: Sizes.width10, right: Sizes.width10, top: Sizes.height10, bottom: Sizes.height10),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, Sizes.height46),
+                    elevation: 0,
                   ),
                 ),
-                // BlueButton(
-                //   btnLabel: Strings.update,
-                //   paddingTop: Sizes.height20,
-                //   onPressed: () {
-                //     print('btn update clicked');
-                //   },
-                // ),
-                SizedBox(
-                  height: Sizes.height10,
-                ),
+                SizedBox(height: Sizes.height15),
                 BlocListener<ProfileCubit, ProfileState>(
                   listenWhen: (previous, current) => previous.logoutResultState != current.logoutResultState,
                   listener: (context, state) {
@@ -255,12 +210,30 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                   child: ElevatedButton(
                     onPressed: _doLogout,
-                    child: const Text('Logout'),
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: Sizes.sp18,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, Sizes.height46),
+                      primary: ColorPalettes.greyForm,
+                      elevation: 0,
+                      side: const BorderSide(
+                        width: 1,
+                        color: ColorPalettes.greyForm,
+                      ),
+                    ),
                   ),
                 ),
               ],
             );
           },
-        ));
+        ),
+      ),
+    );
   }
 }
