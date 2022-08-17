@@ -1,36 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:koperasi/core/style/color_palettes.dart';
-import 'package:koperasi/presentation/auth/auth_view/login_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:koperasi/app/my_bloc_observer.dart';
+import 'package:koperasi/di/injection_container.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'app/init_hive.dart';
+import 'app/my_app.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await initHive();
+  configureDependencies();
+
+  BlocOverrides.runZoned(
+    () => runApp(const MyApp()),
+    blocObserver: MyBlocObserver(),
+  );
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context , child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: true,
-          title: 'Koperasi',
-          theme: ThemeData(
-            fontFamily: 'Inter',
-            primarySwatch: ColorPalettes.primarySwatch,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
-          ),
-          home: child,
-        );
-      },
-      child: const LoginPage(),
-    );
-  }
-}
-
-

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
-import 'package:koperasi/core/widgets/app_bar_container.dart';
-import 'package:koperasi/core/widgets/custom_app_bar.dart';
-import 'package:koperasi/presentation/home/admin/widgets/riwayat_tab_bar.dart';
 import 'package:koperasi/presentation/home/home_app_bar.dart';
 
 import '../../../core/const/strings.dart';
@@ -34,22 +31,19 @@ class _HomeAdminState extends State<HomeAdmin> {
 
           SliverToBoxAdapter(
               child: Padding(
-            padding: EdgeInsets.only(
-                left: Sizes.width19,
-                top: Sizes.height23,
-                bottom: Sizes.height10),
+            padding: EdgeInsets.only(left: Sizes.width19, top: Sizes.height23, bottom: Sizes.height10),
             child: Text(
               Strings.report,
-              style: TextStyle(
-                  color: ColorPalettes.darkBlue,
-                  fontWeight: FontWeight.w500,
-                  fontSize: Sizes.sp24),
+              style: TextStyle(color: ColorPalettes.darkBlue, fontWeight: FontWeight.w500, fontSize: Sizes.sp24),
             ),
           )),
 
           //Riwayat TabBar
           SliverToBoxAdapter(
-            child: SizedBox(height: Sizes.height300, child: RiwayaySection()),
+            child: SizedBox(
+              height: Sizes.height300,
+              // child: RiwayaySection(),
+            ),
           ),
 
           SliverToBoxAdapter(
@@ -57,27 +51,26 @@ class _HomeAdminState extends State<HomeAdmin> {
               height: Sizes.height100,
               child: Row(children: [
                 DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['2019', '2020', '2021', '2022']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );
-      }).toList(),
-    )
+                  value: dropdownValue,
+                  icon: const Icon(Icons.arrow_downward),
+                  elevation: 16,
+                  style: const TextStyle(color: Colors.deepPurple),
+                  underline: Container(
+                    height: 2,
+                    color: Colors.deepPurpleAccent,
+                  ),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue!;
+                    });
+                  },
+                  items: <String>['2019', '2020', '2021', '2022'].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                )
               ]),
             ),
           )

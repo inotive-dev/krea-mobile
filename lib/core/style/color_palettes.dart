@@ -18,7 +18,7 @@ class ColorPalettes {
   static const greyText = Color(0xffBDBDBD);
 
   static const greyAppBar = Color(0xffF1F2F3);
-  static const greyBackground = Color(0xffE5E5E5);
+  static const greyBackground = Color(0xffF5F5F5);
 
   static const darkText = Color(0xffA1A1A1);
   static const blackText = Color(0xff4C4C4C);

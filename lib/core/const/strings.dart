@@ -27,4 +27,7 @@ class Strings {
   static const report = 'Report';
   static const produk = 'Produk';
   static const kuantitas = 'Kuantitas';
+
+  // Error
+  static const String msgErrorGeneral = 'Terjadi kesalahan, silakan coba lagi';
 }
