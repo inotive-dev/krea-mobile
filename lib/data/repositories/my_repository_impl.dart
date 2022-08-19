@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/unions/failure.dart';
@@ -64,5 +66,18 @@ class MyRepositoryImpl implements MyRepository {
   @override
   User? getUser() {
     return _localDataSource.getUser()?.toDomain();
+  }
+
+  @override
+  Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHomeAdminData(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
   }
 }

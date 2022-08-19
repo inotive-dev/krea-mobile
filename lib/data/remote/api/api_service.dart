@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 
 import 'endpoint.dart';
 
@@ -17,6 +18,13 @@ class ApiService {
         'email': params.email,
         'password': params.password,
       },
+    );
+  }
+
+  Future<Response> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
+    return await _dio.get(
+      Endpoint.getHomeAdminData,
+      queryParameters: {'mart_id': params.martId},
     );
   }
 }

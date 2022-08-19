@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/style/sizes.dart';
+import '../../../../core/style/sizes.dart';
 
 class AdminAppBar extends StatelessWidget {
   const AdminAppBar({Key? key}) : super(key: key);

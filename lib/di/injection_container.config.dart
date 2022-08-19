@@ -19,10 +19,12 @@ import '../domain/repositories/my_repository.dart' as _i10;
 import '../domain/usecases/check_login_status_usecase.dart' as _i12;
 import '../domain/usecases/do_login_usecase.dart' as _i13;
 import '../domain/usecases/do_logout_usecase.dart' as _i14;
-import '../domain/usecases/get_user_usecase.dart' as _i15;
-import '../presentation/auth/cubit/login_cubit.dart' as _i16;
-import '../presentation/profile/cubit/profile_cubit.dart' as _i17;
-import 'register_module.dart' as _i18; // ignore_for_file: unnecessary_lambdas
+import '../domain/usecases/get_home_admin_usecase.dart' as _i15;
+import '../domain/usecases/get_user_usecase.dart' as _i16;
+import '../presentation/auth/cubit/login_cubit.dart' as _i18;
+import '../presentation/home/cubit/home_cubit.dart' as _i17;
+import '../presentation/profile/cubit/profile_cubit.dart' as _i19;
+import 'register_module.dart' as _i20; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -49,13 +51,17 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i13.DoLoginUseCase(myRepository: get<_i10.MyRepository>()));
   gh.lazySingleton<_i14.DoLogoutUseCase>(
       () => _i14.DoLogoutUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.lazySingleton<_i15.GetUserUseCase>(
-      () => _i15.GetUserUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.factory<_i16.LoginCubit>(
-      () => _i16.LoginCubit(get<_i13.DoLoginUseCase>()));
-  gh.factory<_i17.ProfileCubit>(() => _i17.ProfileCubit(
-      get<_i14.DoLogoutUseCase>(), get<_i15.GetUserUseCase>()));
+  gh.lazySingleton<_i15.GetHomeAdminUseCase>(
+      () => _i15.GetHomeAdminUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i16.GetUserUseCase>(
+      () => _i16.GetUserUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.factory<_i17.HomeCubit>(
+      () => _i17.HomeCubit(get<_i15.GetHomeAdminUseCase>()));
+  gh.factory<_i18.LoginCubit>(
+      () => _i18.LoginCubit(get<_i13.DoLoginUseCase>()));
+  gh.factory<_i19.ProfileCubit>(() => _i19.ProfileCubit(
+      get<_i14.DoLogoutUseCase>(), get<_i16.GetUserUseCase>()));
   return get;
 }
 
-class _$RegisterModule extends _i18.RegisterModule {}
+class _$RegisterModule extends _i20.RegisterModule {}

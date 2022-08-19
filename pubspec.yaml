@@ -38,6 +38,9 @@ dependencies:
   # No SQL local storage
   hive: ^2.0.6
   hive_flutter: ^1.1.0
+  # contains code to deal with internationalized/localized
+  intl: ^0.17.0
+  # a convenient code generator for get_it
   injectable: ^1.5.3
   #loading button animation
   rounded_loading_button: ^2.1.0
