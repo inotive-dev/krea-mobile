@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:koperasi/domain/entities/history_entities/history.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
+import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 
 import '../../core/const/strings.dart';
@@ -71,6 +73,19 @@ class MyRepositoryImpl implements MyRepository {
   @override
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
     final _data = await _remoteDataSource.getHomeAdminData(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, History>> getHistoryAdminData(GetHistoryAdminUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHistoryAdminData(params);
 
     if (_data.data == null) {
       return Left(

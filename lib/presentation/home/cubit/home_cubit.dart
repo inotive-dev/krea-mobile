@@ -21,8 +21,6 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(getHomeAdminResultState: const ResultState.loading()));
 
     final _result = await _getHomeAdminUseCase(const GetHomeAdminUseCaseParams(martId: '1'));
-    print('INI: $_result');
-
     _result.fold(
       (l) {
         emit(

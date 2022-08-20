@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:koperasi/presentation/history/cubit/history_cubit.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
@@ -16,6 +17,9 @@ class AppBlocs {
       create: (context) => getIt.get(),
     ),
     BlocProvider<HomeCubit>(
+      create: (context) => getIt.get(),
+    ),
+    BlocProvider<HistoryCubit>(
       create: (context) => getIt.get(),
     ),
   ];

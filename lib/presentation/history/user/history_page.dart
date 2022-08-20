@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:koperasi/presentation/history/cubit/history_cubit.dart';
 import 'package:koperasi/presentation/history/user/history_detail.dart';
 import 'package:koperasi/presentation/history/widgets/history_card.dart';
 
 import '../../../../core/style/sizes.dart';
 import '../../../core/const/strings.dart';
+
 class HistoryPage extends StatelessWidget {
   const HistoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    context.read<HistoryCubit>().getHistoryAdminData();
+
     return Scaffold(
       body: Container(
         color: ColorPalettes.greyBackground,
@@ -20,36 +24,60 @@ class HistoryPage extends StatelessWidget {
               padding: EdgeInsets.only(left: Sizes.width16, top: Sizes.height24),
               child: Row(
                 children: [
-                  Text(Strings.mingguIni, style: TextStyle(color: ColorPalettes.blackText, fontSize: Sizes.sp18, fontWeight: FontWeight.w500),),
-                  SizedBox(width: Sizes.width15,),
-                  Icon(Icons.keyboard_arrow_up_outlined, size: Sizes.sp24,)
+                  Text(
+                    Strings.mingguIni,
+                    style: TextStyle(color: ColorPalettes.blackText, fontSize: Sizes.sp18, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    width: Sizes.width15,
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_up_outlined,
+                    size: Sizes.sp24,
+                  )
                 ],
               ),
             ),
             InkWell(
-              onTap: (){
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HistoryDetail()));
-              },
-                child: HistoryCard(dateTime: '13-09-2021 09.00', shopName: 'Kreamart', shopAddress: 'Jl. Flamboyan Raya', totalAmount: '50.000',)),
-            InkWell(
-                onTap: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const HistoryDetail()));
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HistoryDetail()));
                 },
-                child: HistoryCard(dateTime: '13-09-2021 09.00', shopName: 'Kreamart', shopAddress: 'Jl. Flamboyan Raya', totalAmount: '50.000',)),
+                child: HistoryCard(
+                  dateTime: '13-09-2021 09.00',
+                  shopName: 'Kreamart',
+                  shopAddress: 'Jl. Flamboyan Raya',
+                  totalAmount: '50.000',
+                )),
             InkWell(
-                onTap: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const HistoryDetail()));
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HistoryDetail()));
                 },
-                child: HistoryCard(dateTime: '13-09-2021 09.00', shopName: 'Kreamart', shopAddress: 'Jl. Flamboyan Raya', totalAmount: '50.000',)),
+                child: HistoryCard(
+                  dateTime: '13-09-2021 09.00',
+                  shopName: 'Kreamart',
+                  shopAddress: 'Jl. Flamboyan Raya',
+                  totalAmount: '50.000',
+                )),
             InkWell(
-                onTap: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const HistoryDetail()));
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HistoryDetail()));
                 },
-                child: HistoryCard(dateTime: '13-09-2021 09.00', shopName: 'Kreamart', shopAddress: 'Jl. Flamboyan Raya', totalAmount: '50.000',)),
+                child: HistoryCard(
+                  dateTime: '13-09-2021 09.00',
+                  shopName: 'Kreamart',
+                  shopAddress: 'Jl. Flamboyan Raya',
+                  totalAmount: '50.000',
+                )),
+            InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HistoryDetail()));
+                },
+                child: HistoryCard(
+                  dateTime: '13-09-2021 09.00',
+                  shopName: 'Kreamart',
+                  shopAddress: 'Jl. Flamboyan Raya',
+                  totalAmount: '50.000',
+                )),
           ],
         ),
       ),
