@@ -19,6 +19,7 @@ class Strings {
   static const detailHistory = 'Detail History';
   static const profile = 'Profile';
   static const mingguIni = 'Minggu Ini';
+  static const bulanLalu = 'Bulan Lalu';
   static const nama = 'Nama';
   static const confirmPassword = 'Confirm Password';
   static const update = 'Update';

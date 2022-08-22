@@ -24,6 +24,7 @@ class ColorPalettes {
   static const darkText = Color(0xffA1A1A1);
   static const blackText = Color(0xff4C4C4C);
   static const textNeutral = Color(0xff838AA3);
+  static const textGray = Color(0Xff473C41);
 
   static const greyUnselectedTab = Color(0xff9E9E9E);
 
