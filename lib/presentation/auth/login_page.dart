@@ -7,7 +7,6 @@ import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/utils/form_validator.dart';
 import 'package:koperasi/presentation/home/home_page.dart';
-import 'package:koperasi/repository/login_repository.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../../core/const/strings.dart';
@@ -36,45 +35,6 @@ class _LoginPageState extends State<LoginPage> {
   String suffixPasswordText = Strings.show;
 
   AutovalidateMode _autoValidateMode = AutovalidateMode.disabled;
-  final LoginRepository _loginRepository = LoginRepository();
-
-  // void _doLogin() async {
-  //   if (_formKey.currentState!.validate()) {
-  //     // todo login function
-  //     _loginRepository.authLogin(email: _emailController.text, password: _passwordController.text).then((response) {
-  //       if (response?.user != null) {
-  //         SessionHelper().saveToken(response!.token!);
-  //         SessionHelper().saveDynamicSession(Keys.role, response.user!.app!);
-  //         _btnController.success();
-  //         Timer(const Duration(seconds: 1), () {
-  //           _btnController.reset();
-  //           Navigator.push(
-  //             context,
-  //             MaterialPageRoute(builder: (context) => const HomePage()),
-  //           );
-  //         });
-  //       } else {
-  //         _btnController.error();
-  //         Timer(const Duration(seconds: 1), () {
-  //           _btnController.reset();
-  //         });
-  //       }
-  //     }).catchError((onError) {
-  //       print('error login : ${onError.toString()}');
-  //       Timer(const Duration(seconds: 1), () {
-  //         _btnController.reset();
-  //       });
-  //     });
-  //   } else {
-  //     _btnController.error();
-  //     setState(() {
-  //       _autoValidateMode = AutovalidateMode.always;
-  //     });
-  //     Timer(const Duration(seconds: 1), () {
-  //       _btnController.reset();
-  //     });
-  //   }
-  // }
 
   void actionLogin() async {
     if (_formKey.currentState!.validate()) {

@@ -17,10 +17,10 @@ class HomeCubit extends Cubit<HomeState> {
     this._getHomeAdminUseCase,
   ) : super(HomeState.initial());
 
-  getHomeAdminData() async {
+  getHomeAdminData(int martId) async {
     emit(state.copyWith(getHomeAdminResultState: const ResultState.loading()));
 
-    final _result = await _getHomeAdminUseCase(const GetHomeAdminUseCaseParams(martId: '1'));
+    final _result = await _getHomeAdminUseCase(GetHomeAdminUseCaseParams(martId: martId.toString()));
     _result.fold(
       (l) {
         emit(

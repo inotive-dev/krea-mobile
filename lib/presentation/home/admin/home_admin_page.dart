@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:koperasi/di/injection_container.dart';
+import 'package:koperasi/domain/repositories/my_repository.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/page_control.dart';
 import 'package:koperasi/presentation/home/admin/widgets/dropdown/filter_dropdown.dart';
@@ -23,13 +25,16 @@ class HomeAdminPage extends StatefulWidget {
 
 class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProviderStateMixin {
   late TabController tabBranchController;
+  late MyRepository _myRepository;
 
   @override
   void initState() {
     tabBranchController = TabController(length: 3, vsync: this);
     super.initState();
 
-    context.read<HomeCubit>().getHomeAdminData();
+    _myRepository = getIt.get<MyRepository>();
+    final martId = _myRepository.getUser()?.martId ?? 0;
+    context.read<HomeCubit>().getHomeAdminData(martId);
   }
 
   @override

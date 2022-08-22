@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-
+import 'package:koperasi/data/local/local_data_source.dart';
+import 'package:koperasi/di/injection_container.dart';
+import 'package:koperasi/presentation/history/admin/history_admin_page.dart';
 import 'package:koperasi/presentation/home/admin/home_admin_page.dart';
 import 'package:koperasi/presentation/home/widgets/bottom_nav_bar.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
-import '../history/user/history_page.dart';
 import '../profile/profile_page.dart';
+import 'home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
@@ -19,11 +21,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late LocalDataSource _localDataSource;
+
   int _selectedIndex = 0;
   final PageController pageController = PageController(initialPage: 0);
-  // static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  // late final List<Widget> _widgetOptions;
+  late final List<Widget> _widgetOptions;
   late final List<PreferredSizeWidget> _widgetAppBar;
 
   void _onItemTapped(int index) {
@@ -35,30 +38,29 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // setState(() {
-    //   _widgetOptions = <Widget>[
-    //     widget.role == Role.admin ? const HomeAdmin() : const HomeForUser(),
-    //     const HistoryPage(),
-    //     const ProfilePage()
-    //   ];
-    // });
+    super.initState();
+
+    _localDataSource = getIt.get<LocalDataSource>();
+    final role = _localDataSource.getRole();
+
+    setState(() {
+      _widgetOptions = <Widget>[
+        role == 'admin' ? const HomeAdminPage() : const HomePage(),
+        const HistoryAdminPage(),
+        const ProfilePage()
+      ];
+    });
+
     _widgetAppBar = <PreferredSizeWidget>[
-      // widget.role == Role.admin
-      //     ? PreferredSize(
-      //         child: AppBar(
-      //           elevation: 0,
-      //           backgroundColor: ColorPalettes.bgBlueAppBar,
-      //         ),
-      //         preferredSize: Size.fromHeight(Sizes.height1),
-      //       )
-      //     : PreferredSize(
-      //         preferredSize: Size.fromHeight(Sizes.height131),
-      //         child: const HomeAppBar(),
-      //       ),
-      PreferredSize(
-        preferredSize: Size.fromHeight(Sizes.height131),
-        child: const SizedBox(),
-      ),
+      role == 'admin'
+          ? PreferredSize(
+              preferredSize: Size.fromHeight(Sizes.height131),
+              child: const SizedBox(),
+            )
+          : PreferredSize(
+              preferredSize: Size.fromHeight(Sizes.height131),
+              child: const HomeAppBar(),
+            ),
       AppBar(
         backgroundColor: ColorPalettes.greyAppBar,
         title: Text(
@@ -84,7 +86,6 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
     ];
-    super.initState();
   }
 
   @override
@@ -99,11 +100,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: const [
-          HomeAdminPage(),
-          HistoryPage(),
-          ProfilePage(),
-        ],
+        children: _widgetOptions,
       ),
     );
   }
