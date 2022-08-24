@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/custom_text_style.dart';
 import 'package:koperasi/core/style/custom_widget_style.dart';
+import 'package:koperasi/core/widgets/my_cached_network_image.dart';
+import 'package:koperasi/data/remote/api/endpoint.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
@@ -23,38 +26,6 @@ class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
-
-  @override
-  void initState() {
-    // ProfileRepository().getProfile().then((response) {
-    //   if (response != null) {
-    //     setState(() {
-    //       // _nameController.text = 'Setyabudi';
-    //       _nameController.text = response.user!.name!;
-    //       // _emailController.text = 'test@mail.com';
-    //       _emailController.text = response.user!.email!;
-    //       _passwordController.text = 'password';
-    //       _confirmPasswordController.text = 'password';
-    //     });
-    //   } else {
-    //     setState(() {
-    //       _nameController.text = 'NaN';
-    //       _emailController.text = 'NaN';
-    //       _passwordController.text = 'password';
-    //       _confirmPasswordController.text = 'password';
-    //     });
-    //   }
-    // }).catchError((onError) {
-    //   print('get profile error : ${onError.toString()}');
-    //   setState(() {
-    //     _nameController.text = 'NaN';
-    //     _emailController.text = 'NaN';
-    //     _passwordController.text = 'password';
-    //     _confirmPasswordController.text = 'password';
-    //   });
-    // });
-    super.initState();
-  }
 
   void _doLogout() async {
     context.read<ProfileCubit>().doLogOut();
@@ -102,9 +73,23 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: <Widget>[
                     Align(
                       alignment: Alignment.center,
-                      child: CircleAvatar(
-                        radius: Sizes.width50,
-                        backgroundImage: const AssetImage('assets/images/dummy_avatar.png'),
+                      child: MyCachedNetworkImage(
+                        imageUrl: user?.avatar != null
+                            ? "${Endpoint.baseUrlImage}${user?.avatar}"
+                            : Constants.placeholderAvatarUrl,
+                        imageBuilder: (context, imageProvider) => Container(
+                          width: Sizes.width95,
+                          height: Sizes.width95,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
+                          ),
+                        ),
+                        fit: BoxFit.cover,
+                        errorWidget: CircleAvatar(
+                          backgroundImage: const NetworkImage(Constants.placeholderAvatarUrl),
+                          radius: Sizes.width50,
+                        ),
                       ),
                     ),
                     Align(
@@ -116,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        margin: const EdgeInsets.only(left: 70, top: 70),
+                        margin: const EdgeInsets.only(left: 65, top: 65),
                         child: InkWell(
                           onTap: () {},
                           child: Icon(
