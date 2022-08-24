@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
+import 'package:koperasi/data/remote/api/endpoint.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
@@ -60,7 +61,7 @@ class AdminAppBar extends StatelessWidget {
                         children: [
                           MyCachedNetworkImage(
                             imageUrl: state.user?.avatar != null
-                                ? "http://koperasi-reamandiri.inotive.id${state.user?.avatar}"
+                                ? "${Endpoint.baseUrlImage}${state.user?.avatar}"
                                 : Constants.placeholderAvatarUrl,
                             imageBuilder: (context, imageProvider) => Container(
                               width: Sizes.height48,
