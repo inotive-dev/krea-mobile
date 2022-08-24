@@ -23,10 +23,7 @@ abstract class RegisterModule {
         ..interceptors.add(
           InterceptorsWrapper(
             onRequest: (options, handler) {
-              // TODO: change with localDataSource token
-              // final _token = localDataSource.getToken();
-              final _token = "21|s42r2VLe6Yv8owyvzX2FlRYgy7xmFxlBNRKinZ5u";
-
+              final _token = localDataSource.getToken();
               if (_token != null) {
                 options.headers['Authorization'] = 'Bearer $_token';
               }

@@ -3,13 +3,13 @@ import 'package:koperasi/data/local/local_data_source.dart';
 import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/presentation/history/admin/history_admin_page.dart';
 import 'package:koperasi/presentation/home/admin/home_admin_page.dart';
+import 'package:koperasi/presentation/home/kasir/home_for_user.dart';
 import 'package:koperasi/presentation/home/widgets/bottom_nav_bar.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
 import '../profile/profile_page.dart';
-import 'home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   static const routeName = '/home';
@@ -42,25 +42,25 @@ class _HomePageState extends State<HomePage> {
 
     _localDataSource = getIt.get<LocalDataSource>();
     final role = _localDataSource.getRole();
+    print('ROLE: $role');
 
     setState(() {
       _widgetOptions = <Widget>[
-        role == 'admin' ? const HomeAdminPage() : const HomePage(),
+        role == 'admin' ? const HomeAdminPage() : const HomeForUser(),
         const HistoryAdminPage(),
         const ProfilePage()
       ];
     });
 
     _widgetAppBar = <PreferredSizeWidget>[
-      role == 'admin'
-          ? PreferredSize(
-              preferredSize: Size.fromHeight(Sizes.height131),
-              child: const SizedBox(),
-            )
-          : PreferredSize(
-              preferredSize: Size.fromHeight(Sizes.height131),
-              child: const HomeAppBar(),
-            ),
+      PreferredSize(
+        preferredSize: Size.fromHeight(Sizes.height131),
+        child: const SizedBox(),
+      ),
+      // PreferredSize(
+      //     preferredSize: Size.fromHeight(Sizes.height131),
+      //     child: const HomeAppBar(),
+      //   ),
       AppBar(
         backgroundColor: ColorPalettes.greyAppBar,
         title: Text(

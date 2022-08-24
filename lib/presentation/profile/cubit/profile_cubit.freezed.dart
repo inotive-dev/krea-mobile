@@ -21,7 +21,7 @@ class _$ProfileStateTearOff {
   _ProfileState call(
       {ResultState<dynamic> logoutResultState = const ResultState.initial(),
       ResultState<dynamic> getProfileResultState = const ResultState.initial(),
-      User user = const User()}) {
+      User? user = const User()}) {
     return _ProfileState(
       logoutResultState: logoutResultState,
       getProfileResultState: getProfileResultState,
@@ -39,7 +39,7 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   ResultState<dynamic> get getProfileResultState =>
       throw _privateConstructorUsedError;
-  User get user => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -54,11 +54,11 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User user});
+      User? user});
 
   $ResultStateCopyWith<dynamic, $Res> get logoutResultState;
   $ResultStateCopyWith<dynamic, $Res> get getProfileResultState;
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -87,7 +87,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 
@@ -108,8 +108,12 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   }
 
   @override
-  $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -125,14 +129,14 @@ abstract class _$ProfileStateCopyWith<$Res>
   $Res call(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User user});
+      User? user});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get logoutResultState;
   @override
   $ResultStateCopyWith<dynamic, $Res> get getProfileResultState;
   @override
-  $UserCopyWith<$Res> get user;
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -163,7 +167,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User,
+              as User?,
     ));
   }
 }
@@ -184,7 +188,7 @@ class _$_ProfileState implements _ProfileState {
   final ResultState<dynamic> getProfileResultState;
   @JsonKey()
   @override
-  final User user;
+  final User? user;
 
   @override
   String toString() {
@@ -220,14 +224,14 @@ abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User user}) = _$_ProfileState;
+      User? user}) = _$_ProfileState;
 
   @override
   ResultState<dynamic> get logoutResultState;
   @override
   ResultState<dynamic> get getProfileResultState;
   @override
-  User get user;
+  User? get user;
   @override
   @JsonKey(ignore: true)
   _$ProfileStateCopyWith<_ProfileState> get copyWith =>

@@ -17,6 +17,9 @@ _$_HomeDataResponse _$$_HomeDataResponseFromJson(Map<String, dynamic> json) =>
       laporanPenjualan: (json['laporan_penjualan'] as List<dynamic>?)
           ?.map((e) => SalesReportResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
+      totalSaldoSimpananUtang:
+          (json['total_saldo_simpanan_utang'] as num?)?.toDouble(),
+      totalUtang: (json['total_utang'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_HomeDataResponseToJson(_$_HomeDataResponse instance) =>
@@ -24,4 +27,6 @@ Map<String, dynamic> _$$_HomeDataResponseToJson(_$_HomeDataResponse instance) =>
       'produk_cepat_terjual': instance.produkCepatTerjual,
       'produk_lama_terjual': instance.produkLamaTerjual,
       'laporan_penjualan': instance.laporanPenjualan,
+      'total_saldo_simpanan_utang': instance.totalSaldoSimpananUtang,
+      'total_utang': instance.totalUtang,
     };

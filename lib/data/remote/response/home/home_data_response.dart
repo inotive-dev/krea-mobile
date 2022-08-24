@@ -14,6 +14,8 @@ class HomeDataResponse with _$HomeDataResponse {
     @JsonKey(name: 'produk_cepat_terjual') required List<TransactionResponse>? produkCepatTerjual,
     @JsonKey(name: 'produk_lama_terjual') required List<TransactionResponse>? produkLamaTerjual,
     @JsonKey(name: 'laporan_penjualan') required List<SalesReportResponse>? laporanPenjualan,
+    @JsonKey(name: 'total_saldo_simpanan_utang') required double? totalSaldoSimpananUtang,
+    @JsonKey(name: 'total_utang') required double? totalUtang,
   }) = _HomeDataResponse;
 
   factory HomeDataResponse.fromJson(Map<String, dynamic> json) => _$HomeDataResponseFromJson(json);
@@ -22,5 +24,7 @@ class HomeDataResponse with _$HomeDataResponse {
         produkCepatTerjual: produkCepatTerjual?.map((e) => e.toDomain()).toList(),
         produkLamaTerjual: produkLamaTerjual?.map((e) => e.toDomain()).toList(),
         laporanPenjualan: laporanPenjualan?.map((e) => e.toDomain()).toList(),
+        totalSaldoSimpananUtang: totalSaldoSimpananUtang,
+        totalUtang: totalUtang,
       );
 }

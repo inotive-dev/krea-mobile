@@ -17,10 +17,10 @@ class HistoryCubit extends Cubit<HistoryState> {
     this._getHistoryAdminUseCase,
   ) : super(HistoryState.initial());
 
-  getHistoryAdminData() async {
+  getHistoryAdminData(int martId) async {
     emit(state.copyWith(getHistoryAdminResultState: const ResultState.loading()));
 
-    final _result = await _getHistoryAdminUseCase(const GetHistoryAdminUseCaseParams(martId: '1'));
+    final _result = await _getHistoryAdminUseCase(GetHistoryAdminUseCaseParams(martId: martId.toString()));
     _result.fold(
       (l) {
         emit(

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/style/sizes.dart';
-import 'package:koperasi/presentation/home/home_app_bar.dart';
+import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/home_summary_card.dart';
-import 'package:wave/config.dart';
-import 'package:wave/wave.dart';
+import 'package:koperasi/presentation/home/kasir/widgets/user_app_bar.dart';
 
 import '../../../core/const/strings.dart';
 
@@ -13,14 +12,44 @@ class HomeForUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorPalettes.bgGrey,
-      child: ListView(
-        physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          HomeSummaryCard(title: Strings.totalSimpananWajib, amount: '1.000.000'),
-          HomeSummaryCard(title: Strings.totalSimpananAnda, amount: '1.000.000'),
-          HomeSummaryCard(title: Strings.totalUtang, amount: '1.000.000'),
+    context.read<HomeCubit>().getHomeUserData();
+
+    return Scaffold(
+      body: Column(
+        children: [
+          const UserAppBar(),
+          SizedBox(height: Sizes.height47),
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              return state.getHomeUserResultState.when(
+                initial: () => const SizedBox.shrink(),
+                loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                error: (error) => Center(
+                  child: Text(error.toString()),
+                ),
+                success: (data) {
+                  return Column(
+                    children: [
+                      HomeSummaryCard(
+                        title: Strings.totalSimpananWajib,
+                        amount: state.homeUserData.contribution.contributionWajib,
+                      ),
+                      HomeSummaryCard(
+                        title: Strings.totalSimpananAnda,
+                        amount: state.homeUserData.totalSaldoSimpananUtang.toString(),
+                      ),
+                      HomeSummaryCard(
+                        title: Strings.totalUtang,
+                        amount: state.homeUserData.totalUtang,
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     );

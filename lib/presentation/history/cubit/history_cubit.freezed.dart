@@ -53,6 +53,7 @@ abstract class $HistoryStateCopyWith<$Res> {
       HistoryData historyData});
 
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
+  $HistoryDataCopyWith<$Res> get historyData;
 }
 
 /// @nodoc
@@ -87,6 +88,13 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
       return _then(_value.copyWith(getHistoryAdminResultState: value));
     });
   }
+
+  @override
+  $HistoryDataCopyWith<$Res> get historyData {
+    return $HistoryDataCopyWith<$Res>(_value.historyData, (value) {
+      return _then(_value.copyWith(historyData: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -102,6 +110,8 @@ abstract class _$HistoryStateCopyWith<$Res>
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
+  @override
+  $HistoryDataCopyWith<$Res> get historyData;
 }
 
 /// @nodoc

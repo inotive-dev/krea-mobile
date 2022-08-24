@@ -11,8 +11,8 @@ import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
 import '../../../../core/style/sizes.dart';
 
-class AdminAppBar extends StatelessWidget {
-  const AdminAppBar({Key? key}) : super(key: key);
+class UserAppBar extends StatelessWidget {
+  const UserAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,17 +122,28 @@ class AdminAppBar extends StatelessWidget {
                                 SizedBox(height: Sizes.height2),
                                 BlocBuilder<HomeCubit, HomeState>(
                                   builder: (context, state) {
-                                    lastUpdated.value = DateFormat("HH:mm\ndd MMMM yyyy", 'id_ID').format(
-                                      state.lastUpdated.toLocal(),
-                                    );
-                                    return Text(
-                                      formatToIdr(state.homeData.totalSaldoSimpananUtang),
-                                      textAlign: TextAlign.end,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: Sizes.sp22,
+                                    return state.getHomeUserResultState.when(
+                                      initial: () => const SizedBox.shrink(),
+                                      loading: () => const Center(
+                                        child: CircularProgressIndicator(),
                                       ),
+                                      error: (error) => Center(
+                                        child: Text(error.toString()),
+                                      ),
+                                      success: (data) {
+                                        lastUpdated.value = DateFormat("HH:mm\ndd MMMM yyyy", 'id_ID').format(
+                                          state.lastUpdated.toLocal(),
+                                        );
+                                        return Text(
+                                          formatToIdr(state.homeUserData.totalSaldoSimpananUtang),
+                                          textAlign: TextAlign.end,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: Sizes.sp22,
+                                          ),
+                                        );
+                                      },
                                     );
                                   },
                                 ),

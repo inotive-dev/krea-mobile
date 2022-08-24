@@ -21,10 +21,16 @@ class _$HomeStateTearOff {
   _HomeState call(
       {ResultState<dynamic> getHomeAdminResultState =
           const ResultState.initial(),
-      required HomeData homeData}) {
+      ResultState<dynamic> getHomeUserResultState = const ResultState.initial(),
+      required DateTime lastUpdated,
+      required HomeData homeData,
+      required HomeUserData homeUserData}) {
     return _HomeState(
       getHomeAdminResultState: getHomeAdminResultState,
+      getHomeUserResultState: getHomeUserResultState,
+      lastUpdated: lastUpdated,
       homeData: homeData,
+      homeUserData: homeUserData,
     );
   }
 }
@@ -36,7 +42,11 @@ const $HomeState = _$HomeStateTearOff();
 mixin _$HomeState {
   ResultState<dynamic> get getHomeAdminResultState =>
       throw _privateConstructorUsedError;
+  ResultState<dynamic> get getHomeUserResultState =>
+      throw _privateConstructorUsedError;
+  DateTime get lastUpdated => throw _privateConstructorUsedError;
   HomeData get homeData => throw _privateConstructorUsedError;
+  HomeUserData get homeUserData => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -47,10 +57,17 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({ResultState<dynamic> getHomeAdminResultState, HomeData homeData});
+  $Res call(
+      {ResultState<dynamic> getHomeAdminResultState,
+      ResultState<dynamic> getHomeUserResultState,
+      DateTime lastUpdated,
+      HomeData homeData,
+      HomeUserData homeUserData});
 
   $ResultStateCopyWith<dynamic, $Res> get getHomeAdminResultState;
+  $ResultStateCopyWith<dynamic, $Res> get getHomeUserResultState;
   $HomeDataCopyWith<$Res> get homeData;
+  $HomeUserDataCopyWith<$Res> get homeUserData;
 }
 
 /// @nodoc
@@ -64,17 +81,32 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call({
     Object? getHomeAdminResultState = freezed,
+    Object? getHomeUserResultState = freezed,
+    Object? lastUpdated = freezed,
     Object? homeData = freezed,
+    Object? homeUserData = freezed,
   }) {
     return _then(_value.copyWith(
       getHomeAdminResultState: getHomeAdminResultState == freezed
           ? _value.getHomeAdminResultState
           : getHomeAdminResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHomeUserResultState: getHomeUserResultState == freezed
+          ? _value.getHomeUserResultState
+          : getHomeUserResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
+      lastUpdated: lastUpdated == freezed
+          ? _value.lastUpdated
+          : lastUpdated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       homeData: homeData == freezed
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
               as HomeData,
+      homeUserData: homeUserData == freezed
+          ? _value.homeUserData
+          : homeUserData // ignore: cast_nullable_to_non_nullable
+              as HomeUserData,
     ));
   }
 
@@ -87,9 +119,24 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   }
 
   @override
+  $ResultStateCopyWith<dynamic, $Res> get getHomeUserResultState {
+    return $ResultStateCopyWith<dynamic, $Res>(_value.getHomeUserResultState,
+        (value) {
+      return _then(_value.copyWith(getHomeUserResultState: value));
+    });
+  }
+
+  @override
   $HomeDataCopyWith<$Res> get homeData {
     return $HomeDataCopyWith<$Res>(_value.homeData, (value) {
       return _then(_value.copyWith(homeData: value));
+    });
+  }
+
+  @override
+  $HomeUserDataCopyWith<$Res> get homeUserData {
+    return $HomeUserDataCopyWith<$Res>(_value.homeUserData, (value) {
+      return _then(_value.copyWith(homeUserData: value));
     });
   }
 }
@@ -100,12 +147,21 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _HomeState value, $Res Function(_HomeState) then) =
       __$HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({ResultState<dynamic> getHomeAdminResultState, HomeData homeData});
+  $Res call(
+      {ResultState<dynamic> getHomeAdminResultState,
+      ResultState<dynamic> getHomeUserResultState,
+      DateTime lastUpdated,
+      HomeData homeData,
+      HomeUserData homeUserData});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHomeAdminResultState;
   @override
+  $ResultStateCopyWith<dynamic, $Res> get getHomeUserResultState;
+  @override
   $HomeDataCopyWith<$Res> get homeData;
+  @override
+  $HomeUserDataCopyWith<$Res> get homeUserData;
 }
 
 /// @nodoc
@@ -120,17 +176,32 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? getHomeAdminResultState = freezed,
+    Object? getHomeUserResultState = freezed,
+    Object? lastUpdated = freezed,
     Object? homeData = freezed,
+    Object? homeUserData = freezed,
   }) {
     return _then(_HomeState(
       getHomeAdminResultState: getHomeAdminResultState == freezed
           ? _value.getHomeAdminResultState
           : getHomeAdminResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHomeUserResultState: getHomeUserResultState == freezed
+          ? _value.getHomeUserResultState
+          : getHomeUserResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
+      lastUpdated: lastUpdated == freezed
+          ? _value.lastUpdated
+          : lastUpdated // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       homeData: homeData == freezed
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
               as HomeData,
+      homeUserData: homeUserData == freezed
+          ? _value.homeUserData
+          : homeUserData // ignore: cast_nullable_to_non_nullable
+              as HomeUserData,
     ));
   }
 }
@@ -140,17 +211,27 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
       {this.getHomeAdminResultState = const ResultState.initial(),
-      required this.homeData});
+      this.getHomeUserResultState = const ResultState.initial(),
+      required this.lastUpdated,
+      required this.homeData,
+      required this.homeUserData});
 
   @JsonKey()
   @override
   final ResultState<dynamic> getHomeAdminResultState;
+  @JsonKey()
+  @override
+  final ResultState<dynamic> getHomeUserResultState;
+  @override
+  final DateTime lastUpdated;
   @override
   final HomeData homeData;
+  @override
+  final HomeUserData homeUserData;
 
   @override
   String toString() {
-    return 'HomeState(getHomeAdminResultState: $getHomeAdminResultState, homeData: $homeData)';
+    return 'HomeState(getHomeAdminResultState: $getHomeAdminResultState, getHomeUserResultState: $getHomeUserResultState, lastUpdated: $lastUpdated, homeData: $homeData, homeUserData: $homeUserData)';
   }
 
   @override
@@ -160,14 +241,23 @@ class _$_HomeState implements _HomeState {
             other is _HomeState &&
             const DeepCollectionEquality().equals(
                 other.getHomeAdminResultState, getHomeAdminResultState) &&
-            const DeepCollectionEquality().equals(other.homeData, homeData));
+            const DeepCollectionEquality()
+                .equals(other.getHomeUserResultState, getHomeUserResultState) &&
+            const DeepCollectionEquality()
+                .equals(other.lastUpdated, lastUpdated) &&
+            const DeepCollectionEquality().equals(other.homeData, homeData) &&
+            const DeepCollectionEquality()
+                .equals(other.homeUserData, homeUserData));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(getHomeAdminResultState),
-      const DeepCollectionEquality().hash(homeData));
+      const DeepCollectionEquality().hash(getHomeUserResultState),
+      const DeepCollectionEquality().hash(lastUpdated),
+      const DeepCollectionEquality().hash(homeData),
+      const DeepCollectionEquality().hash(homeUserData));
 
   @JsonKey(ignore: true)
   @override
@@ -178,12 +268,21 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {ResultState<dynamic> getHomeAdminResultState,
-      required HomeData homeData}) = _$_HomeState;
+      ResultState<dynamic> getHomeUserResultState,
+      required DateTime lastUpdated,
+      required HomeData homeData,
+      required HomeUserData homeUserData}) = _$_HomeState;
 
   @override
   ResultState<dynamic> get getHomeAdminResultState;
   @override
+  ResultState<dynamic> get getHomeUserResultState;
+  @override
+  DateTime get lastUpdated;
+  @override
   HomeData get homeData;
+  @override
+  HomeUserData get homeUserData;
   @override
   @JsonKey(ignore: true)
   _$HomeStateCopyWith<_HomeState> get copyWith =>

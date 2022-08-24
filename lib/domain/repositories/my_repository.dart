@@ -1,6 +1,9 @@
 import 'package:dartz/dartz.dart';
+import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/domain/entities/history_entities/history.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
+import 'package:koperasi/domain/entities/home/home_user.dart';
+import 'package:koperasi/domain/entities/profile/profile.dart';
 import 'package:koperasi/domain/usecases/check_login_status_usecase.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
 import 'package:koperasi/domain/usecases/do_logout_usecase.dart';
@@ -19,4 +22,6 @@ abstract class MyRepository {
   User? getUser();
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params);
   Future<Either<Failure, History>> getHistoryAdminData(GetHistoryAdminUseCaseParams params);
+  Future<Either<Failure, HomeUser>> getHomeUserData(NoParam params);
+  Future<Either<Failure, Profile>> getProfile(NoParam params);
 }

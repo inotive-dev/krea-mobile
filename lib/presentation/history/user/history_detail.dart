@@ -5,25 +5,33 @@ import '../../../core/const/strings.dart';
 import '../../../core/style/sizes.dart';
 
 class HistoryDetail extends StatelessWidget {
+  static const routeName = '/history-detail';
+
   const HistoryDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text(Strings.detailHistory, style: TextStyle(color: ColorPalettes.darkBlue),),
+        title: const Text(
+          Strings.detailHistory,
+          style: TextStyle(color: ColorPalettes.darkBlue),
+        ),
         backgroundColor: ColorPalettes.greyAppBar,
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          iconSize: Sizes.width14,
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Container(
         color: ColorPalettes.greyBackground,
-
         child: ListView(
           children: [
             Padding(
-              padding:  EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
+              padding: EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
               child: Card(
                 child: ListTile(
                   leading: Image.asset('assets/images/dummy_item.png'),
@@ -33,7 +41,7 @@ class HistoryDetail extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
+              padding: EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
               child: Card(
                 child: ListTile(
                   leading: Image.asset('assets/images/dummy_item.png'),
@@ -43,7 +51,7 @@ class HistoryDetail extends StatelessWidget {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
+              padding: EdgeInsets.only(left: Sizes.width16, top: Sizes.width16, right: Sizes.width16),
               child: Card(
                 child: ListTile(
                   leading: Image.asset('assets/images/dummy_item.png'),

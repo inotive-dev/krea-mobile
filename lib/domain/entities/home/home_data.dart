@@ -10,11 +10,15 @@ class HomeData with _$HomeData {
     required List<Transaction>? produkCepatTerjual,
     required List<Transaction>? produkLamaTerjual,
     required List<SalesReport>? laporanPenjualan,
+    required double? totalSaldoSimpananUtang,
+    required double? totalUtang,
   }) = _HomeData;
 
   factory HomeData.initial() => const HomeData(
         produkCepatTerjual: [],
         produkLamaTerjual: [],
         laporanPenjualan: [],
+        totalSaldoSimpananUtang: 0,
+        totalUtang: 0,
       );
 }
