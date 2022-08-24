@@ -6,12 +6,10 @@ import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/page_control.dart';
-import 'package:koperasi/presentation/home/admin/widgets/dropdown/filter_dropdown.dart';
 import 'package:koperasi/presentation/home/admin/widgets/report_sales/report_sales.dart';
 import 'package:koperasi/presentation/home/admin/widgets/section_label.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/tab_branches.dart';
 import 'package:koperasi/presentation/home/admin/widgets/tab_report.dart';
-import 'package:koperasi/presentation/home/admin/widgets/dropdown/years_dropdown.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 
 import '../../../core/style/sizes.dart';
@@ -88,32 +86,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                 );
               },
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: Sizes.width18),
-              margin: EdgeInsets.only(top: Sizes.height28, bottom: Sizes.height42),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: YearsDropdown(
-                      year: '2022',
-                      updateYear: (year) {
-                        print(year);
-                      },
-                    ),
-                  ),
-                  SizedBox(width: Sizes.width18),
-                  Expanded(
-                    flex: 2,
-                    child: FilterDropdown(
-                      value: 'Total Operasional',
-                      updateValue: (value) {
-                        print(value);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            SizedBox(height: Sizes.height25),
             TabBranches(tabController: tabBranchController),
             const PageControl(),
             SizedBox(height: Sizes.height41),

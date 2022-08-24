@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
+import 'package:koperasi/presentation/home/admin/widgets/dropdown/filter_dropdown.dart';
+import 'package:koperasi/presentation/home/admin/widgets/dropdown/years_dropdown.dart';
 
 import 'branch_card.dart';
 
@@ -64,8 +66,34 @@ class TabBranches extends StatelessWidget {
           ),
           Container(
             color: ColorPalettes.greyBackground,
-            height: Sizes.height7,
-            width: double.infinity,
+            padding: EdgeInsets.only(
+              left: Sizes.width18,
+              right: Sizes.width18,
+              top: Sizes.height16,
+              bottom: Sizes.height16,
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: YearsDropdown(
+                    year: '2022',
+                    updateYear: (year) {
+                      print(year);
+                    },
+                  ),
+                ),
+                SizedBox(width: Sizes.width18),
+                Expanded(
+                  flex: 2,
+                  child: FilterDropdown(
+                    value: 'Total Operasional',
+                    updateValue: (value) {
+                      print(value);
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 240,
