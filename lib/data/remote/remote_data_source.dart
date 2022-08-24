@@ -43,4 +43,9 @@ class RemoteDataSource {
     final _response = await _apiService.getProfile(params);
     return ProfileResponse.fromJson(_response.data);
   }
+
+  Future<HistoryResponse> getHistoryUserData(NoParam params) async {
+    final _response = await _apiService.getHistoryUserData(params);
+    return HistoryResponse.fromJson(_response.data);
+  }
 }

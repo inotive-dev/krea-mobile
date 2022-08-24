@@ -124,4 +124,17 @@ class MyRepositoryImpl implements MyRepository {
 
     return Right(_data.toDomain());
   }
+
+  @override
+  Future<Either<Failure, History>> getHistoryUserData(NoParam params) async {
+    final _data = await _remoteDataSource.getHistoryUserData(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
 }

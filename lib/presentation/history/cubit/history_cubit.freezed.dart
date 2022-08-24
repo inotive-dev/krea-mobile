@@ -21,9 +21,12 @@ class _$HistoryStateTearOff {
   _HistoryState call(
       {ResultState<dynamic> getHistoryAdminResultState =
           const ResultState.initial(),
+      ResultState<dynamic> getHistoryUserResultState =
+          const ResultState.initial(),
       required HistoryData historyData}) {
     return _HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState,
+      getHistoryUserResultState: getHistoryUserResultState,
       historyData: historyData,
     );
   }
@@ -35,6 +38,8 @@ const $HistoryState = _$HistoryStateTearOff();
 /// @nodoc
 mixin _$HistoryState {
   ResultState<dynamic> get getHistoryAdminResultState =>
+      throw _privateConstructorUsedError;
+  ResultState<dynamic> get getHistoryUserResultState =>
       throw _privateConstructorUsedError;
   HistoryData get historyData => throw _privateConstructorUsedError;
 
@@ -50,9 +55,11 @@ abstract class $HistoryStateCopyWith<$Res> {
       _$HistoryStateCopyWithImpl<$Res>;
   $Res call(
       {ResultState<dynamic> getHistoryAdminResultState,
+      ResultState<dynamic> getHistoryUserResultState,
       HistoryData historyData});
 
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState;
   $HistoryDataCopyWith<$Res> get historyData;
 }
 
@@ -67,12 +74,17 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
   @override
   $Res call({
     Object? getHistoryAdminResultState = freezed,
+    Object? getHistoryUserResultState = freezed,
     Object? historyData = freezed,
   }) {
     return _then(_value.copyWith(
       getHistoryAdminResultState: getHistoryAdminResultState == freezed
           ? _value.getHistoryAdminResultState
           : getHistoryAdminResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
+      getHistoryUserResultState: getHistoryUserResultState == freezed
+          ? _value.getHistoryUserResultState
+          : getHistoryUserResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
       historyData: historyData == freezed
           ? _value.historyData
@@ -86,6 +98,14 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
     return $ResultStateCopyWith<dynamic, $Res>(
         _value.getHistoryAdminResultState, (value) {
       return _then(_value.copyWith(getHistoryAdminResultState: value));
+    });
+  }
+
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState {
+    return $ResultStateCopyWith<dynamic, $Res>(_value.getHistoryUserResultState,
+        (value) {
+      return _then(_value.copyWith(getHistoryUserResultState: value));
     });
   }
 
@@ -106,10 +126,13 @@ abstract class _$HistoryStateCopyWith<$Res>
   @override
   $Res call(
       {ResultState<dynamic> getHistoryAdminResultState,
+      ResultState<dynamic> getHistoryUserResultState,
       HistoryData historyData});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState;
   @override
   $HistoryDataCopyWith<$Res> get historyData;
 }
@@ -127,12 +150,17 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? getHistoryAdminResultState = freezed,
+    Object? getHistoryUserResultState = freezed,
     Object? historyData = freezed,
   }) {
     return _then(_HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState == freezed
           ? _value.getHistoryAdminResultState
           : getHistoryAdminResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
+      getHistoryUserResultState: getHistoryUserResultState == freezed
+          ? _value.getHistoryUserResultState
+          : getHistoryUserResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
       historyData: historyData == freezed
           ? _value.historyData
@@ -147,17 +175,21 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
 class _$_HistoryState implements _HistoryState {
   const _$_HistoryState(
       {this.getHistoryAdminResultState = const ResultState.initial(),
+      this.getHistoryUserResultState = const ResultState.initial(),
       required this.historyData});
 
   @JsonKey()
   @override
   final ResultState<dynamic> getHistoryAdminResultState;
+  @JsonKey()
+  @override
+  final ResultState<dynamic> getHistoryUserResultState;
   @override
   final HistoryData historyData;
 
   @override
   String toString() {
-    return 'HistoryState(getHistoryAdminResultState: $getHistoryAdminResultState, historyData: $historyData)';
+    return 'HistoryState(getHistoryAdminResultState: $getHistoryAdminResultState, getHistoryUserResultState: $getHistoryUserResultState, historyData: $historyData)';
   }
 
   @override
@@ -167,6 +199,8 @@ class _$_HistoryState implements _HistoryState {
             other is _HistoryState &&
             const DeepCollectionEquality().equals(
                 other.getHistoryAdminResultState, getHistoryAdminResultState) &&
+            const DeepCollectionEquality().equals(
+                other.getHistoryUserResultState, getHistoryUserResultState) &&
             const DeepCollectionEquality()
                 .equals(other.historyData, historyData));
   }
@@ -175,6 +209,7 @@ class _$_HistoryState implements _HistoryState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(getHistoryAdminResultState),
+      const DeepCollectionEquality().hash(getHistoryUserResultState),
       const DeepCollectionEquality().hash(historyData));
 
   @JsonKey(ignore: true)
@@ -186,10 +221,13 @@ class _$_HistoryState implements _HistoryState {
 abstract class _HistoryState implements HistoryState {
   const factory _HistoryState(
       {ResultState<dynamic> getHistoryAdminResultState,
+      ResultState<dynamic> getHistoryUserResultState,
       required HistoryData historyData}) = _$_HistoryState;
 
   @override
   ResultState<dynamic> get getHistoryAdminResultState;
+  @override
+  ResultState<dynamic> get getHistoryUserResultState;
   @override
   HistoryData get historyData;
   @override

@@ -50,4 +50,10 @@ class ApiService {
       Endpoint.getProfile,
     );
   }
+
+  Future<Response> getHistoryUserData(NoParam params) async {
+    return await _dio.get(
+      Endpoint.getHistoryUserData,
+    );
+  }
 }

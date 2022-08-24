@@ -114,7 +114,9 @@ class _HistoryAdminPageState extends State<HistoryAdminPage> {
       _isAdmin = role == 'admin';
     });
 
-    context.read<HistoryCubit>().getHistoryAdminData(_mart['id']);
+    _isAdmin
+        ? context.read<HistoryCubit>().getHistoryAdminData(_mart['id'])
+        : context.read<HistoryCubit>().getHistoryUserData();
   }
 
   @override

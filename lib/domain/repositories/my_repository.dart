@@ -22,6 +22,7 @@ abstract class MyRepository {
   User? getUser();
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params);
   Future<Either<Failure, History>> getHistoryAdminData(GetHistoryAdminUseCaseParams params);
+  Future<Either<Failure, History>> getHistoryUserData(NoParam params);
   Future<Either<Failure, HomeUser>> getHomeUserData(NoParam params);
   Future<Either<Failure, Profile>> getProfile(NoParam params);
 }
