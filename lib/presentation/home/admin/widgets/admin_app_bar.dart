@@ -146,7 +146,7 @@ class AdminAppBar extends StatelessWidget {
                             ),
                             SizedBox(height: Sizes.height2),
                             Text(
-                              formatToIdr(state.homeUserData.totalSaldoSimpananUtang),
+                              formatToIdr(state.homeData.totalSaldoSimpananUtang),
                               textAlign: TextAlign.end,
                               style: TextStyle(
                                 color: Colors.white,

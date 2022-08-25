@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:koperasi/data/local/local_data_source.dart';
 import 'package:koperasi/di/injection_container.dart';
-import 'package:koperasi/presentation/history/admin/history_admin_page.dart';
+import 'package:koperasi/presentation/history/history_page.dart';
 import 'package:koperasi/presentation/home/admin/home_admin_page.dart';
 import 'package:koperasi/presentation/home/kasir/home_for_user.dart';
 import 'package:koperasi/presentation/home/widgets/bottom_nav_bar.dart';
@@ -42,12 +42,11 @@ class _HomePageState extends State<HomePage> {
 
     _localDataSource = getIt.get<LocalDataSource>();
     final role = _localDataSource.getRole();
-    print('ROLE: $role');
 
     setState(() {
       _widgetOptions = <Widget>[
         role == 'admin' ? const HomeAdminPage() : const HomeForUser(),
-        const HistoryAdminPage(),
+        HistoryPage(role: role ?? ''),
         const ProfilePage()
       ];
     });

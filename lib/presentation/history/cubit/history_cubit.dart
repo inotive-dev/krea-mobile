@@ -37,7 +37,12 @@ class HistoryCubit extends Cubit<HistoryState> {
         return emit(
           state.copyWith(
             getHistoryAdminResultState: ResultState.success(data: r),
-            historyData: r.data ?? HistoryData.initial(),
+            // historyData: r.data ?? HistoryData.initial(),
+            historyData: r.data != null
+                ? r.data!.thisWeekHistory!.isEmpty
+                    ? HistoryData.initial()
+                    : r.data!
+                : r.data!,
           ),
         );
       },
@@ -60,10 +65,20 @@ class HistoryCubit extends Cubit<HistoryState> {
         return emit(
           state.copyWith(
             getHistoryUserResultState: ResultState.success(data: r),
-            historyData: r.data ?? HistoryData.initial(),
+            // historyData: r.data ?? HistoryData.initial(),
+            historyData: r.data != null
+                ? r.data!.thisWeekHistory!.isEmpty
+                    ? HistoryData.initial()
+                    : r.data!
+                : r.data!,
           ),
         );
       },
     );
+  }
+
+  onUpdateSelectedMart(Map mart) async {
+    emit(state.copyWith(selectedMart: mart));
+    getHistoryAdminData(mart['id']);
   }
 }

@@ -49,8 +49,23 @@ class HistorySection extends StatelessWidget {
         ),
         trailing: trailing,
         tilePadding: EdgeInsets.symmetric(horizontal: Sizes.width25),
-        children: data.map((e) => HistoryCard(data: e)).toList(),
+        children: data.isNotEmpty
+            ? data.map((e) => HistoryCard(data: e)).toList()
+            : [
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  child: Text(
+                    'Data history tidak ada',
+                    style: TextStyle(
+                      fontSize: Sizes.sp14,
+                      fontWeight: FontWeight.w500,
+                      color: ColorPalettes.greyText,
+                    ),
+                  ),
+                )
+              ],
         onExpansionChanged: onExpansionChanged,
+        initiallyExpanded: true,
       ),
     );
   }

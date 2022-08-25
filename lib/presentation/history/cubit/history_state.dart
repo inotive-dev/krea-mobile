@@ -5,6 +5,7 @@ class HistoryState with _$HistoryState {
   const factory HistoryState({
     @Default(ResultState.initial()) ResultState<dynamic> getHistoryAdminResultState,
     @Default(ResultState.initial()) ResultState<dynamic> getHistoryUserResultState,
+    @Default({'id': 1, 'name': 'Mart Alfa'}) Map selectedMart,
     required HistoryData historyData,
   }) = _HistoryState;
 
