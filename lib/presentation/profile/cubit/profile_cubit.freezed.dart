@@ -21,11 +21,24 @@ class _$ProfileStateTearOff {
   _ProfileState call(
       {ResultState<dynamic> logoutResultState = const ResultState.initial(),
       ResultState<dynamic> getProfileResultState = const ResultState.initial(),
-      User? user = const User()}) {
+      ResultState<dynamic> updateProfileResultState =
+          const ResultState.initial(),
+      User? user = const User(),
+      String name = '',
+      String email = '',
+      String phoneNumber = '',
+      String password = '',
+      File? pickedImageFile}) {
     return _ProfileState(
       logoutResultState: logoutResultState,
       getProfileResultState: getProfileResultState,
+      updateProfileResultState: updateProfileResultState,
       user: user,
+      name: name,
+      email: email,
+      phoneNumber: phoneNumber,
+      password: password,
+      pickedImageFile: pickedImageFile,
     );
   }
 }
@@ -39,7 +52,14 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   ResultState<dynamic> get getProfileResultState =>
       throw _privateConstructorUsedError;
+  ResultState<dynamic> get updateProfileResultState =>
+      throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String get phoneNumber => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  File? get pickedImageFile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -54,10 +74,17 @@ abstract class $ProfileStateCopyWith<$Res> {
   $Res call(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User? user});
+      ResultState<dynamic> updateProfileResultState,
+      User? user,
+      String name,
+      String email,
+      String phoneNumber,
+      String password,
+      File? pickedImageFile});
 
   $ResultStateCopyWith<dynamic, $Res> get logoutResultState;
   $ResultStateCopyWith<dynamic, $Res> get getProfileResultState;
+  $ResultStateCopyWith<dynamic, $Res> get updateProfileResultState;
   $UserCopyWith<$Res>? get user;
 }
 
@@ -73,7 +100,13 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   $Res call({
     Object? logoutResultState = freezed,
     Object? getProfileResultState = freezed,
+    Object? updateProfileResultState = freezed,
     Object? user = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? phoneNumber = freezed,
+    Object? password = freezed,
+    Object? pickedImageFile = freezed,
   }) {
     return _then(_value.copyWith(
       logoutResultState: logoutResultState == freezed
@@ -84,10 +117,34 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.getProfileResultState
           : getProfileResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      updateProfileResultState: updateProfileResultState == freezed
+          ? _value.updateProfileResultState
+          : updateProfileResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      pickedImageFile: pickedImageFile == freezed
+          ? _value.pickedImageFile
+          : pickedImageFile // ignore: cast_nullable_to_non_nullable
+              as File?,
     ));
   }
 
@@ -104,6 +161,14 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     return $ResultStateCopyWith<dynamic, $Res>(_value.getProfileResultState,
         (value) {
       return _then(_value.copyWith(getProfileResultState: value));
+    });
+  }
+
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get updateProfileResultState {
+    return $ResultStateCopyWith<dynamic, $Res>(_value.updateProfileResultState,
+        (value) {
+      return _then(_value.copyWith(updateProfileResultState: value));
     });
   }
 
@@ -129,12 +194,20 @@ abstract class _$ProfileStateCopyWith<$Res>
   $Res call(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User? user});
+      ResultState<dynamic> updateProfileResultState,
+      User? user,
+      String name,
+      String email,
+      String phoneNumber,
+      String password,
+      File? pickedImageFile});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get logoutResultState;
   @override
   $ResultStateCopyWith<dynamic, $Res> get getProfileResultState;
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get updateProfileResultState;
   @override
   $UserCopyWith<$Res>? get user;
 }
@@ -153,7 +226,13 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
   $Res call({
     Object? logoutResultState = freezed,
     Object? getProfileResultState = freezed,
+    Object? updateProfileResultState = freezed,
     Object? user = freezed,
+    Object? name = freezed,
+    Object? email = freezed,
+    Object? phoneNumber = freezed,
+    Object? password = freezed,
+    Object? pickedImageFile = freezed,
   }) {
     return _then(_ProfileState(
       logoutResultState: logoutResultState == freezed
@@ -164,10 +243,34 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
           ? _value.getProfileResultState
           : getProfileResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      updateProfileResultState: updateProfileResultState == freezed
+          ? _value.updateProfileResultState
+          : updateProfileResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      pickedImageFile: pickedImageFile == freezed
+          ? _value.pickedImageFile
+          : pickedImageFile // ignore: cast_nullable_to_non_nullable
+              as File?,
     ));
   }
 }
@@ -178,7 +281,13 @@ class _$_ProfileState implements _ProfileState {
   const _$_ProfileState(
       {this.logoutResultState = const ResultState.initial(),
       this.getProfileResultState = const ResultState.initial(),
-      this.user = const User()});
+      this.updateProfileResultState = const ResultState.initial(),
+      this.user = const User(),
+      this.name = '',
+      this.email = '',
+      this.phoneNumber = '',
+      this.password = '',
+      this.pickedImageFile});
 
   @JsonKey()
   @override
@@ -188,11 +297,28 @@ class _$_ProfileState implements _ProfileState {
   final ResultState<dynamic> getProfileResultState;
   @JsonKey()
   @override
+  final ResultState<dynamic> updateProfileResultState;
+  @JsonKey()
+  @override
   final User? user;
+  @JsonKey()
+  @override
+  final String name;
+  @JsonKey()
+  @override
+  final String email;
+  @JsonKey()
+  @override
+  final String phoneNumber;
+  @JsonKey()
+  @override
+  final String password;
+  @override
+  final File? pickedImageFile;
 
   @override
   String toString() {
-    return 'ProfileState(logoutResultState: $logoutResultState, getProfileResultState: $getProfileResultState, user: $user)';
+    return 'ProfileState(logoutResultState: $logoutResultState, getProfileResultState: $getProfileResultState, updateProfileResultState: $updateProfileResultState, user: $user, name: $name, email: $email, phoneNumber: $phoneNumber, password: $password, pickedImageFile: $pickedImageFile)';
   }
 
   @override
@@ -204,7 +330,16 @@ class _$_ProfileState implements _ProfileState {
                 .equals(other.logoutResultState, logoutResultState) &&
             const DeepCollectionEquality()
                 .equals(other.getProfileResultState, getProfileResultState) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            const DeepCollectionEquality().equals(
+                other.updateProfileResultState, updateProfileResultState) &&
+            const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.pickedImageFile, pickedImageFile));
   }
 
   @override
@@ -212,7 +347,13 @@ class _$_ProfileState implements _ProfileState {
       runtimeType,
       const DeepCollectionEquality().hash(logoutResultState),
       const DeepCollectionEquality().hash(getProfileResultState),
-      const DeepCollectionEquality().hash(user));
+      const DeepCollectionEquality().hash(updateProfileResultState),
+      const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(phoneNumber),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(pickedImageFile));
 
   @JsonKey(ignore: true)
   @override
@@ -224,14 +365,32 @@ abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
-      User? user}) = _$_ProfileState;
+      ResultState<dynamic> updateProfileResultState,
+      User? user,
+      String name,
+      String email,
+      String phoneNumber,
+      String password,
+      File? pickedImageFile}) = _$_ProfileState;
 
   @override
   ResultState<dynamic> get logoutResultState;
   @override
   ResultState<dynamic> get getProfileResultState;
   @override
+  ResultState<dynamic> get updateProfileResultState;
+  @override
   User? get user;
+  @override
+  String get name;
+  @override
+  String get email;
+  @override
+  String get phoneNumber;
+  @override
+  String get password;
+  @override
+  File? get pickedImageFile;
   @override
   @JsonKey(ignore: true)
   _$ProfileStateCopyWith<_ProfileState> get copyWith =>

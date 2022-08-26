@@ -8,4 +8,5 @@ class Endpoint {
   static const getHomeUserData = '/user/home';
   static const getHistoryAdminData = '/admin/history';
   static const getHistoryUserData = '/user/history';
+  static const updateProfile = '/profile';
 }

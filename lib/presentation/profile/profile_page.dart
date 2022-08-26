@@ -3,16 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/custom_text_style.dart';
 import 'package:koperasi/core/style/custom_widget_style.dart';
+import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/core/utils/get_util.dart';
+import 'package:koperasi/core/widgets/image_permission_dialog.dart';
+import 'package:koperasi/core/widgets/loading_dialog.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
+import 'package:koperasi/presentation/profile/widgets/success_update_dialog.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
 import '../../core/unions/result_state.dart';
 import '../../domain/entities/login/user.dart';
+import '../../../../core/extensions/snackbar_ext.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -24,8 +30,16 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  // final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    context.read<ProfileCubit>().getProfile();
+  }
 
   void _doLogout() async {
     context.read<ProfileCubit>().doLogOut();
@@ -41,19 +55,57 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  _handleUpdateProfile(ResultState<dynamic> updateResult) {
+    updateResult.maybeWhen(
+      loading: () async => await GetUtil.showDialog(
+        const LoadingDialog(),
+        barrierDismissible: false,
+      ),
+      success: (data) async {
+        GetUtil.dismissDialog();
+        await GetUtil.showDialog(const SuccessUpdateDialog(), barrierDismissible: false);
+        // context.showSuccessSnackbar(data.message ?? Strings.msgSuccessUpdate);
+      },
+      error: (failure) {
+        GetUtil.dismissDialog();
+        GetUtil.context.showErrorSnackbar(Failure.getErrorMessage(failure));
+      },
+      orElse: () => null,
+    );
+  }
+
   _handleGetUser(User? user) {
     setState(() {
       _nameController.text = user?.name ?? '-';
       _emailController.text = user?.email ?? '-';
+      // _phoneController.text = user?.phone ?? '';
       _passwordController.text = 'password';
       _confirmPasswordController.text = 'password';
     });
   }
 
+  _updateProfile() {
+    FocusManager.instance.primaryFocus?.unfocus();
+    context.read<ProfileCubit>().changeName(_nameController.text);
+    context.read<ProfileCubit>().changeEmail(_emailController.text);
+    context.read<ProfileCubit>().changePassword(_passwordController.text);
+    // context.read<ProfileCubit>().changePhoneNumber(_phoneController.text);
+
+    context.read<ProfileCubit>().updateProfile();
+  }
+
+  _onTapAvatar() async {
+    await GetUtil.showDialog(
+      ImagePermissionDialog(
+        pickedImageFile: (imageFile) {
+          GetUtil.context.read<ProfileCubit>().savePickedImageFile(imageFile);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    context.read<ProfileCubit>().getUser();
-
     return SingleChildScrollView(
       child: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
@@ -65,30 +117,42 @@ class _ProfilePageState extends State<ProfilePage> {
           (ProfileCubit value) {
             final user = value.state.user;
             _handleGetUser(user);
+
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: Sizes.height10),
                 Stack(
-                  children: <Widget>[
+                  children: [
                     Align(
                       alignment: Alignment.center,
-                      child: MyCachedNetworkImage(
-                        imageUrl: user?.avatar != null
-                            ? "${Endpoint.baseUrlImage}${user?.avatar}"
-                            : Constants.placeholderAvatarUrl,
-                        imageBuilder: (context, imageProvider) => Container(
+                      child: ClipOval(
+                        child: Container(
                           width: Sizes.width95,
                           height: Sizes.width95,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
+                            color: ColorPalettes.bgNavigationMenu,
                             shape: BoxShape.circle,
-                            image: DecorationImage(image: imageProvider, fit: BoxFit.cover),
                           ),
-                        ),
-                        fit: BoxFit.cover,
-                        errorWidget: CircleAvatar(
-                          backgroundImage: const NetworkImage(Constants.placeholderAvatarUrl),
-                          radius: Sizes.width50,
+                          child: value.state.pickedImageFile == null
+                              ? MyCachedNetworkImage(
+                                  imageUrl: user?.avatar != null
+                                      ? "${Endpoint.baseUrlImage}${user?.avatar}"
+                                      : Constants.placeholderAvatarUrl,
+                                  width: Sizes.width95,
+                                  height: Sizes.width95,
+                                  fit: BoxFit.cover,
+                                  errorWidget: CircleAvatar(
+                                    backgroundImage: const NetworkImage(Constants.placeholderAvatarUrl),
+                                    radius: Sizes.width50,
+                                  ),
+                                )
+                              : Image.file(
+                                  value.state.pickedImageFile!,
+                                  width: Sizes.width95,
+                                  height: Sizes.width95,
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                       ),
                     ),
@@ -103,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         margin: const EdgeInsets.only(left: 65, top: 65),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: _onTapAvatar,
                           child: Icon(
                             Icons.camera_alt_rounded,
                             size: Sizes.width24,
@@ -142,6 +206,21 @@ class _ProfilePageState extends State<ProfilePage> {
                   decoration: CustomWidgetStyle.formInputDecoration,
                 ),
                 SizedBox(height: Sizes.height19),
+                // Text(
+                //   Strings.phone,
+                //   style: CustomTextStyle.textFormStyle,
+                // ),
+                // SizedBox(height: Sizes.height7),
+                // TextFormField(
+                //   controller: _phoneController,
+                //   style: TextStyle(
+                //     color: ColorPalettes.textNeutral,
+                //     fontSize: Sizes.sp14,
+                //   ),
+                //   decoration: CustomWidgetStyle.formInputDecoration,
+                //   keyboardType: TextInputType.phone,
+                // ),
+                // SizedBox(height: Sizes.height19),
                 Text(
                   Strings.password,
                   style: CustomTextStyle.textFormStyle,
@@ -172,19 +251,26 @@ class _ProfilePageState extends State<ProfilePage> {
                   decoration: CustomWidgetStyle.formInputDecoration,
                 ),
                 SizedBox(height: Sizes.height20),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Update',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: Sizes.sp18,
-                      fontWeight: FontWeight.w400,
+                BlocListener<ProfileCubit, ProfileState>(
+                  listenWhen: (previous, current) =>
+                      previous.updateProfileResultState != current.updateProfileResultState,
+                  listener: (context, state) {
+                    _handleUpdateProfile(state.updateProfileResultState);
+                  },
+                  child: ElevatedButton(
+                    onPressed: _updateProfile,
+                    child: Text(
+                      'Update',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: Sizes.sp18,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, Sizes.height46),
-                    elevation: 0,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, Sizes.height46),
+                      elevation: 0,
+                    ),
                   ),
                 ),
                 SizedBox(height: Sizes.height15),
@@ -198,22 +284,23 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Text(
                       'Logout',
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: ColorPalettes.primary,
                         fontSize: Sizes.sp18,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(double.infinity, Sizes.height46),
-                      primary: ColorPalettes.greyForm,
+                      primary: Theme.of(context).scaffoldBackgroundColor,
                       elevation: 0,
                       side: const BorderSide(
                         width: 1,
-                        color: ColorPalettes.greyForm,
+                        color: ColorPalettes.primary,
                       ),
                     ),
                   ),
                 ),
+                SizedBox(height: Sizes.height15),
               ],
             );
           },

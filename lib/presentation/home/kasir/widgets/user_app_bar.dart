@@ -61,6 +61,7 @@ class UserAppBar extends StatelessWidget {
                         flex: 1,
                         child: BlocBuilder<ProfileCubit, ProfileState>(
                           builder: (context, state) {
+                            print('NAME: ${state.user?.name}');
                             return state.getProfileResultState.when(
                               initial: () => const SizedBox.shrink(),
                               loading: () => const Center(

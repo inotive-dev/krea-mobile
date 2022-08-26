@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import 'endpoint.dart';
 
@@ -54,6 +56,28 @@ class ApiService {
   Future<Response> getHistoryUserData(NoParam params) async {
     return await _dio.get(
       Endpoint.getHistoryUserData,
+    );
+  }
+
+  Future<Response> updateProfile(UpdateProfileUseCaseParams params) async {
+    Map<String, dynamic> _dataMap = {
+      'name': params.name,
+      'email': params.email,
+      'phone': params.phoneNumber,
+      '_method': 'PUT',
+    };
+
+    if (params.password != Constants.placeholderPassword && params.password.isNotEmpty) {
+      _dataMap['password'] = params.password;
+    }
+
+    if (params.imageFile != null) {
+      _dataMap['avatar'] = MultipartFile.fromFileSync(params.imageFile!.path);
+    }
+
+    return await _dio.post(
+      Endpoint.updateProfile,
+      data: FormData.fromMap(_dataMap),
     );
   }
 }

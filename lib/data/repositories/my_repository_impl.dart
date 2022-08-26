@@ -6,8 +6,10 @@ import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
+import 'package:koperasi/domain/entities/profile/update_profile.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/unions/failure.dart';
@@ -134,6 +136,21 @@ class MyRepositoryImpl implements MyRepository {
         Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
       );
     }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, UpdateProfile>> updateProfile(UpdateProfileUseCaseParams params) async {
+    final _data = await _remoteDataSource.updateProfile(params);
+
+    if (_data.user == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    _localDataSource.saveUser(_data.user?.toEntity());
 
     return Right(_data.toDomain());
   }

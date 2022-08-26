@@ -4,6 +4,7 @@ class Strings {
   static const appName = 'Koperasi';
   static const login = 'Log In';
   static const email = 'Email';
+  static const phone = 'Telepon';
   static const password = 'Password';
   static const show = 'Show';
   static const hide = 'Hide';
@@ -29,6 +30,13 @@ class Strings {
   static const produk = 'Produk';
   static const kuantitas = 'Kuantitas';
 
+  static const titlePickImage = 'Ambil Gambar:';
+  static const camera = 'Kamera';
+  static const gallery = 'Galeri';
+
   // Error
   static const String msgErrorGeneral = 'Terjadi kesalahan, silakan coba lagi';
+
+  static const String loading = 'Loading';
+  static const String msgSuccessUpdate = 'Update profile berhasil';
 }

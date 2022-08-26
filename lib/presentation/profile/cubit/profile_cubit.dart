@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/domain/usecases/get_profile.dart';
+import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import '../../../../../core/unions/result_state.dart';
 import '../../../../../domain/usecases/do_logout_usecase.dart';
@@ -17,11 +20,13 @@ class ProfileCubit extends Cubit<ProfileState> {
   final DoLogoutUseCase _doLogoutUseCase;
   final GetUserUseCase _getUserUseCase;
   final GetProfileUseCase _getProfileUseCase;
+  final UpdateProfileUseCase _updateProfileUseCase;
 
   ProfileCubit(
     this._doLogoutUseCase,
     this._getUserUseCase,
     this._getProfileUseCase,
+    this._updateProfileUseCase,
   ) : super(const ProfileState());
 
   doLogOut() async {
@@ -79,5 +84,73 @@ class ProfileCubit extends Cubit<ProfileState> {
         ),
       ),
     );
+  }
+
+  updateProfile() async {
+    // Break the codes when no any user data changed
+    if (state.name == state.user?.name && state.email == state.user?.email && state.pickedImageFile == null
+        // && state.phoneNumber == state.user?.phone
+        ) {
+      return;
+    }
+
+    emit(state.copyWith(updateProfileResultState: const ResultState.loading()));
+
+    final _result = await _updateProfileUseCase(
+      UpdateProfileUseCaseParams(
+        name: state.name,
+        email: state.email,
+        password: state.password,
+        imageFile: state.pickedImageFile,
+        phoneNumber: state.user?.phone ?? '',
+      ),
+    );
+
+    _result.fold(
+      (failure) {
+        emit(
+          state.copyWith(
+            updateProfileResultState: ResultState.error(
+              failure: failure,
+            ),
+          ),
+        );
+      },
+      (data) {
+        emit(
+          state.copyWith(
+            updateProfileResultState: ResultState.success(
+              data: data,
+            ),
+            user: state.user?.copyWith(
+              name: data.user?.name ?? '',
+              email: data.user?.email ?? '',
+            ),
+            name: data.user?.name ?? '',
+            email: data.user?.email ?? '',
+          ),
+        );
+      },
+    );
+  }
+
+  changeName(String? value) {
+    emit(state.copyWith(name: value ?? ''));
+  }
+
+  changeEmail(String? value) {
+    emit(state.copyWith(email: value ?? ''));
+  }
+
+  // changePhoneNumber(String? value) {
+  //   emit(state.copyWith(phoneNumber: value ?? ''));
+  // }
+
+  changePassword(String? value) {
+    emit(state.copyWith(password: value ?? ''));
+  }
+
+  savePickedImageFile(File pickedImageFile) {
+    emit(state.copyWith(pickedImageFile: pickedImageFile));
   }
 }

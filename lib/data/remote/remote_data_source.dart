@@ -4,8 +4,10 @@ import 'package:koperasi/data/remote/response/history/history_response.dart';
 import 'package:koperasi/data/remote/response/home/home_response.dart';
 import 'package:koperasi/data/remote/response/home/home_user_response.dart';
 import 'package:koperasi/data/remote/response/profile/profile_response.dart';
+import 'package:koperasi/data/remote/response/profile/update_profile_response.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import '../../domain/usecases/do_login_usecase.dart';
 import 'api/api_service.dart';
@@ -47,5 +49,10 @@ class RemoteDataSource {
   Future<HistoryResponse> getHistoryUserData(NoParam params) async {
     final _response = await _apiService.getHistoryUserData(params);
     return HistoryResponse.fromJson(_response.data);
+  }
+
+  Future<UpdateProfileResponse> updateProfile(UpdateProfileUseCaseParams params) async {
+    final _response = await _apiService.updateProfile(params);
+    return UpdateProfileResponse.fromJson(_response.data);
   }
 }
