@@ -14,9 +14,10 @@ _$_HomeDataResponse _$$_HomeDataResponseFromJson(Map<String, dynamic> json) =>
       produkLamaTerjual: (json['produk_lama_terjual'] as List<dynamic>?)
           ?.map((e) => TransactionResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
-      laporanPenjualan: (json['laporan_penjualan'] as List<dynamic>?)
-          ?.map((e) => SalesReportResponse.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      laporanPenjualan: json['laporan_penjualan'] == null
+          ? null
+          : ReportsSalesResponse.fromJson(
+              json['laporan_penjualan'] as Map<String, dynamic>),
       totalSaldoSimpananUtang:
           (json['total_saldo_simpanan_utang'] as num?)?.toDouble(),
       totalUtang: (json['total_utang'] as num?)?.toDouble(),

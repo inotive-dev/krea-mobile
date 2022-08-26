@@ -21,7 +21,7 @@ class _$HomeDataTearOff {
   _HomeData call(
       {required List<Transaction>? produkCepatTerjual,
       required List<Transaction>? produkLamaTerjual,
-      required List<SalesReport>? laporanPenjualan,
+      required ReportsSales? laporanPenjualan,
       required double? totalSaldoSimpananUtang,
       required double? totalUtang}) {
     return _HomeData(
@@ -43,7 +43,7 @@ mixin _$HomeData {
       throw _privateConstructorUsedError;
   List<Transaction>? get produkLamaTerjual =>
       throw _privateConstructorUsedError;
-  List<SalesReport>? get laporanPenjualan => throw _privateConstructorUsedError;
+  ReportsSales? get laporanPenjualan => throw _privateConstructorUsedError;
   double? get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
   double? get totalUtang => throw _privateConstructorUsedError;
 
@@ -59,9 +59,11 @@ abstract class $HomeDataCopyWith<$Res> {
   $Res call(
       {List<Transaction>? produkCepatTerjual,
       List<Transaction>? produkLamaTerjual,
-      List<SalesReport>? laporanPenjualan,
+      ReportsSales? laporanPenjualan,
       double? totalSaldoSimpananUtang,
       double? totalUtang});
+
+  $ReportsSalesCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -92,7 +94,7 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
       laporanPenjualan: laporanPenjualan == freezed
           ? _value.laporanPenjualan
           : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as ReportsSales?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -102,6 +104,17 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
           : totalUtang // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
+  }
+
+  @override
+  $ReportsSalesCopyWith<$Res>? get laporanPenjualan {
+    if (_value.laporanPenjualan == null) {
+      return null;
+    }
+
+    return $ReportsSalesCopyWith<$Res>(_value.laporanPenjualan!, (value) {
+      return _then(_value.copyWith(laporanPenjualan: value));
+    });
   }
 }
 
@@ -113,9 +126,12 @@ abstract class _$HomeDataCopyWith<$Res> implements $HomeDataCopyWith<$Res> {
   $Res call(
       {List<Transaction>? produkCepatTerjual,
       List<Transaction>? produkLamaTerjual,
-      List<SalesReport>? laporanPenjualan,
+      ReportsSales? laporanPenjualan,
       double? totalSaldoSimpananUtang,
       double? totalUtang});
+
+  @override
+  $ReportsSalesCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -147,7 +163,7 @@ class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
       laporanPenjualan: laporanPenjualan == freezed
           ? _value.laporanPenjualan
           : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as ReportsSales?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -175,7 +191,7 @@ class _$_HomeData implements _HomeData {
   @override
   final List<Transaction>? produkLamaTerjual;
   @override
-  final List<SalesReport>? laporanPenjualan;
+  final ReportsSales? laporanPenjualan;
   @override
   final double? totalSaldoSimpananUtang;
   @override
@@ -222,7 +238,7 @@ abstract class _HomeData implements HomeData {
   const factory _HomeData(
       {required List<Transaction>? produkCepatTerjual,
       required List<Transaction>? produkLamaTerjual,
-      required List<SalesReport>? laporanPenjualan,
+      required ReportsSales? laporanPenjualan,
       required double? totalSaldoSimpananUtang,
       required double? totalUtang}) = _$_HomeData;
 
@@ -231,7 +247,7 @@ abstract class _HomeData implements HomeData {
   @override
   List<Transaction>? get produkLamaTerjual;
   @override
-  List<SalesReport>? get laporanPenjualan;
+  ReportsSales? get laporanPenjualan;
   @override
   double? get totalSaldoSimpananUtang;
   @override

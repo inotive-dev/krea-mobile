@@ -100,7 +100,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                     child: CircularProgressIndicator(),
                   ),
                   success: (data) => ReportSales(
-                    salesReports: state.homeData.laporanPenjualan ?? [],
+                    salesReports: state.homeData.laporanPenjualan?.data ?? [],
                   ),
                   error: (error) => Center(
                     child: Text(error.toString()),

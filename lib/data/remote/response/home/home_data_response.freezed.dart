@@ -28,7 +28,7 @@ class _$HomeDataResponseTearOff {
       @JsonKey(name: 'produk_lama_terjual')
           required List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'laporan_penjualan')
-          required List<SalesReportResponse>? laporanPenjualan,
+          required ReportsSalesResponse? laporanPenjualan,
       @JsonKey(name: 'total_saldo_simpanan_utang')
           required double? totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
@@ -59,7 +59,7 @@ mixin _$HomeDataResponse {
   List<TransactionResponse>? get produkLamaTerjual =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'laporan_penjualan')
-  List<SalesReportResponse>? get laporanPenjualan =>
+  ReportsSalesResponse? get laporanPenjualan =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'total_saldo_simpanan_utang')
   double? get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
@@ -83,11 +83,13 @@ abstract class $HomeDataResponseCopyWith<$Res> {
       @JsonKey(name: 'produk_lama_terjual')
           List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'laporan_penjualan')
-          List<SalesReportResponse>? laporanPenjualan,
+          ReportsSalesResponse? laporanPenjualan,
       @JsonKey(name: 'total_saldo_simpanan_utang')
           double? totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
           double? totalUtang});
+
+  $ReportsSalesResponseCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -119,7 +121,7 @@ class _$HomeDataResponseCopyWithImpl<$Res>
       laporanPenjualan: laporanPenjualan == freezed
           ? _value.laporanPenjualan
           : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as ReportsSalesResponse?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -129,6 +131,18 @@ class _$HomeDataResponseCopyWithImpl<$Res>
           : totalUtang // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
+  }
+
+  @override
+  $ReportsSalesResponseCopyWith<$Res>? get laporanPenjualan {
+    if (_value.laporanPenjualan == null) {
+      return null;
+    }
+
+    return $ReportsSalesResponseCopyWith<$Res>(_value.laporanPenjualan!,
+        (value) {
+      return _then(_value.copyWith(laporanPenjualan: value));
+    });
   }
 }
 
@@ -145,11 +159,14 @@ abstract class _$HomeDataResponseCopyWith<$Res>
       @JsonKey(name: 'produk_lama_terjual')
           List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'laporan_penjualan')
-          List<SalesReportResponse>? laporanPenjualan,
+          ReportsSalesResponse? laporanPenjualan,
       @JsonKey(name: 'total_saldo_simpanan_utang')
           double? totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
           double? totalUtang});
+
+  @override
+  $ReportsSalesResponseCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -183,7 +200,7 @@ class __$HomeDataResponseCopyWithImpl<$Res>
       laporanPenjualan: laporanPenjualan == freezed
           ? _value.laporanPenjualan
           : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as ReportsSalesResponse?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -223,7 +240,7 @@ class _$_HomeDataResponse extends _HomeDataResponse {
   final List<TransactionResponse>? produkLamaTerjual;
   @override
   @JsonKey(name: 'laporan_penjualan')
-  final List<SalesReportResponse>? laporanPenjualan;
+  final ReportsSalesResponse? laporanPenjualan;
   @override
   @JsonKey(name: 'total_saldo_simpanan_utang')
   final double? totalSaldoSimpananUtang;
@@ -280,7 +297,7 @@ abstract class _HomeDataResponse extends HomeDataResponse {
       @JsonKey(name: 'produk_lama_terjual')
           required List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'laporan_penjualan')
-          required List<SalesReportResponse>? laporanPenjualan,
+          required ReportsSalesResponse? laporanPenjualan,
       @JsonKey(name: 'total_saldo_simpanan_utang')
           required double? totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
@@ -298,7 +315,7 @@ abstract class _HomeDataResponse extends HomeDataResponse {
   List<TransactionResponse>? get produkLamaTerjual;
   @override
   @JsonKey(name: 'laporan_penjualan')
-  List<SalesReportResponse>? get laporanPenjualan;
+  ReportsSalesResponse? get laporanPenjualan;
   @override
   @JsonKey(name: 'total_saldo_simpanan_utang')
   double? get totalSaldoSimpananUtang;
