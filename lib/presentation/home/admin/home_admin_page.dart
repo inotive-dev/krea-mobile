@@ -32,13 +32,18 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
 
     _myRepository = getIt.get<MyRepository>();
     final martId = _myRepository.getUser()?.martId ?? 0;
-    context.read<HomeCubit>().getHomeAdminData(martId);
+    context.read<HomeCubit>().updateMartId(martId);
+    context.read<HomeCubit>().getHomeAdminData(1);
   }
 
   @override
   void dispose() {
     tabBranchController.dispose();
     super.dispose();
+  }
+
+  _updateSalesReportData(int page) {
+    context.read<HomeCubit>().updateSalesReportData(page);
   }
 
   @override
@@ -88,7 +93,9 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
             ),
             SizedBox(height: Sizes.height25),
             TabBranches(tabController: tabBranchController),
-            const PageControl(),
+            PageControl(
+              onUpdate: (value) {},
+            ),
             SizedBox(height: Sizes.height41),
             const SectionLabel(text: 'Laporan Penjualan'),
             SizedBox(height: Sizes.height10),
@@ -99,8 +106,15 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                   loading: () => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  success: (data) => ReportSales(
-                    salesReports: state.homeData.laporanPenjualan?.data ?? [],
+                  success: (data) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ReportSales(
+                        salesReports: state.homeData.laporanPenjualan?.data ?? [],
+                        isUpdated: state.updateSalesReportState,
+                      ),
+                      PageControl(control: state.homeData.laporanPenjualan, onUpdate: _updateSalesReportData),
+                    ],
                   ),
                   error: (error) => Center(
                     child: Text(error.toString()),
@@ -108,7 +122,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                 );
               },
             ),
-            const PageControl(),
             SizedBox(height: Sizes.height80),
           ],
         ),

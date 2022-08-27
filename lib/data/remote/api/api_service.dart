@@ -29,7 +29,7 @@ class ApiService {
   Future<Response> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
     return await _dio.get(
       Endpoint.getHomeAdminData,
-      queryParameters: {'mart_id': params.martId},
+      queryParameters: {'mart_id': params.martId, 'page': params.page},
     );
   }
 

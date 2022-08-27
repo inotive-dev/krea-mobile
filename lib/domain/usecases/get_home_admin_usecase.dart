@@ -8,11 +8,18 @@ import 'package:koperasi/domain/repositories/my_repository.dart';
 
 class GetHomeAdminUseCaseParams extends Equatable {
   final String martId;
+  final int page;
 
-  const GetHomeAdminUseCaseParams({required this.martId});
+  const GetHomeAdminUseCaseParams({
+    required this.martId,
+    required this.page,
+  });
 
   @override
-  List<Object> get props => [martId];
+  List<Object> get props => [
+        martId,
+        page,
+      ];
 }
 
 @lazySingleton

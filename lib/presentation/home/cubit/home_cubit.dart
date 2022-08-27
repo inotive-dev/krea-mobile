@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -22,15 +24,26 @@ class HomeCubit extends Cubit<HomeState> {
     this._getHomeUserUseCase,
   ) : super(HomeState.initial());
 
-  getHomeAdminData(int martId) async {
-    emit(state.copyWith(getHomeAdminResultState: const ResultState.loading()));
+  updateMartId(int id) {
+    emit(state.copyWith(martId: id));
+  }
 
-    final _result = await _getHomeAdminUseCase(GetHomeAdminUseCaseParams(martId: martId.toString()));
+  getHomeAdminData(int page) async {
+    emit(state.copyWith(
+      getHomeAdminResultState: const ResultState.loading(),
+      updateSalesReportState: const ResultState.loading(),
+    ));
+
+    final _result = await _getHomeAdminUseCase(GetHomeAdminUseCaseParams(
+      martId: state.martId.toString(),
+      page: page,
+    ));
     _result.fold(
       (l) {
         emit(
           state.copyWith(
             getHomeAdminResultState: ResultState.error(failure: l),
+            updateSalesReportState: ResultState.error(failure: l),
           ),
         );
       },
@@ -38,12 +51,44 @@ class HomeCubit extends Cubit<HomeState> {
         return emit(
           state.copyWith(
             getHomeAdminResultState: ResultState.success(data: r),
+            updateSalesReportState: ResultState.success(data: r),
             homeData: r.data ?? HomeData.initial(),
             lastUpdated: DateTime.now(),
           ),
         );
       },
     );
+  }
+
+  updateSalesReportData(int page) async {
+    print('PAGE: $page');
+    emit(state.copyWith(updateSalesReportState: const ResultState.loading()));
+
+    final _result = await _getHomeAdminUseCase(GetHomeAdminUseCaseParams(
+      martId: state.martId.toString(),
+      page: page,
+    ));
+    _result.fold(
+      (l) {
+        emit(
+          state.copyWith(
+            updateSalesReportState: ResultState.error(failure: l),
+          ),
+        );
+      },
+      (r) {
+        return emit(
+          state.copyWith(
+            updateSalesReportState: ResultState.success(data: r),
+            homeData: state.homeData.copyWith(laporanPenjualan: r.data?.laporanPenjualan),
+          ),
+        );
+      },
+    );
+
+    Timer(const Duration(seconds: 2), () {
+      emit(state.copyWith(updateSalesReportState: const ResultState.success(data: null)));
+    });
   }
 
   getHomeUserData() async {
