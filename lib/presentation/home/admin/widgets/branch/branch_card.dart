@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
+import 'package:koperasi/core/utils/utils.dart';
+import 'package:koperasi/domain/entities/home/branch.dart';
 
 class BranchCard extends StatelessWidget {
-  const BranchCard({Key? key}) : super(key: key);
+  final Branch branch;
+
+  const BranchCard({
+    Key? key,
+    required this.branch,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class BranchCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Lestari',
+                branch.martName ?? '-',
                 style: TextStyle(
                   color: ColorPalettes.blackText,
                   fontSize: Sizes.sp16,
@@ -53,7 +60,7 @@ class BranchCard extends StatelessWidget {
                 textAlign: TextAlign.start,
               ),
               Text(
-                'Rp. 50.000.000',
+                formatToIdr(branch.total),
                 style: TextStyle(
                   color: ColorPalettes.blackText,
                   fontSize: Sizes.sp16,

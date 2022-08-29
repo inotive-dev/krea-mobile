@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/presentation/home/admin/widgets/dropdown/filter_dropdown.dart';
 import 'package:koperasi/presentation/home/admin/widgets/dropdown/years_dropdown.dart';
+import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
+import '../../../../../core/extensions/ext.dart';
 
 import 'branch_card.dart';
 
@@ -64,70 +67,134 @@ class TabBranches extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            color: ColorPalettes.greyBackground,
-            padding: EdgeInsets.only(
-              left: Sizes.width18,
-              right: Sizes.width18,
-              top: Sizes.height16,
-              bottom: Sizes.height16,
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: YearsDropdown(
-                    year: '2022',
-                    updateYear: (year) {
-                      print(year);
-                    },
-                  ),
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              return Container(
+                color: ColorPalettes.greyBackground,
+                padding: EdgeInsets.only(
+                  left: Sizes.width18,
+                  right: Sizes.width18,
+                  top: Sizes.height16,
+                  bottom: Sizes.height16,
                 ),
-                SizedBox(width: Sizes.width18),
-                Expanded(
-                  flex: 2,
-                  child: FilterDropdown(
-                    value: 'Total Operasional',
-                    updateValue: (value) {
-                      print(value);
-                    },
-                  ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: YearsDropdown(
+                        year: state.year,
+                        updateYear: (year) {
+                          final index = tabController.index;
+                          context.read<HomeCubit>().updateYear(year);
+                          if (index == 0) {
+                            context.read<HomeCubit>().getHomeDataNeraca();
+                          } else if (index == 1) {
+                            context.read<HomeCubit>().getHomeDataLabaRugi();
+                          } else {
+                            print('BELUM ADA API');
+                          }
+                        },
+                      ),
+                    ),
+                    SizedBox(width: Sizes.width18),
+                    Expanded(
+                      flex: 2,
+                      child: FilterDropdown(
+                        index: tabController.index,
+                        value: state.type.capitalize(),
+                        updateValue: (type) {
+                          final index = tabController.index;
+                          context.read<HomeCubit>().updateType(type);
+                          if (index == 0) {
+                            context.read<HomeCubit>().getHomeDataNeraca();
+                          } else if (index == 1) {
+                            context.read<HomeCubit>().getHomeDataLabaRugi();
+                          } else {
+                            print('BELUM ADA API');
+                          }
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
           SizedBox(
             height: 240,
             child: TabBarView(
               controller: tabController,
               children: [
-                ListView.separated(
-                  itemCount: 5,
-                  separatorBuilder: (context, index) => Divider(
-                    color: ColorPalettes.greyBackground,
-                    thickness: Sizes.height9,
-                  ),
-                  itemBuilder: (context, position) {
-                    return const BranchCard();
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return state.getHomeAdminNeracaResultState.when(
+                      initial: () => const SizedBox.shrink(),
+                      loading: () => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      success: (data) => ListView.separated(
+                        itemCount: state.neracaData.length,
+                        separatorBuilder: (context, index) => Divider(
+                          color: ColorPalettes.greyBackground,
+                          thickness: Sizes.height9,
+                        ),
+                        itemBuilder: (context, position) {
+                          return BranchCard(branch: state.neracaData[position]);
+                        },
+                      ),
+                      error: (error) => Center(
+                        child: Text(error.toString()),
+                      ),
+                    );
                   },
                 ),
-                ListView.separated(
-                  itemCount: 5,
-                  separatorBuilder: (context, index) => Divider(
-                    color: ColorPalettes.greyBackground,
-                    thickness: Sizes.height9,
-                  ),
-                  itemBuilder: (context, position) {
-                    return const BranchCard();
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return state.getHomeAdminLabaRugiResultState.when(
+                      initial: () => const SizedBox.shrink(),
+                      loading: () => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      success: (data) => ListView.separated(
+                        itemCount: state.labaRugiData.length,
+                        separatorBuilder: (context, index) => Divider(
+                          color: ColorPalettes.greyBackground,
+                          thickness: Sizes.height9,
+                        ),
+                        itemBuilder: (context, position) {
+                          return BranchCard(
+                            branch: state.labaRugiData[position],
+                          );
+                        },
+                      ),
+                      error: (error) => Center(
+                        child: Text(error.toString()),
+                      ),
+                    );
                   },
                 ),
-                ListView.separated(
-                  itemCount: 5,
-                  separatorBuilder: (context, index) => Divider(
-                    color: ColorPalettes.greyBackground,
-                    thickness: Sizes.height9,
-                  ),
-                  itemBuilder: (context, position) {
-                    return const BranchCard();
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return state.getHomeAdminLabaRugiResultState.when(
+                      initial: () => const SizedBox.shrink(),
+                      loading: () => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                      success: (data) => ListView.separated(
+                        itemCount: state.neracaData.length,
+                        separatorBuilder: (context, index) => Divider(
+                          color: ColorPalettes.greyBackground,
+                          thickness: Sizes.height9,
+                        ),
+                        itemBuilder: (context, position) {
+                          return BranchCard(
+                            branch: state.neracaData[position],
+                          );
+                        },
+                      ),
+                      error: (error) => Center(
+                        child: Text(error.toString()),
+                      ),
+                    );
                   },
                 ),
               ],

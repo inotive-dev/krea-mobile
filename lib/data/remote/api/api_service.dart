@@ -4,6 +4,7 @@ import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
@@ -37,6 +38,20 @@ class ApiService {
     return await _dio.get(
       Endpoint.getHistoryAdminData,
       queryParameters: {'mart_id': params.martId},
+    );
+  }
+
+  Future<Response> getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams params) async {
+    return await _dio.get(
+      Endpoint.getHomeAdminNeraca,
+      queryParameters: {'year': params.year, 'type': params.type},
+    );
+  }
+
+  Future<Response> getHomeAdminLabaRugi(GetHomeAdminBranchesUseCaseParams params) async {
+    return await _dio.get(
+      Endpoint.getHomeAdminLabaRugi,
+      queryParameters: {'year': params.year, 'type': params.type},
     );
   }
 

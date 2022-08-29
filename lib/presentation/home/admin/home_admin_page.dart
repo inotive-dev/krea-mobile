@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
@@ -27,13 +28,18 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
 
   @override
   void initState() {
-    tabBranchController = TabController(length: 3, vsync: this);
     super.initState();
+    tabBranchController = TabController(length: 3, vsync: this);
+    tabBranchController.addListener(_handleTabSelection);
 
     _myRepository = getIt.get<MyRepository>();
     final martId = _myRepository.getUser()?.martId ?? 0;
+
     context.read<HomeCubit>().updateMartId(martId);
+    context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
+
     context.read<HomeCubit>().getHomeAdminData(1);
+    context.read<HomeCubit>().getHomeDataNeraca();
   }
 
   @override
@@ -44,6 +50,23 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
 
   _updateSalesReportData(int page) {
     context.read<HomeCubit>().updateSalesReportData(page);
+  }
+
+  _handleTabSelection() {
+    final index = tabBranchController.index;
+    if (tabBranchController.indexIsChanging) {
+      switch (index) {
+        case 0:
+          context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
+          context.read<HomeCubit>().getHomeDataNeraca();
+          break;
+        case 1:
+          context.read<HomeCubit>().updateType(Constants.typesLabaRugi[0]);
+          context.read<HomeCubit>().getHomeDataLabaRugi();
+          break;
+        default:
+      }
+    }
   }
 
   @override
@@ -92,7 +115,9 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
               },
             ),
             SizedBox(height: Sizes.height25),
-            TabBranches(tabController: tabBranchController),
+            TabBranches(
+              tabController: tabBranchController,
+            ),
             PageControl(
               onUpdate: (value) {},
             ),

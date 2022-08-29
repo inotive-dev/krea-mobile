@@ -21,16 +21,18 @@ import '../domain/usecases/do_login_usecase.dart' as _i14;
 import '../domain/usecases/do_logout_usecase.dart' as _i15;
 import '../domain/usecases/get_history_admin.dart' as _i16;
 import '../domain/usecases/get_history_user.dart' as _i17;
-import '../domain/usecases/get_home_admin_usecase.dart' as _i18;
-import '../domain/usecases/get_home_user_usecase.dart' as _i19;
-import '../domain/usecases/get_profile.dart' as _i20;
-import '../domain/usecases/get_user_usecase.dart' as _i21;
+import '../domain/usecases/get_home_admin_laba_rugi_usecase.dart' as _i18;
+import '../domain/usecases/get_home_admin_neraca_usecase.dart' as _i19;
+import '../domain/usecases/get_home_admin_usecase.dart' as _i20;
+import '../domain/usecases/get_home_user_usecase.dart' as _i21;
+import '../domain/usecases/get_profile.dart' as _i22;
+import '../domain/usecases/get_user_usecase.dart' as _i23;
 import '../domain/usecases/update_profile.dart' as _i12;
-import '../presentation/auth/cubit/login_cubit.dart' as _i24;
-import '../presentation/history/cubit/history_cubit.dart' as _i22;
-import '../presentation/home/cubit/home_cubit.dart' as _i23;
-import '../presentation/profile/cubit/profile_cubit.dart' as _i25;
-import 'register_module.dart' as _i26; // ignore_for_file: unnecessary_lambdas
+import '../presentation/auth/cubit/login_cubit.dart' as _i26;
+import '../presentation/history/cubit/history_cubit.dart' as _i24;
+import '../presentation/home/cubit/home_cubit.dart' as _i25;
+import '../presentation/profile/cubit/profile_cubit.dart' as _i27;
+import 'register_module.dart' as _i28; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -63,26 +65,33 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i16.GetHistoryAdminUseCase(myRepository: get<_i10.MyRepository>()));
   gh.lazySingleton<_i17.GetHistoryUserUseCase>(
       () => _i17.GetHistoryUserUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.lazySingleton<_i18.GetHomeAdminUseCase>(
-      () => _i18.GetHomeAdminUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.lazySingleton<_i19.GetHomeUserUseCase>(
-      () => _i19.GetHomeUserUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.lazySingleton<_i20.GetProfileUseCase>(
-      () => _i20.GetProfileUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.lazySingleton<_i21.GetUserUseCase>(
-      () => _i21.GetUserUseCase(myRepository: get<_i10.MyRepository>()));
-  gh.factory<_i22.HistoryCubit>(() => _i22.HistoryCubit(
+  gh.lazySingleton<_i18.GetHomeAdminLabaRugi>(
+      () => _i18.GetHomeAdminLabaRugi(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i19.GetHomeAdminNeraca>(
+      () => _i19.GetHomeAdminNeraca(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i20.GetHomeAdminUseCase>(
+      () => _i20.GetHomeAdminUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i21.GetHomeUserUseCase>(
+      () => _i21.GetHomeUserUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i22.GetProfileUseCase>(
+      () => _i22.GetProfileUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.lazySingleton<_i23.GetUserUseCase>(
+      () => _i23.GetUserUseCase(myRepository: get<_i10.MyRepository>()));
+  gh.factory<_i24.HistoryCubit>(() => _i24.HistoryCubit(
       get<_i16.GetHistoryAdminUseCase>(), get<_i17.GetHistoryUserUseCase>()));
-  gh.factory<_i23.HomeCubit>(() => _i23.HomeCubit(
-      get<_i18.GetHomeAdminUseCase>(), get<_i19.GetHomeUserUseCase>()));
-  gh.factory<_i24.LoginCubit>(
-      () => _i24.LoginCubit(get<_i14.DoLoginUseCase>()));
-  gh.factory<_i25.ProfileCubit>(() => _i25.ProfileCubit(
+  gh.factory<_i25.HomeCubit>(() => _i25.HomeCubit(
+      get<_i20.GetHomeAdminUseCase>(),
+      get<_i21.GetHomeUserUseCase>(),
+      get<_i19.GetHomeAdminNeraca>(),
+      get<_i18.GetHomeAdminLabaRugi>()));
+  gh.factory<_i26.LoginCubit>(
+      () => _i26.LoginCubit(get<_i14.DoLoginUseCase>()));
+  gh.factory<_i27.ProfileCubit>(() => _i27.ProfileCubit(
       get<_i15.DoLogoutUseCase>(),
-      get<_i21.GetUserUseCase>(),
-      get<_i20.GetProfileUseCase>(),
+      get<_i23.GetUserUseCase>(),
+      get<_i22.GetProfileUseCase>(),
       get<_i12.UpdateProfileUseCase>()));
   return get;
 }
 
-class _$RegisterModule extends _i26.RegisterModule {}
+class _$RegisterModule extends _i28.RegisterModule {}

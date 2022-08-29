@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:koperasi/data/remote/response/home/reports_sales_response.dart';
-import 'package:koperasi/data/remote/response/home/sales_report_response.dart';
 import 'package:koperasi/data/remote/response/home/transaction_response.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 

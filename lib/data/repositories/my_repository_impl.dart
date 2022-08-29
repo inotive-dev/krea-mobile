@@ -2,12 +2,14 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/domain/entities/history_entities/history.dart';
+import 'package:koperasi/domain/entities/home/branches.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
 import 'package:koperasi/domain/entities/profile/update_profile.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
@@ -91,6 +93,32 @@ class MyRepositoryImpl implements MyRepository {
   @override
   Future<Either<Failure, History>> getHistoryAdminData(GetHistoryAdminUseCaseParams params) async {
     final _data = await _remoteDataSource.getHistoryAdminData(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, Branches>> getHomeAdminLabaRugi(GetHomeAdminBranchesUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHomeAdminLabaRugi(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, Branches>> getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHomeAdminNeraca(params);
 
     if (_data.data == null) {
       return Left(
