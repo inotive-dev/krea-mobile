@@ -10,16 +10,19 @@ import 'package:koperasi/domain/repositories/my_repository.dart';
 class GetHomeAdminBranchesUseCaseParams extends Equatable {
   final String year;
   final String type;
+  final int page;
 
   const GetHomeAdminBranchesUseCaseParams({
     required this.year,
     required this.type,
+    required this.page,
   });
 
   @override
   List<Object> get props => [
         year,
         type,
+        page,
       ];
 }
 

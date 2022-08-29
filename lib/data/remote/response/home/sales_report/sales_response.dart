@@ -2,14 +2,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
 
-part 'sales_report_response.freezed.dart';
-part 'sales_report_response.g.dart';
+part 'sales_response.freezed.dart';
+part 'sales_response.g.dart';
 
 @freezed
-class SalesReportResponse with _$SalesReportResponse {
-  const SalesReportResponse._();
+class SalesResponse with _$SalesResponse {
+  const SalesResponse._();
 
-  const factory SalesReportResponse({
+  const factory SalesResponse({
     required int? id,
     @JsonKey(name: 'mart_id') required int? martId,
     @JsonKey(name: 'user_id') required int? userId,
@@ -27,9 +27,9 @@ class SalesReportResponse with _$SalesReportResponse {
     @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
     @JsonKey(name: 'is_matched') required int? isMatched,
     required UserResponse? user,
-  }) = _SalesReportResponse;
+  }) = _SalesResponse;
 
-  factory SalesReportResponse.fromJson(Map<String, dynamic> json) => _$SalesReportResponseFromJson(json);
+  factory SalesResponse.fromJson(Map<String, dynamic> json) => _$SalesResponseFromJson(json);
 
   SalesReport toDomain() => SalesReport(
         id: id,

@@ -24,9 +24,9 @@ class _$HistoryDataResponseTearOff {
 
   _HistoryDataResponse call(
       {@JsonKey(name: 'this_week_history')
-          required List<SalesReportResponse>? thisWeekHistory,
+          required List<SalesResponse>? thisWeekHistory,
       @JsonKey(name: 'last_month_history')
-          required List<SalesReportResponse>? lastMonthHistory}) {
+          required List<SalesResponse>? lastMonthHistory}) {
     return _HistoryDataResponse(
       thisWeekHistory: thisWeekHistory,
       lastMonthHistory: lastMonthHistory,
@@ -44,10 +44,10 @@ const $HistoryDataResponse = _$HistoryDataResponseTearOff();
 /// @nodoc
 mixin _$HistoryDataResponse {
   @JsonKey(name: 'this_week_history')
-  List<SalesReportResponse>? get thisWeekHistory =>
+  List<SalesResponse>? get thisWeekHistory =>
       throw _privateConstructorUsedError;
   @JsonKey(name: 'last_month_history')
-  List<SalesReportResponse>? get lastMonthHistory =>
+  List<SalesResponse>? get lastMonthHistory =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -63,9 +63,9 @@ abstract class $HistoryDataResponseCopyWith<$Res> {
       _$HistoryDataResponseCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'this_week_history')
-          List<SalesReportResponse>? thisWeekHistory,
+          List<SalesResponse>? thisWeekHistory,
       @JsonKey(name: 'last_month_history')
-          List<SalesReportResponse>? lastMonthHistory});
+          List<SalesResponse>? lastMonthHistory});
 }
 
 /// @nodoc
@@ -86,11 +86,11 @@ class _$HistoryDataResponseCopyWithImpl<$Res>
       thisWeekHistory: thisWeekHistory == freezed
           ? _value.thisWeekHistory
           : thisWeekHistory // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as List<SalesResponse>?,
       lastMonthHistory: lastMonthHistory == freezed
           ? _value.lastMonthHistory
           : lastMonthHistory // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as List<SalesResponse>?,
     ));
   }
 }
@@ -104,9 +104,9 @@ abstract class _$HistoryDataResponseCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'this_week_history')
-          List<SalesReportResponse>? thisWeekHistory,
+          List<SalesResponse>? thisWeekHistory,
       @JsonKey(name: 'last_month_history')
-          List<SalesReportResponse>? lastMonthHistory});
+          List<SalesResponse>? lastMonthHistory});
 }
 
 /// @nodoc
@@ -129,11 +129,11 @@ class __$HistoryDataResponseCopyWithImpl<$Res>
       thisWeekHistory: thisWeekHistory == freezed
           ? _value.thisWeekHistory
           : thisWeekHistory // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as List<SalesResponse>?,
       lastMonthHistory: lastMonthHistory == freezed
           ? _value.lastMonthHistory
           : lastMonthHistory // ignore: cast_nullable_to_non_nullable
-              as List<SalesReportResponse>?,
+              as List<SalesResponse>?,
     ));
   }
 }
@@ -151,10 +151,10 @@ class _$_HistoryDataResponse extends _HistoryDataResponse {
 
   @override
   @JsonKey(name: 'this_week_history')
-  final List<SalesReportResponse>? thisWeekHistory;
+  final List<SalesResponse>? thisWeekHistory;
   @override
   @JsonKey(name: 'last_month_history')
-  final List<SalesReportResponse>? lastMonthHistory;
+  final List<SalesResponse>? lastMonthHistory;
 
   @override
   String toString() {
@@ -193,9 +193,9 @@ class _$_HistoryDataResponse extends _HistoryDataResponse {
 abstract class _HistoryDataResponse extends HistoryDataResponse {
   const factory _HistoryDataResponse(
           {@JsonKey(name: 'this_week_history')
-              required List<SalesReportResponse>? thisWeekHistory,
+              required List<SalesResponse>? thisWeekHistory,
           @JsonKey(name: 'last_month_history')
-              required List<SalesReportResponse>? lastMonthHistory}) =
+              required List<SalesResponse>? lastMonthHistory}) =
       _$_HistoryDataResponse;
   const _HistoryDataResponse._() : super._();
 
@@ -204,10 +204,10 @@ abstract class _HistoryDataResponse extends HistoryDataResponse {
 
   @override
   @JsonKey(name: 'this_week_history')
-  List<SalesReportResponse>? get thisWeekHistory;
+  List<SalesResponse>? get thisWeekHistory;
   @override
   @JsonKey(name: 'last_month_history')
-  List<SalesReportResponse>? get lastMonthHistory;
+  List<SalesResponse>? get lastMonthHistory;
   @override
   @JsonKey(ignore: true)
   _$HistoryDataResponseCopyWith<_HistoryDataResponse> get copyWith =>

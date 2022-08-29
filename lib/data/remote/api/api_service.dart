@@ -5,6 +5,7 @@ import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
@@ -30,6 +31,13 @@ class ApiService {
   Future<Response> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
     return await _dio.get(
       Endpoint.getHomeAdminData,
+      queryParameters: {'mart_id': params.martId, 'page': params.page},
+    );
+  }
+
+  Future<Response> getHomeAdminSalesReport(GetAdminHomeSalesReportsUseCaseParams params) async {
+    return await _dio.get(
+      Endpoint.getHomeAdminSalesReport,
       queryParameters: {'mart_id': params.martId, 'page': params.page},
     );
   }

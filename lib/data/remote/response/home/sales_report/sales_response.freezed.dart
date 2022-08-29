@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'sales_report_response.dart';
+part of 'sales_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,15 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SalesReportResponse _$SalesReportResponseFromJson(Map<String, dynamic> json) {
-  return _SalesReportResponse.fromJson(json);
+SalesResponse _$SalesResponseFromJson(Map<String, dynamic> json) {
+  return _SalesResponse.fromJson(json);
 }
 
 /// @nodoc
-class _$SalesReportResponseTearOff {
-  const _$SalesReportResponseTearOff();
+class _$SalesResponseTearOff {
+  const _$SalesResponseTearOff();
 
-  _SalesReportResponse call(
+  _SalesResponse call(
       {required int? id,
       @JsonKey(name: 'mart_id') required int? martId,
       @JsonKey(name: 'user_id') required int? userId,
@@ -40,7 +40,7 @@ class _$SalesReportResponseTearOff {
       @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') required int? isMatched,
       required UserResponse? user}) {
-    return _SalesReportResponse(
+    return _SalesResponse(
       id: id,
       martId: martId,
       userId: userId,
@@ -61,16 +61,16 @@ class _$SalesReportResponseTearOff {
     );
   }
 
-  SalesReportResponse fromJson(Map<String, Object?> json) {
-    return SalesReportResponse.fromJson(json);
+  SalesResponse fromJson(Map<String, Object?> json) {
+    return SalesResponse.fromJson(json);
   }
 }
 
 /// @nodoc
-const $SalesReportResponse = _$SalesReportResponseTearOff();
+const $SalesResponse = _$SalesResponseTearOff();
 
 /// @nodoc
-mixin _$SalesReportResponse {
+mixin _$SalesResponse {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'mart_id')
   int? get martId => throw _privateConstructorUsedError;
@@ -104,15 +104,15 @@ mixin _$SalesReportResponse {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SalesReportResponseCopyWith<SalesReportResponse> get copyWith =>
+  $SalesResponseCopyWith<SalesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SalesReportResponseCopyWith<$Res> {
-  factory $SalesReportResponseCopyWith(
-          SalesReportResponse value, $Res Function(SalesReportResponse) then) =
-      _$SalesReportResponseCopyWithImpl<$Res>;
+abstract class $SalesResponseCopyWith<$Res> {
+  factory $SalesResponseCopyWith(
+          SalesResponse value, $Res Function(SalesResponse) then) =
+      _$SalesResponseCopyWithImpl<$Res>;
   $Res call(
       {int? id,
       @JsonKey(name: 'mart_id') int? martId,
@@ -136,13 +136,13 @@ abstract class $SalesReportResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SalesReportResponseCopyWithImpl<$Res>
-    implements $SalesReportResponseCopyWith<$Res> {
-  _$SalesReportResponseCopyWithImpl(this._value, this._then);
+class _$SalesResponseCopyWithImpl<$Res>
+    implements $SalesResponseCopyWith<$Res> {
+  _$SalesResponseCopyWithImpl(this._value, this._then);
 
-  final SalesReportResponse _value;
+  final SalesResponse _value;
   // ignore: unused_field
-  final $Res Function(SalesReportResponse) _then;
+  final $Res Function(SalesResponse) _then;
 
   @override
   $Res call({
@@ -249,11 +249,11 @@ class _$SalesReportResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SalesReportResponseCopyWith<$Res>
-    implements $SalesReportResponseCopyWith<$Res> {
-  factory _$SalesReportResponseCopyWith(_SalesReportResponse value,
-          $Res Function(_SalesReportResponse) then) =
-      __$SalesReportResponseCopyWithImpl<$Res>;
+abstract class _$SalesResponseCopyWith<$Res>
+    implements $SalesResponseCopyWith<$Res> {
+  factory _$SalesResponseCopyWith(
+          _SalesResponse value, $Res Function(_SalesResponse) then) =
+      __$SalesResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -279,15 +279,15 @@ abstract class _$SalesReportResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesReportResponseCopyWithImpl<$Res>
-    extends _$SalesReportResponseCopyWithImpl<$Res>
-    implements _$SalesReportResponseCopyWith<$Res> {
-  __$SalesReportResponseCopyWithImpl(
-      _SalesReportResponse _value, $Res Function(_SalesReportResponse) _then)
-      : super(_value, (v) => _then(v as _SalesReportResponse));
+class __$SalesResponseCopyWithImpl<$Res>
+    extends _$SalesResponseCopyWithImpl<$Res>
+    implements _$SalesResponseCopyWith<$Res> {
+  __$SalesResponseCopyWithImpl(
+      _SalesResponse _value, $Res Function(_SalesResponse) _then)
+      : super(_value, (v) => _then(v as _SalesResponse));
 
   @override
-  _SalesReportResponse get _value => super._value as _SalesReportResponse;
+  _SalesResponse get _value => super._value as _SalesResponse;
 
   @override
   $Res call({
@@ -309,7 +309,7 @@ class __$SalesReportResponseCopyWithImpl<$Res>
     Object? isMatched = freezed,
     Object? user = freezed,
   }) {
-    return _then(_SalesReportResponse(
+    return _then(_SalesResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -384,8 +384,8 @@ class __$SalesReportResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SalesReportResponse extends _SalesReportResponse {
-  const _$_SalesReportResponse(
+class _$_SalesResponse extends _SalesResponse {
+  const _$_SalesResponse(
       {required this.id,
       @JsonKey(name: 'mart_id') required this.martId,
       @JsonKey(name: 'user_id') required this.userId,
@@ -405,8 +405,8 @@ class _$_SalesReportResponse extends _SalesReportResponse {
       required this.user})
       : super._();
 
-  factory _$_SalesReportResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_SalesReportResponseFromJson(json);
+  factory _$_SalesResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_SalesResponseFromJson(json);
 
   @override
   final int? id;
@@ -458,14 +458,14 @@ class _$_SalesReportResponse extends _SalesReportResponse {
 
   @override
   String toString() {
-    return 'SalesReportResponse(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user)';
+    return 'SalesResponse(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesReportResponse &&
+            other is _SalesResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.martId, martId) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
@@ -514,18 +514,17 @@ class _$_SalesReportResponse extends _SalesReportResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesReportResponseCopyWith<_SalesReportResponse> get copyWith =>
-      __$SalesReportResponseCopyWithImpl<_SalesReportResponse>(
-          this, _$identity);
+  _$SalesResponseCopyWith<_SalesResponse> get copyWith =>
+      __$SalesResponseCopyWithImpl<_SalesResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SalesReportResponseToJson(this);
+    return _$$_SalesResponseToJson(this);
   }
 }
 
-abstract class _SalesReportResponse extends SalesReportResponse {
-  const factory _SalesReportResponse(
+abstract class _SalesResponse extends SalesResponse {
+  const factory _SalesResponse(
       {required int? id,
       @JsonKey(name: 'mart_id') required int? martId,
       @JsonKey(name: 'user_id') required int? userId,
@@ -542,11 +541,11 @@ abstract class _SalesReportResponse extends SalesReportResponse {
       @JsonKey(name: 'updated_at') required DateTime? updatedAt,
       @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') required int? isMatched,
-      required UserResponse? user}) = _$_SalesReportResponse;
-  const _SalesReportResponse._() : super._();
+      required UserResponse? user}) = _$_SalesResponse;
+  const _SalesResponse._() : super._();
 
-  factory _SalesReportResponse.fromJson(Map<String, dynamic> json) =
-      _$_SalesReportResponse.fromJson;
+  factory _SalesResponse.fromJson(Map<String, dynamic> json) =
+      _$_SalesResponse.fromJson;
 
   @override
   int? get id;
@@ -597,6 +596,6 @@ abstract class _SalesReportResponse extends SalesReportResponse {
   UserResponse? get user;
   @override
   @JsonKey(ignore: true)
-  _$SalesReportResponseCopyWith<_SalesReportResponse> get copyWith =>
+  _$SalesResponseCopyWith<_SalesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

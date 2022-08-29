@@ -21,13 +21,11 @@ class _$HomeDataTearOff {
   _HomeData call(
       {required List<Transaction>? produkCepatTerjual,
       required List<Transaction>? produkLamaTerjual,
-      required ReportsSales? laporanPenjualan,
       required double? totalSaldoSimpananUtang,
       required double? totalUtang}) {
     return _HomeData(
       produkCepatTerjual: produkCepatTerjual,
       produkLamaTerjual: produkLamaTerjual,
-      laporanPenjualan: laporanPenjualan,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang,
       totalUtang: totalUtang,
     );
@@ -43,7 +41,6 @@ mixin _$HomeData {
       throw _privateConstructorUsedError;
   List<Transaction>? get produkLamaTerjual =>
       throw _privateConstructorUsedError;
-  ReportsSales? get laporanPenjualan => throw _privateConstructorUsedError;
   double? get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
   double? get totalUtang => throw _privateConstructorUsedError;
 
@@ -59,11 +56,8 @@ abstract class $HomeDataCopyWith<$Res> {
   $Res call(
       {List<Transaction>? produkCepatTerjual,
       List<Transaction>? produkLamaTerjual,
-      ReportsSales? laporanPenjualan,
       double? totalSaldoSimpananUtang,
       double? totalUtang});
-
-  $ReportsSalesCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -78,7 +72,6 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
   $Res call({
     Object? produkCepatTerjual = freezed,
     Object? produkLamaTerjual = freezed,
-    Object? laporanPenjualan = freezed,
     Object? totalSaldoSimpananUtang = freezed,
     Object? totalUtang = freezed,
   }) {
@@ -91,10 +84,6 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
           ? _value.produkLamaTerjual
           : produkLamaTerjual // ignore: cast_nullable_to_non_nullable
               as List<Transaction>?,
-      laporanPenjualan: laporanPenjualan == freezed
-          ? _value.laporanPenjualan
-          : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as ReportsSales?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -104,17 +93,6 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
           : totalUtang // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
-  }
-
-  @override
-  $ReportsSalesCopyWith<$Res>? get laporanPenjualan {
-    if (_value.laporanPenjualan == null) {
-      return null;
-    }
-
-    return $ReportsSalesCopyWith<$Res>(_value.laporanPenjualan!, (value) {
-      return _then(_value.copyWith(laporanPenjualan: value));
-    });
   }
 }
 
@@ -126,12 +104,8 @@ abstract class _$HomeDataCopyWith<$Res> implements $HomeDataCopyWith<$Res> {
   $Res call(
       {List<Transaction>? produkCepatTerjual,
       List<Transaction>? produkLamaTerjual,
-      ReportsSales? laporanPenjualan,
       double? totalSaldoSimpananUtang,
       double? totalUtang});
-
-  @override
-  $ReportsSalesCopyWith<$Res>? get laporanPenjualan;
 }
 
 /// @nodoc
@@ -147,7 +121,6 @@ class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
   $Res call({
     Object? produkCepatTerjual = freezed,
     Object? produkLamaTerjual = freezed,
-    Object? laporanPenjualan = freezed,
     Object? totalSaldoSimpananUtang = freezed,
     Object? totalUtang = freezed,
   }) {
@@ -160,10 +133,6 @@ class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
           ? _value.produkLamaTerjual
           : produkLamaTerjual // ignore: cast_nullable_to_non_nullable
               as List<Transaction>?,
-      laporanPenjualan: laporanPenjualan == freezed
-          ? _value.laporanPenjualan
-          : laporanPenjualan // ignore: cast_nullable_to_non_nullable
-              as ReportsSales?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
@@ -182,7 +151,6 @@ class _$_HomeData implements _HomeData {
   const _$_HomeData(
       {required this.produkCepatTerjual,
       required this.produkLamaTerjual,
-      required this.laporanPenjualan,
       required this.totalSaldoSimpananUtang,
       required this.totalUtang});
 
@@ -191,15 +159,13 @@ class _$_HomeData implements _HomeData {
   @override
   final List<Transaction>? produkLamaTerjual;
   @override
-  final ReportsSales? laporanPenjualan;
-  @override
   final double? totalSaldoSimpananUtang;
   @override
   final double? totalUtang;
 
   @override
   String toString() {
-    return 'HomeData(produkCepatTerjual: $produkCepatTerjual, produkLamaTerjual: $produkLamaTerjual, laporanPenjualan: $laporanPenjualan, totalSaldoSimpananUtang: $totalSaldoSimpananUtang, totalUtang: $totalUtang)';
+    return 'HomeData(produkCepatTerjual: $produkCepatTerjual, produkLamaTerjual: $produkLamaTerjual, totalSaldoSimpananUtang: $totalSaldoSimpananUtang, totalUtang: $totalUtang)';
   }
 
   @override
@@ -211,8 +177,6 @@ class _$_HomeData implements _HomeData {
                 .equals(other.produkCepatTerjual, produkCepatTerjual) &&
             const DeepCollectionEquality()
                 .equals(other.produkLamaTerjual, produkLamaTerjual) &&
-            const DeepCollectionEquality()
-                .equals(other.laporanPenjualan, laporanPenjualan) &&
             const DeepCollectionEquality().equals(
                 other.totalSaldoSimpananUtang, totalSaldoSimpananUtang) &&
             const DeepCollectionEquality()
@@ -224,7 +188,6 @@ class _$_HomeData implements _HomeData {
       runtimeType,
       const DeepCollectionEquality().hash(produkCepatTerjual),
       const DeepCollectionEquality().hash(produkLamaTerjual),
-      const DeepCollectionEquality().hash(laporanPenjualan),
       const DeepCollectionEquality().hash(totalSaldoSimpananUtang),
       const DeepCollectionEquality().hash(totalUtang));
 
@@ -238,7 +201,6 @@ abstract class _HomeData implements HomeData {
   const factory _HomeData(
       {required List<Transaction>? produkCepatTerjual,
       required List<Transaction>? produkLamaTerjual,
-      required ReportsSales? laporanPenjualan,
       required double? totalSaldoSimpananUtang,
       required double? totalUtang}) = _$_HomeData;
 
@@ -246,8 +208,6 @@ abstract class _HomeData implements HomeData {
   List<Transaction>? get produkCepatTerjual;
   @override
   List<Transaction>? get produkLamaTerjual;
-  @override
-  ReportsSales? get laporanPenjualan;
   @override
   double? get totalSaldoSimpananUtang;
   @override

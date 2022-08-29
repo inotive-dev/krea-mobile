@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -7,8 +5,10 @@ import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/domain/entities/home/branch.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 import 'package:koperasi/domain/entities/home/home_user_data.dart';
+import 'package:koperasi/domain/entities/home/sales_report_data.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_laba_rugi_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_user_usecase.dart';
 
@@ -23,12 +23,14 @@ class HomeCubit extends Cubit<HomeState> {
   final GetHomeUserUseCase _getHomeUserUseCase;
   final GetHomeAdminNeraca _getHomeAdminNeraca;
   final GetHomeAdminLabaRugi _getHomeAdminLabaRugi;
+  final GetHomeAdminSalesReports _getHomeAdminSalesReports;
 
   HomeCubit(
     this._getHomeAdminUseCase,
     this._getHomeUserUseCase,
     this._getHomeAdminNeraca,
     this._getHomeAdminLabaRugi,
+    this._getHomeAdminSalesReports,
   ) : super(HomeState.initial());
 
   updateMartId(int id) {
@@ -75,36 +77,6 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  updateSalesReportData(int page) async {
-    emit(state.copyWith(updateSalesReportState: const ResultState.loading()));
-
-    final _result = await _getHomeAdminUseCase(GetHomeAdminUseCaseParams(
-      martId: state.martId.toString(),
-      page: page,
-    ));
-    _result.fold(
-      (l) {
-        emit(
-          state.copyWith(
-            updateSalesReportState: ResultState.error(failure: l),
-          ),
-        );
-      },
-      (r) {
-        return emit(
-          state.copyWith(
-            updateSalesReportState: ResultState.success(data: r),
-            homeData: state.homeData.copyWith(laporanPenjualan: r.data?.laporanPenjualan),
-          ),
-        );
-      },
-    );
-
-    Timer(const Duration(seconds: 2), () {
-      emit(state.copyWith(updateSalesReportState: const ResultState.success(data: null)));
-    });
-  }
-
   getHomeUserData() async {
     emit(state.copyWith(getHomeUserResultState: const ResultState.loading()));
 
@@ -129,12 +101,13 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  getHomeDataNeraca() async {
+  getHomeDataNeraca(int page) async {
     emit(state.copyWith(getHomeAdminNeracaResultState: const ResultState.loading()));
 
     final _result = await _getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams(
       type: state.type,
       year: state.year,
+      page: page,
     ));
     _result.fold(
       (l) {
@@ -155,12 +128,13 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  getHomeDataLabaRugi() async {
+  getHomeDataLabaRugi(int page) async {
     emit(state.copyWith(getHomeAdminLabaRugiResultState: const ResultState.loading()));
 
     final _result = await _getHomeAdminLabaRugi(GetHomeAdminBranchesUseCaseParams(
       type: state.type,
       year: state.year,
+      page: page,
     ));
     _result.fold(
       (l) {
@@ -177,6 +151,50 @@ class HomeCubit extends Cubit<HomeState> {
             labaRugiData: r.data ?? [],
           ),
         );
+      },
+    );
+  }
+
+// SALES REPORTS
+  getHomeAdminSalesReports(int page) async {
+    bool _isUpdate = state.salesReportData.currentPage! >= 1;
+    print('ISUPDATE $_isUpdate - $page');
+
+    if (_isUpdate) {
+      emit(state.copyWith(updateSalesReportState: const ResultState.loading()));
+    } else {
+      emit(state.copyWith(getHomeAdminSalesReportState: const ResultState.loading()));
+    }
+
+    final _result = await _getHomeAdminSalesReports(GetAdminHomeSalesReportsUseCaseParams(
+      page: page,
+      martId: state.martId,
+    ));
+    _result.fold(
+      (l) {
+        if (_isUpdate) {
+          emit(state.copyWith(updateSalesReportState: ResultState.error(failure: l)));
+        } else {
+          emit(state.copyWith(getHomeAdminSalesReportState: ResultState.error(failure: l)));
+        }
+      },
+      (r) {
+        if (_isUpdate) {
+          print('ISUPDATE ${r.data}');
+          return emit(
+            state.copyWith(
+              updateSalesReportState: ResultState.success(data: r),
+              salesReportData: r.data ?? SalesReportData.initial(),
+            ),
+          );
+        } else {
+          return emit(
+            state.copyWith(
+              getHomeAdminSalesReportState: ResultState.success(data: r),
+              salesReportData: r.data ?? SalesReportData.initial(),
+            ),
+          );
+        }
       },
     );
   }

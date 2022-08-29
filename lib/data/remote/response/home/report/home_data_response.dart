@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/data/remote/response/home/reports_sales_response.dart';
 import 'package:koperasi/data/remote/response/home/transaction_response.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 
@@ -13,7 +12,6 @@ class HomeDataResponse with _$HomeDataResponse {
   const factory HomeDataResponse({
     @JsonKey(name: 'produk_cepat_terjual') required List<TransactionResponse>? produkCepatTerjual,
     @JsonKey(name: 'produk_lama_terjual') required List<TransactionResponse>? produkLamaTerjual,
-    @JsonKey(name: 'laporan_penjualan') required ReportsSalesResponse? laporanPenjualan,
     @JsonKey(name: 'total_saldo_simpanan_utang') required double? totalSaldoSimpananUtang,
     @JsonKey(name: 'total_utang') required double? totalUtang,
   }) = _HomeDataResponse;
@@ -23,7 +21,6 @@ class HomeDataResponse with _$HomeDataResponse {
   HomeData toDomain() => HomeData(
         produkCepatTerjual: produkCepatTerjual?.map((e) => e.toDomain()).toList(),
         produkLamaTerjual: produkLamaTerjual?.map((e) => e.toDomain()).toList(),
-        laporanPenjualan: laporanPenjualan?.toDomain(),
         totalSaldoSimpananUtang: totalSaldoSimpananUtang,
         totalUtang: totalUtang,
       );

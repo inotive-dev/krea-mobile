@@ -2,12 +2,14 @@ import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/data/remote/response/history/history_response.dart';
 import 'package:koperasi/data/remote/response/home/branches_response.dart';
-import 'package:koperasi/data/remote/response/home/home_response.dart';
 import 'package:koperasi/data/remote/response/home/home_user_response.dart';
+import 'package:koperasi/data/remote/response/home/report/home_response.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_report_response.dart';
 import 'package:koperasi/data/remote/response/profile/profile_response.dart';
 import 'package:koperasi/data/remote/response/profile/update_profile_response.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
@@ -66,5 +68,10 @@ class RemoteDataSource {
   Future<UpdateProfileResponse> updateProfile(UpdateProfileUseCaseParams params) async {
     final _response = await _apiService.updateProfile(params);
     return UpdateProfileResponse.fromJson(_response.data);
+  }
+
+  Future<SalesReportResponse> getHomeAdminSalesReports(GetAdminHomeSalesReportsUseCaseParams params) async {
+    final _response = await _apiService.getHomeAdminSalesReport(params);
+    return SalesReportResponse.fromJson(_response.data);
   }
 }

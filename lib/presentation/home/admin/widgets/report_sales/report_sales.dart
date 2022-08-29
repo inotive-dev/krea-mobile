@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/result_state.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
@@ -29,17 +30,31 @@ class ReportSales extends StatelessWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
-        success: (data) => ListView.separated(
-          itemCount: salesReports.length,
-          separatorBuilder: (context, index) => SizedBox(
-            height: Sizes.height9,
-          ),
-          itemBuilder: (context, position) {
-            return SalesCard(
-              salesReport: salesReports[position],
+        success: (data) {
+          if (salesReports.isEmpty) {
+            return Center(
+              child: Text(
+                'No data',
+                style: TextStyle(
+                  fontSize: Sizes.sp13,
+                  color: ColorPalettes.greyText,
+                ),
+              ),
             );
-          },
-        ),
+          } else {
+            return ListView.separated(
+              itemCount: salesReports.length,
+              separatorBuilder: (context, index) => SizedBox(
+                height: Sizes.height9,
+              ),
+              itemBuilder: (context, position) {
+                return SalesCard(
+                  salesReport: salesReports[position],
+                );
+              },
+            );
+          }
+        },
         orElse: () => null,
       ),
     );

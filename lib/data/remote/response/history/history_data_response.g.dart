@@ -10,10 +10,10 @@ _$_HistoryDataResponse _$$_HistoryDataResponseFromJson(
         Map<String, dynamic> json) =>
     _$_HistoryDataResponse(
       thisWeekHistory: (json['this_week_history'] as List<dynamic>?)
-          ?.map((e) => SalesReportResponse.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SalesResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
       lastMonthHistory: (json['last_month_history'] as List<dynamic>?)
-          ?.map((e) => SalesReportResponse.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SalesResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

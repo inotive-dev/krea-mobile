@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'reports_sales.dart';
+part of 'sales_report_data_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,25 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$ReportsSalesTearOff {
-  const _$ReportsSalesTearOff();
+SalesReportDataResponse _$SalesReportDataResponseFromJson(
+    Map<String, dynamic> json) {
+  return _SalesReportDataResponse.fromJson(json);
+}
 
-  _ReportsSales call(
-      {required int? currentPage,
-      required List<SalesReport>? data,
-      required String? firstPageUrl,
+/// @nodoc
+class _$SalesReportDataResponseTearOff {
+  const _$SalesReportDataResponseTearOff();
+
+  _SalesReportDataResponse call(
+      {@JsonKey(name: 'current_page') required int? currentPage,
+      required List<SalesResponse>? data,
+      @JsonKey(name: 'first_page_url') required String? firstPageUrl,
       required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
+      @JsonKey(name: 'last_page') required int? lastPage,
+      @JsonKey(name: 'last_page_url') required String? lastPageUrl,
+      required List<LinkResponse> links,
+      @JsonKey(name: 'next_page_url') required String? nextPageUrl,
       required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
+      @JsonKey(name: 'per_page') required int? perPage,
+      @JsonKey(name: 'prev_page_url') required String? prevPageUrl,
       required int? to,
       required int? total}) {
-    return _ReportsSales(
+    return _SalesReportDataResponse(
       currentPage: currentPage,
       data: data,
       firstPageUrl: firstPageUrl,
@@ -48,60 +53,73 @@ class _$ReportsSalesTearOff {
       total: total,
     );
   }
+
+  SalesReportDataResponse fromJson(Map<String, Object?> json) {
+    return SalesReportDataResponse.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $ReportsSales = _$ReportsSalesTearOff();
+const $SalesReportDataResponse = _$SalesReportDataResponseTearOff();
 
 /// @nodoc
-mixin _$ReportsSales {
+mixin _$SalesReportDataResponse {
+  @JsonKey(name: 'current_page')
   int? get currentPage => throw _privateConstructorUsedError;
-  List<SalesReport>? get data => throw _privateConstructorUsedError;
+  List<SalesResponse>? get data => throw _privateConstructorUsedError;
+  @JsonKey(name: 'first_page_url')
   String? get firstPageUrl => throw _privateConstructorUsedError;
   int? get from => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_page')
   int? get lastPage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_page_url')
   String? get lastPageUrl => throw _privateConstructorUsedError;
-  List<Link>? get links => throw _privateConstructorUsedError;
+  List<LinkResponse> get links => throw _privateConstructorUsedError;
+  @JsonKey(name: 'next_page_url')
   String? get nextPageUrl => throw _privateConstructorUsedError;
   String? get path => throw _privateConstructorUsedError;
+  @JsonKey(name: 'per_page')
   int? get perPage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'prev_page_url')
   String? get prevPageUrl => throw _privateConstructorUsedError;
   int? get to => throw _privateConstructorUsedError;
   int? get total => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ReportsSalesCopyWith<ReportsSales> get copyWith =>
+  $SalesReportDataResponseCopyWith<SalesReportDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ReportsSalesCopyWith<$Res> {
-  factory $ReportsSalesCopyWith(
-          ReportsSales value, $Res Function(ReportsSales) then) =
-      _$ReportsSalesCopyWithImpl<$Res>;
+abstract class $SalesReportDataResponseCopyWith<$Res> {
+  factory $SalesReportDataResponseCopyWith(SalesReportDataResponse value,
+          $Res Function(SalesReportDataResponse) then) =
+      _$SalesReportDataResponseCopyWithImpl<$Res>;
   $Res call(
-      {int? currentPage,
-      List<SalesReport>? data,
-      String? firstPageUrl,
+      {@JsonKey(name: 'current_page') int? currentPage,
+      List<SalesResponse>? data,
+      @JsonKey(name: 'first_page_url') String? firstPageUrl,
       int? from,
-      int? lastPage,
-      String? lastPageUrl,
-      List<Link>? links,
-      String? nextPageUrl,
+      @JsonKey(name: 'last_page') int? lastPage,
+      @JsonKey(name: 'last_page_url') String? lastPageUrl,
+      List<LinkResponse> links,
+      @JsonKey(name: 'next_page_url') String? nextPageUrl,
       String? path,
-      int? perPage,
-      String? prevPageUrl,
+      @JsonKey(name: 'per_page') int? perPage,
+      @JsonKey(name: 'prev_page_url') String? prevPageUrl,
       int? to,
       int? total});
 }
 
 /// @nodoc
-class _$ReportsSalesCopyWithImpl<$Res> implements $ReportsSalesCopyWith<$Res> {
-  _$ReportsSalesCopyWithImpl(this._value, this._then);
+class _$SalesReportDataResponseCopyWithImpl<$Res>
+    implements $SalesReportDataResponseCopyWith<$Res> {
+  _$SalesReportDataResponseCopyWithImpl(this._value, this._then);
 
-  final ReportsSales _value;
+  final SalesReportDataResponse _value;
   // ignore: unused_field
-  final $Res Function(ReportsSales) _then;
+  final $Res Function(SalesReportDataResponse) _then;
 
   @override
   $Res call({
@@ -127,7 +145,7 @@ class _$ReportsSalesCopyWithImpl<$Res> implements $ReportsSalesCopyWith<$Res> {
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as List<SalesResponse>?,
       firstPageUrl: firstPageUrl == freezed
           ? _value.firstPageUrl
           : firstPageUrl // ignore: cast_nullable_to_non_nullable
@@ -147,7 +165,7 @@ class _$ReportsSalesCopyWithImpl<$Res> implements $ReportsSalesCopyWith<$Res> {
       links: links == freezed
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
+              as List<LinkResponse>,
       nextPageUrl: nextPageUrl == freezed
           ? _value.nextPageUrl
           : nextPageUrl // ignore: cast_nullable_to_non_nullable
@@ -177,37 +195,39 @@ class _$ReportsSalesCopyWithImpl<$Res> implements $ReportsSalesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ReportsSalesCopyWith<$Res>
-    implements $ReportsSalesCopyWith<$Res> {
-  factory _$ReportsSalesCopyWith(
-          _ReportsSales value, $Res Function(_ReportsSales) then) =
-      __$ReportsSalesCopyWithImpl<$Res>;
+abstract class _$SalesReportDataResponseCopyWith<$Res>
+    implements $SalesReportDataResponseCopyWith<$Res> {
+  factory _$SalesReportDataResponseCopyWith(_SalesReportDataResponse value,
+          $Res Function(_SalesReportDataResponse) then) =
+      __$SalesReportDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? currentPage,
-      List<SalesReport>? data,
-      String? firstPageUrl,
+      {@JsonKey(name: 'current_page') int? currentPage,
+      List<SalesResponse>? data,
+      @JsonKey(name: 'first_page_url') String? firstPageUrl,
       int? from,
-      int? lastPage,
-      String? lastPageUrl,
-      List<Link>? links,
-      String? nextPageUrl,
+      @JsonKey(name: 'last_page') int? lastPage,
+      @JsonKey(name: 'last_page_url') String? lastPageUrl,
+      List<LinkResponse> links,
+      @JsonKey(name: 'next_page_url') String? nextPageUrl,
       String? path,
-      int? perPage,
-      String? prevPageUrl,
+      @JsonKey(name: 'per_page') int? perPage,
+      @JsonKey(name: 'prev_page_url') String? prevPageUrl,
       int? to,
       int? total});
 }
 
 /// @nodoc
-class __$ReportsSalesCopyWithImpl<$Res> extends _$ReportsSalesCopyWithImpl<$Res>
-    implements _$ReportsSalesCopyWith<$Res> {
-  __$ReportsSalesCopyWithImpl(
-      _ReportsSales _value, $Res Function(_ReportsSales) _then)
-      : super(_value, (v) => _then(v as _ReportsSales));
+class __$SalesReportDataResponseCopyWithImpl<$Res>
+    extends _$SalesReportDataResponseCopyWithImpl<$Res>
+    implements _$SalesReportDataResponseCopyWith<$Res> {
+  __$SalesReportDataResponseCopyWithImpl(_SalesReportDataResponse _value,
+      $Res Function(_SalesReportDataResponse) _then)
+      : super(_value, (v) => _then(v as _SalesReportDataResponse));
 
   @override
-  _ReportsSales get _value => super._value as _ReportsSales;
+  _SalesReportDataResponse get _value =>
+      super._value as _SalesReportDataResponse;
 
   @override
   $Res call({
@@ -225,7 +245,7 @@ class __$ReportsSalesCopyWithImpl<$Res> extends _$ReportsSalesCopyWithImpl<$Res>
     Object? to = freezed,
     Object? total = freezed,
   }) {
-    return _then(_ReportsSales(
+    return _then(_SalesReportDataResponse(
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -233,7 +253,7 @@ class __$ReportsSalesCopyWithImpl<$Res> extends _$ReportsSalesCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as List<SalesResponse>?,
       firstPageUrl: firstPageUrl == freezed
           ? _value.firstPageUrl
           : firstPageUrl // ignore: cast_nullable_to_non_nullable
@@ -253,7 +273,7 @@ class __$ReportsSalesCopyWithImpl<$Res> extends _$ReportsSalesCopyWithImpl<$Res>
       links: links == freezed
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as List<Link>?,
+              as List<LinkResponse>,
       nextPageUrl: nextPageUrl == freezed
           ? _value.nextPageUrl
           : nextPageUrl // ignore: cast_nullable_to_non_nullable
@@ -283,44 +303,55 @@ class __$ReportsSalesCopyWithImpl<$Res> extends _$ReportsSalesCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_ReportsSales implements _ReportsSales {
-  const _$_ReportsSales(
-      {required this.currentPage,
+@JsonSerializable()
+class _$_SalesReportDataResponse extends _SalesReportDataResponse {
+  const _$_SalesReportDataResponse(
+      {@JsonKey(name: 'current_page') required this.currentPage,
       required this.data,
-      required this.firstPageUrl,
+      @JsonKey(name: 'first_page_url') required this.firstPageUrl,
       required this.from,
-      required this.lastPage,
-      required this.lastPageUrl,
+      @JsonKey(name: 'last_page') required this.lastPage,
+      @JsonKey(name: 'last_page_url') required this.lastPageUrl,
       required this.links,
-      required this.nextPageUrl,
+      @JsonKey(name: 'next_page_url') required this.nextPageUrl,
       required this.path,
-      required this.perPage,
-      required this.prevPageUrl,
+      @JsonKey(name: 'per_page') required this.perPage,
+      @JsonKey(name: 'prev_page_url') required this.prevPageUrl,
       required this.to,
-      required this.total});
+      required this.total})
+      : super._();
+
+  factory _$_SalesReportDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_SalesReportDataResponseFromJson(json);
 
   @override
+  @JsonKey(name: 'current_page')
   final int? currentPage;
   @override
-  final List<SalesReport>? data;
+  final List<SalesResponse>? data;
   @override
+  @JsonKey(name: 'first_page_url')
   final String? firstPageUrl;
   @override
   final int? from;
   @override
+  @JsonKey(name: 'last_page')
   final int? lastPage;
   @override
+  @JsonKey(name: 'last_page_url')
   final String? lastPageUrl;
   @override
-  final List<Link>? links;
+  final List<LinkResponse> links;
   @override
+  @JsonKey(name: 'next_page_url')
   final String? nextPageUrl;
   @override
   final String? path;
   @override
+  @JsonKey(name: 'per_page')
   final int? perPage;
   @override
+  @JsonKey(name: 'prev_page_url')
   final String? prevPageUrl;
   @override
   final int? to;
@@ -329,14 +360,14 @@ class _$_ReportsSales implements _ReportsSales {
 
   @override
   String toString() {
-    return 'ReportsSales(currentPage: $currentPage, data: $data, firstPageUrl: $firstPageUrl, from: $from, lastPage: $lastPage, lastPageUrl: $lastPageUrl, links: $links, nextPageUrl: $nextPageUrl, path: $path, perPage: $perPage, prevPageUrl: $prevPageUrl, to: $to, total: $total)';
+    return 'SalesReportDataResponse(currentPage: $currentPage, data: $data, firstPageUrl: $firstPageUrl, from: $from, lastPage: $lastPage, lastPageUrl: $lastPageUrl, links: $links, nextPageUrl: $nextPageUrl, path: $path, perPage: $perPage, prevPageUrl: $prevPageUrl, to: $to, total: $total)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ReportsSales &&
+            other is _SalesReportDataResponse &&
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
             const DeepCollectionEquality().equals(other.data, data) &&
@@ -376,47 +407,64 @@ class _$_ReportsSales implements _ReportsSales {
 
   @JsonKey(ignore: true)
   @override
-  _$ReportsSalesCopyWith<_ReportsSales> get copyWith =>
-      __$ReportsSalesCopyWithImpl<_ReportsSales>(this, _$identity);
+  _$SalesReportDataResponseCopyWith<_SalesReportDataResponse> get copyWith =>
+      __$SalesReportDataResponseCopyWithImpl<_SalesReportDataResponse>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SalesReportDataResponseToJson(this);
+  }
 }
 
-abstract class _ReportsSales implements ReportsSales {
-  const factory _ReportsSales(
-      {required int? currentPage,
-      required List<SalesReport>? data,
-      required String? firstPageUrl,
+abstract class _SalesReportDataResponse extends SalesReportDataResponse {
+  const factory _SalesReportDataResponse(
+      {@JsonKey(name: 'current_page') required int? currentPage,
+      required List<SalesResponse>? data,
+      @JsonKey(name: 'first_page_url') required String? firstPageUrl,
       required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
+      @JsonKey(name: 'last_page') required int? lastPage,
+      @JsonKey(name: 'last_page_url') required String? lastPageUrl,
+      required List<LinkResponse> links,
+      @JsonKey(name: 'next_page_url') required String? nextPageUrl,
       required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
+      @JsonKey(name: 'per_page') required int? perPage,
+      @JsonKey(name: 'prev_page_url') required String? prevPageUrl,
       required int? to,
-      required int? total}) = _$_ReportsSales;
+      required int? total}) = _$_SalesReportDataResponse;
+  const _SalesReportDataResponse._() : super._();
+
+  factory _SalesReportDataResponse.fromJson(Map<String, dynamic> json) =
+      _$_SalesReportDataResponse.fromJson;
 
   @override
+  @JsonKey(name: 'current_page')
   int? get currentPage;
   @override
-  List<SalesReport>? get data;
+  List<SalesResponse>? get data;
   @override
+  @JsonKey(name: 'first_page_url')
   String? get firstPageUrl;
   @override
   int? get from;
   @override
+  @JsonKey(name: 'last_page')
   int? get lastPage;
   @override
+  @JsonKey(name: 'last_page_url')
   String? get lastPageUrl;
   @override
-  List<Link>? get links;
+  List<LinkResponse> get links;
   @override
+  @JsonKey(name: 'next_page_url')
   String? get nextPageUrl;
   @override
   String? get path;
   @override
+  @JsonKey(name: 'per_page')
   int? get perPage;
   @override
+  @JsonKey(name: 'prev_page_url')
   String? get prevPageUrl;
   @override
   int? get to;
@@ -424,6 +472,6 @@ abstract class _ReportsSales implements ReportsSales {
   int? get total;
   @override
   @JsonKey(ignore: true)
-  _$ReportsSalesCopyWith<_ReportsSales> get copyWith =>
+  _$SalesReportDataResponseCopyWith<_SalesReportDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

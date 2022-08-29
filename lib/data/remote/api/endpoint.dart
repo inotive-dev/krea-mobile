@@ -11,4 +11,5 @@ class Endpoint {
   static const updateProfile = '/profile';
   static const getHomeAdminNeraca = '/admin/home/get-neraca';
   static const getHomeAdminLabaRugi = '/admin/home/get-labarugi';
+  static const getHomeAdminSalesReport = '/admin/home/get-penjualan';
 }

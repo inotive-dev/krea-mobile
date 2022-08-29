@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sales_report_response.dart';
+part of 'sales_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SalesReportResponse _$$_SalesReportResponseFromJson(
-        Map<String, dynamic> json) =>
-    _$_SalesReportResponse(
+_$_SalesResponse _$$_SalesResponseFromJson(Map<String, dynamic> json) =>
+    _$_SalesResponse(
       id: json['id'] as int?,
       martId: json['mart_id'] as int?,
       userId: json['user_id'] as int?,
@@ -36,8 +35,7 @@ _$_SalesReportResponse _$$_SalesReportResponseFromJson(
           : UserResponse.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SalesReportResponseToJson(
-        _$_SalesReportResponse instance) =>
+Map<String, dynamic> _$$_SalesResponseToJson(_$_SalesResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
       'mart_id': instance.martId,

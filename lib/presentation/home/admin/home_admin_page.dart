@@ -39,7 +39,8 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
     context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
 
     context.read<HomeCubit>().getHomeAdminData(1);
-    context.read<HomeCubit>().getHomeDataNeraca();
+    context.read<HomeCubit>().getHomeDataNeraca(1);
+    context.read<HomeCubit>().getHomeAdminSalesReports(1);
   }
 
   @override
@@ -48,8 +49,8 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
     super.dispose();
   }
 
-  _updateSalesReportData(int page) {
-    context.read<HomeCubit>().updateSalesReportData(page);
+  _updateSalesReportsData(int page) {
+    context.read<HomeCubit>().getHomeAdminSalesReports(page);
   }
 
   _handleTabSelection() {
@@ -58,11 +59,11 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
       switch (index) {
         case 0:
           context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
-          context.read<HomeCubit>().getHomeDataNeraca();
+          context.read<HomeCubit>().getHomeDataNeraca(1);
           break;
         case 1:
           context.read<HomeCubit>().updateType(Constants.typesLabaRugi[0]);
-          context.read<HomeCubit>().getHomeDataLabaRugi();
+          context.read<HomeCubit>().getHomeDataLabaRugi(1);
           break;
         default:
       }
@@ -126,7 +127,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
             SizedBox(height: Sizes.height10),
             BlocBuilder<HomeCubit, HomeState>(
               builder: (context, state) {
-                return state.getHomeAdminResultState.when(
+                return state.getHomeAdminSalesReportState.when(
                   initial: () => const SizedBox.shrink(),
                   loading: () => const Center(
                     child: CircularProgressIndicator(),
@@ -135,10 +136,10 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       ReportSales(
-                        salesReports: state.homeData.laporanPenjualan?.data ?? [],
+                        salesReports: state.salesReportData.data ?? [],
                         isUpdated: state.updateSalesReportState,
                       ),
-                      PageControl(control: state.homeData.laporanPenjualan, onUpdate: _updateSalesReportData),
+                      PageControl(control: state.salesReportData, onUpdate: _updateSalesReportsData),
                     ],
                   ),
                   error: (error) => Center(

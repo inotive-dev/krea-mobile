@@ -1,18 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:koperasi/data/remote/response/home/link_response.dart';
-import 'package:koperasi/data/remote/response/home/sales_report_response.dart';
-import 'package:koperasi/domain/entities/home/reports_sales.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
+import 'package:koperasi/domain/entities/home/sales_report_data.dart';
 
-part 'reports_sales_response.freezed.dart';
-part 'reports_sales_response.g.dart';
+part 'sales_report_data_response.freezed.dart';
+part 'sales_report_data_response.g.dart';
 
 @freezed
-class ReportsSalesResponse with _$ReportsSalesResponse {
-  const ReportsSalesResponse._();
+class SalesReportDataResponse with _$SalesReportDataResponse {
+  const SalesReportDataResponse._();
 
-  const factory ReportsSalesResponse({
+  const factory SalesReportDataResponse({
     @JsonKey(name: 'current_page') required int? currentPage,
-    required List<SalesReportResponse>? data,
+    required List<SalesResponse>? data,
     @JsonKey(name: 'first_page_url') required String? firstPageUrl,
     required int? from,
     @JsonKey(name: 'last_page') required int? lastPage,
@@ -24,18 +24,18 @@ class ReportsSalesResponse with _$ReportsSalesResponse {
     @JsonKey(name: 'prev_page_url') required String? prevPageUrl,
     required int? to,
     required int? total,
-  }) = _ReportsSalesResponse;
+  }) = _SalesReportDataResponse;
 
-  factory ReportsSalesResponse.fromJson(Map<String, dynamic> json) => _$ReportsSalesResponseFromJson(json);
+  factory SalesReportDataResponse.fromJson(Map<String, dynamic> json) => _$SalesReportDataResponseFromJson(json);
 
-  ReportsSales toDomain() => ReportsSales(
+  SalesReportData toDomain() => SalesReportData(
         currentPage: currentPage,
         data: data?.map((e) => e.toDomain()).toList(),
         firstPageUrl: firstPageUrl,
         from: from,
         lastPage: lastPage,
         lastPageUrl: lastPageUrl,
-        links: links?.map((e) => e.toDomain()).toList(),
+        links: links.map((e) => e.toDomain()).toList(),
         nextPageUrl: nextPageUrl,
         path: path,
         perPage: perPage,

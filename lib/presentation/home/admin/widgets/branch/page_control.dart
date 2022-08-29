@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
-import 'package:koperasi/domain/entities/home/reports_sales.dart';
+import 'package:koperasi/domain/entities/home/sales_report_data.dart';
 
 class PageControl extends StatelessWidget {
-  final ReportsSales? control;
+  final SalesReportData? control;
   final Function(int) onUpdate;
 
   const PageControl({
@@ -39,31 +39,43 @@ class PageControl extends StatelessWidget {
           ),
           SizedBox(width: Sizes.width24),
           IconButton(
-            onPressed: isPrevAllowed
-                ? () {
-                    final int currentPage = control?.currentPage ?? 1;
-                    if (currentPage > 1) {
-                      onUpdate(currentPage - 1);
-                    }
-                  }
-                : null,
+            onPressed: () {
+              final int currentPage = control?.currentPage ?? 1;
+              if (currentPage > 1) {
+                onUpdate(currentPage - 1);
+              }
+            },
+            // onPressed: isPrevAllowed
+            //     ? () {
+            //         final int currentPage = control?.currentPage ?? 1;
+            //         if (currentPage > 1) {
+            //           onUpdate(currentPage - 1);
+            //         }
+            //       }
+            //     : null,
             icon: Icon(
               Icons.arrow_back_ios,
               size: Sizes.height14,
-              color: isPrevAllowed ? Colors.blue : ColorPalettes.grey75,
+              // color: isPrevAllowed ? Colors.blue : ColorPalettes.grey75,
+              color: Colors.blue,
             ),
           ),
           IconButton(
-            onPressed: isNextAllowed
-                ? () {
-                    final int currentPage = control?.currentPage ?? 1;
-                    onUpdate(currentPage + 1);
-                  }
-                : null,
+            onPressed: () {
+              final int currentPage = control?.currentPage ?? 1;
+              onUpdate(currentPage + 1);
+            },
+            // onPressed: isNextAllowed
+            //     ? () {
+            //         final int currentPage = control?.currentPage ?? 1;
+            //         onUpdate(currentPage + 1);
+            //       }
+            //     : null,
             icon: Icon(
               Icons.arrow_forward_ios,
               size: Sizes.height14,
-              color: isNextAllowed ? Colors.blue : ColorPalettes.grey75,
+              // color: isNextAllowed ? Colors.blue : ColorPalettes.grey75,
+              color: Colors.blue,
             ),
           ),
           SizedBox(width: Sizes.width10),

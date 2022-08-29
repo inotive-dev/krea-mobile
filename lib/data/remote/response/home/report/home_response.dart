@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/data/remote/response/home/home_data_response.dart';
+import 'package:koperasi/data/remote/response/home/report/home_data_response.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 
 part 'home_response.freezed.dart';

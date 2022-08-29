@@ -1,17 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'reports_sales_response.dart';
+part of 'sales_report_data_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReportsSalesResponse _$$_ReportsSalesResponseFromJson(
+_$_SalesReportDataResponse _$$_SalesReportDataResponseFromJson(
         Map<String, dynamic> json) =>
-    _$_ReportsSalesResponse(
+    _$_SalesReportDataResponse(
       currentPage: json['current_page'] as int?,
       data: (json['data'] as List<dynamic>?)
-          ?.map((e) => SalesReportResponse.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => SalesResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
       firstPageUrl: json['first_page_url'] as String?,
       from: json['from'] as int?,
@@ -28,8 +28,8 @@ _$_ReportsSalesResponse _$$_ReportsSalesResponseFromJson(
       total: json['total'] as int?,
     );
 
-Map<String, dynamic> _$$_ReportsSalesResponseToJson(
-        _$_ReportsSalesResponse instance) =>
+Map<String, dynamic> _$$_SalesReportDataResponseToJson(
+        _$_SalesReportDataResponse instance) =>
     <String, dynamic>{
       'current_page': instance.currentPage,
       'data': instance.data,

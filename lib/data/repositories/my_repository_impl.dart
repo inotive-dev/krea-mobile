@@ -5,11 +5,13 @@ import 'package:koperasi/domain/entities/history_entities/history.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
+import 'package:koperasi/domain/entities/home/sales_reports.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
 import 'package:koperasi/domain/entities/profile/update_profile.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
@@ -179,6 +181,19 @@ class MyRepositoryImpl implements MyRepository {
     }
 
     _localDataSource.saveUser(_data.user?.toEntity());
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, SalesReports>> getHomeAdminSalesReports(GetAdminHomeSalesReportsUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHomeAdminSalesReports(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
 
     return Right(_data.toDomain());
   }

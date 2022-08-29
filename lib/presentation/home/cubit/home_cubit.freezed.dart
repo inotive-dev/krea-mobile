@@ -27,10 +27,13 @@ class _$HomeStateTearOff {
           const ResultState.initial(),
       ResultState<dynamic> getHomeAdminLabaRugiResultState =
           const ResultState.initial(),
+      ResultState<dynamic> getHomeAdminSalesReportState =
+          const ResultState.initial(),
       required HomeData homeData,
       required List<Branch> neracaData,
       required List<Branch> labaRugiData,
       required HomeUserData homeUserData,
+      required SalesReportData salesReportData,
       required DateTime lastUpdated,
       required int martId,
       required String year,
@@ -41,10 +44,12 @@ class _$HomeStateTearOff {
       updateSalesReportState: updateSalesReportState,
       getHomeAdminNeracaResultState: getHomeAdminNeracaResultState,
       getHomeAdminLabaRugiResultState: getHomeAdminLabaRugiResultState,
+      getHomeAdminSalesReportState: getHomeAdminSalesReportState,
       homeData: homeData,
       neracaData: neracaData,
       labaRugiData: labaRugiData,
       homeUserData: homeUserData,
+      salesReportData: salesReportData,
       lastUpdated: lastUpdated,
       martId: martId,
       year: year,
@@ -68,10 +73,13 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   ResultState<dynamic> get getHomeAdminLabaRugiResultState =>
       throw _privateConstructorUsedError;
+  ResultState<dynamic> get getHomeAdminSalesReportState =>
+      throw _privateConstructorUsedError;
   HomeData get homeData => throw _privateConstructorUsedError;
   List<Branch> get neracaData => throw _privateConstructorUsedError;
   List<Branch> get labaRugiData => throw _privateConstructorUsedError;
   HomeUserData get homeUserData => throw _privateConstructorUsedError;
+  SalesReportData get salesReportData => throw _privateConstructorUsedError;
   DateTime get lastUpdated => throw _privateConstructorUsedError;
   int get martId => throw _privateConstructorUsedError;
   String get year => throw _privateConstructorUsedError;
@@ -92,10 +100,12 @@ abstract class $HomeStateCopyWith<$Res> {
       ResultState<dynamic> updateSalesReportState,
       ResultState<dynamic> getHomeAdminNeracaResultState,
       ResultState<dynamic> getHomeAdminLabaRugiResultState,
+      ResultState<dynamic> getHomeAdminSalesReportState,
       HomeData homeData,
       List<Branch> neracaData,
       List<Branch> labaRugiData,
       HomeUserData homeUserData,
+      SalesReportData salesReportData,
       DateTime lastUpdated,
       int martId,
       String year,
@@ -106,8 +116,10 @@ abstract class $HomeStateCopyWith<$Res> {
   $ResultStateCopyWith<dynamic, $Res> get updateSalesReportState;
   $ResultStateCopyWith<dynamic, $Res> get getHomeAdminNeracaResultState;
   $ResultStateCopyWith<dynamic, $Res> get getHomeAdminLabaRugiResultState;
+  $ResultStateCopyWith<dynamic, $Res> get getHomeAdminSalesReportState;
   $HomeDataCopyWith<$Res> get homeData;
   $HomeUserDataCopyWith<$Res> get homeUserData;
+  $SalesReportDataCopyWith<$Res> get salesReportData;
 }
 
 /// @nodoc
@@ -125,10 +137,12 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? updateSalesReportState = freezed,
     Object? getHomeAdminNeracaResultState = freezed,
     Object? getHomeAdminLabaRugiResultState = freezed,
+    Object? getHomeAdminSalesReportState = freezed,
     Object? homeData = freezed,
     Object? neracaData = freezed,
     Object? labaRugiData = freezed,
     Object? homeUserData = freezed,
+    Object? salesReportData = freezed,
     Object? lastUpdated = freezed,
     Object? martId = freezed,
     Object? year = freezed,
@@ -156,6 +170,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.getHomeAdminLabaRugiResultState
           : getHomeAdminLabaRugiResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHomeAdminSalesReportState: getHomeAdminSalesReportState == freezed
+          ? _value.getHomeAdminSalesReportState
+          : getHomeAdminSalesReportState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       homeData: homeData == freezed
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
@@ -172,6 +190,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.homeUserData
           : homeUserData // ignore: cast_nullable_to_non_nullable
               as HomeUserData,
+      salesReportData: salesReportData == freezed
+          ? _value.salesReportData
+          : salesReportData // ignore: cast_nullable_to_non_nullable
+              as SalesReportData,
       lastUpdated: lastUpdated == freezed
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
@@ -232,6 +254,14 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   }
 
   @override
+  $ResultStateCopyWith<dynamic, $Res> get getHomeAdminSalesReportState {
+    return $ResultStateCopyWith<dynamic, $Res>(
+        _value.getHomeAdminSalesReportState, (value) {
+      return _then(_value.copyWith(getHomeAdminSalesReportState: value));
+    });
+  }
+
+  @override
   $HomeDataCopyWith<$Res> get homeData {
     return $HomeDataCopyWith<$Res>(_value.homeData, (value) {
       return _then(_value.copyWith(homeData: value));
@@ -242,6 +272,13 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   $HomeUserDataCopyWith<$Res> get homeUserData {
     return $HomeUserDataCopyWith<$Res>(_value.homeUserData, (value) {
       return _then(_value.copyWith(homeUserData: value));
+    });
+  }
+
+  @override
+  $SalesReportDataCopyWith<$Res> get salesReportData {
+    return $SalesReportDataCopyWith<$Res>(_value.salesReportData, (value) {
+      return _then(_value.copyWith(salesReportData: value));
     });
   }
 }
@@ -258,10 +295,12 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       ResultState<dynamic> updateSalesReportState,
       ResultState<dynamic> getHomeAdminNeracaResultState,
       ResultState<dynamic> getHomeAdminLabaRugiResultState,
+      ResultState<dynamic> getHomeAdminSalesReportState,
       HomeData homeData,
       List<Branch> neracaData,
       List<Branch> labaRugiData,
       HomeUserData homeUserData,
+      SalesReportData salesReportData,
       DateTime lastUpdated,
       int martId,
       String year,
@@ -278,9 +317,13 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHomeAdminLabaRugiResultState;
   @override
+  $ResultStateCopyWith<dynamic, $Res> get getHomeAdminSalesReportState;
+  @override
   $HomeDataCopyWith<$Res> get homeData;
   @override
   $HomeUserDataCopyWith<$Res> get homeUserData;
+  @override
+  $SalesReportDataCopyWith<$Res> get salesReportData;
 }
 
 /// @nodoc
@@ -299,10 +342,12 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? updateSalesReportState = freezed,
     Object? getHomeAdminNeracaResultState = freezed,
     Object? getHomeAdminLabaRugiResultState = freezed,
+    Object? getHomeAdminSalesReportState = freezed,
     Object? homeData = freezed,
     Object? neracaData = freezed,
     Object? labaRugiData = freezed,
     Object? homeUserData = freezed,
+    Object? salesReportData = freezed,
     Object? lastUpdated = freezed,
     Object? martId = freezed,
     Object? year = freezed,
@@ -330,6 +375,10 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.getHomeAdminLabaRugiResultState
           : getHomeAdminLabaRugiResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHomeAdminSalesReportState: getHomeAdminSalesReportState == freezed
+          ? _value.getHomeAdminSalesReportState
+          : getHomeAdminSalesReportState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       homeData: homeData == freezed
           ? _value.homeData
           : homeData // ignore: cast_nullable_to_non_nullable
@@ -346,6 +395,10 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.homeUserData
           : homeUserData // ignore: cast_nullable_to_non_nullable
               as HomeUserData,
+      salesReportData: salesReportData == freezed
+          ? _value.salesReportData
+          : salesReportData // ignore: cast_nullable_to_non_nullable
+              as SalesReportData,
       lastUpdated: lastUpdated == freezed
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
@@ -375,10 +428,12 @@ class _$_HomeState implements _HomeState {
       this.updateSalesReportState = const ResultState.initial(),
       this.getHomeAdminNeracaResultState = const ResultState.initial(),
       this.getHomeAdminLabaRugiResultState = const ResultState.initial(),
+      this.getHomeAdminSalesReportState = const ResultState.initial(),
       required this.homeData,
       required this.neracaData,
       required this.labaRugiData,
       required this.homeUserData,
+      required this.salesReportData,
       required this.lastUpdated,
       required this.martId,
       required this.year,
@@ -399,6 +454,9 @@ class _$_HomeState implements _HomeState {
   @JsonKey()
   @override
   final ResultState<dynamic> getHomeAdminLabaRugiResultState;
+  @JsonKey()
+  @override
+  final ResultState<dynamic> getHomeAdminSalesReportState;
   @override
   final HomeData homeData;
   @override
@@ -407,6 +465,8 @@ class _$_HomeState implements _HomeState {
   final List<Branch> labaRugiData;
   @override
   final HomeUserData homeUserData;
+  @override
+  final SalesReportData salesReportData;
   @override
   final DateTime lastUpdated;
   @override
@@ -418,7 +478,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(getHomeAdminResultState: $getHomeAdminResultState, getHomeUserResultState: $getHomeUserResultState, updateSalesReportState: $updateSalesReportState, getHomeAdminNeracaResultState: $getHomeAdminNeracaResultState, getHomeAdminLabaRugiResultState: $getHomeAdminLabaRugiResultState, homeData: $homeData, neracaData: $neracaData, labaRugiData: $labaRugiData, homeUserData: $homeUserData, lastUpdated: $lastUpdated, martId: $martId, year: $year, type: $type)';
+    return 'HomeState(getHomeAdminResultState: $getHomeAdminResultState, getHomeUserResultState: $getHomeUserResultState, updateSalesReportState: $updateSalesReportState, getHomeAdminNeracaResultState: $getHomeAdminNeracaResultState, getHomeAdminLabaRugiResultState: $getHomeAdminLabaRugiResultState, getHomeAdminSalesReportState: $getHomeAdminSalesReportState, homeData: $homeData, neracaData: $neracaData, labaRugiData: $labaRugiData, homeUserData: $homeUserData, salesReportData: $salesReportData, lastUpdated: $lastUpdated, martId: $martId, year: $year, type: $type)';
   }
 
   @override
@@ -438,6 +498,9 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality().equals(
                 other.getHomeAdminLabaRugiResultState,
                 getHomeAdminLabaRugiResultState) &&
+            const DeepCollectionEquality().equals(
+                other.getHomeAdminSalesReportState,
+                getHomeAdminSalesReportState) &&
             const DeepCollectionEquality().equals(other.homeData, homeData) &&
             const DeepCollectionEquality()
                 .equals(other.neracaData, neracaData) &&
@@ -445,6 +508,8 @@ class _$_HomeState implements _HomeState {
                 .equals(other.labaRugiData, labaRugiData) &&
             const DeepCollectionEquality()
                 .equals(other.homeUserData, homeUserData) &&
+            const DeepCollectionEquality()
+                .equals(other.salesReportData, salesReportData) &&
             const DeepCollectionEquality()
                 .equals(other.lastUpdated, lastUpdated) &&
             const DeepCollectionEquality().equals(other.martId, martId) &&
@@ -460,10 +525,12 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(updateSalesReportState),
       const DeepCollectionEquality().hash(getHomeAdminNeracaResultState),
       const DeepCollectionEquality().hash(getHomeAdminLabaRugiResultState),
+      const DeepCollectionEquality().hash(getHomeAdminSalesReportState),
       const DeepCollectionEquality().hash(homeData),
       const DeepCollectionEquality().hash(neracaData),
       const DeepCollectionEquality().hash(labaRugiData),
       const DeepCollectionEquality().hash(homeUserData),
+      const DeepCollectionEquality().hash(salesReportData),
       const DeepCollectionEquality().hash(lastUpdated),
       const DeepCollectionEquality().hash(martId),
       const DeepCollectionEquality().hash(year),
@@ -482,10 +549,12 @@ abstract class _HomeState implements HomeState {
       ResultState<dynamic> updateSalesReportState,
       ResultState<dynamic> getHomeAdminNeracaResultState,
       ResultState<dynamic> getHomeAdminLabaRugiResultState,
+      ResultState<dynamic> getHomeAdminSalesReportState,
       required HomeData homeData,
       required List<Branch> neracaData,
       required List<Branch> labaRugiData,
       required HomeUserData homeUserData,
+      required SalesReportData salesReportData,
       required DateTime lastUpdated,
       required int martId,
       required String year,
@@ -502,6 +571,8 @@ abstract class _HomeState implements HomeState {
   @override
   ResultState<dynamic> get getHomeAdminLabaRugiResultState;
   @override
+  ResultState<dynamic> get getHomeAdminSalesReportState;
+  @override
   HomeData get homeData;
   @override
   List<Branch> get neracaData;
@@ -509,6 +580,8 @@ abstract class _HomeState implements HomeState {
   List<Branch> get labaRugiData;
   @override
   HomeUserData get homeUserData;
+  @override
+  SalesReportData get salesReportData;
   @override
   DateTime get lastUpdated;
   @override

@@ -86,9 +86,9 @@ class TabBranches extends StatelessWidget {
                           final index = tabController.index;
                           context.read<HomeCubit>().updateYear(year);
                           if (index == 0) {
-                            context.read<HomeCubit>().getHomeDataNeraca();
+                            context.read<HomeCubit>().getHomeDataNeraca(1);
                           } else if (index == 1) {
-                            context.read<HomeCubit>().getHomeDataLabaRugi();
+                            context.read<HomeCubit>().getHomeDataLabaRugi(1);
                           } else {
                             print('BELUM ADA API');
                           }
@@ -105,9 +105,9 @@ class TabBranches extends StatelessWidget {
                           final index = tabController.index;
                           context.read<HomeCubit>().updateType(type);
                           if (index == 0) {
-                            context.read<HomeCubit>().getHomeDataNeraca();
+                            context.read<HomeCubit>().getHomeDataNeraca(1);
                           } else if (index == 1) {
-                            context.read<HomeCubit>().getHomeDataLabaRugi();
+                            context.read<HomeCubit>().getHomeDataLabaRugi(1);
                           } else {
                             print('BELUM ADA API');
                           }
