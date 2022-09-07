@@ -39,7 +39,8 @@ class _$SalesResponseTearOff {
       @JsonKey(name: 'updated_at') required DateTime? updatedAt,
       @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') required int? isMatched,
-      required UserResponse? user}) {
+      required UserResponse? user,
+      required MartResponse? mart}) {
     return _SalesResponse(
       id: id,
       martId: martId,
@@ -58,6 +59,7 @@ class _$SalesResponseTearOff {
       updatedAtMobile: updatedAtMobile,
       isMatched: isMatched,
       user: user,
+      mart: mart,
     );
   }
 
@@ -101,6 +103,7 @@ mixin _$SalesResponse {
   @JsonKey(name: 'is_matched')
   int? get isMatched => throw _privateConstructorUsedError;
   UserResponse? get user => throw _privateConstructorUsedError;
+  MartResponse? get mart => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -130,9 +133,11 @@ abstract class $SalesResponseCopyWith<$Res> {
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'update_at_mobile') DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') int? isMatched,
-      UserResponse? user});
+      UserResponse? user,
+      MartResponse? mart});
 
   $UserResponseCopyWith<$Res>? get user;
+  $MartResponseCopyWith<$Res>? get mart;
 }
 
 /// @nodoc
@@ -163,6 +168,7 @@ class _$SalesResponseCopyWithImpl<$Res>
     Object? updatedAtMobile = freezed,
     Object? isMatched = freezed,
     Object? user = freezed,
+    Object? mart = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -233,6 +239,10 @@ class _$SalesResponseCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserResponse?,
+      mart: mart == freezed
+          ? _value.mart
+          : mart // ignore: cast_nullable_to_non_nullable
+              as MartResponse?,
     ));
   }
 
@@ -244,6 +254,17 @@ class _$SalesResponseCopyWithImpl<$Res>
 
     return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
+    });
+  }
+
+  @override
+  $MartResponseCopyWith<$Res>? get mart {
+    if (_value.mart == null) {
+      return null;
+    }
+
+    return $MartResponseCopyWith<$Res>(_value.mart!, (value) {
+      return _then(_value.copyWith(mart: value));
     });
   }
 }
@@ -272,10 +293,13 @@ abstract class _$SalesResponseCopyWith<$Res>
       @JsonKey(name: 'updated_at') DateTime? updatedAt,
       @JsonKey(name: 'update_at_mobile') DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') int? isMatched,
-      UserResponse? user});
+      UserResponse? user,
+      MartResponse? mart});
 
   @override
   $UserResponseCopyWith<$Res>? get user;
+  @override
+  $MartResponseCopyWith<$Res>? get mart;
 }
 
 /// @nodoc
@@ -308,6 +332,7 @@ class __$SalesResponseCopyWithImpl<$Res>
     Object? updatedAtMobile = freezed,
     Object? isMatched = freezed,
     Object? user = freezed,
+    Object? mart = freezed,
   }) {
     return _then(_SalesResponse(
       id: id == freezed
@@ -378,6 +403,10 @@ class __$SalesResponseCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserResponse?,
+      mart: mart == freezed
+          ? _value.mart
+          : mart // ignore: cast_nullable_to_non_nullable
+              as MartResponse?,
     ));
   }
 }
@@ -402,7 +431,8 @@ class _$_SalesResponse extends _SalesResponse {
       @JsonKey(name: 'updated_at') required this.updatedAt,
       @JsonKey(name: 'update_at_mobile') required this.updatedAtMobile,
       @JsonKey(name: 'is_matched') required this.isMatched,
-      required this.user})
+      required this.user,
+      required this.mart})
       : super._();
 
   factory _$_SalesResponse.fromJson(Map<String, dynamic> json) =>
@@ -455,10 +485,12 @@ class _$_SalesResponse extends _SalesResponse {
   final int? isMatched;
   @override
   final UserResponse? user;
+  @override
+  final MartResponse? mart;
 
   @override
   String toString() {
-    return 'SalesResponse(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user)';
+    return 'SalesResponse(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user, mart: $mart)';
   }
 
   @override
@@ -488,7 +520,8 @@ class _$_SalesResponse extends _SalesResponse {
             const DeepCollectionEquality()
                 .equals(other.updatedAtMobile, updatedAtMobile) &&
             const DeepCollectionEquality().equals(other.isMatched, isMatched) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality().equals(other.mart, mart));
   }
 
   @override
@@ -510,7 +543,8 @@ class _$_SalesResponse extends _SalesResponse {
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(updatedAtMobile),
       const DeepCollectionEquality().hash(isMatched),
-      const DeepCollectionEquality().hash(user));
+      const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(mart));
 
   @JsonKey(ignore: true)
   @override
@@ -541,7 +575,8 @@ abstract class _SalesResponse extends SalesResponse {
       @JsonKey(name: 'updated_at') required DateTime? updatedAt,
       @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
       @JsonKey(name: 'is_matched') required int? isMatched,
-      required UserResponse? user}) = _$_SalesResponse;
+      required UserResponse? user,
+      required MartResponse? mart}) = _$_SalesResponse;
   const _SalesResponse._() : super._();
 
   factory _SalesResponse.fromJson(Map<String, dynamic> json) =
@@ -594,6 +629,8 @@ abstract class _SalesResponse extends SalesResponse {
   int? get isMatched;
   @override
   UserResponse? get user;
+  @override
+  MartResponse? get mart;
   @override
   @JsonKey(ignore: true)
   _$SalesResponseCopyWith<_SalesResponse> get copyWith =>

@@ -52,14 +52,31 @@ class ApiService {
   Future<Response> getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams params) async {
     return await _dio.get(
       Endpoint.getHomeAdminNeraca,
-      queryParameters: {'year': params.year, 'type': params.type},
+      queryParameters: {
+        'year': params.year,
+        'type': params.type,
+        'page': params.page,
+      },
     );
   }
 
   Future<Response> getHomeAdminLabaRugi(GetHomeAdminBranchesUseCaseParams params) async {
     return await _dio.get(
       Endpoint.getHomeAdminLabaRugi,
-      queryParameters: {'year': params.year, 'type': params.type},
+      queryParameters: {
+        'year': params.year,
+        'type': params.type,
+        'page': params.page,
+      },
+    );
+  }
+
+  Future<Response> getHomeAdminPerubahanModal(GetHomeAdminBranchesUseCaseParams params) async {
+    return await _dio.get(
+      Endpoint.getHomeAdminPerubahanModal,
+      queryParameters: {
+        'year': params.year,
+      },
     );
   }
 

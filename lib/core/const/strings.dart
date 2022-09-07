@@ -29,6 +29,14 @@ class Strings {
   static const report = 'Report';
   static const produk = 'Produk';
   static const kuantitas = 'Kuantitas';
+  static const modalAwal = 'Modal Awal';
+  static const labaBersih = 'Laba Bersih';
+  static const laporanPerubahanModal = 'Laporan Perubahan Modal';
+  static const prive = 'Prive';
+  static const laba = 'Laba';
+  static const koreksi = 'Koreksi';
+  static const total = 'Total';
+  static const modalAkhir = 'Modal Akhir';
 
   static const titlePickImage = 'Ambil Gambar:';
   static const camera = 'Kamera';

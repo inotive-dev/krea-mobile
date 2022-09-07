@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/di/injection_container.dart';
+import 'package:koperasi/domain/entities/home/branches_data.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
-import 'package:koperasi/presentation/home/admin/widgets/branch/page_control.dart';
+import 'package:koperasi/presentation/home/admin/widgets/branch/page_control.dart' as branch;
+import 'package:koperasi/presentation/home/admin/widgets/report_sales/page_control.dart' as sales;
 import 'package:koperasi/presentation/home/admin/widgets/report_sales/report_sales.dart';
 import 'package:koperasi/presentation/home/admin/widgets/section_label.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/tab_branches.dart';
@@ -26,6 +30,8 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
   late TabController tabBranchController;
   late MyRepository _myRepository;
 
+  RxBool _isShowTabPageControl = false.obs;
+
   @override
   void initState() {
     super.initState();
@@ -40,7 +46,9 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
 
     context.read<HomeCubit>().getHomeAdminData(1);
     context.read<HomeCubit>().getHomeDataNeraca(1);
+    context.read<HomeCubit>().getHomeDataPerubahanModal(1);
     context.read<HomeCubit>().getHomeAdminSalesReports(1);
+    _isShowTabPageControl.value = true;
   }
 
   @override
@@ -49,21 +57,23 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
     super.dispose();
   }
 
-  _updateSalesReportsData(int page) {
-    context.read<HomeCubit>().getHomeAdminSalesReports(page);
-  }
-
   _handleTabSelection() {
     final index = tabBranchController.index;
     if (tabBranchController.indexIsChanging) {
       switch (index) {
         case 0:
+          _isShowTabPageControl.value = true;
           context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
           context.read<HomeCubit>().getHomeDataNeraca(1);
           break;
         case 1:
+          _isShowTabPageControl.value = true;
           context.read<HomeCubit>().updateType(Constants.typesLabaRugi[0]);
           context.read<HomeCubit>().getHomeDataLabaRugi(1);
+          break;
+        case 2:
+          _isShowTabPageControl.value = false;
+          context.read<HomeCubit>().getHomeDataPerubahanModal(1);
           break;
         default:
       }
@@ -116,12 +126,16 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
               },
             ),
             SizedBox(height: Sizes.height25),
-            TabBranches(
-              tabController: tabBranchController,
-            ),
-            PageControl(
-              onUpdate: (value) {},
-            ),
+            TabBranches(tabController: tabBranchController),
+            ObxValue<RxBool>((rx) {
+              if (rx.value) {
+                return branch.PageControl(
+                  activeTab: () => tabBranchController.index,
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            }, _isShowTabPageControl),
             SizedBox(height: Sizes.height41),
             const SectionLabel(text: 'Laporan Penjualan'),
             SizedBox(height: Sizes.height10),
@@ -139,7 +153,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                         salesReports: state.salesReportData.data ?? [],
                         isUpdated: state.updateSalesReportState,
                       ),
-                      PageControl(control: state.salesReportData, onUpdate: _updateSalesReportsData),
                     ],
                   ),
                   error: (error) => Center(
@@ -148,6 +161,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                 );
               },
             ),
+            const sales.PageControl(),
             SizedBox(height: Sizes.height80),
           ],
         ),

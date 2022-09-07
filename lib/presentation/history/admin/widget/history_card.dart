@@ -52,7 +52,7 @@ class HistoryCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${data.bankName}',
+                          data.mart?.name ?? '-',
                           style: TextStyle(
                             color: ColorPalettes.textGray,
                             fontWeight: FontWeight.w400,
@@ -61,7 +61,7 @@ class HistoryCard extends StatelessWidget {
                         ),
                         SizedBox(height: Sizes.height7),
                         Text(
-                          '${data.bankName}',
+                          data.mart?.address ?? '-',
                           style: TextStyle(
                             color: ColorPalettes.textGray,
                             fontWeight: FontWeight.w400,

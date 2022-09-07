@@ -35,7 +35,8 @@ class _$SalesReportTearOff {
       required DateTime? updatedAt,
       required DateTime? updatedAtMobile,
       required int? isMatched,
-      required User? user}) {
+      required User? user,
+      required Mart? mart}) {
     return _SalesReport(
       id: id,
       martId: martId,
@@ -54,6 +55,7 @@ class _$SalesReportTearOff {
       updatedAtMobile: updatedAtMobile,
       isMatched: isMatched,
       user: user,
+      mart: mart,
     );
   }
 }
@@ -80,6 +82,7 @@ mixin _$SalesReport {
   DateTime? get updatedAtMobile => throw _privateConstructorUsedError;
   int? get isMatched => throw _privateConstructorUsedError;
   User? get user => throw _privateConstructorUsedError;
+  Mart? get mart => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SalesReportCopyWith<SalesReport> get copyWith =>
@@ -108,9 +111,11 @@ abstract class $SalesReportCopyWith<$Res> {
       DateTime? updatedAt,
       DateTime? updatedAtMobile,
       int? isMatched,
-      User? user});
+      User? user,
+      Mart? mart});
 
   $UserCopyWith<$Res>? get user;
+  $MartCopyWith<$Res>? get mart;
 }
 
 /// @nodoc
@@ -140,6 +145,7 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
     Object? updatedAtMobile = freezed,
     Object? isMatched = freezed,
     Object? user = freezed,
+    Object? mart = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -210,6 +216,10 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      mart: mart == freezed
+          ? _value.mart
+          : mart // ignore: cast_nullable_to_non_nullable
+              as Mart?,
     ));
   }
 
@@ -221,6 +231,17 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
 
     return $UserCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
+    });
+  }
+
+  @override
+  $MartCopyWith<$Res>? get mart {
+    if (_value.mart == null) {
+      return null;
+    }
+
+    return $MartCopyWith<$Res>(_value.mart!, (value) {
+      return _then(_value.copyWith(mart: value));
     });
   }
 }
@@ -249,10 +270,13 @@ abstract class _$SalesReportCopyWith<$Res>
       DateTime? updatedAt,
       DateTime? updatedAtMobile,
       int? isMatched,
-      User? user});
+      User? user,
+      Mart? mart});
 
   @override
   $UserCopyWith<$Res>? get user;
+  @override
+  $MartCopyWith<$Res>? get mart;
 }
 
 /// @nodoc
@@ -284,6 +308,7 @@ class __$SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
     Object? updatedAtMobile = freezed,
     Object? isMatched = freezed,
     Object? user = freezed,
+    Object? mart = freezed,
   }) {
     return _then(_SalesReport(
       id: id == freezed
@@ -354,6 +379,10 @@ class __$SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      mart: mart == freezed
+          ? _value.mart
+          : mart // ignore: cast_nullable_to_non_nullable
+              as Mart?,
     ));
   }
 }
@@ -378,7 +407,8 @@ class _$_SalesReport implements _SalesReport {
       required this.updatedAt,
       required this.updatedAtMobile,
       required this.isMatched,
-      required this.user});
+      required this.user,
+      required this.mart});
 
   @override
   final int? id;
@@ -414,10 +444,12 @@ class _$_SalesReport implements _SalesReport {
   final int? isMatched;
   @override
   final User? user;
+  @override
+  final Mart? mart;
 
   @override
   String toString() {
-    return 'SalesReport(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user)';
+    return 'SalesReport(id: $id, martId: $martId, userId: $userId, total: $total, totalDiscount: $totalDiscount, totalPpn: $totalPpn, hpp: $hpp, grandTotal: $grandTotal, paymentMethod: $paymentMethod, bankName: $bankName, totalPayment: $totalPayment, totalChange: $totalChange, createdAt: $createdAt, updatedAt: $updatedAt, updatedAtMobile: $updatedAtMobile, isMatched: $isMatched, user: $user, mart: $mart)';
   }
 
   @override
@@ -447,7 +479,8 @@ class _$_SalesReport implements _SalesReport {
             const DeepCollectionEquality()
                 .equals(other.updatedAtMobile, updatedAtMobile) &&
             const DeepCollectionEquality().equals(other.isMatched, isMatched) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality().equals(other.mart, mart));
   }
 
   @override
@@ -469,7 +502,8 @@ class _$_SalesReport implements _SalesReport {
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(updatedAtMobile),
       const DeepCollectionEquality().hash(isMatched),
-      const DeepCollectionEquality().hash(user));
+      const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(mart));
 
   @JsonKey(ignore: true)
   @override
@@ -495,7 +529,8 @@ abstract class _SalesReport implements SalesReport {
       required DateTime? updatedAt,
       required DateTime? updatedAtMobile,
       required int? isMatched,
-      required User? user}) = _$_SalesReport;
+      required User? user,
+      required Mart? mart}) = _$_SalesReport;
 
   @override
   int? get id;
@@ -531,6 +566,8 @@ abstract class _SalesReport implements SalesReport {
   int? get isMatched;
   @override
   User? get user;
+  @override
+  Mart? get mart;
   @override
   @JsonKey(ignore: true)
   _$SalesReportCopyWith<_SalesReport> get copyWith =>

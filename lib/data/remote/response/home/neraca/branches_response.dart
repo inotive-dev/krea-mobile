@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/data/remote/response/home/branch_response.dart';
+import 'package:koperasi/data/remote/response/home/neraca/branches_data_response.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
 
 part 'branches_response.freezed.dart';
@@ -12,7 +12,7 @@ class BranchesResponse with _$BranchesResponse {
   const factory BranchesResponse({
     required String? message,
     required int? statusCode,
-    required List<BranchResponse>? data,
+    required BranchesDataResponse? data,
   }) = _BranchesResponse;
 
   factory BranchesResponse.fromJson(Map<String, dynamic> json) => _$BranchesResponseFromJson(json);
@@ -20,6 +20,6 @@ class BranchesResponse with _$BranchesResponse {
   Branches toDomain() => Branches(
         message: message,
         statusCode: statusCode,
-        data: data?.map((e) => e.toDomain()).toList(),
+        data: data?.toDomain(),
       );
 }

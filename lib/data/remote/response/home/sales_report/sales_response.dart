@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/mart_response.dart';
 import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
 
@@ -27,6 +28,7 @@ class SalesResponse with _$SalesResponse {
     @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
     @JsonKey(name: 'is_matched') required int? isMatched,
     required UserResponse? user,
+    required MartResponse? mart,
   }) = _SalesResponse;
 
   factory SalesResponse.fromJson(Map<String, dynamic> json) => _$SalesResponseFromJson(json);
@@ -49,5 +51,6 @@ class SalesResponse with _$SalesResponse {
         updatedAtMobile: updatedAtMobile,
         isMatched: isMatched,
         user: user?.toDomain(),
+        mart: mart?.toDomain(),
       );
 }

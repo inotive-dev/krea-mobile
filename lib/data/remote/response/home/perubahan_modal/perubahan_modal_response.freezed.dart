@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'branches_response.dart';
+part of 'perubahan_modal_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,61 +14,65 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-BranchesResponse _$BranchesResponseFromJson(Map<String, dynamic> json) {
-  return _BranchesResponse.fromJson(json);
+PerubahanModalResponse _$PerubahanModalResponseFromJson(
+    Map<String, dynamic> json) {
+  return _PerubahanModalResponse.fromJson(json);
 }
 
 /// @nodoc
-class _$BranchesResponseTearOff {
-  const _$BranchesResponseTearOff();
+class _$PerubahanModalResponseTearOff {
+  const _$PerubahanModalResponseTearOff();
 
-  _BranchesResponse call(
+  _PerubahanModalResponse call(
       {required String? message,
       required int? statusCode,
-      required List<BranchResponse>? data}) {
-    return _BranchesResponse(
+      required PerubahanModalDataResponse? data}) {
+    return _PerubahanModalResponse(
       message: message,
       statusCode: statusCode,
       data: data,
     );
   }
 
-  BranchesResponse fromJson(Map<String, Object?> json) {
-    return BranchesResponse.fromJson(json);
+  PerubahanModalResponse fromJson(Map<String, Object?> json) {
+    return PerubahanModalResponse.fromJson(json);
   }
 }
 
 /// @nodoc
-const $BranchesResponse = _$BranchesResponseTearOff();
+const $PerubahanModalResponse = _$PerubahanModalResponseTearOff();
 
 /// @nodoc
-mixin _$BranchesResponse {
+mixin _$PerubahanModalResponse {
   String? get message => throw _privateConstructorUsedError;
   int? get statusCode => throw _privateConstructorUsedError;
-  List<BranchResponse>? get data => throw _privateConstructorUsedError;
+  PerubahanModalDataResponse? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BranchesResponseCopyWith<BranchesResponse> get copyWith =>
+  $PerubahanModalResponseCopyWith<PerubahanModalResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BranchesResponseCopyWith<$Res> {
-  factory $BranchesResponseCopyWith(
-          BranchesResponse value, $Res Function(BranchesResponse) then) =
-      _$BranchesResponseCopyWithImpl<$Res>;
-  $Res call({String? message, int? statusCode, List<BranchResponse>? data});
+abstract class $PerubahanModalResponseCopyWith<$Res> {
+  factory $PerubahanModalResponseCopyWith(PerubahanModalResponse value,
+          $Res Function(PerubahanModalResponse) then) =
+      _$PerubahanModalResponseCopyWithImpl<$Res>;
+  $Res call(
+      {String? message, int? statusCode, PerubahanModalDataResponse? data});
+
+  $PerubahanModalDataResponseCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class _$BranchesResponseCopyWithImpl<$Res>
-    implements $BranchesResponseCopyWith<$Res> {
-  _$BranchesResponseCopyWithImpl(this._value, this._then);
+class _$PerubahanModalResponseCopyWithImpl<$Res>
+    implements $PerubahanModalResponseCopyWith<$Res> {
+  _$PerubahanModalResponseCopyWithImpl(this._value, this._then);
 
-  final BranchesResponse _value;
+  final PerubahanModalResponse _value;
   // ignore: unused_field
-  final $Res Function(BranchesResponse) _then;
+  final $Res Function(PerubahanModalResponse) _then;
 
   @override
   $Res call({
@@ -88,31 +92,46 @@ class _$BranchesResponseCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<BranchResponse>?,
+              as PerubahanModalDataResponse?,
     ));
+  }
+
+  @override
+  $PerubahanModalDataResponseCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $PerubahanModalDataResponseCopyWith<$Res>(_value.data!, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
 /// @nodoc
-abstract class _$BranchesResponseCopyWith<$Res>
-    implements $BranchesResponseCopyWith<$Res> {
-  factory _$BranchesResponseCopyWith(
-          _BranchesResponse value, $Res Function(_BranchesResponse) then) =
-      __$BranchesResponseCopyWithImpl<$Res>;
+abstract class _$PerubahanModalResponseCopyWith<$Res>
+    implements $PerubahanModalResponseCopyWith<$Res> {
+  factory _$PerubahanModalResponseCopyWith(_PerubahanModalResponse value,
+          $Res Function(_PerubahanModalResponse) then) =
+      __$PerubahanModalResponseCopyWithImpl<$Res>;
   @override
-  $Res call({String? message, int? statusCode, List<BranchResponse>? data});
+  $Res call(
+      {String? message, int? statusCode, PerubahanModalDataResponse? data});
+
+  @override
+  $PerubahanModalDataResponseCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class __$BranchesResponseCopyWithImpl<$Res>
-    extends _$BranchesResponseCopyWithImpl<$Res>
-    implements _$BranchesResponseCopyWith<$Res> {
-  __$BranchesResponseCopyWithImpl(
-      _BranchesResponse _value, $Res Function(_BranchesResponse) _then)
-      : super(_value, (v) => _then(v as _BranchesResponse));
+class __$PerubahanModalResponseCopyWithImpl<$Res>
+    extends _$PerubahanModalResponseCopyWithImpl<$Res>
+    implements _$PerubahanModalResponseCopyWith<$Res> {
+  __$PerubahanModalResponseCopyWithImpl(_PerubahanModalResponse _value,
+      $Res Function(_PerubahanModalResponse) _then)
+      : super(_value, (v) => _then(v as _PerubahanModalResponse));
 
   @override
-  _BranchesResponse get _value => super._value as _BranchesResponse;
+  _PerubahanModalResponse get _value => super._value as _PerubahanModalResponse;
 
   @override
   $Res call({
@@ -120,7 +139,7 @@ class __$BranchesResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_BranchesResponse(
+    return _then(_PerubahanModalResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -132,38 +151,38 @@ class __$BranchesResponseCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<BranchResponse>?,
+              as PerubahanModalDataResponse?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_BranchesResponse extends _BranchesResponse {
-  const _$_BranchesResponse(
+class _$_PerubahanModalResponse extends _PerubahanModalResponse {
+  const _$_PerubahanModalResponse(
       {required this.message, required this.statusCode, required this.data})
       : super._();
 
-  factory _$_BranchesResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_BranchesResponseFromJson(json);
+  factory _$_PerubahanModalResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_PerubahanModalResponseFromJson(json);
 
   @override
   final String? message;
   @override
   final int? statusCode;
   @override
-  final List<BranchResponse>? data;
+  final PerubahanModalDataResponse? data;
 
   @override
   String toString() {
-    return 'BranchesResponse(message: $message, statusCode: $statusCode, data: $data)';
+    return 'PerubahanModalResponse(message: $message, statusCode: $statusCode, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BranchesResponse &&
+            other is _PerubahanModalResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -179,33 +198,34 @@ class _$_BranchesResponse extends _BranchesResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
-      __$BranchesResponseCopyWithImpl<_BranchesResponse>(this, _$identity);
+  _$PerubahanModalResponseCopyWith<_PerubahanModalResponse> get copyWith =>
+      __$PerubahanModalResponseCopyWithImpl<_PerubahanModalResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BranchesResponseToJson(this);
+    return _$$_PerubahanModalResponseToJson(this);
   }
 }
 
-abstract class _BranchesResponse extends BranchesResponse {
-  const factory _BranchesResponse(
+abstract class _PerubahanModalResponse extends PerubahanModalResponse {
+  const factory _PerubahanModalResponse(
       {required String? message,
       required int? statusCode,
-      required List<BranchResponse>? data}) = _$_BranchesResponse;
-  const _BranchesResponse._() : super._();
+      required PerubahanModalDataResponse? data}) = _$_PerubahanModalResponse;
+  const _PerubahanModalResponse._() : super._();
 
-  factory _BranchesResponse.fromJson(Map<String, dynamic> json) =
-      _$_BranchesResponse.fromJson;
+  factory _PerubahanModalResponse.fromJson(Map<String, dynamic> json) =
+      _$_PerubahanModalResponse.fromJson;
 
   @override
   String? get message;
   @override
   int? get statusCode;
   @override
-  List<BranchResponse>? get data;
+  PerubahanModalDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
+  _$PerubahanModalResponseCopyWith<_PerubahanModalResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

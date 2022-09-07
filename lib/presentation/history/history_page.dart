@@ -58,7 +58,7 @@ class _HistoryPageState extends State<HistoryPage> {
                               trailing: Container(
                                 color: Colors.transparent,
                                 height: 36,
-                                width: 121,
+                                width: Sizes.width125,
                                 child: MartDropdown(
                                   value: state.selectedMart,
                                   updateValue: (value) {

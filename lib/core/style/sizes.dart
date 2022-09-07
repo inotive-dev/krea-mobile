@@ -85,6 +85,10 @@ class Sizes {
   static double get height203 => 203.h;
   static double get height218 => 218.h;
   static double get height250 => 250.h;
+  static double get height255 => 255.h;
+  static double get height257 => 257.h;
+  static double get height258 => 258.h;
+  static double get height260 => 260.h;
   static double get height269 => 269.h;
   static double get height300 => 300.h;
   static double get height355 => 355.h;

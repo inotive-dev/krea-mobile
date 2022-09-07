@@ -5,6 +5,7 @@ import 'package:koperasi/domain/entities/history_entities/history.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
+import 'package:koperasi/domain/entities/home/perubahan_modal/perubahan_modal.dart';
 import 'package:koperasi/domain/entities/home/sales_reports.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
@@ -121,6 +122,19 @@ class MyRepositoryImpl implements MyRepository {
   @override
   Future<Either<Failure, Branches>> getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams params) async {
     final _data = await _remoteDataSource.getHomeAdminNeraca(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, PerubahanModal>> getHomeAdminPerubahanModal(GetHomeAdminBranchesUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHomeAdminPerubahanModal(params);
 
     if (_data.data == null) {
       return Left(

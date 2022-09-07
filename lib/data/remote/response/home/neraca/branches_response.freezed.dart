@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'branches.dart';
+part of 'branches_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,52 +14,63 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$BranchesTearOff {
-  const _$BranchesTearOff();
+BranchesResponse _$BranchesResponseFromJson(Map<String, dynamic> json) {
+  return _BranchesResponse.fromJson(json);
+}
 
-  _Branches call(
+/// @nodoc
+class _$BranchesResponseTearOff {
+  const _$BranchesResponseTearOff();
+
+  _BranchesResponse call(
       {required String? message,
       required int? statusCode,
-      required BranchesData? data}) {
-    return _Branches(
+      required BranchesDataResponse? data}) {
+    return _BranchesResponse(
       message: message,
       statusCode: statusCode,
       data: data,
     );
   }
+
+  BranchesResponse fromJson(Map<String, Object?> json) {
+    return BranchesResponse.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $Branches = _$BranchesTearOff();
+const $BranchesResponse = _$BranchesResponseTearOff();
 
 /// @nodoc
-mixin _$Branches {
+mixin _$BranchesResponse {
   String? get message => throw _privateConstructorUsedError;
   int? get statusCode => throw _privateConstructorUsedError;
-  BranchesData? get data => throw _privateConstructorUsedError;
+  BranchesDataResponse? get data => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BranchesCopyWith<Branches> get copyWith =>
+  $BranchesResponseCopyWith<BranchesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BranchesCopyWith<$Res> {
-  factory $BranchesCopyWith(Branches value, $Res Function(Branches) then) =
-      _$BranchesCopyWithImpl<$Res>;
-  $Res call({String? message, int? statusCode, BranchesData? data});
+abstract class $BranchesResponseCopyWith<$Res> {
+  factory $BranchesResponseCopyWith(
+          BranchesResponse value, $Res Function(BranchesResponse) then) =
+      _$BranchesResponseCopyWithImpl<$Res>;
+  $Res call({String? message, int? statusCode, BranchesDataResponse? data});
 
-  $BranchesDataCopyWith<$Res>? get data;
+  $BranchesDataResponseCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class _$BranchesCopyWithImpl<$Res> implements $BranchesCopyWith<$Res> {
-  _$BranchesCopyWithImpl(this._value, this._then);
+class _$BranchesResponseCopyWithImpl<$Res>
+    implements $BranchesResponseCopyWith<$Res> {
+  _$BranchesResponseCopyWithImpl(this._value, this._then);
 
-  final Branches _value;
+  final BranchesResponse _value;
   // ignore: unused_field
-  final $Res Function(Branches) _then;
+  final $Res Function(BranchesResponse) _then;
 
   @override
   $Res call({
@@ -79,41 +90,45 @@ class _$BranchesCopyWithImpl<$Res> implements $BranchesCopyWith<$Res> {
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as BranchesData?,
+              as BranchesDataResponse?,
     ));
   }
 
   @override
-  $BranchesDataCopyWith<$Res>? get data {
+  $BranchesDataResponseCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
-    return $BranchesDataCopyWith<$Res>(_value.data!, (value) {
+    return $BranchesDataResponseCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$BranchesCopyWith<$Res> implements $BranchesCopyWith<$Res> {
-  factory _$BranchesCopyWith(_Branches value, $Res Function(_Branches) then) =
-      __$BranchesCopyWithImpl<$Res>;
+abstract class _$BranchesResponseCopyWith<$Res>
+    implements $BranchesResponseCopyWith<$Res> {
+  factory _$BranchesResponseCopyWith(
+          _BranchesResponse value, $Res Function(_BranchesResponse) then) =
+      __$BranchesResponseCopyWithImpl<$Res>;
   @override
-  $Res call({String? message, int? statusCode, BranchesData? data});
+  $Res call({String? message, int? statusCode, BranchesDataResponse? data});
 
   @override
-  $BranchesDataCopyWith<$Res>? get data;
+  $BranchesDataResponseCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
-    implements _$BranchesCopyWith<$Res> {
-  __$BranchesCopyWithImpl(_Branches _value, $Res Function(_Branches) _then)
-      : super(_value, (v) => _then(v as _Branches));
+class __$BranchesResponseCopyWithImpl<$Res>
+    extends _$BranchesResponseCopyWithImpl<$Res>
+    implements _$BranchesResponseCopyWith<$Res> {
+  __$BranchesResponseCopyWithImpl(
+      _BranchesResponse _value, $Res Function(_BranchesResponse) _then)
+      : super(_value, (v) => _then(v as _BranchesResponse));
 
   @override
-  _Branches get _value => super._value as _Branches;
+  _BranchesResponse get _value => super._value as _BranchesResponse;
 
   @override
   $Res call({
@@ -121,7 +136,7 @@ class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_Branches(
+    return _then(_BranchesResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -133,34 +148,38 @@ class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as BranchesData?,
+              as BranchesDataResponse?,
     ));
   }
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$_BranchesResponse extends _BranchesResponse {
+  const _$_BranchesResponse(
+      {required this.message, required this.statusCode, required this.data})
+      : super._();
 
-class _$_Branches implements _Branches {
-  const _$_Branches(
-      {required this.message, required this.statusCode, required this.data});
+  factory _$_BranchesResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_BranchesResponseFromJson(json);
 
   @override
   final String? message;
   @override
   final int? statusCode;
   @override
-  final BranchesData? data;
+  final BranchesDataResponse? data;
 
   @override
   String toString() {
-    return 'Branches(message: $message, statusCode: $statusCode, data: $data)';
+    return 'BranchesResponse(message: $message, statusCode: $statusCode, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Branches &&
+            other is _BranchesResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -176,24 +195,33 @@ class _$_Branches implements _Branches {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesCopyWith<_Branches> get copyWith =>
-      __$BranchesCopyWithImpl<_Branches>(this, _$identity);
+  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
+      __$BranchesResponseCopyWithImpl<_BranchesResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BranchesResponseToJson(this);
+  }
 }
 
-abstract class _Branches implements Branches {
-  const factory _Branches(
+abstract class _BranchesResponse extends BranchesResponse {
+  const factory _BranchesResponse(
       {required String? message,
       required int? statusCode,
-      required BranchesData? data}) = _$_Branches;
+      required BranchesDataResponse? data}) = _$_BranchesResponse;
+  const _BranchesResponse._() : super._();
+
+  factory _BranchesResponse.fromJson(Map<String, dynamic> json) =
+      _$_BranchesResponse.fromJson;
 
   @override
   String? get message;
   @override
   int? get statusCode;
   @override
-  BranchesData? get data;
+  BranchesDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$BranchesCopyWith<_Branches> get copyWith =>
+  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

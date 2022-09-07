@@ -1,8 +1,9 @@
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/data/remote/response/history/history_response.dart';
-import 'package:koperasi/data/remote/response/home/branches_response.dart';
 import 'package:koperasi/data/remote/response/home/home_user_response.dart';
+import 'package:koperasi/data/remote/response/home/neraca/branches_response.dart';
+import 'package:koperasi/data/remote/response/home/perubahan_modal/perubahan_modal_response.dart';
 import 'package:koperasi/data/remote/response/home/report/home_response.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/sales_report_response.dart';
 import 'package:koperasi/data/remote/response/profile/profile_response.dart';
@@ -42,6 +43,11 @@ class RemoteDataSource {
   Future<BranchesResponse> getHomeAdminLabaRugi(GetHomeAdminBranchesUseCaseParams params) async {
     final _response = await _apiService.getHomeAdminLabaRugi(params);
     return BranchesResponse.fromJson(_response.data);
+  }
+
+  Future<PerubahanModalResponse> getHomeAdminPerubahanModal(GetHomeAdminBranchesUseCaseParams params) async {
+    final _response = await _apiService.getHomeAdminPerubahanModal(params);
+    return PerubahanModalResponse.fromJson(_response.data);
   }
 
   Future<HistoryResponse> getHistoryAdminData(GetHistoryAdminUseCaseParams params) async {

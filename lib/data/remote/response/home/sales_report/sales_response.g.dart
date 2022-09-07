@@ -33,6 +33,9 @@ _$_SalesResponse _$$_SalesResponseFromJson(Map<String, dynamic> json) =>
       user: json['user'] == null
           ? null
           : UserResponse.fromJson(json['user'] as Map<String, dynamic>),
+      mart: json['mart'] == null
+          ? null
+          : MartResponse.fromJson(json['mart'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SalesResponseToJson(_$_SalesResponse instance) =>
@@ -54,4 +57,5 @@ Map<String, dynamic> _$$_SalesResponseToJson(_$_SalesResponse instance) =>
       'update_at_mobile': instance.updatedAtMobile?.toIso8601String(),
       'is_matched': instance.isMatched,
       'user': instance.user,
+      'mart': instance.mart,
     };

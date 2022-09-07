@@ -2,12 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
-import 'package:koperasi/domain/entities/home/branch.dart';
+import 'package:koperasi/domain/entities/home/branches_data.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 import 'package:koperasi/domain/entities/home/home_user_data.dart';
+import 'package:koperasi/domain/entities/home/perubahan_modal/perubahan_modal_data.dart';
 import 'package:koperasi/domain/entities/home/sales_report_data.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_laba_rugi_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
+import 'package:koperasi/domain/usecases/get_home_admin_perubahan_modal_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_user_usecase.dart';
@@ -24,6 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
   final GetHomeAdminNeraca _getHomeAdminNeraca;
   final GetHomeAdminLabaRugi _getHomeAdminLabaRugi;
   final GetHomeAdminSalesReports _getHomeAdminSalesReports;
+  final GetHomeAdminPerubahanModal _getHomeAdminPerubahanModal;
 
   HomeCubit(
     this._getHomeAdminUseCase,
@@ -31,6 +34,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._getHomeAdminNeraca,
     this._getHomeAdminLabaRugi,
     this._getHomeAdminSalesReports,
+    this._getHomeAdminPerubahanModal,
   ) : super(HomeState.initial());
 
   updateMartId(int id) {
@@ -121,7 +125,7 @@ class HomeCubit extends Cubit<HomeState> {
         return emit(
           state.copyWith(
             getHomeAdminNeracaResultState: ResultState.success(data: r),
-            neracaData: r.data ?? [],
+            neracaData: r.data ?? BranchesData.initial(),
           ),
         );
       },
@@ -148,7 +152,34 @@ class HomeCubit extends Cubit<HomeState> {
         return emit(
           state.copyWith(
             getHomeAdminLabaRugiResultState: ResultState.success(data: r),
-            labaRugiData: r.data ?? [],
+            labaRugiData: r.data ?? BranchesData.initial(),
+          ),
+        );
+      },
+    );
+  }
+
+  getHomeDataPerubahanModal(int page) async {
+    emit(state.copyWith(getHomeAdminPerubahanModalReportState: const ResultState.loading()));
+
+    final _result = await _getHomeAdminPerubahanModal(GetHomeAdminBranchesUseCaseParams(
+      type: state.type,
+      year: state.year,
+      page: page,
+    ));
+    _result.fold(
+      (l) {
+        emit(
+          state.copyWith(
+            getHomeAdminPerubahanModalReportState: ResultState.error(failure: l),
+          ),
+        );
+      },
+      (r) {
+        return emit(
+          state.copyWith(
+            getHomeAdminPerubahanModalReportState: ResultState.success(data: r),
+            perubahanModalData: r.data ?? PerubahanModalData.initial(),
           ),
         );
       },

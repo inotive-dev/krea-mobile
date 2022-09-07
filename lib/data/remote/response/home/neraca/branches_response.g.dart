@@ -10,9 +10,9 @@ _$_BranchesResponse _$$_BranchesResponseFromJson(Map<String, dynamic> json) =>
     _$_BranchesResponse(
       message: json['message'] as String?,
       statusCode: json['statusCode'] as int?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) => BranchResponse.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: json['data'] == null
+          ? null
+          : BranchesDataResponse.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BranchesResponseToJson(_$_BranchesResponse instance) =>

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'branches.dart';
+part of 'perubahan_modal.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,14 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$BranchesTearOff {
-  const _$BranchesTearOff();
+class _$PerubahanModalTearOff {
+  const _$PerubahanModalTearOff();
 
-  _Branches call(
+  _PerubahanModal call(
       {required String? message,
       required int? statusCode,
-      required BranchesData? data}) {
-    return _Branches(
+      required PerubahanModalData? data}) {
+    return _PerubahanModal(
       message: message,
       statusCode: statusCode,
       data: data,
@@ -31,35 +31,37 @@ class _$BranchesTearOff {
 }
 
 /// @nodoc
-const $Branches = _$BranchesTearOff();
+const $PerubahanModal = _$PerubahanModalTearOff();
 
 /// @nodoc
-mixin _$Branches {
+mixin _$PerubahanModal {
   String? get message => throw _privateConstructorUsedError;
   int? get statusCode => throw _privateConstructorUsedError;
-  BranchesData? get data => throw _privateConstructorUsedError;
+  PerubahanModalData? get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $BranchesCopyWith<Branches> get copyWith =>
+  $PerubahanModalCopyWith<PerubahanModal> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BranchesCopyWith<$Res> {
-  factory $BranchesCopyWith(Branches value, $Res Function(Branches) then) =
-      _$BranchesCopyWithImpl<$Res>;
-  $Res call({String? message, int? statusCode, BranchesData? data});
+abstract class $PerubahanModalCopyWith<$Res> {
+  factory $PerubahanModalCopyWith(
+          PerubahanModal value, $Res Function(PerubahanModal) then) =
+      _$PerubahanModalCopyWithImpl<$Res>;
+  $Res call({String? message, int? statusCode, PerubahanModalData? data});
 
-  $BranchesDataCopyWith<$Res>? get data;
+  $PerubahanModalDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class _$BranchesCopyWithImpl<$Res> implements $BranchesCopyWith<$Res> {
-  _$BranchesCopyWithImpl(this._value, this._then);
+class _$PerubahanModalCopyWithImpl<$Res>
+    implements $PerubahanModalCopyWith<$Res> {
+  _$PerubahanModalCopyWithImpl(this._value, this._then);
 
-  final Branches _value;
+  final PerubahanModal _value;
   // ignore: unused_field
-  final $Res Function(Branches) _then;
+  final $Res Function(PerubahanModal) _then;
 
   @override
   $Res call({
@@ -79,41 +81,45 @@ class _$BranchesCopyWithImpl<$Res> implements $BranchesCopyWith<$Res> {
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as BranchesData?,
+              as PerubahanModalData?,
     ));
   }
 
   @override
-  $BranchesDataCopyWith<$Res>? get data {
+  $PerubahanModalDataCopyWith<$Res>? get data {
     if (_value.data == null) {
       return null;
     }
 
-    return $BranchesDataCopyWith<$Res>(_value.data!, (value) {
+    return $PerubahanModalDataCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$BranchesCopyWith<$Res> implements $BranchesCopyWith<$Res> {
-  factory _$BranchesCopyWith(_Branches value, $Res Function(_Branches) then) =
-      __$BranchesCopyWithImpl<$Res>;
+abstract class _$PerubahanModalCopyWith<$Res>
+    implements $PerubahanModalCopyWith<$Res> {
+  factory _$PerubahanModalCopyWith(
+          _PerubahanModal value, $Res Function(_PerubahanModal) then) =
+      __$PerubahanModalCopyWithImpl<$Res>;
   @override
-  $Res call({String? message, int? statusCode, BranchesData? data});
+  $Res call({String? message, int? statusCode, PerubahanModalData? data});
 
   @override
-  $BranchesDataCopyWith<$Res>? get data;
+  $PerubahanModalDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
-class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
-    implements _$BranchesCopyWith<$Res> {
-  __$BranchesCopyWithImpl(_Branches _value, $Res Function(_Branches) _then)
-      : super(_value, (v) => _then(v as _Branches));
+class __$PerubahanModalCopyWithImpl<$Res>
+    extends _$PerubahanModalCopyWithImpl<$Res>
+    implements _$PerubahanModalCopyWith<$Res> {
+  __$PerubahanModalCopyWithImpl(
+      _PerubahanModal _value, $Res Function(_PerubahanModal) _then)
+      : super(_value, (v) => _then(v as _PerubahanModal));
 
   @override
-  _Branches get _value => super._value as _Branches;
+  _PerubahanModal get _value => super._value as _PerubahanModal;
 
   @override
   $Res call({
@@ -121,7 +127,7 @@ class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_Branches(
+    return _then(_PerubahanModal(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -133,15 +139,15 @@ class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as BranchesData?,
+              as PerubahanModalData?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Branches implements _Branches {
-  const _$_Branches(
+class _$_PerubahanModal implements _PerubahanModal {
+  const _$_PerubahanModal(
       {required this.message, required this.statusCode, required this.data});
 
   @override
@@ -149,18 +155,18 @@ class _$_Branches implements _Branches {
   @override
   final int? statusCode;
   @override
-  final BranchesData? data;
+  final PerubahanModalData? data;
 
   @override
   String toString() {
-    return 'Branches(message: $message, statusCode: $statusCode, data: $data)';
+    return 'PerubahanModal(message: $message, statusCode: $statusCode, data: $data)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Branches &&
+            other is _PerubahanModal &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -176,24 +182,24 @@ class _$_Branches implements _Branches {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesCopyWith<_Branches> get copyWith =>
-      __$BranchesCopyWithImpl<_Branches>(this, _$identity);
+  _$PerubahanModalCopyWith<_PerubahanModal> get copyWith =>
+      __$PerubahanModalCopyWithImpl<_PerubahanModal>(this, _$identity);
 }
 
-abstract class _Branches implements Branches {
-  const factory _Branches(
+abstract class _PerubahanModal implements PerubahanModal {
+  const factory _PerubahanModal(
       {required String? message,
       required int? statusCode,
-      required BranchesData? data}) = _$_Branches;
+      required PerubahanModalData? data}) = _$_PerubahanModal;
 
   @override
   String? get message;
   @override
   int? get statusCode;
   @override
-  BranchesData? get data;
+  PerubahanModalData? get data;
   @override
   @JsonKey(ignore: true)
-  _$BranchesCopyWith<_Branches> get copyWith =>
+  _$PerubahanModalCopyWith<_PerubahanModal> get copyWith =>
       throw _privateConstructorUsedError;
 }

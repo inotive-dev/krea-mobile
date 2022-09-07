@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/domain/entities/history_entities/mart.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 
 part 'sales_report.freezed.dart';
@@ -23,5 +24,6 @@ class SalesReport with _$SalesReport {
     required DateTime? updatedAtMobile,
     required int? isMatched,
     required User? user,
+    required Mart? mart,
   }) = _SalesReport;
 }
