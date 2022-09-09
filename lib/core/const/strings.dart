@@ -11,6 +11,7 @@ class Strings {
   static const lupaPassword = 'Forgot your password? ';
   static const reset = 'Reset';
   static const saldoAnda = 'Saldo Anda';
+  static const lastUpdated = 'Last Updated';
   static const totalSimpananAnda = 'Total Simpanan Anda';
   static const totalSimpananWajib = 'Total Simpanan Wajib';
   static const totalSimpananPokok = 'Total Simpanan Pokok';

@@ -83,6 +83,10 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(Sizes.height160),
+        child: const AdminAppBar(),
+      ),
       floatingActionButton: Container(
         width: Sizes.width68,
         height: Sizes.width68,
@@ -108,7 +112,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const AdminAppBar(),
             SizedBox(height: Sizes.height12),
             const SectionLabel(text: 'Report'),
             BlocBuilder<HomeCubit, HomeState>(

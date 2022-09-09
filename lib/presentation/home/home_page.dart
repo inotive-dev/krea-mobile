@@ -53,13 +53,9 @@ class _HomePageState extends State<HomePage> {
 
     _widgetAppBar = <PreferredSizeWidget>[
       PreferredSize(
-        preferredSize: Size.fromHeight(Sizes.height131),
+        preferredSize: Size.fromHeight(Sizes.height160),
         child: const SizedBox(),
       ),
-      // PreferredSize(
-      //     preferredSize: Size.fromHeight(Sizes.height131),
-      //     child: const HomeAppBar(),
-      //   ),
       AppBar(
         backgroundColor: ColorPalettes.greyAppBar,
         title: Text(

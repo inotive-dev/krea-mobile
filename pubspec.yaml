@@ -31,6 +31,8 @@ dependencies:
   freezed_annotation: ^1.1.0
   # flutter_bloc for widget bloc_test:
   flutter_bloc: ^8.0.1
+  # native splash screen
+  flutter_native_splash: ^2.2.7
   # GetX for route, state & dependency management
   get: ^4.6.5
   # Service locator
