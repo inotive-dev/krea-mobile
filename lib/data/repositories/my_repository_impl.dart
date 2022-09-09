@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/core/utils/network_info/network_info.dart';
 import 'package:koperasi/domain/entities/history_entities/history.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
@@ -30,10 +31,12 @@ import '../remote/remote_data_source.dart';
 class MyRepositoryImpl implements MyRepository {
   final RemoteDataSource _remoteDataSource;
   final LocalDataSource _localDataSource;
+  final NetworkInfoImpl _networkInfoImpl;
 
   MyRepositoryImpl(
     this._remoteDataSource,
     this._localDataSource,
+    this._networkInfoImpl,
   );
 
   @override
@@ -82,15 +85,28 @@ class MyRepositoryImpl implements MyRepository {
 
   @override
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
-    final _data = await _remoteDataSource.getHomeAdminData(params);
+    print('ISCONNECTED: ${await _networkInfoImpl.isConnected}');
+    if (await _networkInfoImpl.isConnected) {
+      final _data = await _remoteDataSource.getHomeAdminData(params);
 
-    if (_data.data == null) {
-      return Left(
-        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
-      );
+      if (_data.data == null) {
+        return Left(
+          Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+        );
+      }
+
+      return Right(_data.toDomain());
+    } else {
+      final _data = await _remoteDataSource.getHomeAdminData(params);
+
+      if (_data.data == null) {
+        return Left(
+          Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+        );
+      }
+
+      return Right(_data.toDomain());
     }
-
-    return Right(_data.toDomain());
   }
 
   @override
