@@ -165,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        margin: const EdgeInsets.only(left: 65, top: 65),
+                        margin: EdgeInsets.only(left: Sizes.width60, top: Sizes.width60),
                         child: InkWell(
                           onTap: _onTapAvatar,
                           child: Icon(
