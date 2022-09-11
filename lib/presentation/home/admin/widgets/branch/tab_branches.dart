@@ -156,6 +156,7 @@ class TabBranches extends StatelessWidget {
             height: Sizes.height255,
             child: TabBarView(
               controller: tabController,
+              // physics: const NeverScrollableScrollPhysics(),
               children: [
                 BlocBuilder<HomeCubit, HomeState>(
                   builder: (context, state) {

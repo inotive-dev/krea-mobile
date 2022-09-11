@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/get_rx.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:koperasi/core/utils/permission_helper.dart';
 import 'package:koperasi/di/injection_container.dart';
-import 'package:koperasi/domain/entities/home/branches_data.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/page_control.dart' as branch;
@@ -16,6 +15,7 @@ import 'package:koperasi/presentation/home/admin/widgets/section_label.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/tab_branches.dart';
 import 'package:koperasi/presentation/home/admin/widgets/tab_report.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
+import 'package:koperasi/presentation/home/widgets/scan_qr/scan_qr_page.dart';
 
 import '../../../core/style/sizes.dart';
 
@@ -30,7 +30,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
   late TabController tabBranchController;
   late MyRepository _myRepository;
 
-  RxBool _isShowTabPageControl = false.obs;
+  RxBool isShowTabPageControl = false.obs;
 
   @override
   void initState() {
@@ -48,7 +48,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
     context.read<HomeCubit>().getHomeDataNeraca(1);
     context.read<HomeCubit>().getHomeDataPerubahanModal(1);
     context.read<HomeCubit>().getHomeAdminSalesReports(1);
-    _isShowTabPageControl.value = true;
+    isShowTabPageControl.value = true;
   }
 
   @override
@@ -59,20 +59,20 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
 
   _handleTabSelection() {
     final index = tabBranchController.index;
-    if (tabBranchController.indexIsChanging) {
+    if (tabBranchController.indexIsChanging || tabBranchController.index != tabBranchController.previousIndex) {
       switch (index) {
         case 0:
-          _isShowTabPageControl.value = true;
+          isShowTabPageControl.value = true;
           context.read<HomeCubit>().updateType(Constants.typesNeraca[0]);
           context.read<HomeCubit>().getHomeDataNeraca(1);
           break;
         case 1:
-          _isShowTabPageControl.value = true;
+          isShowTabPageControl.value = true;
           context.read<HomeCubit>().updateType(Constants.typesLabaRugi[0]);
           context.read<HomeCubit>().getHomeDataLabaRugi(1);
           break;
         case 2:
-          _isShowTabPageControl.value = false;
+          isShowTabPageControl.value = false;
           context.read<HomeCubit>().getHomeDataPerubahanModal(1);
           break;
         default:
@@ -99,7 +99,25 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
           fillColor: ColorPalettes.darkBlue,
           elevation: 0,
           shape: const CircleBorder(),
-          onPressed: () {},
+          onPressed: () async {
+            await PermissionHelper.requestPermissionCamera(
+              onGranted: () async {
+                final result = await Navigator.pushNamed(
+                  context,
+                  ScanQRPage.routeName,
+                );
+
+                if (result != null || result != '') {
+                  print('RESULT SCAN: $result');
+                }
+              },
+              onDenied: () {
+                // context.showErrorSnackbar(
+                //   LocaleKeys.msg_camera_permission.tr(),
+                // );
+              },
+            );
+          },
           child: SvgPicture.asset(
             'assets/icons/icQr.svg',
             color: Colors.white,
@@ -138,7 +156,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
               } else {
                 return const SizedBox.shrink();
               }
-            }, _isShowTabPageControl),
+            }, isShowTabPageControl),
             SizedBox(height: Sizes.height41),
             const SectionLabel(text: 'Laporan Penjualan'),
             SizedBox(height: Sizes.height10),

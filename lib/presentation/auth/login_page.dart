@@ -7,6 +7,7 @@ import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/utils/form_validator.dart';
 import 'package:koperasi/presentation/home/home_page.dart';
+import 'package:koperasi/presentation/reset_password/reset_password_page.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 import '../../core/const/strings.dart';
@@ -241,10 +242,18 @@ class _LoginPageState extends State<LoginPage> {
                         style:
                             TextStyle(color: ColorPalettes.darkText, fontSize: Sizes.sp16, fontWeight: FontWeight.w500),
                       ),
-                      Text(
-                        Strings.reset,
-                        style:
-                            TextStyle(color: ColorPalettes.primary, fontSize: Sizes.sp16, fontWeight: FontWeight.w500),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            ResetPasswordPage.routeName,
+                          );
+                        },
+                        child: Text(
+                          Strings.reset,
+                          style: TextStyle(
+                              color: ColorPalettes.primary, fontSize: Sizes.sp16, fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ],
                   ),

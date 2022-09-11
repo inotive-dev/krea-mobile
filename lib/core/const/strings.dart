@@ -43,6 +43,9 @@ class Strings {
   static const camera = 'Kamera';
   static const gallery = 'Galeri';
 
+  static const resetPassword = 'Reset Password';
+  static const scanQR = 'Scan QR';
+
   // Error
   static const String msgErrorGeneral = 'Terjadi kesalahan, silakan coba lagi';
 

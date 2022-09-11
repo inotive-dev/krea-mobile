@@ -8,6 +8,7 @@ import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
 import 'package:koperasi/domain/entities/home/perubahan_modal/perubahan_modal.dart';
 import 'package:koperasi/domain/entities/home/sales_reports.dart';
+import 'package:koperasi/domain/entities/home/validate_data/validate_data.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
 import 'package:koperasi/domain/entities/profile/update_profile.dart';
@@ -16,6 +17,7 @@ import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
+import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/unions/failure.dart';
@@ -226,5 +228,10 @@ class MyRepositoryImpl implements MyRepository {
     }
 
     return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, ValidateData>> validateData(ValidateDataUseCaseParams params) {
+    throw UnimplementedError();
   }
 }

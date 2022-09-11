@@ -50,6 +50,8 @@ dependencies:
   image_picker: ^0.8.4+10
   # Permission handler
   permission_handler: ^9.2.0
+  # QR code scanner that can be embedded inside flutter
+  mobile_scanner: ^2.0.0
   #loading button animation
   rounded_loading_button: ^2.1.0
   # for shared preference
