@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/const/strings.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/row_text.dart';
 import 'package:koperasi/presentation/home/admin/widgets/dropdown/filter_dropdown.dart';
@@ -190,7 +191,7 @@ class TabBranches extends StatelessWidget {
                         }
                       },
                       error: (error) => Center(
-                        child: Text(error.toString()),
+                        child: Text(Failure.getErrorMessage(error)),
                       ),
                     );
                   },
@@ -229,7 +230,7 @@ class TabBranches extends StatelessWidget {
                         }
                       },
                       error: (error) => Center(
-                        child: Text(error.toString()),
+                        child: Text(Failure.getErrorMessage(error)),
                       ),
                     );
                   },
@@ -278,7 +279,7 @@ class TabBranches extends StatelessWidget {
                         ),
                       ),
                       error: (error) => Center(
-                        child: Text(error.toString()),
+                        child: Text(Failure.getErrorMessage(error)),
                       ),
                     );
                   },

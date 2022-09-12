@@ -11,7 +11,7 @@ import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
-import 'package:koperasi/presentation/profile/widgets/success_update_dialog.dart';
+import 'package:koperasi/core/widgets/success_update_dialog.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
@@ -63,8 +63,12 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       success: (data) async {
         GetUtil.dismissDialog();
-        await GetUtil.showDialog(const SuccessUpdateDialog(), barrierDismissible: false);
-        // context.showSuccessSnackbar(data.message ?? Strings.msgSuccessUpdate);
+        await GetUtil.showDialog(
+          const SuccessUpdateDialog(
+            text: Strings.successUpdateProfile,
+          ),
+          barrierDismissible: false,
+        );
       },
       error: (failure) {
         GetUtil.dismissDialog();

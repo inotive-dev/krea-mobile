@@ -8,6 +8,7 @@ class Endpoint {
   static const getHomeUserData = '/user/home';
   static const getHistoryAdminData = '/admin/history';
   static const getHistoryUserData = '/user/history';
+  static const getHistoryDetail = '/history';
   static const updateProfile = '/profile';
   static const getHomeAdminNeraca = '/admin/home/get-neraca';
   static const getHomeAdminLabaRugi = '/admin/home/get-labarugi';

@@ -20,10 +20,10 @@ class Strings {
   static const history = 'History';
   static const detailHistory = 'Detail History';
   static const profile = 'Profile';
+  static const successUpdateProfile = 'Data Tersimpan';
   static const mingguIni = 'Minggu Ini';
   static const bulanLalu = 'Bulan Lalu';
   static const nama = 'Nama';
-  static const confirmPassword = 'Confirm Password';
   static const update = 'Update';
   static const cepatTerjual = 'Cepat Terjual';
   static const lamaTerjual = 'Lama Terjual';
@@ -46,9 +46,15 @@ class Strings {
   static const resetPassword = 'Reset Password';
   static const scanQR = 'Scan QR';
 
+  static const sendEmail =
+      'Kami akan mengirimkan intruksi terkait reset password ke email Anda, silahkan masukkan email';
+  static const passwordInfo = 'Silahkan reset password Anda dengan password yang baru';
+  static const newPassword = 'New Password';
+  static const confirmPassword = 'Confirm Password';
+  static const successResetPassword = 'Password berhasil direset, silahkan login kembali';
+
   // Error
   static const String msgErrorGeneral = 'Terjadi kesalahan, silakan coba lagi';
 
   static const String loading = 'Loading';
-  static const String msgSuccessUpdate = 'Update profile berhasil';
 }

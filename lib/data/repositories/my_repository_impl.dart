@@ -2,7 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/core/utils/network_info/network_info.dart';
-import 'package:koperasi/domain/entities/history_entities/history.dart';
+import 'package:koperasi/domain/entities/history/history.dart';
+import 'package:koperasi/domain/entities/history/history_detail/history_detail.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
 import 'package:koperasi/domain/entities/home/home_user.dart';
@@ -13,6 +14,7 @@ import 'package:koperasi/domain/entities/login/user.dart';
 import 'package:koperasi/domain/entities/profile/profile.dart';
 import 'package:koperasi/domain/entities/profile/update_profile.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
+import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
@@ -192,6 +194,19 @@ class MyRepositoryImpl implements MyRepository {
   @override
   Future<Either<Failure, History>> getHistoryUserData(NoParam params) async {
     final _data = await _remoteDataSource.getHistoryUserData(params);
+
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.toDomain());
+  }
+
+  @override
+  Future<Either<Failure, HistoryDetail>> getHistoryDetail(GetHistoryDetailUseCaseParams params) async {
+    final _data = await _remoteDataSource.getHistoryDetail(params);
 
     if (_data.data == null) {
       return Left(

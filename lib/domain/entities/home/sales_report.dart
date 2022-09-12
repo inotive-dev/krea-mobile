@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/domain/entities/history_entities/mart.dart';
+import 'package:koperasi/domain/entities/history/mart.dart';
 import 'package:koperasi/domain/entities/login/user.dart';
 
 part 'sales_report.freezed.dart';

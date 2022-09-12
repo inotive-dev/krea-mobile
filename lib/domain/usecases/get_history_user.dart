@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/future_usecase.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/core/unions/failure.dart';
-import 'package:koperasi/domain/entities/history_entities/history.dart';
+import 'package:koperasi/domain/entities/history/history.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
 
 @lazySingleton

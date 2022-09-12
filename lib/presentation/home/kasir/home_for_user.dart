@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/style/sizes.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/home_summary_card.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/user_app_bar.dart';
@@ -27,7 +28,7 @@ class HomeForUser extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
                 error: (error) => Center(
-                  child: Text(error.toString()),
+                  child: Text(Failure.getErrorMessage(error)),
                 ),
                 success: (data) {
                   return Column(

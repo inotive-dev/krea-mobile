@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:koperasi/core/const/constants.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
@@ -48,7 +49,7 @@ class UserAppBar extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
                 error: (error) => Center(
-                  child: Text(error.toString()),
+                  child: Text(Failure.getErrorMessage(error)),
                 ),
                 success: (data) {
                   final String date = DateFormat("HH:mm\ndd MMMM yyyy", 'id_ID').format(
@@ -67,7 +68,7 @@ class UserAppBar extends StatelessWidget {
                                 child: CircularProgressIndicator(),
                               ),
                               error: (error) => Center(
-                                child: Text(error.toString()),
+                                child: Text(Failure.getErrorMessage(error)),
                               ),
                               success: (data) {
                                 return Row(
@@ -91,9 +92,7 @@ class UserAppBar extends StatelessWidget {
                                         radius: Sizes.height30,
                                       ),
                                     ),
-                                    SizedBox(
-                                      width: Sizes.width12,
-                                    ),
+                                    SizedBox(width: Sizes.width12),
                                     Expanded(
                                       flex: 2,
                                       child: Column(

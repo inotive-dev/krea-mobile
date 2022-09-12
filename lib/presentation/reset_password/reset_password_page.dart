@@ -6,7 +6,9 @@ import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/get_util.dart';
 import 'package:koperasi/core/widgets/loading_dialog.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
-import 'package:koperasi/presentation/profile/widgets/success_update_dialog.dart';
+import 'package:koperasi/core/widgets/success_update_dialog.dart';
+import 'package:koperasi/presentation/reset_password/widgets/form_email.dart';
+import 'package:koperasi/presentation/reset_password/widgets/form_new_password.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
@@ -24,33 +26,15 @@ class ResetPasswordPage extends StatefulWidget {
 }
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
-
-  _handleResetPassword(ResultState<dynamic> resetPasswordResult) {
-    resetPasswordResult.maybeWhen(
-      loading: () async => await GetUtil.showDialog(
-        const LoadingDialog(),
-        barrierDismissible: false,
-      ),
-      success: (data) async {
-        GetUtil.dismissDialog();
-        await GetUtil.showDialog(const SuccessUpdateDialog(), barrierDismissible: false);
-        // context.showSuccessSnackbar(data.message ?? Strings.msgSuccessUpdate);
-      },
-      error: (failure) {
-        GetUtil.dismissDialog();
-        GetUtil.context.showErrorSnackbar(Failure.getErrorMessage(failure));
-      },
-      orElse: () => null,
-    );
-  }
-
-  _resetPassword() {
-    FocusManager.instance.primaryFocus?.unfocus();
-    // context.read<ProfileCubit>().changePassword(_passwordController.text);
-
-    // context.read<ProfileCubit>().updateProfile();
+  _buildContent(String status) {
+    switch (status) {
+      case 'send_email':
+        return const FormEmail();
+      case 'new_password':
+        return const FormNewPassword();
+      default:
+        return const LoadingDialog();
+    }
   }
 
   @override
@@ -74,71 +58,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          padding: EdgeInsets.symmetric(
-            vertical: Sizes.width16,
-            horizontal: Sizes.height28,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: Sizes.height16),
-              Text(
-                Strings.password,
-                style: CustomTextStyle.textFormStyle,
-              ),
-              SizedBox(height: Sizes.height7),
-              TextFormField(
-                controller: _passwordController,
-                style: TextStyle(
-                  color: ColorPalettes.textNeutral,
-                  fontSize: Sizes.sp14,
-                ),
-                obscureText: true,
-                decoration: CustomWidgetStyle.formInputDecoration,
-              ),
-              SizedBox(height: Sizes.height19),
-              Text(
-                Strings.confirmPassword,
-                style: CustomTextStyle.textFormStyle,
-              ),
-              SizedBox(height: Sizes.height7),
-              TextFormField(
-                controller: _confirmPasswordController,
-                style: TextStyle(
-                  color: ColorPalettes.textNeutral,
-                  fontSize: Sizes.sp14,
-                ),
-                obscureText: true,
-                decoration: CustomWidgetStyle.formInputDecoration,
-              ),
-              SizedBox(height: Sizes.height20),
-              BlocListener<ProfileCubit, ProfileState>(
-                listenWhen: (previous, current) =>
-                    previous.updateProfileResultState != current.updateProfileResultState,
-                listener: (context, state) {
-                  _handleResetPassword(state.updateProfileResultState);
-                },
-                child: ElevatedButton(
-                  onPressed: _resetPassword,
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: Sizes.sp18,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(double.infinity, Sizes.height46),
-                    elevation: 0,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        child: _buildContent('new_password'),
       ),
     );
   }

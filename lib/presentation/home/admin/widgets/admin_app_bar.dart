@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/const/strings.dart';
 import 'package:koperasi/core/extensions/ext.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
@@ -49,7 +50,7 @@ class AdminAppBar extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
                 error: (error) => Center(
-                  child: Text(error.toString()),
+                  child: Text(Failure.getErrorMessage(error)),
                 ),
                 success: (data) {
                   final String date = DateFormat("HH:mm\ndd MMMM yyyy", 'id_ID').format(
@@ -67,7 +68,7 @@ class AdminAppBar extends StatelessWidget {
                                 child: CircularProgressIndicator(),
                               ),
                               error: (error) => Center(
-                                child: Text(error.toString()),
+                                child: Text(Failure.getErrorMessage(error)),
                               ),
                               success: (data) {
                                 return Row(

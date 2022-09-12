@@ -2,8 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
-import 'package:koperasi/domain/entities/history_entities/history_data_admin.dart';
+import 'package:koperasi/domain/entities/history/history_data_admin.dart';
+import 'package:koperasi/domain/entities/history/history_detail/history_detail_data.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
+import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_history_user.dart';
 
 import '../../../../../core/unions/result_state.dart';
@@ -15,10 +17,12 @@ part 'history_state.dart';
 class HistoryCubit extends Cubit<HistoryState> {
   final GetHistoryAdminUseCase _getHistoryAdminUseCase;
   final GetHistoryUserUseCase _getHistoryUserUseCase;
+  final GetHistoryDetailUseCase _getHistoryDetailUseCase;
 
   HistoryCubit(
     this._getHistoryAdminUseCase,
     this._getHistoryUserUseCase,
+    this._getHistoryDetailUseCase,
   ) : super(HistoryState.initial());
 
   getHistoryAdminData(int martId) async {
@@ -67,6 +71,29 @@ class HistoryCubit extends Cubit<HistoryState> {
             //         ? HistoryData.initial()
             //         : r.data!
             //     : r.data!,
+          ),
+        );
+      },
+    );
+  }
+
+  getHistoryDetail(int historyId) async {
+    emit(state.copyWith(getHistoryDetailResultState: const ResultState.loading()));
+
+    final _result = await _getHistoryDetailUseCase(GetHistoryDetailUseCaseParams(id: historyId));
+    _result.fold(
+      (l) {
+        emit(
+          state.copyWith(
+            getHistoryDetailResultState: ResultState.error(failure: l),
+          ),
+        );
+      },
+      (r) {
+        return emit(
+          state.copyWith(
+            getHistoryDetailResultState: ResultState.success(data: r),
+            historyDetailData: r.data ?? List.empty(),
           ),
         );
       },

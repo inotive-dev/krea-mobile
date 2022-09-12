@@ -23,13 +23,18 @@ class _$HistoryStateTearOff {
           const ResultState.initial(),
       ResultState<dynamic> getHistoryUserResultState =
           const ResultState.initial(),
+      ResultState<dynamic> getHistoryDetailResultState =
+          const ResultState.initial(),
       Map<dynamic, dynamic> selectedMart = const {'id': 1, 'name': 'Mart Alfa'},
-      required HistoryData historyData}) {
+      required HistoryData historyData,
+      required List<HistoryDetailData>? historyDetailData}) {
     return _HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState,
       getHistoryUserResultState: getHistoryUserResultState,
+      getHistoryDetailResultState: getHistoryDetailResultState,
       selectedMart: selectedMart,
       historyData: historyData,
+      historyDetailData: historyDetailData,
     );
   }
 }
@@ -43,8 +48,12 @@ mixin _$HistoryState {
       throw _privateConstructorUsedError;
   ResultState<dynamic> get getHistoryUserResultState =>
       throw _privateConstructorUsedError;
+  ResultState<dynamic> get getHistoryDetailResultState =>
+      throw _privateConstructorUsedError;
   Map<dynamic, dynamic> get selectedMart => throw _privateConstructorUsedError;
   HistoryData get historyData => throw _privateConstructorUsedError;
+  List<HistoryDetailData>? get historyDetailData =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HistoryStateCopyWith<HistoryState> get copyWith =>
@@ -59,11 +68,14 @@ abstract class $HistoryStateCopyWith<$Res> {
   $Res call(
       {ResultState<dynamic> getHistoryAdminResultState,
       ResultState<dynamic> getHistoryUserResultState,
+      ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
-      HistoryData historyData});
+      HistoryData historyData,
+      List<HistoryDetailData>? historyDetailData});
 
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
   $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState;
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryDetailResultState;
   $HistoryDataCopyWith<$Res> get historyData;
 }
 
@@ -79,8 +91,10 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
   $Res call({
     Object? getHistoryAdminResultState = freezed,
     Object? getHistoryUserResultState = freezed,
+    Object? getHistoryDetailResultState = freezed,
     Object? selectedMart = freezed,
     Object? historyData = freezed,
+    Object? historyDetailData = freezed,
   }) {
     return _then(_value.copyWith(
       getHistoryAdminResultState: getHistoryAdminResultState == freezed
@@ -91,6 +105,10 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
           ? _value.getHistoryUserResultState
           : getHistoryUserResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHistoryDetailResultState: getHistoryDetailResultState == freezed
+          ? _value.getHistoryDetailResultState
+          : getHistoryDetailResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       selectedMart: selectedMart == freezed
           ? _value.selectedMart
           : selectedMart // ignore: cast_nullable_to_non_nullable
@@ -99,6 +117,10 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
           ? _value.historyData
           : historyData // ignore: cast_nullable_to_non_nullable
               as HistoryData,
+      historyDetailData: historyDetailData == freezed
+          ? _value.historyDetailData
+          : historyDetailData // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailData>?,
     ));
   }
 
@@ -115,6 +137,14 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
     return $ResultStateCopyWith<dynamic, $Res>(_value.getHistoryUserResultState,
         (value) {
       return _then(_value.copyWith(getHistoryUserResultState: value));
+    });
+  }
+
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryDetailResultState {
+    return $ResultStateCopyWith<dynamic, $Res>(
+        _value.getHistoryDetailResultState, (value) {
+      return _then(_value.copyWith(getHistoryDetailResultState: value));
     });
   }
 
@@ -136,13 +166,17 @@ abstract class _$HistoryStateCopyWith<$Res>
   $Res call(
       {ResultState<dynamic> getHistoryAdminResultState,
       ResultState<dynamic> getHistoryUserResultState,
+      ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
-      HistoryData historyData});
+      HistoryData historyData,
+      List<HistoryDetailData>? historyDetailData});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState;
+  @override
+  $ResultStateCopyWith<dynamic, $Res> get getHistoryDetailResultState;
   @override
   $HistoryDataCopyWith<$Res> get historyData;
 }
@@ -161,8 +195,10 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
   $Res call({
     Object? getHistoryAdminResultState = freezed,
     Object? getHistoryUserResultState = freezed,
+    Object? getHistoryDetailResultState = freezed,
     Object? selectedMart = freezed,
     Object? historyData = freezed,
+    Object? historyDetailData = freezed,
   }) {
     return _then(_HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState == freezed
@@ -173,6 +209,10 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
           ? _value.getHistoryUserResultState
           : getHistoryUserResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
+      getHistoryDetailResultState: getHistoryDetailResultState == freezed
+          ? _value.getHistoryDetailResultState
+          : getHistoryDetailResultState // ignore: cast_nullable_to_non_nullable
+              as ResultState<dynamic>,
       selectedMart: selectedMart == freezed
           ? _value.selectedMart
           : selectedMart // ignore: cast_nullable_to_non_nullable
@@ -181,6 +221,10 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
           ? _value.historyData
           : historyData // ignore: cast_nullable_to_non_nullable
               as HistoryData,
+      historyDetailData: historyDetailData == freezed
+          ? _value.historyDetailData
+          : historyDetailData // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailData>?,
     ));
   }
 }
@@ -191,8 +235,10 @@ class _$_HistoryState implements _HistoryState {
   const _$_HistoryState(
       {this.getHistoryAdminResultState = const ResultState.initial(),
       this.getHistoryUserResultState = const ResultState.initial(),
+      this.getHistoryDetailResultState = const ResultState.initial(),
       this.selectedMart = const {'id': 1, 'name': 'Mart Alfa'},
-      required this.historyData});
+      required this.historyData,
+      required this.historyDetailData});
 
   @JsonKey()
   @override
@@ -202,13 +248,18 @@ class _$_HistoryState implements _HistoryState {
   final ResultState<dynamic> getHistoryUserResultState;
   @JsonKey()
   @override
+  final ResultState<dynamic> getHistoryDetailResultState;
+  @JsonKey()
+  @override
   final Map<dynamic, dynamic> selectedMart;
   @override
   final HistoryData historyData;
+  @override
+  final List<HistoryDetailData>? historyDetailData;
 
   @override
   String toString() {
-    return 'HistoryState(getHistoryAdminResultState: $getHistoryAdminResultState, getHistoryUserResultState: $getHistoryUserResultState, selectedMart: $selectedMart, historyData: $historyData)';
+    return 'HistoryState(getHistoryAdminResultState: $getHistoryAdminResultState, getHistoryUserResultState: $getHistoryUserResultState, getHistoryDetailResultState: $getHistoryDetailResultState, selectedMart: $selectedMart, historyData: $historyData, historyDetailData: $historyDetailData)';
   }
 
   @override
@@ -220,10 +271,15 @@ class _$_HistoryState implements _HistoryState {
                 other.getHistoryAdminResultState, getHistoryAdminResultState) &&
             const DeepCollectionEquality().equals(
                 other.getHistoryUserResultState, getHistoryUserResultState) &&
+            const DeepCollectionEquality().equals(
+                other.getHistoryDetailResultState,
+                getHistoryDetailResultState) &&
             const DeepCollectionEquality()
                 .equals(other.selectedMart, selectedMart) &&
             const DeepCollectionEquality()
-                .equals(other.historyData, historyData));
+                .equals(other.historyData, historyData) &&
+            const DeepCollectionEquality()
+                .equals(other.historyDetailData, historyDetailData));
   }
 
   @override
@@ -231,8 +287,10 @@ class _$_HistoryState implements _HistoryState {
       runtimeType,
       const DeepCollectionEquality().hash(getHistoryAdminResultState),
       const DeepCollectionEquality().hash(getHistoryUserResultState),
+      const DeepCollectionEquality().hash(getHistoryDetailResultState),
       const DeepCollectionEquality().hash(selectedMart),
-      const DeepCollectionEquality().hash(historyData));
+      const DeepCollectionEquality().hash(historyData),
+      const DeepCollectionEquality().hash(historyDetailData));
 
   @JsonKey(ignore: true)
   @override
@@ -244,17 +302,23 @@ abstract class _HistoryState implements HistoryState {
   const factory _HistoryState(
       {ResultState<dynamic> getHistoryAdminResultState,
       ResultState<dynamic> getHistoryUserResultState,
+      ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
-      required HistoryData historyData}) = _$_HistoryState;
+      required HistoryData historyData,
+      required List<HistoryDetailData>? historyDetailData}) = _$_HistoryState;
 
   @override
   ResultState<dynamic> get getHistoryAdminResultState;
   @override
   ResultState<dynamic> get getHistoryUserResultState;
   @override
+  ResultState<dynamic> get getHistoryDetailResultState;
+  @override
   Map<dynamic, dynamic> get selectedMart;
   @override
   HistoryData get historyData;
+  @override
+  List<HistoryDetailData>? get historyDetailData;
   @override
   @JsonKey(ignore: true)
   _$HistoryStateCopyWith<_HistoryState> get copyWith =>

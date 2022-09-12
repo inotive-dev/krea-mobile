@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class FormValidator {
@@ -6,7 +5,7 @@ class FormValidator {
 
   static String? validateEmail(BuildContext context, String value) {
     String pattern = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)";
-    RegExp regExp =  RegExp(pattern);
+    RegExp regExp = RegExp(pattern);
     if (value.isEmpty) {
       return "Email can't be empty";
     } else if (!regExp.hasMatch(value)) {
@@ -18,13 +17,11 @@ class FormValidator {
     }
   }
 
-  static String? validatePassword(BuildContext context, String value){
-    if(value.isEmpty){
-      return "Password can't be empty";
+  static String? validatePassword(BuildContext context, String value, {String? textError}) {
+    if (value.isEmpty) {
+      return textError ?? "Password can't be empty";
     } else {
       return null;
     }
   }
-
-
 }

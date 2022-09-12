@@ -5,7 +5,12 @@ import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/utils/get_util.dart';
 
 class SuccessUpdateDialog extends StatelessWidget {
-  const SuccessUpdateDialog({Key? key}) : super(key: key);
+  final String text;
+
+  const SuccessUpdateDialog({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class SuccessUpdateDialog extends StatelessWidget {
               height: Sizes.height20,
             ),
             Text(
-              'Data Tersimpan',
+              text,
               style: TextStyle(
                 color: ColorPalettes.blackText,
                 fontSize: Sizes.sp18,

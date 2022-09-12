@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/permission_helper.dart';
 import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/domain/repositories/my_repository.dart';
@@ -141,7 +142,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                   ),
                   success: (data) => TabReport(data: state.homeData),
                   error: (error) => Center(
-                    child: Text(error.toString()),
+                    child: Text(Failure.getErrorMessage(error)),
                   ),
                 );
               },
@@ -177,7 +178,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
                     ],
                   ),
                   error: (error) => Center(
-                    child: Text(error.toString()),
+                    child: Text(Failure.getErrorMessage(error)),
                   ),
                 );
               },

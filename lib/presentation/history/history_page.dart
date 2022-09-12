@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
+import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/presentation/history/admin/widget/history_section.dart';
 import 'package:koperasi/presentation/history/admin/widget/mart_dropdown.dart';
 import 'package:koperasi/presentation/history/cubit/history_cubit.dart';
@@ -93,7 +94,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 );
               },
               error: (error) => Center(
-                child: Text(error.toString()),
+                child: Text(Failure.getErrorMessage(error)),
               ),
             );
           } else {
@@ -137,7 +138,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 );
               },
               error: (error) => Center(
-                child: Text(error.toString()),
+                child: Text(Failure.getErrorMessage(error)),
               ),
             );
           }

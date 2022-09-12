@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/domain/entities/history_entities/history_data_admin.dart';
+import 'package:koperasi/domain/entities/history/history_data_admin.dart';
 
 part 'history.freezed.dart';
 

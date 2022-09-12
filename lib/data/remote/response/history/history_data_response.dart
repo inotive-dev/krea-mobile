@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 
-import 'package:koperasi/domain/entities/history_entities/history_data_admin.dart';
+import 'package:koperasi/domain/entities/history/history_data_admin.dart';
 
 part 'history_data_response.freezed.dart';
 part 'history_data_response.g.dart';

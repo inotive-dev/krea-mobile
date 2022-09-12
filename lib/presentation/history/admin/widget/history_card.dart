@@ -4,7 +4,7 @@ import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/utils/date_util.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
-import 'package:koperasi/presentation/history/user/history_detail.dart';
+import 'package:koperasi/presentation/history/widget/history_detail_page.dart';
 
 class HistoryCard extends StatelessWidget {
   final SalesReport data;
@@ -18,7 +18,8 @@ class HistoryCard extends StatelessWidget {
       child: InkWell(
         onTap: () => Navigator.pushNamed(
           context,
-          HistoryDetail.routeName,
+          HistoryDetailPage.routeName,
+          arguments: data.id,
         ),
         child: Container(
           width: double.infinity,

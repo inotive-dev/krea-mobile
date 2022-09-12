@@ -4,6 +4,7 @@ import 'package:koperasi/core/base/usecase/no_param.dart';
 import 'package:koperasi/core/const/constants.dart';
 import 'package:koperasi/domain/usecases/do_login_usecase.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
+import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
@@ -96,6 +97,12 @@ class ApiService {
   Future<Response> getHistoryUserData(NoParam params) async {
     return await _dio.get(
       Endpoint.getHistoryUserData,
+    );
+  }
+
+  Future<Response> getHistoryDetail(GetHistoryDetailUseCaseParams params) async {
+    return await _dio.get(
+      "${Endpoint.getHistoryDetail}/${params.id}",
     );
   }
 
