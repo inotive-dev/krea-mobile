@@ -27,7 +27,7 @@ class HomeAdminPage extends StatefulWidget {
   State<HomeAdminPage> createState() => _HomeAdminPageState();
 }
 
-class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProviderStateMixin {
+class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateMixin {
   late TabController tabBranchController;
   late MyRepository _myRepository;
 
@@ -36,6 +36,16 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
   @override
   void initState() {
     super.initState();
+    _homeAdminInitial();
+  }
+
+  @override
+  void dispose() {
+    tabBranchController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _homeAdminInitial() async {
     tabBranchController = TabController(length: 3, vsync: this);
     tabBranchController.addListener(_handleTabSelection);
 
@@ -50,12 +60,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
     context.read<HomeCubit>().getHomeDataPerubahanModal(1);
     context.read<HomeCubit>().getHomeAdminSalesReports(1);
     isShowTabPageControl.value = true;
-  }
-
-  @override
-  void dispose() {
-    tabBranchController.dispose();
-    super.dispose();
   }
 
   _handleTabSelection() {
@@ -127,65 +131,68 @@ class _HomeAdminPageState extends State<HomeAdminPage> with SingleTickerProvider
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: Sizes.height12),
-            const SectionLabel(text: 'Report'),
-            BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                return state.getHomeAdminResultState.when(
-                  initial: () => const SizedBox.shrink(),
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  success: (data) => TabReport(data: state.homeData),
-                  error: (error) => Center(
-                    child: Text(Failure.getErrorMessage(error)),
-                  ),
-                );
-              },
-            ),
-            SizedBox(height: Sizes.height25),
-            TabBranches(tabController: tabBranchController),
-            ObxValue<RxBool>((rx) {
-              if (rx.value) {
-                return branch.PageControl(
-                  activeTab: () => tabBranchController.index,
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            }, isShowTabPageControl),
-            SizedBox(height: Sizes.height41),
-            const SectionLabel(text: 'Laporan Penjualan'),
-            SizedBox(height: Sizes.height10),
-            BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                return state.getHomeAdminSalesReportState.when(
-                  initial: () => const SizedBox.shrink(),
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  success: (data) => Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      ReportSales(
-                        salesReports: state.salesReportData.data ?? [],
-                        isUpdated: state.updateSalesReportState,
-                      ),
-                    ],
-                  ),
-                  error: (error) => Center(
-                    child: Text(Failure.getErrorMessage(error)),
-                  ),
-                );
-              },
-            ),
-            const sales.PageControl(),
-            SizedBox(height: Sizes.height80),
-          ],
+      body: RefreshIndicator(
+        onRefresh: _homeAdminInitial,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: Sizes.height12),
+              const SectionLabel(text: 'Report'),
+              BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return state.getHomeAdminResultState.when(
+                    initial: () => const SizedBox.shrink(),
+                    loading: () => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    success: (data) => TabReport(data: state.homeData),
+                    error: (error) => Center(
+                      child: Text(Failure.getErrorMessage(error)),
+                    ),
+                  );
+                },
+              ),
+              SizedBox(height: Sizes.height25),
+              TabBranches(tabController: tabBranchController),
+              ObxValue<RxBool>((rx) {
+                if (rx.value) {
+                  return branch.PageControl(
+                    activeTab: () => tabBranchController.index,
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              }, isShowTabPageControl),
+              SizedBox(height: Sizes.height41),
+              const SectionLabel(text: 'Laporan Penjualan'),
+              SizedBox(height: Sizes.height10),
+              BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return state.getHomeAdminSalesReportState.when(
+                    initial: () => const SizedBox.shrink(),
+                    loading: () => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                    success: (data) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ReportSales(
+                          salesReports: state.salesReportData.data ?? [],
+                          isUpdated: state.updateSalesReportState,
+                        ),
+                      ],
+                    ),
+                    error: (error) => Center(
+                      child: Text(Failure.getErrorMessage(error)),
+                    ),
+                  );
+                },
+              ),
+              const sales.PageControl(),
+              SizedBox(height: Sizes.height80),
+            ],
+          ),
         ),
       ),
     );

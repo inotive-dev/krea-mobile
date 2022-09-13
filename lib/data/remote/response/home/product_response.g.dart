@@ -9,6 +9,7 @@ part of 'product_response.dart';
 _$_ProductResponse _$$_ProductResponseFromJson(Map<String, dynamic> json) =>
     _$_ProductResponse(
       id: json['id'] as int?,
+      subtotal: json['subtotal'] as int?,
       name: json['name'] as String?,
       code: json['code'] as String?,
       thumbnail: json['thumbnail'] as String?,
@@ -23,6 +24,7 @@ _$_ProductResponse _$$_ProductResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_ProductResponseToJson(_$_ProductResponse instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'subtotal': instance.subtotal,
       'name': instance.name,
       'code': instance.code,
       'thumbnail': instance.thumbnail,

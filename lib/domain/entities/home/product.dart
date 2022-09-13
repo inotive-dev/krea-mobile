@@ -6,6 +6,7 @@ part 'product.freezed.dart';
 class Product with _$Product {
   const factory Product({
     required int? id,
+    required int? subtotal,
     required String? name,
     required String? code,
     required String? thumbnail,

@@ -1,5 +1,7 @@
 import 'package:injectable/injectable.dart';
+import 'package:koperasi/data/local/entities/home/home_data_entity.dart';
 import 'package:koperasi/data/local/entities/login/user_entity.dart';
+import 'package:koperasi/domain/entities/home/home.dart';
 
 import 'hive/hive_manager.dart';
 
@@ -47,4 +49,19 @@ class LocalDataSource {
   UserEntity? getUser() {
     return _hiveManager.getUser();
   }
+
+  // Home Admin
+  Future<void> saveHomeAdmin(HomeDataEntity? home) async {
+    await _hiveManager.saveHomeAdmin(home);
+  }
+
+  HomeDataEntity? getHomeAdmin() {
+    return _hiveManager.getHomeAdmin();
+  }
+
+  // History
+
+  // Detail History
+
+  // Profile
 }

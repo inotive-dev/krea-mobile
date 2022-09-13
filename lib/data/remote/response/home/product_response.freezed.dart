@@ -24,6 +24,7 @@ class _$ProductResponseTearOff {
 
   _ProductResponse call(
       {required int? id,
+      required int? subtotal,
       required String? name,
       required String? code,
       required String? thumbnail,
@@ -31,6 +32,7 @@ class _$ProductResponseTearOff {
       @JsonKey(name: 'updated_at') required DateTime? updatedAt}) {
     return _ProductResponse(
       id: id,
+      subtotal: subtotal,
       name: name,
       code: code,
       thumbnail: thumbnail,
@@ -50,6 +52,7 @@ const $ProductResponse = _$ProductResponseTearOff();
 /// @nodoc
 mixin _$ProductResponse {
   int? get id => throw _privateConstructorUsedError;
+  int? get subtotal => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get code => throw _privateConstructorUsedError;
   String? get thumbnail => throw _privateConstructorUsedError;
@@ -71,6 +74,7 @@ abstract class $ProductResponseCopyWith<$Res> {
       _$ProductResponseCopyWithImpl<$Res>;
   $Res call(
       {int? id,
+      int? subtotal,
       String? name,
       String? code,
       String? thumbnail,
@@ -90,6 +94,7 @@ class _$ProductResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? subtotal = freezed,
     Object? name = freezed,
     Object? code = freezed,
     Object? thumbnail = freezed,
@@ -100,6 +105,10 @@ class _$ProductResponseCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subtotal: subtotal == freezed
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
               as int?,
       name: name == freezed
           ? _value.name
@@ -134,6 +143,7 @@ abstract class _$ProductResponseCopyWith<$Res>
   @override
   $Res call(
       {int? id,
+      int? subtotal,
       String? name,
       String? code,
       String? thumbnail,
@@ -155,6 +165,7 @@ class __$ProductResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? subtotal = freezed,
     Object? name = freezed,
     Object? code = freezed,
     Object? thumbnail = freezed,
@@ -165,6 +176,10 @@ class __$ProductResponseCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      subtotal: subtotal == freezed
+          ? _value.subtotal
+          : subtotal // ignore: cast_nullable_to_non_nullable
               as int?,
       name: name == freezed
           ? _value.name
@@ -195,6 +210,7 @@ class __$ProductResponseCopyWithImpl<$Res>
 class _$_ProductResponse extends _ProductResponse {
   const _$_ProductResponse(
       {required this.id,
+      required this.subtotal,
       required this.name,
       required this.code,
       required this.thumbnail,
@@ -207,6 +223,8 @@ class _$_ProductResponse extends _ProductResponse {
 
   @override
   final int? id;
+  @override
+  final int? subtotal;
   @override
   final String? name;
   @override
@@ -222,7 +240,7 @@ class _$_ProductResponse extends _ProductResponse {
 
   @override
   String toString() {
-    return 'ProductResponse(id: $id, name: $name, code: $code, thumbnail: $thumbnail, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'ProductResponse(id: $id, subtotal: $subtotal, name: $name, code: $code, thumbnail: $thumbnail, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -231,6 +249,7 @@ class _$_ProductResponse extends _ProductResponse {
         (other.runtimeType == runtimeType &&
             other is _ProductResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.code, code) &&
             const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
@@ -242,6 +261,7 @@ class _$_ProductResponse extends _ProductResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(subtotal),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(code),
       const DeepCollectionEquality().hash(thumbnail),
@@ -262,6 +282,7 @@ class _$_ProductResponse extends _ProductResponse {
 abstract class _ProductResponse extends ProductResponse {
   const factory _ProductResponse(
           {required int? id,
+          required int? subtotal,
           required String? name,
           required String? code,
           required String? thumbnail,
@@ -275,6 +296,8 @@ abstract class _ProductResponse extends ProductResponse {
 
   @override
   int? get id;
+  @override
+  int? get subtotal;
   @override
   String? get name;
   @override

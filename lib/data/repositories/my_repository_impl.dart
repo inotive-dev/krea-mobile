@@ -53,6 +53,7 @@ class MyRepositoryImpl implements MyRepository {
       );
     }
 
+    // Save to local storage
     await Future.wait([
       _localDataSource.saveToken(_data.token),
       _localDataSource.saveRole(_data.user?.app),
@@ -89,7 +90,6 @@ class MyRepositoryImpl implements MyRepository {
 
   @override
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
-    print('ISCONNECTED: ${await _networkInfoImpl.isConnected}');
     if (await _networkInfoImpl.isConnected) {
       final _data = await _remoteDataSource.getHomeAdminData(params);
 
@@ -99,17 +99,20 @@ class MyRepositoryImpl implements MyRepository {
         );
       }
 
+      // Save to local storage
+      await Future.wait([
+        _localDataSource.saveHomeAdmin(_data.data?.toEntity()),
+      ]);
+
       return Right(_data.toDomain());
     } else {
-      final _data = await _remoteDataSource.getHomeAdminData(params);
-
-      if (_data.data == null) {
-        return Left(
-          Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
-        );
-      }
-
-      return Right(_data.toDomain());
+      return Right(
+        Home(
+          data: _localDataSource.getHomeAdmin()?.toDomain(),
+          message: 'Success get local storage home admin',
+          statusCode: 200,
+        ),
+      );
     }
   }
 
