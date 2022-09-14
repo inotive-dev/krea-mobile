@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/future_usecase.dart';
 import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/domain/entities/home/home.dart';
-import 'package:koperasi/domain/repositories/my_repository.dart';
 
 class GetHomeAdminUseCaseParams extends Equatable {
   final String martId;
@@ -24,7 +24,7 @@ class GetHomeAdminUseCaseParams extends Equatable {
 
 @lazySingleton
 class GetHomeAdminUseCase extends FutureUseCase<Home, GetHomeAdminUseCaseParams> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   GetHomeAdminUseCase({required this.myRepository});
 

@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/data/remote/response/base_response.dart';
 import 'package:koperasi/data/remote/response/history/history_detail/history_detail_response.dart';
 import 'package:koperasi/data/remote/response/history/history_response.dart';
 import 'package:koperasi/data/remote/response/home/home_user_response.dart';
@@ -14,6 +16,9 @@ import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/send_email_reset_password_usecase.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase%20copy.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import '../../domain/usecases/do_login_usecase.dart';
@@ -86,5 +91,38 @@ class RemoteDataSource {
   Future<SalesReportResponse> getHomeAdminSalesReports(GetAdminHomeSalesReportsUseCaseParams params) async {
     final _response = await _apiService.getHomeAdminSalesReport(params);
     return SalesReportResponse.fromJson(_response.data);
+  }
+
+  Future<BaseResponse> sendEmailResetPassword(SendEmailUseCaseParams params) async {
+    final _response = await _apiService.sendEmailResetPassword(params);
+    return BaseResponse.fromJson(_response.data);
+  }
+
+  Future<BaseResponse> sendOTPResetPassword(SendOTPUseCaseParams params) async {
+    try {
+      final _response = await _apiService.sendOTPResetPassword(params);
+      return BaseResponse.fromJson(_response.data);
+    } on DioError catch (e) {
+      final res = e.response;
+
+      return Future.value(BaseResponse(
+        message: res?.data['message'],
+        statusCode: e.response?.statusCode,
+      ));
+    }
+  }
+
+  Future<BaseResponse> sendResetPassword(SendResetPasswordUseCaseParams params) async {
+    try {
+      final _response = await _apiService.sendResetPassword(params);
+      return BaseResponse.fromJson(_response.data);
+    } on DioError catch (e) {
+      final res = e.response;
+
+      return Future.value(BaseResponse(
+        message: res?.data['message'],
+        statusCode: e.response?.statusCode,
+      ));
+    }
   }
 }

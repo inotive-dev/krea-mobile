@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/future_usecase.dart';
 import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
-import 'package:koperasi/domain/repositories/my_repository.dart';
 
 class GetHomeAdminBranchesUseCaseParams extends Equatable {
   final String year;
@@ -27,7 +27,7 @@ class GetHomeAdminBranchesUseCaseParams extends Equatable {
 
 @lazySingleton
 class GetHomeAdminNeraca extends FutureUseCase<Branches, GetHomeAdminBranchesUseCaseParams> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   GetHomeAdminNeraca({required this.myRepository});
 

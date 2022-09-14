@@ -48,10 +48,13 @@ class Strings {
 
   static const sendEmail =
       'Kami akan mengirimkan intruksi terkait reset password ke email Anda, silahkan masukkan email';
+  static const sendOTP = 'Silahkan masukkan kode OTP yang dikirimkan ke email Anda';
   static const passwordInfo = 'Silahkan reset password Anda dengan password yang baru';
   static const newPassword = 'New Password';
   static const confirmPassword = 'Confirm Password';
   static const successResetPassword = 'Password berhasil direset, silahkan login kembali';
+  static const successSendEmailResetPassword = 'Silahkan cek email anda!';
+  static const successSendOTPResetPassword = 'Silahkan masukkan password baru anda!';
 
   // Error
   static const String msgErrorGeneral = 'Terjadi kesalahan, silakan coba lagi';

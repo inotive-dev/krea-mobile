@@ -6,10 +6,12 @@ import 'package:koperasi/core/utils/get_util.dart';
 
 class SuccessUpdateDialog extends StatelessWidget {
   final String text;
+  final void Function()? onPress;
 
   const SuccessUpdateDialog({
     Key? key,
     required this.text,
+    this.onPress,
   }) : super(key: key);
 
   @override
@@ -45,7 +47,7 @@ class SuccessUpdateDialog extends StatelessWidget {
               height: Sizes.height36,
             ),
             ElevatedButton(
-              onPressed: () => GetUtil.dismissDialog(),
+              onPressed: onPress ?? () => GetUtil.dismissDialog(),
               child: Text(
                 'Oke',
                 style: TextStyle(

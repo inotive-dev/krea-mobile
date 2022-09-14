@@ -3,11 +3,11 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/domain/entities/profile/update_profile.dart';
 
 import '../../core/base/usecase/future_usecase.dart';
 import '../../core/unions/failure.dart';
-import '../repositories/my_repository.dart';
 
 class UpdateProfileUseCaseParams extends Equatable {
   final String name;
@@ -30,7 +30,7 @@ class UpdateProfileUseCaseParams extends Equatable {
 
 @lazySingleton
 class UpdateProfileUseCase extends FutureUseCase<UpdateProfile, UpdateProfileUseCaseParams> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   UpdateProfileUseCase({required this.myRepository});
 

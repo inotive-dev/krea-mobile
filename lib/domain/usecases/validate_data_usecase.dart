@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/future_usecase.dart';
 import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/domain/entities/home/validate_data/validate_data.dart';
-import 'package:koperasi/domain/repositories/my_repository.dart';
 
 class ValidateDataUseCaseParams extends Equatable {
   final List<Map<String, dynamic>> saldoSimpananWajib;
@@ -27,7 +27,7 @@ class ValidateDataUseCaseParams extends Equatable {
 
 @lazySingleton
 class ValidateDataUseCase extends FutureUseCase<ValidateData, ValidateDataUseCaseParams> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   ValidateDataUseCase({required this.myRepository});
 

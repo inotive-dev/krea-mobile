@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:koperasi/core/style/custom_text_style.dart';
-import 'package:koperasi/core/style/custom_widget_style.dart';
-import 'package:koperasi/core/unions/failure.dart';
-import 'package:koperasi/core/utils/get_util.dart';
-import 'package:koperasi/core/widgets/loading_dialog.dart';
-import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
-import 'package:koperasi/core/widgets/success_update_dialog.dart';
+import 'package:koperasi/core/const/enums.dart';
+import 'package:koperasi/presentation/reset_password/cubit/reset_password_cubit.dart';
 import 'package:koperasi/presentation/reset_password/widgets/form_email.dart';
 import 'package:koperasi/presentation/reset_password/widgets/form_new_password.dart';
+import 'package:koperasi/presentation/reset_password/widgets/form_otp.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
-import '../../core/unions/result_state.dart';
-import '../../../../core/extensions/snackbar_ext.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   static const routeName = '/reset-password';
@@ -26,40 +20,61 @@ class ResetPasswordPage extends StatefulWidget {
 }
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
-  _buildContent(String status) {
+  _buildContent(status) {
     switch (status) {
-      case 'send_email':
+      case ResetPasswordSteps.sendEmail:
         return const FormEmail();
-      case 'new_password':
+      case ResetPasswordSteps.sendOtp:
+        return const FormOTP();
+      case ResetPasswordSteps.sendNewPassword:
         return const FormNewPassword();
       default:
-        return const LoadingDialog();
+        return Container(
+          width: MediaQuery.of(context).size.width,
+          height: 200,
+          alignment: Alignment.center,
+          child: const Text('Page not found!'),
+        );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorPalettes.greyAppBar,
-        title: Text(
-          Strings.resetPassword,
-          style: TextStyle(
-            color: ColorPalettes.darkBlue,
-            fontSize: Sizes.sp20,
+    return BlocBuilder<ResetPasswordCubit, ResetPasswordState>(
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            title: Text(
+              Strings.resetPassword,
+              style: TextStyle(
+                color: ColorPalettes.darkBlue,
+                fontSize: Sizes.sp20,
+              ),
+            ),
+            centerTitle: true,
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              iconSize: Sizes.width14,
+              onPressed: () {
+                if (state.resetStep != ResetPasswordSteps.sendEmail) {
+                  final backStep = state.resetStep == ResetPasswordSteps.sendNewPassword
+                      ? ResetPasswordSteps.sendOtp
+                      : ResetPasswordSteps.sendEmail;
+                  context.read<ResetPasswordCubit>().changeStep(backStep);
+                } else {
+                  Navigator.pop(context);
+                }
+              },
+            ),
           ),
-        ),
-        centerTitle: true,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          iconSize: Sizes.width14,
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: _buildContent('new_password'),
-      ),
+          body: SingleChildScrollView(
+            child: _buildContent(state.resetStep),
+          ),
+        );
+      },
     );
   }
 }

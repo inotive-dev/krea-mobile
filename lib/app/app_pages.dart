@@ -1,7 +1,6 @@
 import 'package:get/route_manager.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/history/widget/history_detail_page.dart';
-import 'package:koperasi/presentation/home/widgets/scan_qr/scan_qr_page.dart';
 import 'package:koperasi/presentation/reset_password/reset_password_page.dart';
 
 import '../presentation/home/home_page.dart';
@@ -21,10 +20,6 @@ class AppPages {
     GetPage(
       name: HomePage.routeName,
       page: () => const HomePage(),
-    ),
-    GetPage(
-      name: ScanQRPage.routeName,
-      page: () => const ScanQRPage(),
     ),
     GetPage(
       name: HistoryDetailPage.routeName,

@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
-import 'package:koperasi/core/utils/network_info/network_info.dart';
 import 'package:koperasi/domain/entities/history/history.dart';
 import 'package:koperasi/domain/entities/history/history_detail/history_detail.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
@@ -18,6 +17,9 @@ import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/send_email_reset_password_usecase.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase%20copy.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
@@ -31,16 +33,14 @@ import '../../domain/usecases/do_logout_usecase.dart';
 import '../local/local_data_source.dart';
 import '../remote/remote_data_source.dart';
 
-@LazySingleton(as: MyRepository)
+@LazySingleton()
 class MyRepositoryImpl implements MyRepository {
   final RemoteDataSource _remoteDataSource;
   final LocalDataSource _localDataSource;
-  final NetworkInfoImpl _networkInfoImpl;
 
   MyRepositoryImpl(
     this._remoteDataSource,
     this._localDataSource,
-    this._networkInfoImpl,
   );
 
   @override
@@ -90,30 +90,15 @@ class MyRepositoryImpl implements MyRepository {
 
   @override
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params) async {
-    if (await _networkInfoImpl.isConnected) {
-      final _data = await _remoteDataSource.getHomeAdminData(params);
+    final _data = await _remoteDataSource.getHomeAdminData(params);
 
-      if (_data.data == null) {
-        return Left(
-          Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
-        );
-      }
-
-      // Save to local storage
-      await Future.wait([
-        _localDataSource.saveHomeAdmin(_data.data?.toEntity()),
-      ]);
-
-      return Right(_data.toDomain());
-    } else {
-      return Right(
-        Home(
-          data: _localDataSource.getHomeAdmin()?.toDomain(),
-          message: 'Success get local storage home admin',
-          statusCode: 200,
-        ),
+    if (_data.data == null) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
       );
     }
+
+    return Right(_data.toDomain());
   }
 
   @override
@@ -251,5 +236,44 @@ class MyRepositoryImpl implements MyRepository {
   @override
   Future<Either<Failure, ValidateData>> validateData(ValidateDataUseCaseParams params) {
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, String>> sendEmailResetPassword(SendEmailUseCaseParams params) async {
+    final _data = await _remoteDataSource.sendEmailResetPassword(params);
+
+    if (!_data.statusCode.toString().contains('20')) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.message ?? 'Silahkan cek email anda!');
+  }
+
+  @override
+  Future<Either<Failure, String>> sendOTPResetPassword(SendOTPUseCaseParams params) async {
+    final _data = await _remoteDataSource.sendOTPResetPassword(params);
+
+    if (!_data.statusCode.toString().contains('20')) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.message ?? 'OTP dapat digunakan');
+  }
+
+  @override
+  Future<Either<Failure, String>> sendResetPassword(SendResetPasswordUseCaseParams params) async {
+    final _data = await _remoteDataSource.sendResetPassword(params);
+
+    if (!_data.statusCode.toString().contains('20')) {
+      return Left(
+        Failure.defaultError(_data.message ?? Strings.msgErrorGeneral),
+      );
+    }
+
+    return Right(_data.message ?? 'Password berhasil diupdate');
   }
 }

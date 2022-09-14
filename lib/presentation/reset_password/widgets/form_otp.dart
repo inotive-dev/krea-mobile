@@ -3,27 +3,33 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:koperasi/core/const/strings.dart';
 import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
-import 'package:koperasi/core/style/custom_text_style.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/unions/result_state.dart';
-import 'package:koperasi/core/utils/form_validator.dart';
 import 'package:koperasi/core/utils/get_util.dart';
 import 'package:koperasi/core/widgets/loading_dialog.dart';
 import 'package:koperasi/presentation/reset_password/cubit/reset_password_cubit.dart';
+import 'package:koperasi/presentation/reset_password/widgets/otp_input.dart';
 
-class FormEmail extends StatefulWidget {
-  const FormEmail({Key? key}) : super(key: key);
+class FormOTP extends StatefulWidget {
+  const FormOTP({Key? key}) : super(key: key);
 
   @override
-  State<FormEmail> createState() => _FormEmailState();
+  State<FormOTP> createState() => _FormOTPState();
 }
 
-class _FormEmailState extends State<FormEmail> {
+class _FormOTPState extends State<FormOTP> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
 
-  _handleSendEmail(ResultState<dynamic> state) {
+  final TextEditingController _fieldOne = TextEditingController();
+  final TextEditingController _fieldTwo = TextEditingController();
+  final TextEditingController _fieldThree = TextEditingController();
+  final TextEditingController _fieldFour = TextEditingController();
+  final TextEditingController _fieldFive = TextEditingController();
+
+  bool _showErrorEmptyField = false;
+
+  _handleSendOTP(ResultState<dynamic> state) {
     state.maybeWhen(
       loading: () async => await GetUtil.showDialog(
         const LoadingDialog(),
@@ -31,7 +37,7 @@ class _FormEmailState extends State<FormEmail> {
       ),
       success: (data) async {
         GetUtil.dismissDialog();
-        context.showSuccessSnackbar(data ?? Strings.successSendEmailResetPassword);
+        context.showSuccessSnackbar(data ?? Strings.successSendOTPResetPassword);
       },
       error: (failure) {
         GetUtil.dismissDialog();
@@ -41,10 +47,18 @@ class _FormEmailState extends State<FormEmail> {
     );
   }
 
-  _sendEmail() {
+  _sendOTP() {
     FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.validate()) {
-      context.read<ResetPasswordCubit>().sendEmail(_emailController.text);
+      final otp = _fieldOne.text + _fieldTwo.text + _fieldThree.text + _fieldFour.text + _fieldFive.text;
+      context.read<ResetPasswordCubit>().sendOTP(otp);
+      setState(() {
+        _showErrorEmptyField = false;
+      });
+    } else {
+      setState(() {
+        _showErrorEmptyField = true;
+      });
     }
   }
 
@@ -63,53 +77,44 @@ class _FormEmailState extends State<FormEmail> {
           children: [
             SizedBox(height: Sizes.height16),
             Text(
-              Strings.sendEmail,
+              Strings.sendOTP,
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: Sizes.sp16,
                 color: ColorPalettes.greyText,
               ),
             ),
-            SizedBox(height: Sizes.height36),
-            TextFormField(
-              controller: _emailController,
-              keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.done,
-              validator: (_email) {
-                return FormValidator.validateEmail(context, _email!);
-              },
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: ColorPalettes.bgGrey,
-                hintText: Strings.email,
-                hintStyle: CustomTextStyle.hintFormStyle,
-                counter: const SizedBox.shrink(),
-                contentPadding: const EdgeInsets.all(16.0),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(Sizes.width8),
-                ),
-                focusedBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: ColorPalettes.primary,
-                    width: 0.5,
-                  ),
-                ),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: ColorPalettes.bgGrey,
-                    width: 0.5,
+            SizedBox(height: Sizes.height55),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OtpInput(_fieldOne, true),
+                OtpInput(_fieldTwo, false),
+                OtpInput(_fieldThree, false),
+                OtpInput(_fieldFour, false),
+                OtpInput(_fieldFive, false)
+              ],
+            ),
+            SizedBox(height: Sizes.height20),
+            Visibility(
+              visible: _showErrorEmptyField,
+              child: const Center(
+                child: Text(
+                  "Field can't be left blank",
+                  style: TextStyle(
+                    color: Colors.red,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: Sizes.height24),
+            SizedBox(height: Sizes.height20),
             BlocListener<ResetPasswordCubit, ResetPasswordState>(
-              listenWhen: (previous, current) => previous.sendEmailResultState != current.sendEmailResultState,
+              listenWhen: (previous, current) => previous.sendOTPResultState != current.sendOTPResultState,
               listener: (context, state) {
-                _handleSendEmail(state.sendEmailResultState);
+                _handleSendOTP(state.sendOTPResultState);
               },
               child: ElevatedButton(
-                onPressed: _sendEmail,
+                onPressed: _sendOTP,
                 child: Text(
                   'Submit',
                   style: TextStyle(

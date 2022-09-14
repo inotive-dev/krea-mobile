@@ -10,7 +10,8 @@ import 'package:koperasi/core/unions/result_state.dart';
 import 'package:koperasi/core/utils/form_validator.dart';
 import 'package:koperasi/core/utils/get_util.dart';
 import 'package:koperasi/core/widgets/loading_dialog.dart';
-import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
+import 'package:koperasi/core/widgets/success_update_dialog.dart';
+import 'package:koperasi/presentation/reset_password/cubit/reset_password_cubit.dart';
 
 class FormNewPassword extends StatefulWidget {
   const FormNewPassword({Key? key}) : super(key: key);
@@ -27,15 +28,24 @@ class _FormNewPasswordState extends State<FormNewPassword> {
   bool hidePassword = true;
   String suffixPasswordText = Strings.show;
 
-  _handleResetPassword(ResultState<dynamic> resetPasswordResult) {
-    resetPasswordResult.maybeWhen(
+  _handleResetPassword(ResultState<dynamic> state) {
+    state.maybeWhen(
       loading: () async => await GetUtil.showDialog(
         const LoadingDialog(),
         barrierDismissible: false,
       ),
       success: (data) async {
         GetUtil.dismissDialog();
-        context.showSuccessSnackbar(data.message ?? Strings.successResetPassword);
+        await GetUtil.showDialog(
+          SuccessUpdateDialog(
+            text: Strings.successResetPassword,
+            onPress: () {
+              GetUtil.dismissDialog();
+              Navigator.pop(context);
+            },
+          ),
+          barrierDismissible: false,
+        );
       },
       error: (failure) {
         GetUtil.dismissDialog();
@@ -48,15 +58,14 @@ class _FormNewPasswordState extends State<FormNewPassword> {
   _resetPassword() {
     FocusManager.instance.primaryFocus?.unfocus();
     if (_formKey.currentState!.validate()) {
-      // context.read<ProfileCubit>().changePassword(_passwordController.text);
-      // context.read<ProfileCubit>().updateProfile();
+      context.read<ResetPasswordCubit>().sendResetPassword(_passwordController.text);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: Colors.white,
       padding: EdgeInsets.symmetric(
         vertical: Sizes.width16,
         horizontal: Sizes.height28,
@@ -85,12 +94,12 @@ class _FormNewPasswordState extends State<FormNewPassword> {
                 return FormValidator.validatePassword(
                   context,
                   _password!,
-                  textError: "New password can't be empty",
+                  textError: "Tidak boleh kosong!",
                 );
               },
               decoration: InputDecoration(
                 filled: true,
-                fillColor: ColorPalettes.greyForm,
+                fillColor: ColorPalettes.bgGrey,
                 hintText: Strings.newPassword,
                 hintStyle: CustomTextStyle.hintFormStyle,
                 counter: const SizedBox.shrink(),
@@ -125,7 +134,7 @@ class _FormNewPasswordState extends State<FormNewPassword> {
                 ),
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: ColorPalettes.greyForm,
+                    color: ColorPalettes.bgGrey,
                     width: 0.5,
                   ),
                 ),
@@ -138,15 +147,18 @@ class _FormNewPasswordState extends State<FormNewPassword> {
               textInputAction: TextInputAction.done,
               obscureText: hidePassword,
               validator: (_password) {
+                if (_password != _passwordController.text) {
+                  return 'Harus sama dengan password';
+                }
                 return FormValidator.validatePassword(
                   context,
                   _password!,
-                  textError: "Confirm password can't be empty",
+                  textError: "Tidak boleh kosong!",
                 );
               },
               decoration: InputDecoration(
                 filled: true,
-                fillColor: ColorPalettes.greyForm,
+                fillColor: ColorPalettes.bgGrey,
                 hintText: Strings.confirmPassword,
                 hintStyle: CustomTextStyle.hintFormStyle,
                 counter: const SizedBox.shrink(),
@@ -181,17 +193,18 @@ class _FormNewPasswordState extends State<FormNewPassword> {
                 ),
                 enabledBorder: const OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: ColorPalettes.greyForm,
+                    color: ColorPalettes.bgGrey,
                     width: 0.5,
                   ),
                 ),
               ),
             ),
             SizedBox(height: Sizes.height20),
-            BlocListener<ProfileCubit, ProfileState>(
-              listenWhen: (previous, current) => previous.updateProfileResultState != current.updateProfileResultState,
+            BlocListener<ResetPasswordCubit, ResetPasswordState>(
+              listenWhen: (previous, current) =>
+                  previous.sendResetPasswordResultState != current.sendResetPasswordResultState,
               listener: (context, state) {
-                _handleResetPassword(state.updateProfileResultState);
+                _handleResetPassword(state.sendResetPasswordResultState);
               },
               child: ElevatedButton(
                 onPressed: _resetPassword,

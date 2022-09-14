@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 
 import '../../core/base/usecase/future_usecase.dart';
 import '../../core/unions/failure.dart';
-import '../repositories/my_repository.dart';
 
 class DoLogoutUseCaseParams extends Equatable {
   const DoLogoutUseCaseParams();
@@ -15,7 +15,7 @@ class DoLogoutUseCaseParams extends Equatable {
 
 @lazySingleton
 class DoLogoutUseCase extends FutureUseCase<dynamic, DoLogoutUseCaseParams> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   DoLogoutUseCase({required this.myRepository});
 

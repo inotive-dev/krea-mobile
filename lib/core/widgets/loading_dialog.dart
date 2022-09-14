@@ -26,10 +26,13 @@ class LoadingDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              height: Sizes.height50,
-              width: Sizes.height50,
+              height: Sizes.height5,
+            ),
+            SizedBox(
+              height: Sizes.height30,
+              width: Sizes.height30,
               child: CircularProgressIndicator(
-                strokeWidth: Sizes.height4,
+                strokeWidth: Sizes.height3,
               ),
             ),
             SizedBox(

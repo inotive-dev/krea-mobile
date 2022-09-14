@@ -14,4 +14,7 @@ class Endpoint {
   static const getHomeAdminLabaRugi = '/admin/home/get-labarugi';
   static const getHomeAdminPerubahanModal = '/admin/home/get-perubahanmodal';
   static const getHomeAdminSalesReport = '/admin/home/get-penjualan';
+  static const sendEmailResetPassword = '/forget-password';
+  static const sendOTPResetPassword = '/check-otp';
+  static const sendResetPassword = '/reset-password';
 }

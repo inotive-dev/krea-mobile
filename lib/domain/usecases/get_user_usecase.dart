@@ -1,13 +1,13 @@
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/usecase.dart';
+import 'package:koperasi/data/repositories/my_repository_impl.dart';
 
 import '../../core/base/usecase/no_param.dart';
 import '../entities/login/user.dart';
-import '../repositories/my_repository.dart';
 
 @lazySingleton
 class GetUserUseCase extends UseCase<User?, NoParam> {
-  final MyRepository myRepository;
+  final MyRepositoryImpl myRepository;
 
   GetUserUseCase({required this.myRepository});
 

@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ColorPalettes.greyForm,
+                      fillColor: ColorPalettes.bgGrey,
                       hintText: Strings.email,
                       hintStyle: CustomTextStyle.hintFormStyle,
                       counter: const SizedBox.shrink(),
@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: ColorPalettes.greyForm,
+                          color: ColorPalettes.bgGrey,
                           width: 0.5,
                         ),
                       ),
@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: ColorPalettes.greyForm,
+                      fillColor: ColorPalettes.bgGrey,
                       hintText: Strings.password,
                       hintStyle: CustomTextStyle.hintFormStyle,
                       counter: const SizedBox.shrink(),
@@ -184,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: ColorPalettes.greyForm,
+                          color: ColorPalettes.bgGrey,
                           width: 0.5,
                         ),
                       ),

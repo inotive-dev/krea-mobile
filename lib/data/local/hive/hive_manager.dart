@@ -1,8 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
-import 'package:koperasi/data/local/entities/home/home_data_entity.dart';
 import 'package:koperasi/data/local/entities/login/user_entity.dart';
-import 'package:koperasi/domain/entities/home/home.dart';
 
 import 'hive_key.dart';
 
@@ -49,14 +47,5 @@ class HiveManager {
 
   UserEntity? getUser() {
     return _box.get(HiveKey.user);
-  }
-
-  // Home Admin
-  Future<void> saveHomeAdmin(HomeDataEntity? home) async {
-    await _box.put(HiveKey.homeAdmin, home);
-  }
-
-  HomeDataEntity? getHomeAdmin() {
-    return _box.get(HiveKey.homeAdmin);
   }
 }

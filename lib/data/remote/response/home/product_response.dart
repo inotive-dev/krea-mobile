@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/data/local/entities/home/product_entity.dart';
 import 'package:koperasi/domain/entities/home/product.dart';
 
 part 'product_response.freezed.dart';
@@ -22,16 +21,6 @@ class ProductResponse with _$ProductResponse {
   factory ProductResponse.fromJson(Map<String, dynamic> json) => _$ProductResponseFromJson(json);
 
   Product toDomain() => Product(
-        id: id,
-        subtotal: subtotal,
-        name: name,
-        code: code,
-        thumbnail: thumbnail,
-        createdAt: createdAt,
-        updatedAt: updatedAt,
-      );
-
-  ProductEntity toEntity() => ProductEntity(
         id: id,
         subtotal: subtotal,
         name: name,

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:koperasi/data/local/entities/home/transaction_entity.dart';
 import 'package:koperasi/data/remote/response/home/product_response.dart';
 import 'package:koperasi/domain/entities/home/transaction.dart';
 
@@ -46,23 +45,5 @@ class TransactionResponse with _$TransactionResponse {
         updatedAt: updatedAt,
         totalQty: totalQty,
         product: product?.toDomain(),
-      );
-
-  TransactionEntity toEntity() => TransactionEntity(
-        id: id,
-        transactionId: transactionId,
-        productId: productId,
-        consignmentProdutId: consignmentProdutId,
-        sellPrice: sellPrice,
-        buyPrice: buyPrice,
-        qty: qty,
-        discount: discount,
-        ppn: ppn,
-        subtotal: subtotal,
-        isConsignmentPaid: isConsignmentPaid,
-        createdAt: createdAt,
-        updatedAt: updatedAt,
-        totalQty: totalQty,
-        product: product?.toEntity(),
       );
 }

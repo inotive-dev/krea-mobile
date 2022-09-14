@@ -8,6 +8,9 @@ import 'package:koperasi/domain/usecases/get_history_detail.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_neraca_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
+import 'package:koperasi/domain/usecases/send_email_reset_password_usecase.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase%20copy.dart';
+import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import 'endpoint.dart';
@@ -124,6 +127,41 @@ class ApiService {
 
     return await _dio.post(
       Endpoint.updateProfile,
+      data: FormData.fromMap(_dataMap),
+    );
+  }
+
+  Future<Response> sendEmailResetPassword(SendEmailUseCaseParams params) async {
+    Map<String, dynamic> _dataMap = {
+      'email': params.email,
+    };
+
+    return await _dio.post(
+      Endpoint.sendEmailResetPassword,
+      data: FormData.fromMap(_dataMap),
+    );
+  }
+
+  Future<Response> sendOTPResetPassword(SendOTPUseCaseParams params) async {
+    Map<String, dynamic> _dataMap = {
+      'otp': params.otp,
+    };
+
+    return await _dio.post(
+      Endpoint.sendOTPResetPassword,
+      data: FormData.fromMap(_dataMap),
+    );
+  }
+
+  Future<Response> sendResetPassword(SendResetPasswordUseCaseParams params) async {
+    print("${params.otp} - ${params.password}");
+    Map<String, dynamic> _dataMap = {
+      'otp': params.otp,
+      'password': params.password,
+    };
+
+    return await _dio.post(
+      Endpoint.sendResetPassword,
       data: FormData.fromMap(_dataMap),
     );
   }
