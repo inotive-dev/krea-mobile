@@ -23,12 +23,12 @@ class _$ContributionResponseTearOff {
   const _$ContributionResponseTearOff();
 
   _ContributionResponse call(
-      {@JsonKey(name: 'contribution_wajib')
-          required String? contributionWajib,
+      {@JsonKey(name: 'contribution_wajib', fromJson: _toString)
+          required String contributionWajib,
       @JsonKey(name: 'contribution_pokok')
-          required String? contributionPokok,
+          required String contributionPokok,
       @JsonKey(name: 'contribution_sukarela')
-          required double? contributionSukarela}) {
+          required double contributionSukarela}) {
     return _ContributionResponse(
       contributionWajib: contributionWajib,
       contributionPokok: contributionPokok,
@@ -46,12 +46,12 @@ const $ContributionResponse = _$ContributionResponseTearOff();
 
 /// @nodoc
 mixin _$ContributionResponse {
-  @JsonKey(name: 'contribution_wajib')
-  String? get contributionWajib => throw _privateConstructorUsedError;
+  @JsonKey(name: 'contribution_wajib', fromJson: _toString)
+  String get contributionWajib => throw _privateConstructorUsedError;
   @JsonKey(name: 'contribution_pokok')
-  String? get contributionPokok => throw _privateConstructorUsedError;
+  String get contributionPokok => throw _privateConstructorUsedError;
   @JsonKey(name: 'contribution_sukarela')
-  double? get contributionSukarela => throw _privateConstructorUsedError;
+  double get contributionSukarela => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,9 +65,12 @@ abstract class $ContributionResponseCopyWith<$Res> {
           $Res Function(ContributionResponse) then) =
       _$ContributionResponseCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'contribution_wajib') String? contributionWajib,
-      @JsonKey(name: 'contribution_pokok') String? contributionPokok,
-      @JsonKey(name: 'contribution_sukarela') double? contributionSukarela});
+      {@JsonKey(name: 'contribution_wajib', fromJson: _toString)
+          String contributionWajib,
+      @JsonKey(name: 'contribution_pokok')
+          String contributionPokok,
+      @JsonKey(name: 'contribution_sukarela')
+          double contributionSukarela});
 }
 
 /// @nodoc
@@ -89,15 +92,15 @@ class _$ContributionResponseCopyWithImpl<$Res>
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       contributionPokok: contributionPokok == freezed
           ? _value.contributionPokok
           : contributionPokok // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       contributionSukarela: contributionSukarela == freezed
           ? _value.contributionSukarela
           : contributionSukarela // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -110,9 +113,12 @@ abstract class _$ContributionResponseCopyWith<$Res>
       __$ContributionResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'contribution_wajib') String? contributionWajib,
-      @JsonKey(name: 'contribution_pokok') String? contributionPokok,
-      @JsonKey(name: 'contribution_sukarela') double? contributionSukarela});
+      {@JsonKey(name: 'contribution_wajib', fromJson: _toString)
+          String contributionWajib,
+      @JsonKey(name: 'contribution_pokok')
+          String contributionPokok,
+      @JsonKey(name: 'contribution_sukarela')
+          double contributionSukarela});
 }
 
 /// @nodoc
@@ -136,15 +142,15 @@ class __$ContributionResponseCopyWithImpl<$Res>
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       contributionPokok: contributionPokok == freezed
           ? _value.contributionPokok
           : contributionPokok // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       contributionSukarela: contributionSukarela == freezed
           ? _value.contributionSukarela
           : contributionSukarela // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as double,
     ));
   }
 }
@@ -153,7 +159,7 @@ class __$ContributionResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ContributionResponse extends _ContributionResponse {
   const _$_ContributionResponse(
-      {@JsonKey(name: 'contribution_wajib')
+      {@JsonKey(name: 'contribution_wajib', fromJson: _toString)
           required this.contributionWajib,
       @JsonKey(name: 'contribution_pokok')
           required this.contributionPokok,
@@ -165,14 +171,14 @@ class _$_ContributionResponse extends _ContributionResponse {
       _$$_ContributionResponseFromJson(json);
 
   @override
-  @JsonKey(name: 'contribution_wajib')
-  final String? contributionWajib;
+  @JsonKey(name: 'contribution_wajib', fromJson: _toString)
+  final String contributionWajib;
   @override
   @JsonKey(name: 'contribution_pokok')
-  final String? contributionPokok;
+  final String contributionPokok;
   @override
   @JsonKey(name: 'contribution_sukarela')
-  final double? contributionSukarela;
+  final double contributionSukarela;
 
   @override
   String toString() {
@@ -213,26 +219,26 @@ class _$_ContributionResponse extends _ContributionResponse {
 
 abstract class _ContributionResponse extends ContributionResponse {
   const factory _ContributionResponse(
-      {@JsonKey(name: 'contribution_wajib')
-          required String? contributionWajib,
+      {@JsonKey(name: 'contribution_wajib', fromJson: _toString)
+          required String contributionWajib,
       @JsonKey(name: 'contribution_pokok')
-          required String? contributionPokok,
+          required String contributionPokok,
       @JsonKey(name: 'contribution_sukarela')
-          required double? contributionSukarela}) = _$_ContributionResponse;
+          required double contributionSukarela}) = _$_ContributionResponse;
   const _ContributionResponse._() : super._();
 
   factory _ContributionResponse.fromJson(Map<String, dynamic> json) =
       _$_ContributionResponse.fromJson;
 
   @override
-  @JsonKey(name: 'contribution_wajib')
-  String? get contributionWajib;
+  @JsonKey(name: 'contribution_wajib', fromJson: _toString)
+  String get contributionWajib;
   @override
   @JsonKey(name: 'contribution_pokok')
-  String? get contributionPokok;
+  String get contributionPokok;
   @override
   @JsonKey(name: 'contribution_sukarela')
-  double? get contributionSukarela;
+  double get contributionSukarela;
   @override
   @JsonKey(ignore: true)
   _$ContributionResponseCopyWith<_ContributionResponse> get copyWith =>

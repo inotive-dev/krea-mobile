@@ -19,37 +19,56 @@ class HomeForUser extends StatelessWidget {
       body: Column(
         children: [
           const UserAppBar(),
-          SizedBox(height: Sizes.height47),
-          BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              return state.getHomeUserResultState.when(
-                initial: () => const SizedBox.shrink(),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-                error: (error) => Center(
-                  child: Text(Failure.getErrorMessage(error)),
-                ),
-                success: (data) {
-                  return Column(
-                    children: [
-                      HomeSummaryCard(
-                        title: Strings.totalSimpananWajib,
-                        amount: state.homeUserData.contribution.contributionWajib,
+          RefreshIndicator(
+            onRefresh: () => context.read<HomeCubit>().getHomeUserData(),
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  return state.getHomeUserResultState.when(
+                    initial: () => const SizedBox.shrink(),
+                    loading: () => Container(
+                      height: 200,
+                      alignment: Alignment.center,
+                      child: const CircularProgressIndicator(),
+                    ),
+                    error: (error) => RefreshIndicator(
+                      onRefresh: () => context.read<HomeCubit>().getHomeUserData(),
+                      child: SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: Container(
+                          height: 200,
+                          alignment: Alignment.center,
+                          width: MediaQuery.of(context).size.width,
+                          child: Text(
+                            Failure.getErrorMessage(error),
+                          ),
+                        ),
                       ),
-                      HomeSummaryCard(
-                        title: Strings.totalSimpananAnda,
-                        amount: state.homeUserData.totalSaldoSimpananUtang.toString(),
-                      ),
-                      HomeSummaryCard(
-                        title: Strings.totalUtang,
-                        amount: state.homeUserData.totalUtang,
-                      ),
-                    ],
+                    ),
+                    success: (data) {
+                      return Column(
+                        children: [
+                          SizedBox(height: Sizes.height47),
+                          HomeSummaryCard(
+                            title: Strings.totalSimpananWajib,
+                            amount: state.homeUserData.contribution.contributionWajib,
+                          ),
+                          HomeSummaryCard(
+                            title: Strings.totalSimpananAnda,
+                            amount: state.homeUserData.totalSaldoSimpananUtang.toString(),
+                          ),
+                          HomeSummaryCard(
+                            title: Strings.totalUtang,
+                            amount: state.homeUserData.totalUtang,
+                          ),
+                        ],
+                      );
+                    },
                   );
                 },
-              );
-            },
+              ),
+            ),
           ),
         ],
       ),

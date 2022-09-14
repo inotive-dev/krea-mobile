@@ -9,9 +9,9 @@ class ContributionResponse with _$ContributionResponse {
   const ContributionResponse._();
 
   const factory ContributionResponse({
-    @JsonKey(name: 'contribution_wajib') required String? contributionWajib,
-    @JsonKey(name: 'contribution_pokok') required String? contributionPokok,
-    @JsonKey(name: 'contribution_sukarela') required double? contributionSukarela,
+    @JsonKey(name: 'contribution_wajib', fromJson: _toString, toJson: _toInt) required String contributionWajib,
+    @JsonKey(name: 'contribution_pokok') required String contributionPokok,
+    @JsonKey(name: 'contribution_sukarela') required double contributionSukarela,
   }) = _ContributionResponse;
 
   factory ContributionResponse.fromJson(Map<String, dynamic> json) => _$ContributionResponseFromJson(json);
@@ -22,3 +22,9 @@ class ContributionResponse with _$ContributionResponse {
         contributionSukarela: contributionSukarela,
       );
 }
+
+String _toString(int value) {
+  return value.toString();
+}
+
+int _toInt(String value) => int.parse(value);
