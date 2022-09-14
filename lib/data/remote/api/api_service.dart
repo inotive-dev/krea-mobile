@@ -154,7 +154,6 @@ class ApiService {
   }
 
   Future<Response> sendResetPassword(SendResetPasswordUseCaseParams params) async {
-    print("${params.otp} - ${params.password}");
     Map<String, dynamic> _dataMap = {
       'otp': params.otp,
       'password': params.password,
