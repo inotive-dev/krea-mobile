@@ -75,22 +75,25 @@ class ProfileCubit extends Cubit<ProfileState> {
           ),
         ),
       ),
-      (data) => emit(
-        state.copyWith(
-          getProfileResultState: ResultState.success(
-            data: data.user,
+      (data) {
+        resetValue();
+        emit(
+          state.copyWith(
+            getProfileResultState: ResultState.success(
+              data: data.user,
+            ),
+            user: data.user,
           ),
-          user: data.user,
-        ),
-      ),
+        );
+      },
     );
   }
 
-  updateProfile() async {
-    // Break the codes when no any user data changed
-    if (state.name == state.user?.name && state.email == state.user?.email && state.pickedImageFile == null
-        // && state.phoneNumber == state.user?.phone
-        ) {
+  updateProfile(bool isUpdatePassword) async {
+    if (!isUpdatePassword &&
+        state.name == state.user?.name &&
+        state.email == state.user?.email &&
+        state.pickedImageFile == null) {
       return;
     }
 
@@ -142,15 +145,21 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(state.copyWith(email: value ?? ''));
   }
 
-  // changePhoneNumber(String? value) {
-  //   emit(state.copyWith(phoneNumber: value ?? ''));
-  // }
-
   changePassword(String? value) {
     emit(state.copyWith(password: value ?? ''));
   }
 
   savePickedImageFile(File pickedImageFile) {
     emit(state.copyWith(pickedImageFile: pickedImageFile));
+  }
+
+  resetValue() {
+    emit(state.copyWith(
+      name: '',
+      email: '',
+      password: '',
+      pickedImageFile: null,
+      phoneNumber: '',
+    ));
   }
 }
