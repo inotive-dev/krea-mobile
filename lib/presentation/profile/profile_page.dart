@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:koperasi/core/widgets/blue_button.dart';
-import 'package:koperasi/presentation/profile/widgets/label_form.dart';
-import 'package:koperasi/repository/profile_repository.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:koperasi/core/const/constants.dart';
+import 'package:koperasi/core/style/custom_text_style.dart';
+import 'package:koperasi/core/style/custom_widget_style.dart';
+import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/core/utils/get_util.dart';
+import 'package:koperasi/core/widgets/image_permission_dialog.dart';
+import 'package:koperasi/core/widgets/loading_dialog.dart';
+import 'package:koperasi/core/widgets/my_cached_network_image.dart';
+import 'package:koperasi/data/remote/api/endpoint.dart';
+import 'package:koperasi/presentation/auth/login_page.dart';
+import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
+import 'package:koperasi/core/widgets/success_update_dialog.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
+import '../../core/unions/result_state.dart';
+import '../../domain/entities/login/user.dart';
+import '../../../../core/extensions/snackbar_ext.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -17,184 +30,285 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
+  // final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-      TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   void initState() {
-    ProfileRepository().getProfile().then((response) {
-      if(response != null){
-        setState(() {
-          // _nameController.text = 'Setyabudi';
-          _nameController.text = response.user!.name!;
-          // _emailController.text = 'test@mail.com';
-          _emailController.text = response.user!.email!;
-          _passwordController.text = 'password';
-          _confirmPasswordController.text = 'password';
-        });
-      } else {
-        setState(() {
-          _nameController.text = 'NaN';
-          _emailController.text = 'NaN';
-          _passwordController.text = 'password';
-          _confirmPasswordController.text = 'password';
-        });
-      }
-    }).catchError((onError){
-      print('get profile error : ${onError.toString()}');
-      setState(() {
-        _nameController.text = 'NaN';
-        _emailController.text = 'NaN';
-        _passwordController.text = 'password';
-        _confirmPasswordController.text = 'password';
-      });
-    });
     super.initState();
+
+    context.read<ProfileCubit>().getProfile();
+  }
+
+  void _doLogout() async {
+    context.read<ProfileCubit>().doLogOut();
+  }
+
+  _handleLogoutResult(ResultState<dynamic> logoutResult) {
+    logoutResult.maybeWhen(
+      success: (data) async {
+        await Navigator.pushReplacementNamed(context, LoginPage.routeName);
+      },
+      error: (failure) {},
+      orElse: () => null,
+    );
+  }
+
+  _handleUpdateProfile(ResultState<dynamic> updateResult) {
+    updateResult.maybeWhen(
+      loading: () async => await GetUtil.showDialog(
+        const LoadingDialog(),
+        barrierDismissible: false,
+      ),
+      success: (data) async {
+        GetUtil.dismissDialog();
+        await GetUtil.showDialog(
+          const SuccessUpdateDialog(
+            text: Strings.successUpdateProfile,
+          ),
+          barrierDismissible: false,
+        );
+      },
+      error: (failure) {
+        GetUtil.dismissDialog();
+        GetUtil.context.showErrorSnackbar(Failure.getErrorMessage(failure));
+      },
+      orElse: () => null,
+    );
+  }
+
+  _handleGetUser(User? user) {
+    setState(() {
+      _nameController.text = user?.name ?? '-';
+      _emailController.text = user?.email ?? '-';
+      // _phoneController.text = user?.phone ?? '';
+      _passwordController.text = 'password';
+      _confirmPasswordController.text = 'password';
+    });
+  }
+
+  _updateProfile() {
+    FocusManager.instance.primaryFocus?.unfocus();
+    context.read<ProfileCubit>().changeName(_nameController.text);
+    context.read<ProfileCubit>().changeEmail(_emailController.text);
+    context.read<ProfileCubit>().changePassword(_passwordController.text);
+    // context.read<ProfileCubit>().changePhoneNumber(_phoneController.text);
+
+    context.read<ProfileCubit>().updateProfile();
+  }
+
+  _onTapAvatar() async {
+    await GetUtil.showDialog(
+      ImagePermissionDialog(
+        pickedImageFile: (imageFile) {
+          GetUtil.context.read<ProfileCubit>().savePickedImageFile(imageFile);
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorPalettes.greyBackground,
-      padding: EdgeInsets.symmetric(
-          vertical: Sizes.width16, horizontal: Sizes.height20),
-      child: ListView(
-        children: [
-          SizedBox(
-            height: Sizes.height40,
-          ),
-          Stack(children: <Widget>[
-            Align(
-                alignment: Alignment.center,
-                child: CircleAvatar(
-                    radius: 50,
-                    backgroundImage:
-                        AssetImage('assets/images/dummy_avatar.png'))),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                height: Sizes.width40,
-                width: Sizes.height40,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
+    return SingleChildScrollView(
+      child: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        padding: EdgeInsets.symmetric(
+          vertical: Sizes.width16,
+          horizontal: Sizes.height28,
+        ),
+        child: context.select(
+          (ProfileCubit value) {
+            final user = value.state.user;
+            _handleGetUser(user);
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: Sizes.height10),
+                Stack(
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: ClipOval(
+                        child: Container(
+                          width: Sizes.width95,
+                          height: Sizes.width95,
+                          decoration: const BoxDecoration(
+                            color: ColorPalettes.bgNavigationMenu,
+                            shape: BoxShape.circle,
+                          ),
+                          child: value.state.pickedImageFile == null
+                              ? MyCachedNetworkImage(
+                                  imageUrl: user?.avatar != null
+                                      ? "${Endpoint.baseUrlImage}${user?.avatar}"
+                                      : Constants.placeholderAvatarUrl,
+                                  width: Sizes.width95,
+                                  height: Sizes.width95,
+                                  fit: BoxFit.cover,
+                                  errorWidget: CircleAvatar(
+                                    backgroundImage: const NetworkImage(Constants.placeholderAvatarUrl),
+                                    radius: Sizes.width50,
+                                  ),
+                                )
+                              : Image.file(
+                                  value.state.pickedImageFile!,
+                                  width: Sizes.width95,
+                                  height: Sizes.width95,
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: Sizes.width43,
+                        width: Sizes.width43,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        margin: EdgeInsets.only(left: Sizes.width60, top: Sizes.width60),
+                        child: InkWell(
+                          onTap: _onTapAvatar,
+                          child: Icon(
+                            Icons.camera_alt_rounded,
+                            size: Sizes.width24,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                margin: const EdgeInsets.only(left: 70, top: 70),
-                child: InkWell(
-                    onTap: () {},
-                    child: const Icon(
-                      Icons.camera_alt_rounded,
-                      size: 20,
-                    )),
-              ),
-            ),
-          ]),
-          const LabelForm(label: Strings.nama),
-          TextFormField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                filled: true,
-                fillColor: ColorPalettes.bgGreyForm,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                SizedBox(height: Sizes.height16),
+                Text(
+                  Strings.nama,
+                  style: CustomTextStyle.textFormStyle,
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: ColorPalettes.greyBorderColor,
-                    width: 1,
+                SizedBox(height: Sizes.height7),
+                TextFormField(
+                  controller: _nameController,
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
+                  ),
+                  decoration: CustomWidgetStyle.formInputDecoration,
+                ),
+                SizedBox(height: Sizes.height19),
+                Text(
+                  Strings.email,
+                  style: CustomTextStyle.textFormStyle,
+                ),
+                SizedBox(height: Sizes.height7),
+                TextFormField(
+                  controller: _emailController,
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
+                  ),
+                  decoration: CustomWidgetStyle.formInputDecoration,
+                ),
+                SizedBox(height: Sizes.height19),
+                // Text(
+                //   Strings.phone,
+                //   style: CustomTextStyle.textFormStyle,
+                // ),
+                // SizedBox(height: Sizes.height7),
+                // TextFormField(
+                //   controller: _phoneController,
+                //   style: TextStyle(
+                //     color: ColorPalettes.textNeutral,
+                //     fontSize: Sizes.sp14,
+                //   ),
+                //   decoration: CustomWidgetStyle.formInputDecoration,
+                //   keyboardType: TextInputType.phone,
+                // ),
+                // SizedBox(height: Sizes.height19),
+                Text(
+                  Strings.password,
+                  style: CustomTextStyle.textFormStyle,
+                ),
+                SizedBox(height: Sizes.height7),
+                TextFormField(
+                  controller: _passwordController,
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
+                  ),
+                  obscureText: true,
+                  decoration: CustomWidgetStyle.formInputDecoration,
+                ),
+                SizedBox(height: Sizes.height19),
+                Text(
+                  Strings.confirmPassword,
+                  style: CustomTextStyle.textFormStyle,
+                ),
+                SizedBox(height: Sizes.height7),
+                TextFormField(
+                  controller: _confirmPasswordController,
+                  style: TextStyle(
+                    color: ColorPalettes.textNeutral,
+                    fontSize: Sizes.sp14,
+                  ),
+                  obscureText: true,
+                  decoration: CustomWidgetStyle.formInputDecoration,
+                ),
+                SizedBox(height: Sizes.height20),
+                BlocListener<ProfileCubit, ProfileState>(
+                  listenWhen: (previous, current) =>
+                      previous.updateProfileResultState != current.updateProfileResultState,
+                  listener: (context, state) {
+                    _handleUpdateProfile(state.updateProfileResultState);
+                  },
+                  child: ElevatedButton(
+                    onPressed: _updateProfile,
+                    child: Text(
+                      'Update',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: Sizes.sp18,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, Sizes.height46),
+                      elevation: 0,
+                    ),
                   ),
                 ),
-                contentPadding: EdgeInsets.only(
-                    left: Sizes.width10,
-                    right: Sizes.width10,
-                    top: Sizes.height10,
-                    bottom: Sizes.height10),
-              )),
-          const LabelForm(label: Strings.email),
-          TextFormField(
-              controller: _emailController,
-              decoration: InputDecoration(
-                labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                filled: true,
-                fillColor: ColorPalettes.bgGreyForm,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: ColorPalettes.greyBorderColor,
-                    width: 1,
+                SizedBox(height: Sizes.height15),
+                BlocListener<ProfileCubit, ProfileState>(
+                  listenWhen: (previous, current) => previous.logoutResultState != current.logoutResultState,
+                  listener: (context, state) {
+                    _handleLogoutResult(state.logoutResultState);
+                  },
+                  child: ElevatedButton(
+                    onPressed: _doLogout,
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        color: ColorPalettes.primary,
+                        fontSize: Sizes.sp18,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, Sizes.height46),
+                      primary: Theme.of(context).scaffoldBackgroundColor,
+                      elevation: 0,
+                      side: const BorderSide(
+                        width: 1,
+                        color: ColorPalettes.primary,
+                      ),
+                    ),
                   ),
                 ),
-                contentPadding: EdgeInsets.only(
-                    left: Sizes.width10,
-                    right: Sizes.width10,
-                    top: Sizes.height10,
-                    bottom: Sizes.height10),
-              )),
-          const LabelForm(label: Strings.password),
-          TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                filled: true,
-                fillColor: ColorPalettes.bgGreyForm,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: ColorPalettes.greyBorderColor,
-                    width: 1,
-                  ),
-                ),
-                contentPadding: EdgeInsets.only(
-                    left: Sizes.width10,
-                    right: Sizes.width10,
-                    top: Sizes.height10,
-                    bottom: Sizes.height10),
-              )),
-          const LabelForm(label: Strings.confirmPassword),
-          TextFormField(
-              controller: _confirmPasswordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelStyle: const TextStyle(color: ColorPalettes.textNeutral),
-                filled: true,
-                fillColor: ColorPalettes.bgGreyForm,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: ColorPalettes.greyBorderColor,
-                    width: 1,
-                  ),
-                ),
-                contentPadding: EdgeInsets.only(
-                    left: Sizes.width10,
-                    right: Sizes.width10,
-                    top: Sizes.height10,
-                    bottom: Sizes.height10),
-              )),
-          BlueButton(
-            btnLabel: Strings.update,
-            paddingTop: Sizes.height20,
-            onPressed: () {
-              print('btn update clicked');
-            },
-          ),
-          SizedBox(
-            height: Sizes.height10,
-          )
-        ],
+                SizedBox(height: Sizes.height15),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

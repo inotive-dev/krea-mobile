@@ -14,20 +14,23 @@ class ColorPalettes {
   static const bgGrey2 = Color(0xffF8F8F8);
   static const bgGrey3 = Color(0xffB3B3B3);
   static const bgGrey4 = Color(0xffF7F7F7);
+  static const bgGrey5 = Color(0xffF9F9F9);
   static const greyForm = Color(0xffE8E8E8);
   static const greyText = Color(0xffBDBDBD);
 
   static const greyAppBar = Color(0xffF1F2F3);
-  static const greyBackground = Color(0xffE5E5E5);
+  static const greyBackground = Color(0xffF5F5F5);
 
   static const darkText = Color(0xffA1A1A1);
   static const blackText = Color(0xff4C4C4C);
   static const textNeutral = Color(0xff838AA3);
+  static const textGray = Color(0Xff473C41);
 
   static const greyUnselectedTab = Color(0xff9E9E9E);
 
   static const bgBlueAppBar = Color(0xff54C5ED);
   static const darkBlue = Color(0xff009CC7);
+  static const bgBlueHeader = Color(0xffE1F7FF);
 
   static const bgBlueCard = Color(0xff2AAEDE);
   static const bgBlueCardGradient = Color(0xff299BC4);
@@ -48,6 +51,7 @@ class ColorPalettes {
   static const greyDark100 = Color(0xff424242);
   static Color grey75 = greyDark100.withOpacity(0.75);
   static Color grey25 = greyDark100.withOpacity(0.25);
+  static const Color greyContainer = Color(0xffFAFAFA);
   static Color blackShadow = Colors.black.withOpacity(0.25);
   static Color shadowCard = const Color(0xff2B2B2B).withOpacity(0.25);
 

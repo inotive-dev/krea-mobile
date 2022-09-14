@@ -1,6 +1,10 @@
-
 enum Role {
   admin,
-  user
+  user,
 }
 
+enum ResetPasswordSteps {
+  sendEmail,
+  sendOtp,
+  sendNewPassword,
+}
