@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:koperasi/core/const/constants.dart';
+import 'package:koperasi/core/const/strings.dart';
 import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
@@ -36,8 +37,8 @@ class UserAppBar extends StatelessWidget {
         ),
         Container(
           padding: EdgeInsets.only(
-            left: Sizes.width26,
-            right: Sizes.width26,
+            left: Sizes.width20,
+            right: Sizes.width20,
             bottom: Sizes.height19,
             top: Sizes.height60,
           ),
@@ -137,7 +138,7 @@ class UserAppBar extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "Saldo Anda",
+                              Strings.saldoAnda,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
@@ -151,16 +152,16 @@ class UserAppBar extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
-                                fontSize: Sizes.sp22,
+                                fontSize: Sizes.sp20,
                               ),
                             ),
                             Text(
-                              'Last Updated $date',
+                              '${Strings.lastUpdated} $date',
                               textAlign: TextAlign.end,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: Sizes.sp9,
+                                fontSize: Sizes.sp10,
                               ),
                             ),
                           ],

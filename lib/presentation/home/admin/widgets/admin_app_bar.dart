@@ -92,9 +92,7 @@ class AdminAppBar extends StatelessWidget {
                                         radius: Sizes.height30,
                                       ),
                                     ),
-                                    SizedBox(
-                                      width: Sizes.width12,
-                                    ),
+                                    SizedBox(width: Sizes.width12),
                                     Expanded(
                                       flex: 2,
                                       child: Column(
