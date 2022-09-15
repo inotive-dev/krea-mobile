@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
@@ -16,6 +18,33 @@ class HomeForUser extends StatelessWidget {
     context.read<HomeCubit>().getHomeUserData();
 
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(Sizes.height160),
+        child: const SizedBox.shrink(),
+      ),
+      floatingActionButton: Container(
+        width: Sizes.width68,
+        height: Sizes.width68,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(Sizes.width34),
+          color: Colors.white,
+        ),
+        padding: EdgeInsets.all(Sizes.width8),
+        child: RawMaterialButton(
+          fillColor: ColorPalettes.darkBlue,
+          elevation: 0,
+          shape: const CircleBorder(),
+          onPressed: () {
+            print('scan qr');
+          },
+          child: SvgPicture.asset(
+            'assets/icons/icQr.svg',
+            color: Colors.white,
+            width: Sizes.width24,
+            height: Sizes.width24,
+          ),
+        ),
+      ),
       body: Column(
         children: [
           const UserAppBar(),
