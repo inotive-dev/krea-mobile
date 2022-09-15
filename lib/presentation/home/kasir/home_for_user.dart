@@ -1,17 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/core/utils/permission_helper.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/home_summary_card.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/user_app_bar.dart';
+import 'package:koperasi/presentation/home/widgets/scan_qr/scan_qr_page.dart';
 
 import '../../../core/const/strings.dart';
 
 class HomeForUser extends StatelessWidget {
   const HomeForUser({Key? key}) : super(key: key);
+
+  void _openQRCode(BuildContext context) async {
+    await PermissionHelper.requestPermissionCamera(
+      onGranted: () async {
+        final result = await Navigator.pushNamed(
+          context,
+          ScanQRPage.routeName,
+        );
+
+        if (result != null || result != '') {
+          print('RESULT SCAN: $result');
+        }
+      },
+      onDenied: () {
+        context.showErrorSnackbar('Tidak dapat mengakses kamera');
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +55,7 @@ class HomeForUser extends StatelessWidget {
           fillColor: ColorPalettes.darkBlue,
           elevation: 0,
           shape: const CircleBorder(),
-          onPressed: () {
-            print('scan qr');
-          },
+          onPressed: () => _openQRCode(context),
           child: SvgPicture.asset(
             'assets/icons/icQr.svg',
             color: Colors.white,

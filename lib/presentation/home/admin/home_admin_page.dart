@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:koperasi/core/const/constants.dart';
+import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/unions/failure.dart';
+import 'package:koperasi/core/utils/permission_helper.dart';
 import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
@@ -15,6 +17,7 @@ import 'package:koperasi/presentation/home/admin/widgets/section_label.dart';
 import 'package:koperasi/presentation/home/admin/widgets/branch/tab_branches.dart';
 import 'package:koperasi/presentation/home/admin/widgets/tab_report.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
+import 'package:koperasi/presentation/home/widgets/scan_qr/scan_qr_page.dart';
 
 import '../../../core/style/sizes.dart';
 
@@ -83,6 +86,24 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
     }
   }
 
+  void _openQRCode() async {
+    await PermissionHelper.requestPermissionCamera(
+      onGranted: () async {
+        final result = await Navigator.pushNamed(
+          context,
+          ScanQRPage.routeName,
+        );
+
+        if (result != null || result != '') {
+          print('RESULT SCAN: $result');
+        }
+      },
+      onDenied: () {
+        context.showErrorSnackbar('Tidak dapat mengakses kamera');
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,9 +123,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
           fillColor: ColorPalettes.darkBlue,
           elevation: 0,
           shape: const CircleBorder(),
-          onPressed: () {
-            print('scan qr');
-          },
+          onPressed: _openQRCode,
           child: SvgPicture.asset(
             'assets/icons/icQr.svg',
             color: Colors.white,
