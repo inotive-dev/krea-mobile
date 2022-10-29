@@ -10,11 +10,13 @@ class ValidateDataUseCaseParams extends Equatable {
   final List<Map<String, dynamic>> saldoSimpananWajib;
   final List<Map<String, dynamic>> historyTransaksi;
   final List<Map<String, dynamic>> debts;
+  final String endPointUrl;
 
   const ValidateDataUseCaseParams({
     required this.saldoSimpananWajib,
     required this.historyTransaksi,
     required this.debts,
+    required this.endPointUrl,
   });
 
   @override
@@ -22,6 +24,7 @@ class ValidateDataUseCaseParams extends Equatable {
         saldoSimpananWajib,
         historyTransaksi,
         debts,
+        endPointUrl,
       ];
 }
 

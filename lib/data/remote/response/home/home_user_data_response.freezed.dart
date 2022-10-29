@@ -26,9 +26,9 @@ class _$HomeUserDataResponseTearOff {
       {@JsonKey(name: 'contribution')
           required ContributionResponse contribution,
       @JsonKey(name: 'total_saldo_simpanan_utang')
-          required double totalSaldoSimpananUtang,
+          required int totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
-          required String totalUtang}) {
+          required int totalUtang}) {
     return _HomeUserDataResponse(
       contribution: contribution,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang,
@@ -49,9 +49,9 @@ mixin _$HomeUserDataResponse {
   @JsonKey(name: 'contribution')
   ContributionResponse get contribution => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_saldo_simpanan_utang')
-  double get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
+  int get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_utang')
-  String get totalUtang => throw _privateConstructorUsedError;
+  int get totalUtang => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,12 +65,9 @@ abstract class $HomeUserDataResponseCopyWith<$Res> {
           $Res Function(HomeUserDataResponse) then) =
       _$HomeUserDataResponseCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'contribution')
-          ContributionResponse contribution,
-      @JsonKey(name: 'total_saldo_simpanan_utang')
-          double totalSaldoSimpananUtang,
-      @JsonKey(name: 'total_utang')
-          String totalUtang});
+      {@JsonKey(name: 'contribution') ContributionResponse contribution,
+      @JsonKey(name: 'total_saldo_simpanan_utang') int totalSaldoSimpananUtang,
+      @JsonKey(name: 'total_utang') int totalUtang});
 
   $ContributionResponseCopyWith<$Res> get contribution;
 }
@@ -98,11 +95,11 @@ class _$HomeUserDataResponseCopyWithImpl<$Res>
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       totalUtang: totalUtang == freezed
           ? _value.totalUtang
           : totalUtang // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 
@@ -122,12 +119,9 @@ abstract class _$HomeUserDataResponseCopyWith<$Res>
       __$HomeUserDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'contribution')
-          ContributionResponse contribution,
-      @JsonKey(name: 'total_saldo_simpanan_utang')
-          double totalSaldoSimpananUtang,
-      @JsonKey(name: 'total_utang')
-          String totalUtang});
+      {@JsonKey(name: 'contribution') ContributionResponse contribution,
+      @JsonKey(name: 'total_saldo_simpanan_utang') int totalSaldoSimpananUtang,
+      @JsonKey(name: 'total_utang') int totalUtang});
 
   @override
   $ContributionResponseCopyWith<$Res> get contribution;
@@ -158,11 +152,11 @@ class __$HomeUserDataResponseCopyWithImpl<$Res>
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       totalUtang: totalUtang == freezed
           ? _value.totalUtang
           : totalUtang // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -187,10 +181,10 @@ class _$_HomeUserDataResponse extends _HomeUserDataResponse {
   final ContributionResponse contribution;
   @override
   @JsonKey(name: 'total_saldo_simpanan_utang')
-  final double totalSaldoSimpananUtang;
+  final int totalSaldoSimpananUtang;
   @override
   @JsonKey(name: 'total_utang')
-  final String totalUtang;
+  final int totalUtang;
 
   @override
   String toString() {
@@ -234,9 +228,9 @@ abstract class _HomeUserDataResponse extends HomeUserDataResponse {
       {@JsonKey(name: 'contribution')
           required ContributionResponse contribution,
       @JsonKey(name: 'total_saldo_simpanan_utang')
-          required double totalSaldoSimpananUtang,
+          required int totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
-          required String totalUtang}) = _$_HomeUserDataResponse;
+          required int totalUtang}) = _$_HomeUserDataResponse;
   const _HomeUserDataResponse._() : super._();
 
   factory _HomeUserDataResponse.fromJson(Map<String, dynamic> json) =
@@ -247,10 +241,10 @@ abstract class _HomeUserDataResponse extends HomeUserDataResponse {
   ContributionResponse get contribution;
   @override
   @JsonKey(name: 'total_saldo_simpanan_utang')
-  double get totalSaldoSimpananUtang;
+  int get totalSaldoSimpananUtang;
   @override
   @JsonKey(name: 'total_utang')
-  String get totalUtang;
+  int get totalUtang;
   @override
   @JsonKey(ignore: true)
   _$HomeUserDataResponseCopyWith<_HomeUserDataResponse> get copyWith =>

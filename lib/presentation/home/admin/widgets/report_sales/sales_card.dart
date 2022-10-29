@@ -3,10 +3,11 @@ import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/utils/date_util.dart';
 import 'package:koperasi/core/utils/utils.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
 
 class SalesCard extends StatelessWidget {
-  final SalesReport salesReport;
+  final SalesResponse salesReport;
 
   const SalesCard({
     Key? key,

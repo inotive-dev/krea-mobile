@@ -7,7 +7,6 @@ import 'package:koperasi/core/utils/get_util.dart';
 import 'package:koperasi/core/utils/utils.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
-import 'package:koperasi/domain/entities/history/history_detail/history_detail.dart';
 import 'package:koperasi/presentation/history/cubit/history_cubit.dart';
 
 import '../../../core/const/strings.dart';
@@ -52,7 +51,7 @@ class HistoryDetailPage extends StatelessWidget {
               return ListView.separated(
                 padding: EdgeInsets.all(Sizes.width16),
                 itemBuilder: (context, index) {
-                  final history = details?[index];
+                  final history = details?.transactionProduct[index];
                   return Container(
                     padding: EdgeInsets.all(Sizes.width16),
                     decoration: BoxDecoration(
@@ -107,7 +106,7 @@ class HistoryDetailPage extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (context, index) => SizedBox(height: Sizes.width12),
-                itemCount: state.historyDetailData?.length ?? 0,
+                itemCount: state.historyDetailData?.transactionProduct.length ?? 0,
               );
             },
             error: (error) => Center(

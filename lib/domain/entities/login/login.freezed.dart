@@ -19,7 +19,9 @@ class _$LoginTearOff {
   const _$LoginTearOff();
 
   _Login call(
-      {required User? user, required String? message, required String? token}) {
+      {required UserResponse? user,
+      required String? message,
+      required String? token}) {
     return _Login(
       user: user,
       message: message,
@@ -33,7 +35,7 @@ const $Login = _$LoginTearOff();
 
 /// @nodoc
 mixin _$Login {
-  User? get user => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get token => throw _privateConstructorUsedError;
 
@@ -45,9 +47,9 @@ mixin _$Login {
 abstract class $LoginCopyWith<$Res> {
   factory $LoginCopyWith(Login value, $Res Function(Login) then) =
       _$LoginCopyWithImpl<$Res>;
-  $Res call({User? user, String? message, String? token});
+  $Res call({UserResponse? user, String? message, String? token});
 
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -68,7 +70,7 @@ class _$LoginCopyWithImpl<$Res> implements $LoginCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -81,12 +83,12 @@ class _$LoginCopyWithImpl<$Res> implements $LoginCopyWith<$Res> {
   }
 
   @override
-  $UserCopyWith<$Res>? get user {
+  $UserResponseCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserCopyWith<$Res>(_value.user!, (value) {
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -97,10 +99,10 @@ abstract class _$LoginCopyWith<$Res> implements $LoginCopyWith<$Res> {
   factory _$LoginCopyWith(_Login value, $Res Function(_Login) then) =
       __$LoginCopyWithImpl<$Res>;
   @override
-  $Res call({User? user, String? message, String? token});
+  $Res call({UserResponse? user, String? message, String? token});
 
   @override
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -122,7 +124,7 @@ class __$LoginCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -142,7 +144,7 @@ class _$_Login implements _Login {
       {required this.user, required this.message, required this.token});
 
   @override
-  final User? user;
+  final UserResponse? user;
   @override
   final String? message;
   @override
@@ -178,12 +180,12 @@ class _$_Login implements _Login {
 
 abstract class _Login implements Login {
   const factory _Login(
-      {required User? user,
+      {required UserResponse? user,
       required String? message,
       required String? token}) = _$_Login;
 
   @override
-  User? get user;
+  UserResponse? get user;
   @override
   String? get message;
   @override

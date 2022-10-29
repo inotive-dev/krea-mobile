@@ -7,6 +7,8 @@ import 'package:koperasi/core/extensions/snackbar_ext.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/permission_helper.dart';
+import 'package:koperasi/data/local/entities/history/sales_response_entity.dart';
+import 'package:koperasi/data/local/local_data_source.dart';
 import 'package:koperasi/data/repositories/my_repository_impl.dart';
 import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/presentation/home/admin/widgets/admin_app_bar.dart';
@@ -37,7 +39,11 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
   @override
   void initState() {
     super.initState();
+
     _homeAdminInitial();
+    tabBranchController = TabController(length: 3, vsync: this);
+    tabBranchController.addListener(_handleTabSelection);
+    isShowTabPageControl.value = true;
   }
 
   @override
@@ -47,9 +53,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
   }
 
   Future<void> _homeAdminInitial() async {
-    tabBranchController = TabController(length: 3, vsync: this);
-    tabBranchController.addListener(_handleTabSelection);
-
     _myRepository = getIt.get<MyRepositoryImpl>();
     final martId = _myRepository.getUser()?.martId ?? 0;
 
@@ -60,7 +63,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
     context.read<HomeCubit>().getHomeDataNeraca(1);
     context.read<HomeCubit>().getHomeDataPerubahanModal(1);
     context.read<HomeCubit>().getHomeAdminSalesReports(1);
-    isShowTabPageControl.value = true;
   }
 
   _handleTabSelection() {
@@ -95,7 +97,16 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
         );
 
         if (result != null || result != '') {
-          print('RESULT SCAN: $result');
+          final hist = getIt.get<LocalDataSource>().getHistoryAdmin();
+          final List<Map<String, dynamic>> listHist = [];
+          for (SalesResponseEntity element in hist?.lastMonthHistory ?? []) {
+            listHist.add(element.toJson());
+          }
+          for (SalesResponseEntity element in hist?.thisWeekHistory ?? []) {
+            listHist.add(element.toJson());
+          }
+
+          context.read<HomeCubit>().validateDataAdmin(result.toString(), listHist);
         }
       },
       onDenied: () {

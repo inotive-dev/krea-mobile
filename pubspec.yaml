@@ -22,7 +22,7 @@ dependencies:
   #http tools
   dio: ^4.0.6
   # equatable for bloc
-  equatable: ^2.0.3
+  equatable: ^2.0.5
   #for screen util (responsive)
   flutter_screenutil: ^5.5.3+2
   #for svg picture asset
@@ -30,7 +30,7 @@ dependencies:
   #for freezed annotiation
   freezed_annotation: ^1.1.0
   # flutter_bloc for widget bloc_test:
-  flutter_bloc: ^8.0.1
+  flutter_bloc: ^8.1.1
   # native splash screen
   flutter_native_splash: ^2.2.7
   # GetX for route, state & dependency management
@@ -44,6 +44,8 @@ dependencies:
   intl: ^0.17.0
   # a convenient code generator for get_it
   injectable: ^1.5.3
+  # checks for an Active Internet connection
+  internet_connection_checker: ^0.0.1+4
   # Image picker
   image_picker: ^0.8.4+10
   # QR code scanner that can be embedded inside flutter

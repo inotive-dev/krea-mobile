@@ -27,7 +27,7 @@ class _$HistoryStateTearOff {
           const ResultState.initial(),
       Map<dynamic, dynamic> selectedMart = const {'id': 1, 'name': 'Mart Alfa'},
       required HistoryData historyData,
-      required List<HistoryDetailData>? historyDetailData}) {
+      required HistoryDetailData? historyDetailData}) {
     return _HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState,
       getHistoryUserResultState: getHistoryUserResultState,
@@ -52,7 +52,7 @@ mixin _$HistoryState {
       throw _privateConstructorUsedError;
   Map<dynamic, dynamic> get selectedMart => throw _privateConstructorUsedError;
   HistoryData get historyData => throw _privateConstructorUsedError;
-  List<HistoryDetailData>? get historyDetailData =>
+  HistoryDetailData? get historyDetailData =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -71,12 +71,13 @@ abstract class $HistoryStateCopyWith<$Res> {
       ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
       HistoryData historyData,
-      List<HistoryDetailData>? historyDetailData});
+      HistoryDetailData? historyDetailData});
 
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
   $ResultStateCopyWith<dynamic, $Res> get getHistoryUserResultState;
   $ResultStateCopyWith<dynamic, $Res> get getHistoryDetailResultState;
   $HistoryDataCopyWith<$Res> get historyData;
+  $HistoryDetailDataCopyWith<$Res>? get historyDetailData;
 }
 
 /// @nodoc
@@ -120,7 +121,7 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
       historyDetailData: historyDetailData == freezed
           ? _value.historyDetailData
           : historyDetailData // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailData>?,
+              as HistoryDetailData?,
     ));
   }
 
@@ -154,6 +155,17 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
       return _then(_value.copyWith(historyData: value));
     });
   }
+
+  @override
+  $HistoryDetailDataCopyWith<$Res>? get historyDetailData {
+    if (_value.historyDetailData == null) {
+      return null;
+    }
+
+    return $HistoryDetailDataCopyWith<$Res>(_value.historyDetailData!, (value) {
+      return _then(_value.copyWith(historyDetailData: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -169,7 +181,7 @@ abstract class _$HistoryStateCopyWith<$Res>
       ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
       HistoryData historyData,
-      List<HistoryDetailData>? historyDetailData});
+      HistoryDetailData? historyDetailData});
 
   @override
   $ResultStateCopyWith<dynamic, $Res> get getHistoryAdminResultState;
@@ -179,6 +191,8 @@ abstract class _$HistoryStateCopyWith<$Res>
   $ResultStateCopyWith<dynamic, $Res> get getHistoryDetailResultState;
   @override
   $HistoryDataCopyWith<$Res> get historyData;
+  @override
+  $HistoryDetailDataCopyWith<$Res>? get historyDetailData;
 }
 
 /// @nodoc
@@ -224,7 +238,7 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
       historyDetailData: historyDetailData == freezed
           ? _value.historyDetailData
           : historyDetailData // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailData>?,
+              as HistoryDetailData?,
     ));
   }
 }
@@ -255,7 +269,7 @@ class _$_HistoryState implements _HistoryState {
   @override
   final HistoryData historyData;
   @override
-  final List<HistoryDetailData>? historyDetailData;
+  final HistoryDetailData? historyDetailData;
 
   @override
   String toString() {
@@ -305,7 +319,7 @@ abstract class _HistoryState implements HistoryState {
       ResultState<dynamic> getHistoryDetailResultState,
       Map<dynamic, dynamic> selectedMart,
       required HistoryData historyData,
-      required List<HistoryDetailData>? historyDetailData}) = _$_HistoryState;
+      required HistoryDetailData? historyDetailData}) = _$_HistoryState;
 
   @override
   ResultState<dynamic> get getHistoryAdminResultState;
@@ -318,7 +332,7 @@ abstract class _HistoryState implements HistoryState {
   @override
   HistoryData get historyData;
   @override
-  List<HistoryDetailData>? get historyDetailData;
+  HistoryDetailData? get historyDetailData;
   @override
   @JsonKey(ignore: true)
   _$HistoryStateCopyWith<_HistoryState> get copyWith =>

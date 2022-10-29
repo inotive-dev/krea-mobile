@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/home/sales_report_data_entity.dart';
 import 'package:koperasi/data/remote/response/home/link_response.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 import 'package:koperasi/domain/entities/home/sales_report_data.dart';
@@ -30,12 +31,28 @@ class SalesReportDataResponse with _$SalesReportDataResponse {
 
   SalesReportData toDomain() => SalesReportData(
         currentPage: currentPage,
-        data: data?.map((e) => e.toDomain()).toList(),
+        data: data,
         firstPageUrl: firstPageUrl,
         from: from,
         lastPage: lastPage,
         lastPageUrl: lastPageUrl,
         links: links.map((e) => e.toDomain()).toList(),
+        nextPageUrl: nextPageUrl,
+        path: path,
+        perPage: perPage,
+        prevPageUrl: prevPageUrl,
+        to: to,
+        total: total,
+      );
+
+  SalesReportDataEntity? toEntity() => SalesReportDataEntity(
+        currentPage: currentPage,
+        data: data?.map((e) => e.toEntity()).toList(),
+        firstPageUrl: firstPageUrl,
+        from: from,
+        lastPage: lastPage,
+        lastPageUrl: lastPageUrl,
+        links: links.map((e) => e.toEntity()).toList(),
         nextPageUrl: nextPageUrl,
         path: path,
         perPage: perPage,

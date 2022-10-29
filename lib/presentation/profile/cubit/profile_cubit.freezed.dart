@@ -23,7 +23,7 @@ class _$ProfileStateTearOff {
       ResultState<dynamic> getProfileResultState = const ResultState.initial(),
       ResultState<dynamic> updateProfileResultState =
           const ResultState.initial(),
-      User? user = const User(),
+      UserResponse? user,
       String name = '',
       String email = '',
       String phoneNumber = '',
@@ -54,7 +54,7 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   ResultState<dynamic> get updateProfileResultState =>
       throw _privateConstructorUsedError;
-  User? get user => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
       ResultState<dynamic> updateProfileResultState,
-      User? user,
+      UserResponse? user,
       String name,
       String email,
       String phoneNumber,
@@ -85,7 +85,7 @@ abstract class $ProfileStateCopyWith<$Res> {
   $ResultStateCopyWith<dynamic, $Res> get logoutResultState;
   $ResultStateCopyWith<dynamic, $Res> get getProfileResultState;
   $ResultStateCopyWith<dynamic, $Res> get updateProfileResultState;
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -173,12 +173,12 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   }
 
   @override
-  $UserCopyWith<$Res>? get user {
+  $UserResponseCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserCopyWith<$Res>(_value.user!, (value) {
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -195,7 +195,7 @@ abstract class _$ProfileStateCopyWith<$Res>
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
       ResultState<dynamic> updateProfileResultState,
-      User? user,
+      UserResponse? user,
       String name,
       String email,
       String phoneNumber,
@@ -209,7 +209,7 @@ abstract class _$ProfileStateCopyWith<$Res>
   @override
   $ResultStateCopyWith<dynamic, $Res> get updateProfileResultState;
   @override
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -250,7 +250,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -282,7 +282,7 @@ class _$_ProfileState implements _ProfileState {
       {this.logoutResultState = const ResultState.initial(),
       this.getProfileResultState = const ResultState.initial(),
       this.updateProfileResultState = const ResultState.initial(),
-      this.user = const User(),
+      this.user,
       this.name = '',
       this.email = '',
       this.phoneNumber = '',
@@ -298,9 +298,8 @@ class _$_ProfileState implements _ProfileState {
   @JsonKey()
   @override
   final ResultState<dynamic> updateProfileResultState;
-  @JsonKey()
   @override
-  final User? user;
+  final UserResponse? user;
   @JsonKey()
   @override
   final String name;
@@ -366,7 +365,7 @@ abstract class _ProfileState implements ProfileState {
       {ResultState<dynamic> logoutResultState,
       ResultState<dynamic> getProfileResultState,
       ResultState<dynamic> updateProfileResultState,
-      User? user,
+      UserResponse? user,
       String name,
       String email,
       String phoneNumber,
@@ -380,7 +379,7 @@ abstract class _ProfileState implements ProfileState {
   @override
   ResultState<dynamic> get updateProfileResultState;
   @override
-  User? get user;
+  UserResponse? get user;
   @override
   String get name;
   @override

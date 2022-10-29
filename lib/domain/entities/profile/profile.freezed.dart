@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProfileTearOff {
   const _$ProfileTearOff();
 
-  _Profile call({required User? user}) {
+  _Profile call({required UserResponse? user}) {
     return _Profile(
       user: user,
     );
@@ -30,7 +30,7 @@ const $Profile = _$ProfileTearOff();
 
 /// @nodoc
 mixin _$Profile {
-  User? get user => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileCopyWith<Profile> get copyWith => throw _privateConstructorUsedError;
@@ -40,9 +40,9 @@ mixin _$Profile {
 abstract class $ProfileCopyWith<$Res> {
   factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
       _$ProfileCopyWithImpl<$Res>;
-  $Res call({User? user});
+  $Res call({UserResponse? user});
 
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -61,17 +61,17 @@ class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
     ));
   }
 
   @override
-  $UserCopyWith<$Res>? get user {
+  $UserResponseCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserCopyWith<$Res>(_value.user!, (value) {
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -82,10 +82,10 @@ abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   factory _$ProfileCopyWith(_Profile value, $Res Function(_Profile) then) =
       __$ProfileCopyWithImpl<$Res>;
   @override
-  $Res call({User? user});
+  $Res call({UserResponse? user});
 
   @override
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
     ));
   }
 }
@@ -116,7 +116,7 @@ class _$_Profile implements _Profile {
   const _$_Profile({required this.user});
 
   @override
-  final User? user;
+  final UserResponse? user;
 
   @override
   String toString() {
@@ -142,10 +142,10 @@ class _$_Profile implements _Profile {
 }
 
 abstract class _Profile implements Profile {
-  const factory _Profile({required User? user}) = _$_Profile;
+  const factory _Profile({required UserResponse? user}) = _$_Profile;
 
   @override
-  User? get user;
+  UserResponse? get user;
   @override
   @JsonKey(ignore: true)
   _$ProfileCopyWith<_Profile> get copyWith =>

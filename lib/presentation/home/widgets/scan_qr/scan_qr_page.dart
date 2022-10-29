@@ -34,7 +34,6 @@ class _ScanQRPageState extends State<ScanQRPage> {
         ),
       ),
       body: MobileScanner(
-        fit: BoxFit.fill,
         onDetect: (barcode, args) {
           Navigator.pop(context, barcode.rawValue);
         },

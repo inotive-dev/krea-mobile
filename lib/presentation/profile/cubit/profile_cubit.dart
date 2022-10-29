@@ -4,12 +4,12 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/usecases/get_profile.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
 
 import '../../../../../core/unions/result_state.dart';
 import '../../../../../domain/usecases/do_logout_usecase.dart';
-import '../../../domain/entities/login/user.dart';
 import '../../../domain/usecases/get_user_usecase.dart';
 
 part 'profile_cubit.freezed.dart';
@@ -55,7 +55,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   getUser() {
     final _result = _getUserUseCase(const NoParam());
     if (_result == null) {
-      emit(state.copyWith(user: const User()));
+      emit(state.copyWith(user: null));
       return;
     }
 

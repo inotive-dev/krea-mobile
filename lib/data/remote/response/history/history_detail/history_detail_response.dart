@@ -13,7 +13,7 @@ class HistoryDetailResponse with _$HistoryDetailResponse {
   const factory HistoryDetailResponse({
     required String? message,
     required int? statusCode,
-    required List<HistoryDetailDataResponse>? data,
+    required HistoryDetailDataResponse data,
   }) = _HistoryDetailResponse;
 
   factory HistoryDetailResponse.fromJson(Map<String, dynamic> json) => _$HistoryDetailResponseFromJson(json);
@@ -21,6 +21,6 @@ class HistoryDetailResponse with _$HistoryDetailResponse {
   HistoryDetail toDomain() => HistoryDetail(
         message: message,
         statusCode: statusCode,
-        data: data?.map((e) => e.toDomain()).toList(),
+        data: data.toDomain(),
       );
 }

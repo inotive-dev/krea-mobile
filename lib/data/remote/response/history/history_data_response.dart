@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/history/history_data_entity.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 
 import 'package:koperasi/domain/entities/history/history_data_admin.dart';
@@ -18,7 +19,12 @@ class HistoryDataResponse with _$HistoryDataResponse {
   factory HistoryDataResponse.fromJson(Map<String, dynamic> json) => _$HistoryDataResponseFromJson(json);
 
   HistoryData toDomain() => HistoryData(
-        thisWeekHistory: thisWeekHistory?.map((e) => e.toDomain()).toList(),
-        lastMonthHistory: lastMonthHistory?.map((e) => e.toDomain()).toList(),
+        thisWeekHistory: thisWeekHistory?.map((e) => e).toList(),
+        lastMonthHistory: lastMonthHistory?.map((e) => e).toList(),
+      );
+
+  HistoryDataEntity toEntity() => HistoryDataEntity(
+        thisWeekHistory: thisWeekHistory?.map((e) => e.toEntity()).toList(),
+        lastMonthHistory: lastMonthHistory?.map((e) => e.toEntity()).toList(),
       );
 }

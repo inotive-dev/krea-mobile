@@ -21,7 +21,7 @@ class _$HistoryDetailTearOff {
   _HistoryDetail call(
       {required String? message,
       required int? statusCode,
-      required List<HistoryDetailData>? data}) {
+      required HistoryDetailData data}) {
     return _HistoryDetail(
       message: message,
       statusCode: statusCode,
@@ -37,7 +37,7 @@ const $HistoryDetail = _$HistoryDetailTearOff();
 mixin _$HistoryDetail {
   String? get message => throw _privateConstructorUsedError;
   int? get statusCode => throw _privateConstructorUsedError;
-  List<HistoryDetailData>? get data => throw _privateConstructorUsedError;
+  HistoryDetailData get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HistoryDetailCopyWith<HistoryDetail> get copyWith =>
@@ -49,7 +49,9 @@ abstract class $HistoryDetailCopyWith<$Res> {
   factory $HistoryDetailCopyWith(
           HistoryDetail value, $Res Function(HistoryDetail) then) =
       _$HistoryDetailCopyWithImpl<$Res>;
-  $Res call({String? message, int? statusCode, List<HistoryDetailData>? data});
+  $Res call({String? message, int? statusCode, HistoryDetailData data});
+
+  $HistoryDetailDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -79,8 +81,15 @@ class _$HistoryDetailCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailData>?,
+              as HistoryDetailData,
     ));
+  }
+
+  @override
+  $HistoryDetailDataCopyWith<$Res> get data {
+    return $HistoryDetailDataCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
@@ -91,7 +100,10 @@ abstract class _$HistoryDetailCopyWith<$Res>
           _HistoryDetail value, $Res Function(_HistoryDetail) then) =
       __$HistoryDetailCopyWithImpl<$Res>;
   @override
-  $Res call({String? message, int? statusCode, List<HistoryDetailData>? data});
+  $Res call({String? message, int? statusCode, HistoryDetailData data});
+
+  @override
+  $HistoryDetailDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -123,7 +135,7 @@ class __$HistoryDetailCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailData>?,
+              as HistoryDetailData,
     ));
   }
 }
@@ -139,7 +151,7 @@ class _$_HistoryDetail implements _HistoryDetail {
   @override
   final int? statusCode;
   @override
-  final List<HistoryDetailData>? data;
+  final HistoryDetailData data;
 
   @override
   String toString() {
@@ -174,14 +186,14 @@ abstract class _HistoryDetail implements HistoryDetail {
   const factory _HistoryDetail(
       {required String? message,
       required int? statusCode,
-      required List<HistoryDetailData>? data}) = _$_HistoryDetail;
+      required HistoryDetailData data}) = _$_HistoryDetail;
 
   @override
   String? get message;
   @override
   int? get statusCode;
   @override
-  List<HistoryDetailData>? get data;
+  HistoryDetailData get data;
   @override
   @JsonKey(ignore: true)
   _$HistoryDetailCopyWith<_HistoryDetail> get copyWith =>

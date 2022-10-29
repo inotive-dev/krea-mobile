@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:koperasi/data/remote/response/login/user_response.dart';
 
 import '../../../../domain/entities/login/user.dart';
 import '../../hive/hive_type_id.dart';
@@ -106,7 +107,7 @@ class UserEntity extends Equatable {
     ];
   }
 
-  User toDomain() => User(
+  UserResponse toDomain() => UserResponse(
         id: id,
         martId: martId,
         name: name,

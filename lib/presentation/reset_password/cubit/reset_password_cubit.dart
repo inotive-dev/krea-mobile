@@ -67,7 +67,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }
 
   sendResetPassword(String password) async {
-    print("${state.validOtp} - $password");
     emit(state.copyWith(sendResetPasswordResultState: const ResultState.loading()));
     final _result = await _sendResetPasswordUseCase(SendResetPasswordUseCaseParams(
       otp: state.validOtp,

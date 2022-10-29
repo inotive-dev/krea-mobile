@@ -8,6 +8,6 @@ class HistoryDetail with _$HistoryDetail {
   const factory HistoryDetail({
     required String? message,
     required int? statusCode,
-    required List<HistoryDetailData>? data,
+    required HistoryDetailData data,
   }) = _HistoryDetail;
 }

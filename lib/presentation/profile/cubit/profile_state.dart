@@ -6,7 +6,7 @@ class ProfileState with _$ProfileState {
     @Default(ResultState.initial()) ResultState<dynamic> logoutResultState,
     @Default(ResultState.initial()) ResultState<dynamic> getProfileResultState,
     @Default(ResultState.initial()) ResultState<dynamic> updateProfileResultState,
-    @Default(User()) User? user,
+    UserResponse? user,
     @Default('') String name,
     @Default('') String email,
     @Default('') String phoneNumber,

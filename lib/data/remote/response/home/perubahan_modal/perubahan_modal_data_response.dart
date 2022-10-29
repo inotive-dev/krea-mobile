@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/home/perubahan_modal_data_entity.dart';
 import 'package:koperasi/domain/entities/home/perubahan_modal/perubahan_modal_data.dart';
 
 part 'perubahan_modal_data_response.freezed.dart';
@@ -22,6 +23,17 @@ class PerubahanModalDataResponse with _$PerubahanModalDataResponse {
   factory PerubahanModalDataResponse.fromJson(Map<String, dynamic> json) => _$PerubahanModalDataResponseFromJson(json);
 
   PerubahanModalData toDomain() => PerubahanModalData(
+        modalAwal: modalAwal,
+        modalAkhir: modalAkhir,
+        labaBersih: labaBersih,
+        labaDitahan: labaDitahan,
+        total1: total1,
+        total2: total2,
+        prive: prive,
+        koreksi: koreksi,
+      );
+
+  PerubahanModalDataEntity toEntity() => PerubahanModalDataEntity(
         modalAwal: modalAwal,
         modalAkhir: modalAkhir,
         labaBersih: labaBersih,

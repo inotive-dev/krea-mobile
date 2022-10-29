@@ -24,21 +24,11 @@ class _$HistoryDetailDataResponseTearOff {
   const _$HistoryDetailDataResponseTearOff();
 
   _HistoryDetailDataResponse call(
-      {required int? id,
-      required int? subtotal,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt}) {
+      {required SalesResponse transaction,
+      required List<HistoryDetailDataProductResponse> transactionProduct}) {
     return _HistoryDetailDataResponse(
-      id: id,
-      subtotal: subtotal,
-      name: name,
-      code: code,
-      thumbnail: thumbnail,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      transaction: transaction,
+      transactionProduct: transactionProduct,
     );
   }
 
@@ -52,15 +42,9 @@ const $HistoryDetailDataResponse = _$HistoryDetailDataResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryDetailDataResponse {
-  int? get id => throw _privateConstructorUsedError;
-  int? get subtotal => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get code => throw _privateConstructorUsedError;
-  String? get thumbnail => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  SalesResponse get transaction => throw _privateConstructorUsedError;
+  List<HistoryDetailDataProductResponse> get transactionProduct =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,13 +58,10 @@ abstract class $HistoryDetailDataResponseCopyWith<$Res> {
           $Res Function(HistoryDetailDataResponse) then) =
       _$HistoryDetailDataResponseCopyWithImpl<$Res>;
   $Res call(
-      {int? id,
-      int? subtotal,
-      String? name,
-      String? code,
-      String? thumbnail,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+      {SalesResponse transaction,
+      List<HistoryDetailDataProductResponse> transactionProduct});
+
+  $SalesResponseCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -94,44 +75,26 @@ class _$HistoryDetailDataResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? subtotal = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? thumbnail = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? transaction = freezed,
+    Object? transactionProduct = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      subtotal: subtotal == freezed
-          ? _value.subtotal
-          : subtotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      transaction: transaction == freezed
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as SalesResponse,
+      transactionProduct: transactionProduct == freezed
+          ? _value.transactionProduct
+          : transactionProduct // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailDataProductResponse>,
     ));
+  }
+
+  @override
+  $SalesResponseCopyWith<$Res> get transaction {
+    return $SalesResponseCopyWith<$Res>(_value.transaction, (value) {
+      return _then(_value.copyWith(transaction: value));
+    });
   }
 }
 
@@ -143,13 +106,11 @@ abstract class _$HistoryDetailDataResponseCopyWith<$Res>
       __$HistoryDetailDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? id,
-      int? subtotal,
-      String? name,
-      String? code,
-      String? thumbnail,
-      @JsonKey(name: 'created_at') DateTime? createdAt,
-      @JsonKey(name: 'updated_at') DateTime? updatedAt});
+      {SalesResponse transaction,
+      List<HistoryDetailDataProductResponse> transactionProduct});
+
+  @override
+  $SalesResponseCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -166,43 +127,18 @@ class __$HistoryDetailDataResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
-    Object? subtotal = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? thumbnail = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? transaction = freezed,
+    Object? transactionProduct = freezed,
   }) {
     return _then(_HistoryDetailDataResponse(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      subtotal: subtotal == freezed
-          ? _value.subtotal
-          : subtotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      transaction: transaction == freezed
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as SalesResponse,
+      transactionProduct: transactionProduct == freezed
+          ? _value.transactionProduct
+          : transactionProduct // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailDataProductResponse>,
     ));
   }
 }
@@ -211,38 +147,20 @@ class __$HistoryDetailDataResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HistoryDetailDataResponse extends _HistoryDetailDataResponse {
   const _$_HistoryDetailDataResponse(
-      {required this.id,
-      required this.subtotal,
-      required this.name,
-      required this.code,
-      required this.thumbnail,
-      @JsonKey(name: 'created_at') required this.createdAt,
-      @JsonKey(name: 'updated_at') required this.updatedAt})
+      {required this.transaction, required this.transactionProduct})
       : super._();
 
   factory _$_HistoryDetailDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryDetailDataResponseFromJson(json);
 
   @override
-  final int? id;
+  final SalesResponse transaction;
   @override
-  final int? subtotal;
-  @override
-  final String? name;
-  @override
-  final String? code;
-  @override
-  final String? thumbnail;
-  @override
-  @JsonKey(name: 'created_at')
-  final DateTime? createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  final DateTime? updatedAt;
+  final List<HistoryDetailDataProductResponse> transactionProduct;
 
   @override
   String toString() {
-    return 'HistoryDetailDataResponse(id: $id, subtotal: $subtotal, name: $name, code: $code, thumbnail: $thumbnail, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'HistoryDetailDataResponse(transaction: $transaction, transactionProduct: $transactionProduct)';
   }
 
   @override
@@ -250,25 +168,17 @@ class _$_HistoryDetailDataResponse extends _HistoryDetailDataResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HistoryDetailDataResponse &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            const DeepCollectionEquality()
+                .equals(other.transaction, transaction) &&
+            const DeepCollectionEquality()
+                .equals(other.transactionProduct, transactionProduct));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(subtotal),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(thumbnail),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      const DeepCollectionEquality().hash(transaction),
+      const DeepCollectionEquality().hash(transactionProduct));
 
   @JsonKey(ignore: true)
   @override
@@ -285,13 +195,8 @@ class _$_HistoryDetailDataResponse extends _HistoryDetailDataResponse {
 
 abstract class _HistoryDetailDataResponse extends HistoryDetailDataResponse {
   const factory _HistoryDetailDataResponse(
-          {required int? id,
-          required int? subtotal,
-          required String? name,
-          required String? code,
-          required String? thumbnail,
-          @JsonKey(name: 'created_at') required DateTime? createdAt,
-          @JsonKey(name: 'updated_at') required DateTime? updatedAt}) =
+          {required SalesResponse transaction,
+          required List<HistoryDetailDataProductResponse> transactionProduct}) =
       _$_HistoryDetailDataResponse;
   const _HistoryDetailDataResponse._() : super._();
 
@@ -299,21 +204,9 @@ abstract class _HistoryDetailDataResponse extends HistoryDetailDataResponse {
       _$_HistoryDetailDataResponse.fromJson;
 
   @override
-  int? get id;
+  SalesResponse get transaction;
   @override
-  int? get subtotal;
-  @override
-  String? get name;
-  @override
-  String? get code;
-  @override
-  String? get thumbnail;
-  @override
-  @JsonKey(name: 'created_at')
-  DateTime? get createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  DateTime? get updatedAt;
+  List<HistoryDetailDataProductResponse> get transactionProduct;
   @override
   @JsonKey(ignore: true)
   _$HistoryDetailDataResponseCopyWith<_HistoryDetailDataResponse>

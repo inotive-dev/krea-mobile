@@ -11,9 +11,8 @@ _$_HomeUserDataResponse _$$_HomeUserDataResponseFromJson(
     _$_HomeUserDataResponse(
       contribution: ContributionResponse.fromJson(
           json['contribution'] as Map<String, dynamic>),
-      totalSaldoSimpananUtang:
-          (json['total_saldo_simpanan_utang'] as num).toDouble(),
-      totalUtang: json['total_utang'] as String,
+      totalSaldoSimpananUtang: json['total_saldo_simpanan_utang'] as int,
+      totalUtang: json['total_utang'] as int,
     );
 
 Map<String, dynamic> _$$_HomeUserDataResponseToJson(

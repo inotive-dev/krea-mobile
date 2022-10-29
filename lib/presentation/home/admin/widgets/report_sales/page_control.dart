@@ -14,7 +14,7 @@ class PageControl extends StatelessWidget {
   }
 
   void _updateData(BuildContext context, HomeState state, String action) {
-    int currentPage = state.neracaData.currentPage ?? 0;
+    int currentPage = state.salesReportData.currentPage ?? 0;
     final page = action == 'next' ? currentPage + 1 : currentPage - 1;
     context.read<HomeCubit>().getHomeAdminSalesReports(page);
   }

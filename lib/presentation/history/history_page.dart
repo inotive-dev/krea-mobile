@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -49,6 +47,17 @@ class _HistoryPageState extends State<HistoryPage> {
                   color: ColorPalettes.greyBackground,
                   child: Builder(
                     builder: (context) {
+                      if (state.historyData.thisWeekHistory?.length != 0) {
+                        c.changeThisWeekExpanded(false);
+                      } else {
+                        c.changeThisWeekExpanded(true);
+                      }
+
+                      if (state.historyData.lastMonthHistory?.length != 0) {
+                        c.changeLastMonthExpanded(true);
+                      } else {
+                        c.changeLastMonthExpanded(false);
+                      }
                       return Obx(
                         () => ListView(
                           padding: EdgeInsets.only(top: Sizes.height20),
@@ -107,6 +116,17 @@ class _HistoryPageState extends State<HistoryPage> {
                 return Container(
                   color: ColorPalettes.greyBackground,
                   child: Builder(builder: (context) {
+                    if (state.historyData.thisWeekHistory?.length != 0) {
+                      c.changeThisWeekExpanded(false);
+                    } else {
+                      c.changeThisWeekExpanded(true);
+                    }
+
+                    if (state.historyData.lastMonthHistory?.length != 0) {
+                      c.changeLastMonthExpanded(true);
+                    } else {
+                      c.changeLastMonthExpanded(false);
+                    }
                     return Obx(
                       () => ListView(
                         padding: EdgeInsets.only(top: Sizes.height20),

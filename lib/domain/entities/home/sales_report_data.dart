@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 import 'package:koperasi/domain/entities/home/link.dart';
-import 'package:koperasi/domain/entities/home/sales_report.dart';
 
 part 'sales_report_data.freezed.dart';
 
@@ -8,7 +8,7 @@ part 'sales_report_data.freezed.dart';
 class SalesReportData with _$SalesReportData {
   const factory SalesReportData({
     required int? currentPage,
-    required List<SalesReport>? data,
+    required List<SalesResponse>? data,
     required String? firstPageUrl,
     required int? from,
     required int? lastPage,

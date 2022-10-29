@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/home/home_data_entity.dart';
 import 'package:koperasi/data/remote/response/home/transaction_response.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 
@@ -21,6 +22,13 @@ class HomeDataResponse with _$HomeDataResponse {
   HomeData toDomain() => HomeData(
         produkCepatTerjual: produkCepatTerjual?.map((e) => e.toDomain()).toList(),
         produkLamaTerjual: produkLamaTerjual?.map((e) => e.toDomain()).toList(),
+        totalSaldoSimpananUtang: totalSaldoSimpananUtang,
+        totalUtang: totalUtang,
+      );
+
+  HomeDataEntity toEntity() => HomeDataEntity(
+        produkCepatTerjual: produkCepatTerjual?.map((e) => e.toEntity()).toList(),
+        produkLamaTerjual: produkLamaTerjual?.map((e) => e.toEntity()).toList(),
         totalSaldoSimpananUtang: totalSaldoSimpananUtang,
         totalUtang: totalUtang,
       );

@@ -19,21 +19,11 @@ class _$HistoryDetailDataTearOff {
   const _$HistoryDetailDataTearOff();
 
   _HistoryDetailData call(
-      {required int? subtotal,
-      required int? id,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) {
+      {required SalesReport transaction,
+      required List<HistoryDetailDataProduct> transactionProduct}) {
     return _HistoryDetailData(
-      subtotal: subtotal,
-      id: id,
-      name: name,
-      code: code,
-      thumbnail: thumbnail,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      transaction: transaction,
+      transactionProduct: transactionProduct,
     );
   }
 }
@@ -43,13 +33,9 @@ const $HistoryDetailData = _$HistoryDetailDataTearOff();
 
 /// @nodoc
 mixin _$HistoryDetailData {
-  int? get subtotal => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get code => throw _privateConstructorUsedError;
-  String? get thumbnail => throw _privateConstructorUsedError;
-  DateTime? get createdAt => throw _privateConstructorUsedError;
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  SalesReport get transaction => throw _privateConstructorUsedError;
+  List<HistoryDetailDataProduct> get transactionProduct =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HistoryDetailDataCopyWith<HistoryDetailData> get copyWith =>
@@ -62,13 +48,10 @@ abstract class $HistoryDetailDataCopyWith<$Res> {
           HistoryDetailData value, $Res Function(HistoryDetailData) then) =
       _$HistoryDetailDataCopyWithImpl<$Res>;
   $Res call(
-      {int? subtotal,
-      int? id,
-      String? name,
-      String? code,
-      String? thumbnail,
-      DateTime? createdAt,
-      DateTime? updatedAt});
+      {SalesReport transaction,
+      List<HistoryDetailDataProduct> transactionProduct});
+
+  $SalesReportCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -82,44 +65,26 @@ class _$HistoryDetailDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subtotal = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? thumbnail = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? transaction = freezed,
+    Object? transactionProduct = freezed,
   }) {
     return _then(_value.copyWith(
-      subtotal: subtotal == freezed
-          ? _value.subtotal
-          : subtotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      transaction: transaction == freezed
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as SalesReport,
+      transactionProduct: transactionProduct == freezed
+          ? _value.transactionProduct
+          : transactionProduct // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailDataProduct>,
     ));
+  }
+
+  @override
+  $SalesReportCopyWith<$Res> get transaction {
+    return $SalesReportCopyWith<$Res>(_value.transaction, (value) {
+      return _then(_value.copyWith(transaction: value));
+    });
   }
 }
 
@@ -131,13 +96,11 @@ abstract class _$HistoryDetailDataCopyWith<$Res>
       __$HistoryDetailDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? subtotal,
-      int? id,
-      String? name,
-      String? code,
-      String? thumbnail,
-      DateTime? createdAt,
-      DateTime? updatedAt});
+      {SalesReport transaction,
+      List<HistoryDetailDataProduct> transactionProduct});
+
+  @override
+  $SalesReportCopyWith<$Res> get transaction;
 }
 
 /// @nodoc
@@ -153,43 +116,18 @@ class __$HistoryDetailDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? subtotal = freezed,
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? thumbnail = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? transaction = freezed,
+    Object? transactionProduct = freezed,
   }) {
     return _then(_HistoryDetailData(
-      subtotal: subtotal == freezed
-          ? _value.subtotal
-          : subtotal // ignore: cast_nullable_to_non_nullable
-              as int?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      code: code == freezed
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as String?,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String?,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      updatedAt: updatedAt == freezed
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+      transaction: transaction == freezed
+          ? _value.transaction
+          : transaction // ignore: cast_nullable_to_non_nullable
+              as SalesReport,
+      transactionProduct: transactionProduct == freezed
+          ? _value.transactionProduct
+          : transactionProduct // ignore: cast_nullable_to_non_nullable
+              as List<HistoryDetailDataProduct>,
     ));
   }
 }
@@ -198,32 +136,16 @@ class __$HistoryDetailDataCopyWithImpl<$Res>
 
 class _$_HistoryDetailData implements _HistoryDetailData {
   const _$_HistoryDetailData(
-      {required this.subtotal,
-      required this.id,
-      required this.name,
-      required this.code,
-      required this.thumbnail,
-      required this.createdAt,
-      required this.updatedAt});
+      {required this.transaction, required this.transactionProduct});
 
   @override
-  final int? subtotal;
+  final SalesReport transaction;
   @override
-  final int? id;
-  @override
-  final String? name;
-  @override
-  final String? code;
-  @override
-  final String? thumbnail;
-  @override
-  final DateTime? createdAt;
-  @override
-  final DateTime? updatedAt;
+  final List<HistoryDetailDataProduct> transactionProduct;
 
   @override
   String toString() {
-    return 'HistoryDetailData(subtotal: $subtotal, id: $id, name: $name, code: $code, thumbnail: $thumbnail, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'HistoryDetailData(transaction: $transaction, transactionProduct: $transactionProduct)';
   }
 
   @override
@@ -231,25 +153,17 @@ class _$_HistoryDetailData implements _HistoryDetailData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _HistoryDetailData &&
-            const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.code, code) &&
-            const DeepCollectionEquality().equals(other.thumbnail, thumbnail) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            const DeepCollectionEquality()
+                .equals(other.transaction, transaction) &&
+            const DeepCollectionEquality()
+                .equals(other.transactionProduct, transactionProduct));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(subtotal),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(code),
-      const DeepCollectionEquality().hash(thumbnail),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      const DeepCollectionEquality().hash(transaction),
+      const DeepCollectionEquality().hash(transactionProduct));
 
   @JsonKey(ignore: true)
   @override
@@ -259,28 +173,14 @@ class _$_HistoryDetailData implements _HistoryDetailData {
 
 abstract class _HistoryDetailData implements HistoryDetailData {
   const factory _HistoryDetailData(
-      {required int? subtotal,
-      required int? id,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) = _$_HistoryDetailData;
+          {required SalesReport transaction,
+          required List<HistoryDetailDataProduct> transactionProduct}) =
+      _$_HistoryDetailData;
 
   @override
-  int? get subtotal;
+  SalesReport get transaction;
   @override
-  int? get id;
-  @override
-  String? get name;
-  @override
-  String? get code;
-  @override
-  String? get thumbnail;
-  @override
-  DateTime? get createdAt;
-  @override
-  DateTime? get updatedAt;
+  List<HistoryDetailDataProduct> get transactionProduct;
   @override
   @JsonKey(ignore: true)
   _$HistoryDetailDataCopyWith<_HistoryDetailData> get copyWith =>

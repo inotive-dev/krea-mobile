@@ -7,13 +7,13 @@ part 'home_user_data.freezed.dart';
 class HomeUserData with _$HomeUserData {
   const factory HomeUserData({
     required Contribution contribution,
-    required double totalSaldoSimpananUtang,
-    required String totalUtang,
+    required int totalSaldoSimpananUtang,
+    required int totalUtang,
   }) = _HomeUserData;
 
   factory HomeUserData.initial() => HomeUserData(
         contribution: Contribution.initial(),
         totalSaldoSimpananUtang: 0,
-        totalUtang: '0',
+        totalUtang: 0,
       );
 }

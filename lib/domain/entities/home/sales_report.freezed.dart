@@ -35,7 +35,7 @@ class _$SalesReportTearOff {
       required DateTime? updatedAt,
       required DateTime? updatedAtMobile,
       required int? isMatched,
-      required User? user,
+      required UserResponse? user,
       required Mart? mart}) {
     return _SalesReport(
       id: id,
@@ -81,7 +81,7 @@ mixin _$SalesReport {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   DateTime? get updatedAtMobile => throw _privateConstructorUsedError;
   int? get isMatched => throw _privateConstructorUsedError;
-  User? get user => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
   Mart? get mart => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -111,10 +111,10 @@ abstract class $SalesReportCopyWith<$Res> {
       DateTime? updatedAt,
       DateTime? updatedAtMobile,
       int? isMatched,
-      User? user,
+      UserResponse? user,
       Mart? mart});
 
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
   $MartCopyWith<$Res>? get mart;
 }
 
@@ -215,7 +215,7 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       mart: mart == freezed
           ? _value.mart
           : mart // ignore: cast_nullable_to_non_nullable
@@ -224,12 +224,12 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
   }
 
   @override
-  $UserCopyWith<$Res>? get user {
+  $UserResponseCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserCopyWith<$Res>(_value.user!, (value) {
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -270,11 +270,11 @@ abstract class _$SalesReportCopyWith<$Res>
       DateTime? updatedAt,
       DateTime? updatedAtMobile,
       int? isMatched,
-      User? user,
+      UserResponse? user,
       Mart? mart});
 
   @override
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
   @override
   $MartCopyWith<$Res>? get mart;
 }
@@ -378,7 +378,7 @@ class __$SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       mart: mart == freezed
           ? _value.mart
           : mart // ignore: cast_nullable_to_non_nullable
@@ -443,7 +443,7 @@ class _$_SalesReport implements _SalesReport {
   @override
   final int? isMatched;
   @override
-  final User? user;
+  final UserResponse? user;
   @override
   final Mart? mart;
 
@@ -529,7 +529,7 @@ abstract class _SalesReport implements SalesReport {
       required DateTime? updatedAt,
       required DateTime? updatedAtMobile,
       required int? isMatched,
-      required User? user,
+      required UserResponse? user,
       required Mart? mart}) = _$_SalesReport;
 
   @override
@@ -565,7 +565,7 @@ abstract class _SalesReport implements SalesReport {
   @override
   int? get isMatched;
   @override
-  User? get user;
+  UserResponse? get user;
   @override
   Mart? get mart;
   @override

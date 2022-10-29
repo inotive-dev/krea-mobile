@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/history/sales_report_entity.dart';
+import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/entities/history/mart.dart';
-import 'package:koperasi/domain/entities/login/user.dart';
 
 part 'sales_report.freezed.dart';
 
@@ -23,7 +24,28 @@ class SalesReport with _$SalesReport {
     required DateTime? updatedAt,
     required DateTime? updatedAtMobile,
     required int? isMatched,
-    required User? user,
+    required UserResponse? user,
     required Mart? mart,
   }) = _SalesReport;
+
+  // SalesReportEntity toEntity() => SalesReportEntity(
+  //       id: id,
+  //       martId: martId,
+  //       userId: userId,
+  //       total: total,
+  //       totalDiscount: totalDiscount,
+  //       totalPpn: totalPpn,
+  //       hpp: hpp,
+  //       grandTotal: grandTotal,
+  //       paymentMethod: paymentMethod,
+  //       bankName: bankName,
+  //       totalPayment: totalPayment,
+  //       totalChange: totalChange,
+  //       createdAt: createdAt,
+  //       updatedAt: updatedAt,
+  //       updatedAtMobile: updatedAtMobile,
+  //       isMatched: isMatched,
+  //       user: user?.toEntity(),
+  //       mart: mart?.toEntity(),
+  //     );
 }

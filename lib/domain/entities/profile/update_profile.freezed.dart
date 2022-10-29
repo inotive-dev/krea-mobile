@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UpdateProfileTearOff {
   const _$UpdateProfileTearOff();
 
-  _UpdateProfile call({required User? user, required String? message}) {
+  _UpdateProfile call({required UserResponse? user, required String? message}) {
     return _UpdateProfile(
       user: user,
       message: message,
@@ -31,7 +31,7 @@ const $UpdateProfile = _$UpdateProfileTearOff();
 
 /// @nodoc
 mixin _$UpdateProfile {
-  User? get user => throw _privateConstructorUsedError;
+  UserResponse? get user => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,9 +44,9 @@ abstract class $UpdateProfileCopyWith<$Res> {
   factory $UpdateProfileCopyWith(
           UpdateProfile value, $Res Function(UpdateProfile) then) =
       _$UpdateProfileCopyWithImpl<$Res>;
-  $Res call({User? user, String? message});
+  $Res call({UserResponse? user, String? message});
 
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$UpdateProfileCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -76,12 +76,12 @@ class _$UpdateProfileCopyWithImpl<$Res>
   }
 
   @override
-  $UserCopyWith<$Res>? get user {
+  $UserResponseCopyWith<$Res>? get user {
     if (_value.user == null) {
       return null;
     }
 
-    return $UserCopyWith<$Res>(_value.user!, (value) {
+    return $UserResponseCopyWith<$Res>(_value.user!, (value) {
       return _then(_value.copyWith(user: value));
     });
   }
@@ -94,10 +94,10 @@ abstract class _$UpdateProfileCopyWith<$Res>
           _UpdateProfile value, $Res Function(_UpdateProfile) then) =
       __$UpdateProfileCopyWithImpl<$Res>;
   @override
-  $Res call({User? user, String? message});
+  $Res call({UserResponse? user, String? message});
 
   @override
-  $UserCopyWith<$Res>? get user;
+  $UserResponseCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class __$UpdateProfileCopyWithImpl<$Res>
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as UserResponse?,
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -135,7 +135,7 @@ class _$_UpdateProfile implements _UpdateProfile {
   const _$_UpdateProfile({required this.user, required this.message});
 
   @override
-  final User? user;
+  final UserResponse? user;
   @override
   final String? message;
 
@@ -167,10 +167,11 @@ class _$_UpdateProfile implements _UpdateProfile {
 
 abstract class _UpdateProfile implements UpdateProfile {
   const factory _UpdateProfile(
-      {required User? user, required String? message}) = _$_UpdateProfile;
+      {required UserResponse? user,
+      required String? message}) = _$_UpdateProfile;
 
   @override
-  User? get user;
+  UserResponse? get user;
   @override
   String? get message;
   @override

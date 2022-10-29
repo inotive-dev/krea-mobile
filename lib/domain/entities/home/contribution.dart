@@ -5,14 +5,14 @@ part 'contribution.freezed.dart';
 @freezed
 class Contribution with _$Contribution {
   const factory Contribution({
-    required String? contributionWajib,
-    required String? contributionPokok,
-    required double? contributionSukarela,
+    required int? contributionWajib,
+    required int? contributionPokok,
+    required int? contributionSukarela,
   }) = _Contribution;
 
   factory Contribution.initial() => const Contribution(
-        contributionWajib: '0',
-        contributionPokok: '0',
+        contributionWajib: 0,
+        contributionPokok: 0,
         contributionSukarela: 0,
       );
 }

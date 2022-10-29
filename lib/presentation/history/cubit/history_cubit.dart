@@ -65,12 +65,6 @@ class HistoryCubit extends Cubit<HistoryState> {
           state.copyWith(
             getHistoryUserResultState: ResultState.success(data: r),
             historyData: r.data ?? HistoryData.initial(),
-            // For testing uncomment the code below
-            // historyData: r.data != null
-            //     ? r.data!.thisWeekHistory!.isEmpty
-            //         ? HistoryData.initial()
-            //         : r.data!
-            //     : r.data!,
           ),
         );
       },
@@ -93,7 +87,7 @@ class HistoryCubit extends Cubit<HistoryState> {
         return emit(
           state.copyWith(
             getHistoryDetailResultState: ResultState.success(data: r),
-            historyDetailData: r.data ?? List.empty(),
+            historyDetailData: r.data,
           ),
         );
       },

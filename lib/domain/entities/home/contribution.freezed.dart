@@ -19,9 +19,9 @@ class _$ContributionTearOff {
   const _$ContributionTearOff();
 
   _Contribution call(
-      {required String? contributionWajib,
-      required String? contributionPokok,
-      required double? contributionSukarela}) {
+      {required int? contributionWajib,
+      required int? contributionPokok,
+      required int? contributionSukarela}) {
     return _Contribution(
       contributionWajib: contributionWajib,
       contributionPokok: contributionPokok,
@@ -35,9 +35,9 @@ const $Contribution = _$ContributionTearOff();
 
 /// @nodoc
 mixin _$Contribution {
-  String? get contributionWajib => throw _privateConstructorUsedError;
-  String? get contributionPokok => throw _privateConstructorUsedError;
-  double? get contributionSukarela => throw _privateConstructorUsedError;
+  int? get contributionWajib => throw _privateConstructorUsedError;
+  int? get contributionPokok => throw _privateConstructorUsedError;
+  int? get contributionSukarela => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ContributionCopyWith<Contribution> get copyWith =>
@@ -50,9 +50,9 @@ abstract class $ContributionCopyWith<$Res> {
           Contribution value, $Res Function(Contribution) then) =
       _$ContributionCopyWithImpl<$Res>;
   $Res call(
-      {String? contributionWajib,
-      String? contributionPokok,
-      double? contributionSukarela});
+      {int? contributionWajib,
+      int? contributionPokok,
+      int? contributionSukarela});
 }
 
 /// @nodoc
@@ -73,15 +73,15 @@ class _$ContributionCopyWithImpl<$Res> implements $ContributionCopyWith<$Res> {
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       contributionPokok: contributionPokok == freezed
           ? _value.contributionPokok
           : contributionPokok // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       contributionSukarela: contributionSukarela == freezed
           ? _value.contributionSukarela
           : contributionSukarela // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
     ));
   }
 }
@@ -94,9 +94,9 @@ abstract class _$ContributionCopyWith<$Res>
       __$ContributionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? contributionWajib,
-      String? contributionPokok,
-      double? contributionSukarela});
+      {int? contributionWajib,
+      int? contributionPokok,
+      int? contributionSukarela});
 }
 
 /// @nodoc
@@ -119,15 +119,15 @@ class __$ContributionCopyWithImpl<$Res> extends _$ContributionCopyWithImpl<$Res>
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       contributionPokok: contributionPokok == freezed
           ? _value.contributionPokok
           : contributionPokok // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       contributionSukarela: contributionSukarela == freezed
           ? _value.contributionSukarela
           : contributionSukarela // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
     ));
   }
 }
@@ -141,11 +141,11 @@ class _$_Contribution implements _Contribution {
       required this.contributionSukarela});
 
   @override
-  final String? contributionWajib;
+  final int? contributionWajib;
   @override
-  final String? contributionPokok;
+  final int? contributionPokok;
   @override
-  final double? contributionSukarela;
+  final int? contributionSukarela;
 
   @override
   String toString() {
@@ -180,16 +180,16 @@ class _$_Contribution implements _Contribution {
 
 abstract class _Contribution implements Contribution {
   const factory _Contribution(
-      {required String? contributionWajib,
-      required String? contributionPokok,
-      required double? contributionSukarela}) = _$_Contribution;
+      {required int? contributionWajib,
+      required int? contributionPokok,
+      required int? contributionSukarela}) = _$_Contribution;
 
   @override
-  String? get contributionWajib;
+  int? get contributionWajib;
   @override
-  String? get contributionPokok;
+  int? get contributionPokok;
   @override
-  double? get contributionSukarela;
+  int? get contributionSukarela;
   @override
   @JsonKey(ignore: true)
   _$ContributionCopyWith<_Contribution> get copyWith =>

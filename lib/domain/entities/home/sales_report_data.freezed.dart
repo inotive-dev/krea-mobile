@@ -20,7 +20,7 @@ class _$SalesReportDataTearOff {
 
   _SalesReportData call(
       {required int? currentPage,
-      required List<SalesReport>? data,
+      required List<SalesResponse>? data,
       required String? firstPageUrl,
       required int? from,
       required int? lastPage,
@@ -56,7 +56,7 @@ const $SalesReportData = _$SalesReportDataTearOff();
 /// @nodoc
 mixin _$SalesReportData {
   int? get currentPage => throw _privateConstructorUsedError;
-  List<SalesReport>? get data => throw _privateConstructorUsedError;
+  List<SalesResponse>? get data => throw _privateConstructorUsedError;
   String? get firstPageUrl => throw _privateConstructorUsedError;
   int? get from => throw _privateConstructorUsedError;
   int? get lastPage => throw _privateConstructorUsedError;
@@ -81,7 +81,7 @@ abstract class $SalesReportDataCopyWith<$Res> {
       _$SalesReportDataCopyWithImpl<$Res>;
   $Res call(
       {int? currentPage,
-      List<SalesReport>? data,
+      List<SalesResponse>? data,
       String? firstPageUrl,
       int? from,
       int? lastPage,
@@ -128,7 +128,7 @@ class _$SalesReportDataCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as List<SalesResponse>?,
       firstPageUrl: firstPageUrl == freezed
           ? _value.firstPageUrl
           : firstPageUrl // ignore: cast_nullable_to_non_nullable
@@ -186,7 +186,7 @@ abstract class _$SalesReportDataCopyWith<$Res>
   @override
   $Res call(
       {int? currentPage,
-      List<SalesReport>? data,
+      List<SalesResponse>? data,
       String? firstPageUrl,
       int? from,
       int? lastPage,
@@ -235,7 +235,7 @@ class __$SalesReportDataCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<SalesReport>?,
+              as List<SalesResponse>?,
       firstPageUrl: firstPageUrl == freezed
           ? _value.firstPageUrl
           : firstPageUrl // ignore: cast_nullable_to_non_nullable
@@ -305,7 +305,7 @@ class _$_SalesReportData implements _SalesReportData {
   @override
   final int? currentPage;
   @override
-  final List<SalesReport>? data;
+  final List<SalesResponse>? data;
   @override
   final String? firstPageUrl;
   @override
@@ -385,7 +385,7 @@ class _$_SalesReportData implements _SalesReportData {
 abstract class _SalesReportData implements SalesReportData {
   const factory _SalesReportData(
       {required int? currentPage,
-      required List<SalesReport>? data,
+      required List<SalesResponse>? data,
       required String? firstPageUrl,
       required int? from,
       required int? lastPage,
@@ -401,7 +401,7 @@ abstract class _SalesReportData implements SalesReportData {
   @override
   int? get currentPage;
   @override
-  List<SalesReport>? get data;
+  List<SalesResponse>? get data;
   @override
   String? get firstPageUrl;
   @override

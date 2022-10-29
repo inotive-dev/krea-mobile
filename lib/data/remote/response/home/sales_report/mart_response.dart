@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/history/mart_response_entity.dart';
 import 'package:koperasi/domain/entities/history/mart.dart';
 
 part 'mart_response.freezed.dart';
@@ -19,6 +20,14 @@ class MartResponse with _$MartResponse {
   factory MartResponse.fromJson(Map<String, dynamic> json) => _$MartResponseFromJson(json);
 
   Mart toDomain() => Mart(
+        id: id,
+        name: name,
+        address: address,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+      );
+
+  MartResponseEntity toEntity() => MartResponseEntity(
         id: id,
         name: name,
         address: address,

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/home/neraca/link_entity.dart';
 import 'package:koperasi/domain/entities/home/link.dart';
 
 part 'link_response.freezed.dart';
@@ -17,6 +18,12 @@ class LinkResponse with _$LinkResponse {
   factory LinkResponse.fromJson(Map<String, dynamic> json) => _$LinkResponseFromJson(json);
 
   Link toDomain() => Link(
+        url: url,
+        label: label,
+        active: active,
+      );
+
+  LinkEntity toEntity() => LinkEntity(
         url: url,
         label: label,
         active: active,

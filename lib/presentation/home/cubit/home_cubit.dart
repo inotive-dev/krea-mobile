@@ -13,6 +13,7 @@ import 'package:koperasi/domain/usecases/get_home_admin_perubahan_modal_usecase.
 import 'package:koperasi/domain/usecases/get_home_admin_sales_reports.dart';
 import 'package:koperasi/domain/usecases/get_home_admin_usecase.dart';
 import 'package:koperasi/domain/usecases/get_home_user_usecase.dart';
+import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
 import '../../../../../core/unions/result_state.dart';
 
@@ -27,6 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
   final GetHomeAdminLabaRugi _getHomeAdminLabaRugi;
   final GetHomeAdminSalesReports _getHomeAdminSalesReports;
   final GetHomeAdminPerubahanModal _getHomeAdminPerubahanModal;
+  final ValidateDataUseCase _validateDataUseCase;
 
   HomeCubit(
     this._getHomeAdminUseCase,
@@ -35,6 +37,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._getHomeAdminLabaRugi,
     this._getHomeAdminSalesReports,
     this._getHomeAdminPerubahanModal,
+    this._validateDataUseCase,
   ) : super(HomeState.initial());
 
   updateMartId(int id) {
@@ -226,6 +229,70 @@ class HomeCubit extends Cubit<HomeState> {
             ),
           );
         }
+      },
+    );
+  }
+
+  // Validate
+  validateData(String endPointUrl, List<Map<String, dynamic>> listHist) async {
+    emit(state.copyWith(validateDataState: const ResultState.loading()));
+
+    final _result = await _validateDataUseCase(ValidateDataUseCaseParams(
+      saldoSimpananWajib: const [],
+      historyTransaksi: listHist,
+      debts: const [],
+      endPointUrl: endPointUrl,
+    ));
+    _result.fold(
+      (l) {
+        emit(
+          state.copyWith(
+            validateDataState: ResultState.error(failure: l),
+          ),
+        );
+      },
+      (r) {
+        return emit(
+          state.copyWith(
+            validateDataState: ResultState.success(data: r),
+            homeUserData: state.homeUserData.copyWith(
+              totalSaldoSimpananUtang: r.data?.newestTotalSaldoSimpananUtang ?? 0,
+              totalUtang: r.data?.newestTotalSaldoUtang ?? 0,
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  // Validate Admin
+  validateDataAdmin(String endPointUrl, List<Map<String, dynamic>> listHist) async {
+    emit(state.copyWith(validateDataState: const ResultState.loading()));
+
+    final _result = await _validateDataUseCase(ValidateDataUseCaseParams(
+      saldoSimpananWajib: const [],
+      historyTransaksi: listHist,
+      debts: const [],
+      endPointUrl: endPointUrl,
+    ));
+    _result.fold(
+      (l) {
+        emit(
+          state.copyWith(
+            validateDataState: ResultState.error(failure: l),
+          ),
+        );
+      },
+      (r) {
+        return emit(
+          state.copyWith(
+            validateDataState: ResultState.success(data: r),
+            homeData: state.homeData.copyWith(
+              totalSaldoSimpananUtang: r.data?.newestTotalSaldoSimpananUtang.toDouble() ?? 0.0,
+              totalUtang: r.data?.newestTotalSaldoUtang.toDouble() ?? 0.0,
+            ),
+          ),
+        );
       },
     );
   }

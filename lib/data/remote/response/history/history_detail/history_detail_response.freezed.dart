@@ -26,7 +26,7 @@ class _$HistoryDetailResponseTearOff {
   _HistoryDetailResponse call(
       {required String? message,
       required int? statusCode,
-      required List<HistoryDetailDataResponse>? data}) {
+      required HistoryDetailDataResponse data}) {
     return _HistoryDetailResponse(
       message: message,
       statusCode: statusCode,
@@ -46,8 +46,7 @@ const $HistoryDetailResponse = _$HistoryDetailResponseTearOff();
 mixin _$HistoryDetailResponse {
   String? get message => throw _privateConstructorUsedError;
   int? get statusCode => throw _privateConstructorUsedError;
-  List<HistoryDetailDataResponse>? get data =>
-      throw _privateConstructorUsedError;
+  HistoryDetailDataResponse get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,10 +59,9 @@ abstract class $HistoryDetailResponseCopyWith<$Res> {
   factory $HistoryDetailResponseCopyWith(HistoryDetailResponse value,
           $Res Function(HistoryDetailResponse) then) =
       _$HistoryDetailResponseCopyWithImpl<$Res>;
-  $Res call(
-      {String? message,
-      int? statusCode,
-      List<HistoryDetailDataResponse>? data});
+  $Res call({String? message, int? statusCode, HistoryDetailDataResponse data});
+
+  $HistoryDetailDataResponseCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -93,8 +91,15 @@ class _$HistoryDetailResponseCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailDataResponse>?,
+              as HistoryDetailDataResponse,
     ));
+  }
+
+  @override
+  $HistoryDetailDataResponseCopyWith<$Res> get data {
+    return $HistoryDetailDataResponseCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
@@ -105,10 +110,10 @@ abstract class _$HistoryDetailResponseCopyWith<$Res>
           $Res Function(_HistoryDetailResponse) then) =
       __$HistoryDetailResponseCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String? message,
-      int? statusCode,
-      List<HistoryDetailDataResponse>? data});
+  $Res call({String? message, int? statusCode, HistoryDetailDataResponse data});
+
+  @override
+  $HistoryDetailDataResponseCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -140,7 +145,7 @@ class __$HistoryDetailResponseCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<HistoryDetailDataResponse>?,
+              as HistoryDetailDataResponse,
     ));
   }
 }
@@ -160,7 +165,7 @@ class _$_HistoryDetailResponse extends _HistoryDetailResponse {
   @override
   final int? statusCode;
   @override
-  final List<HistoryDetailDataResponse>? data;
+  final HistoryDetailDataResponse data;
 
   @override
   String toString() {
@@ -199,10 +204,9 @@ class _$_HistoryDetailResponse extends _HistoryDetailResponse {
 
 abstract class _HistoryDetailResponse extends HistoryDetailResponse {
   const factory _HistoryDetailResponse(
-          {required String? message,
-          required int? statusCode,
-          required List<HistoryDetailDataResponse>? data}) =
-      _$_HistoryDetailResponse;
+      {required String? message,
+      required int? statusCode,
+      required HistoryDetailDataResponse data}) = _$_HistoryDetailResponse;
   const _HistoryDetailResponse._() : super._();
 
   factory _HistoryDetailResponse.fromJson(Map<String, dynamic> json) =
@@ -213,7 +217,7 @@ abstract class _HistoryDetailResponse extends HistoryDetailResponse {
   @override
   int? get statusCode;
   @override
-  List<HistoryDetailDataResponse>? get data;
+  HistoryDetailDataResponse get data;
   @override
   @JsonKey(ignore: true)
   _$HistoryDetailResponseCopyWith<_HistoryDetailResponse> get copyWith =>

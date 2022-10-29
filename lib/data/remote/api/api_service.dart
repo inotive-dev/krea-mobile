@@ -12,6 +12,7 @@ import 'package:koperasi/domain/usecases/send_email_reset_password_usecase.dart'
 import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase%20copy.dart';
 import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
+import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
 import 'endpoint.dart';
 
@@ -162,6 +163,17 @@ class ApiService {
     return await _dio.post(
       Endpoint.sendResetPassword,
       data: FormData.fromMap(_dataMap),
+    );
+  }
+
+  Future<Response> validateData(ValidateDataUseCaseParams params) async {
+    return await _dio.post(
+      params.endPointUrl,
+      data: {
+        'saldo_simpanan_wajib': params.saldoSimpananWajib,
+        'history_transaksi': params.historyTransaksi,
+        'debts': params.debts,
+      },
     );
   }
 }

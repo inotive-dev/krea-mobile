@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/history/user_response_entity.dart';
 
 import '../../../../domain/entities/login/user.dart';
-import '../../../local/entities/login/user_entity.dart';
 
 part 'user_response.freezed.dart';
 
@@ -38,7 +38,7 @@ class UserResponse with _$UserResponse {
 
   factory UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
 
-  UserEntity toEntity() => UserEntity(
+  UserResponseEntity toEntity() => UserResponseEntity(
         id: id,
         martId: martId,
         name: name,
@@ -63,7 +63,7 @@ class UserResponse with _$UserResponse {
         status: status,
       );
 
-  User toDomain() => User(
+  UserResponse toDomain() => UserResponse(
         id: id,
         martId: martId,
         name: name,

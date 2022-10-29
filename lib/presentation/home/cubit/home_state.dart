@@ -10,6 +10,7 @@ class HomeState with _$HomeState {
     @Default(ResultState.initial()) ResultState<dynamic> getHomeAdminLabaRugiResultState,
     @Default(ResultState.initial()) ResultState<dynamic> getHomeAdminPerubahanModalReportState,
     @Default(ResultState.initial()) ResultState<dynamic> getHomeAdminSalesReportState,
+    @Default(ResultState.initial()) ResultState<dynamic> validateDataState,
     required HomeData homeData,
     required BranchesData neracaData,
     required BranchesData labaRugiData,

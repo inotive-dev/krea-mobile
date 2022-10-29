@@ -9,6 +9,7 @@ import 'package:koperasi/core/widgets/image_permission_dialog.dart';
 import 'package:koperasi/core/widgets/loading_dialog.dart';
 import 'package:koperasi/core/widgets/my_cached_network_image.dart';
 import 'package:koperasi/data/remote/api/endpoint.dart';
+import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/presentation/auth/login_page.dart';
 import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 import 'package:koperasi/core/widgets/success_update_dialog.dart';
@@ -17,8 +18,8 @@ import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
 import '../../core/style/sizes.dart';
 import '../../core/unions/result_state.dart';
-import '../../domain/entities/login/user.dart';
 import '../../../../core/extensions/snackbar_ext.dart';
+import '../../core/utils/navigation_util.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
   _handleLogoutResult(ResultState<dynamic> logoutResult) {
     logoutResult.maybeWhen(
       success: (data) async {
-        await Navigator.pushReplacementNamed(context, LoginPage.routeName);
+        await NavigationUtil.pushNamedAndRemoveUntil(LoginPage.routeName);
       },
       error: (failure) {},
       orElse: () => null,
@@ -77,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  _handleGetUser(User? user) {
+  _handleGetUser(UserResponse? user) {
     setState(() {
       _nameController.text = user?.name ?? '-';
       _emailController.text = user?.email ?? '-';

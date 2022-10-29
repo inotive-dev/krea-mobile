@@ -6,10 +6,14 @@ import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/failure.dart';
 import 'package:koperasi/core/utils/permission_helper.dart';
+import 'package:koperasi/data/local/entities/history/sales_response_entity.dart';
+import 'package:koperasi/data/local/local_data_source.dart';
+import 'package:koperasi/di/injection_container.dart';
 import 'package:koperasi/presentation/home/cubit/home_cubit.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/home_summary_card.dart';
 import 'package:koperasi/presentation/home/kasir/widgets/user_app_bar.dart';
 import 'package:koperasi/presentation/home/widgets/scan_qr/scan_qr_page.dart';
+import 'package:koperasi/presentation/profile/cubit/profile_cubit.dart';
 
 import '../../../core/const/strings.dart';
 
@@ -25,7 +29,16 @@ class HomeForUser extends StatelessWidget {
         );
 
         if (result != null || result != '') {
-          print('RESULT SCAN: $result');
+          final hist = getIt.get<LocalDataSource>().getHistoryUser();
+          final List<Map<String, dynamic>> listHist = [];
+          for (SalesResponseEntity element in hist?.lastMonthHistory ?? []) {
+            listHist.add(element.toJson());
+          }
+          for (SalesResponseEntity element in hist?.thisWeekHistory ?? []) {
+            listHist.add(element.toJson());
+          }
+
+          context.read<HomeCubit>().validateData(result.toString(), listHist);
         }
       },
       onDenied: () {
@@ -68,7 +81,10 @@ class HomeForUser extends StatelessWidget {
         children: [
           const UserAppBar(),
           RefreshIndicator(
-            onRefresh: () => context.read<HomeCubit>().getHomeUserData(),
+            onRefresh: () {
+              context.read<ProfileCubit>().getProfile();
+              return context.read<HomeCubit>().getHomeUserData();
+            },
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: BlocBuilder<HomeCubit, HomeState>(
@@ -81,7 +97,10 @@ class HomeForUser extends StatelessWidget {
                       child: const CircularProgressIndicator(),
                     ),
                     error: (error) => RefreshIndicator(
-                      onRefresh: () => context.read<HomeCubit>().getHomeUserData(),
+                      onRefresh: () {
+                        context.read<ProfileCubit>().getProfile();
+                        return context.read<HomeCubit>().getHomeUserData();
+                      },
                       child: SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
                         child: Container(
@@ -100,7 +119,7 @@ class HomeForUser extends StatelessWidget {
                           SizedBox(height: Sizes.height47),
                           HomeSummaryCard(
                             title: Strings.totalSimpananWajib,
-                            amount: state.homeUserData.contribution.contributionWajib,
+                            amount: state.homeUserData.contribution.contributionWajib.toString(),
                           ),
                           HomeSummaryCard(
                             title: Strings.totalSimpananAnda,
@@ -108,7 +127,7 @@ class HomeForUser extends StatelessWidget {
                           ),
                           HomeSummaryCard(
                             title: Strings.totalUtang,
-                            amount: state.homeUserData.totalUtang,
+                            amount: state.homeUserData.totalUtang.toString(),
                           ),
                         ],
                       );

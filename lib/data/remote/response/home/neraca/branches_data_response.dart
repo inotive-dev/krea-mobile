@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/home/neraca/branches_data_entity.dart';
 import 'package:koperasi/data/remote/response/home/link_response.dart';
 import 'package:koperasi/data/remote/response/home/neraca/branch_response.dart';
 import 'package:koperasi/domain/entities/home/branches_data.dart';
@@ -36,6 +37,22 @@ class BranchesDataResponse with _$BranchesDataResponse {
         lastPage: lastPage,
         lastPageUrl: lastPageUrl,
         links: links.map((e) => e.toDomain()).toList(),
+        nextPageUrl: nextPageUrl,
+        path: path,
+        perPage: perPage,
+        prevPageUrl: prevPageUrl,
+        to: to,
+        total: total,
+      );
+
+  BranchesDataEntity toEntity() => BranchesDataEntity(
+        currentPage: currentPage,
+        data: data?.map((e) => e.toEntity()).toList(),
+        firstPageUrl: firstPageUrl,
+        from: from,
+        lastPage: lastPage,
+        lastPageUrl: lastPageUrl,
+        links: links.map((e) => e.toEntity()).toList(),
         nextPageUrl: nextPageUrl,
         path: path,
         perPage: perPage,

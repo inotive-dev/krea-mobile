@@ -11,10 +11,8 @@ _$_HistoryDetailResponse _$$_HistoryDetailResponseFromJson(
     _$_HistoryDetailResponse(
       message: json['message'] as String?,
       statusCode: json['statusCode'] as int?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map((e) =>
-              HistoryDetailDataResponse.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      data: HistoryDetailDataResponse.fromJson(
+          json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_HistoryDetailResponseToJson(

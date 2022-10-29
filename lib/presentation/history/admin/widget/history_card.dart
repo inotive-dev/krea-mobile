@@ -3,11 +3,11 @@ import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/utils/date_util.dart';
 import 'package:koperasi/core/utils/utils.dart';
-import 'package:koperasi/domain/entities/home/sales_report.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 import 'package:koperasi/presentation/history/widget/history_detail_page.dart';
 
 class HistoryCard extends StatelessWidget {
-  final SalesReport data;
+  final SalesResponse data;
 
   const HistoryCard({Key? key, required this.data}) : super(key: key);
 

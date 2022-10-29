@@ -8,7 +8,7 @@ class HistoryState with _$HistoryState {
     @Default(ResultState.initial()) ResultState<dynamic> getHistoryDetailResultState,
     @Default({'id': 1, 'name': 'Mart Alfa'}) Map selectedMart,
     required HistoryData historyData,
-    required List<HistoryDetailData>? historyDetailData,
+    required HistoryDetailData? historyDetailData,
   }) = _HistoryState;
 
   factory HistoryState.initial() => HistoryState(

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/entities/history/history.dart';
 import 'package:koperasi/domain/entities/history/history_detail/history_detail.dart';
 import 'package:koperasi/domain/entities/home/branches.dart';
@@ -27,13 +28,12 @@ import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 import '../../core/unions/failure.dart';
 
 import '../entities/login/login.dart';
-import '../entities/login/user.dart';
 
 abstract class MyRepository {
   Future<Either<Failure, Login>> doLogin(DoLoginUseCaseParams params);
   Future<Either<Failure, LoginStatus>> checkLoginStatus(CheckLoginStatusUseCaseParams params);
   Future<Either<Failure, dynamic>> doLogout(DoLogoutUseCaseParams params);
-  User? getUser();
+  UserResponse? getUser();
   Future<Either<Failure, Home>> getHomeAdminData(GetHomeAdminUseCaseParams params);
   Future<Either<Failure, SalesReports>> getHomeAdminSalesReports(GetAdminHomeSalesReportsUseCaseParams params);
   Future<Either<Failure, Branches>> getHomeAdminNeraca(GetHomeAdminBranchesUseCaseParams params);
@@ -46,6 +46,7 @@ abstract class MyRepository {
   Future<Either<Failure, Profile>> getProfile(NoParam params);
   Future<Either<Failure, UpdateProfile>> updateProfile(UpdateProfileUseCaseParams params);
   Future<Either<Failure, ValidateData>> validateData(ValidateDataUseCaseParams params);
+  Future<Either<Failure, ValidateData>> validateDataAdmin(ValidateDataUseCaseParams params);
   Future<Either<Failure, String>> sendEmailResetPassword(SendEmailUseCaseParams params);
   Future<Either<Failure, String>> sendOTPResetPassword(SendOTPUseCaseParams params);
   Future<Either<Failure, String>> sendResetPassword(SendResetPasswordUseCaseParams params);

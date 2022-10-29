@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 import 'package:koperasi/core/style/sizes.dart';
 import 'package:koperasi/core/unions/result_state.dart';
-import 'package:koperasi/domain/entities/home/sales_report.dart';
+import 'package:koperasi/data/remote/response/home/sales_report/sales_response.dart';
 import 'package:koperasi/presentation/home/admin/widgets/report_sales/sales_card.dart';
 
 class ReportSales extends StatelessWidget {
-  final List<SalesReport> salesReports;
+  final List<SalesResponse> salesReports;
   final ResultState isUpdated;
 
   const ReportSales({

@@ -9,6 +9,7 @@ import 'package:koperasi/data/remote/response/home/neraca/branches_response.dart
 import 'package:koperasi/data/remote/response/home/perubahan_modal/perubahan_modal_response.dart';
 import 'package:koperasi/data/remote/response/home/report/home_response.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/sales_report_response.dart';
+import 'package:koperasi/data/remote/response/home/validate_data_response.dart';
 import 'package:koperasi/data/remote/response/profile/profile_response.dart';
 import 'package:koperasi/data/remote/response/profile/update_profile_response.dart';
 import 'package:koperasi/domain/usecases/get_history_admin.dart';
@@ -20,6 +21,7 @@ import 'package:koperasi/domain/usecases/send_email_reset_password_usecase.dart'
 import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase%20copy.dart';
 import 'package:koperasi/domain/usecases/send_otp_reset_password_usecase.dart';
 import 'package:koperasi/domain/usecases/update_profile.dart';
+import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
 import '../../domain/usecases/do_login_usecase.dart';
 import 'api/api_service.dart';
@@ -122,6 +124,20 @@ class RemoteDataSource {
       return Future.value(BaseResponse(
         message: res?.data['message'],
         statusCode: e.response?.statusCode,
+      ));
+    }
+  }
+
+  Future<ValidateDataResponse> validateData(ValidateDataUseCaseParams params) async {
+    try {
+      final _response = await _apiService.validateData(params);
+      return ValidateDataResponse.fromJson(_response.data);
+    } on DioError catch (e) {
+      final res = e.response;
+      return Future.value(ValidateDataResponse(
+        message: res?.data['message'],
+        statusCode: e.response?.statusCode,
+        data: null,
       ));
     }
   }

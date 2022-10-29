@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:koperasi/data/local/entities/history/sales_response_entity.dart';
 import 'package:koperasi/data/remote/response/home/sales_report/mart_response.dart';
 import 'package:koperasi/data/remote/response/login/user_response.dart';
 import 'package:koperasi/domain/entities/home/sales_report.dart';
@@ -52,5 +53,26 @@ class SalesResponse with _$SalesResponse {
         isMatched: isMatched,
         user: user?.toDomain(),
         mart: mart?.toDomain(),
+      );
+
+  SalesResponseEntity toEntity() => SalesResponseEntity(
+        id: id,
+        martId: martId,
+        userId: userId,
+        total: total,
+        totalDiscount: totalDiscount,
+        totalPpn: totalPpn,
+        hpp: hpp,
+        grandTotal: grandTotal,
+        paymentMethod: paymentMethod,
+        bankName: bankName,
+        totalPayment: totalPayment,
+        totalChange: totalChange,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        updatedAtMobile: updatedAtMobile,
+        isMatched: isMatched,
+        user: user?.toEntity(),
+        mart: mart?.toEntity(),
       );
 }
