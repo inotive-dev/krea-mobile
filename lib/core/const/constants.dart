@@ -15,6 +15,7 @@ class Constants {
     'total hutang lancar',
     'total hutang jangka pendek',
     'total hutang bersih',
+    'total aktiva',
     'total pasiva',
   ];
 

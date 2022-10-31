@@ -62,7 +62,7 @@ class FilterDropdown extends StatelessWidget {
               (e) => DropdownMenuItem(
                 child: Text(
                   e.toString().capitalize(),
-                  textAlign: TextAlign.center,
+                  // textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: Sizes.sp16,
                     color: ColorPalettes.greyText4,
