@@ -12,26 +12,7 @@ part of 'home.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeTearOff {
-  const _$HomeTearOff();
-
-  _Home call(
-      {required String? message,
-      required int? statusCode,
-      required HomeData? data}) {
-    return _Home(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $Home = _$HomeTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Home {
@@ -95,9 +76,9 @@ class _$HomeCopyWithImpl<$Res> implements $HomeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeCopyWith<$Res> implements $HomeCopyWith<$Res> {
-  factory _$HomeCopyWith(_Home value, $Res Function(_Home) then) =
-      __$HomeCopyWithImpl<$Res>;
+abstract class _$$_HomeCopyWith<$Res> implements $HomeCopyWith<$Res> {
+  factory _$$_HomeCopyWith(_$_Home value, $Res Function(_$_Home) then) =
+      __$$_HomeCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HomeData? data});
 
@@ -106,13 +87,13 @@ abstract class _$HomeCopyWith<$Res> implements $HomeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
-    implements _$HomeCopyWith<$Res> {
-  __$HomeCopyWithImpl(_Home _value, $Res Function(_Home) _then)
-      : super(_value, (v) => _then(v as _Home));
+class __$$_HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
+    implements _$$_HomeCopyWith<$Res> {
+  __$$_HomeCopyWithImpl(_$_Home _value, $Res Function(_$_Home) _then)
+      : super(_value, (v) => _then(v as _$_Home));
 
   @override
-  _Home get _value => super._value as _Home;
+  _$_Home get _value => super._value as _$_Home;
 
   @override
   $Res call({
@@ -120,7 +101,7 @@ class __$HomeCopyWithImpl<$Res> extends _$HomeCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_Home(
+    return _then(_$_Home(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -159,7 +140,7 @@ class _$_Home implements _Home {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Home &&
+            other is _$_Home &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -175,15 +156,15 @@ class _$_Home implements _Home {
 
   @JsonKey(ignore: true)
   @override
-  _$HomeCopyWith<_Home> get copyWith =>
-      __$HomeCopyWithImpl<_Home>(this, _$identity);
+  _$$_HomeCopyWith<_$_Home> get copyWith =>
+      __$$_HomeCopyWithImpl<_$_Home>(this, _$identity);
 }
 
 abstract class _Home implements Home {
   const factory _Home(
-      {required String? message,
-      required int? statusCode,
-      required HomeData? data}) = _$_Home;
+      {required final String? message,
+      required final int? statusCode,
+      required final HomeData? data}) = _$_Home;
 
   @override
   String? get message;
@@ -193,5 +174,5 @@ abstract class _Home implements Home {
   HomeData? get data;
   @override
   @JsonKey(ignore: true)
-  _$HomeCopyWith<_Home> get copyWith => throw _privateConstructorUsedError;
+  _$$_HomeCopyWith<_$_Home> get copyWith => throw _privateConstructorUsedError;
 }

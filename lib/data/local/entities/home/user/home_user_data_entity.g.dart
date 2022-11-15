@@ -19,6 +19,7 @@ class HomeUserDataEntityAdapter extends TypeAdapter<HomeUserDataEntity> {
     return HomeUserDataEntity(
       contribution: fields[0] as ContributionEntity?,
       totalSaldoSimpananUtang: fields[1] as int?,
+      totalSaldoSimpananPokok: fields[3] as int?,
       totalUtang: fields[2] as int?,
     );
   }
@@ -26,13 +27,15 @@ class HomeUserDataEntityAdapter extends TypeAdapter<HomeUserDataEntity> {
   @override
   void write(BinaryWriter writer, HomeUserDataEntity obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.contribution)
       ..writeByte(1)
       ..write(obj.totalSaldoSimpananUtang)
       ..writeByte(2)
-      ..write(obj.totalUtang);
+      ..write(obj.totalUtang)
+      ..writeByte(3)
+      ..write(obj.totalSaldoSimpananPokok);
   }
 
   @override

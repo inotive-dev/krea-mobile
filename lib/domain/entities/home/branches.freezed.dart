@@ -12,26 +12,7 @@ part of 'branches.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$BranchesTearOff {
-  const _$BranchesTearOff();
-
-  _Branches call(
-      {required String? message,
-      required int? statusCode,
-      required BranchesData? data}) {
-    return _Branches(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $Branches = _$BranchesTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Branches {
@@ -96,9 +77,10 @@ class _$BranchesCopyWithImpl<$Res> implements $BranchesCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BranchesCopyWith<$Res> implements $BranchesCopyWith<$Res> {
-  factory _$BranchesCopyWith(_Branches value, $Res Function(_Branches) then) =
-      __$BranchesCopyWithImpl<$Res>;
+abstract class _$$_BranchesCopyWith<$Res> implements $BranchesCopyWith<$Res> {
+  factory _$$_BranchesCopyWith(
+          _$_Branches value, $Res Function(_$_Branches) then) =
+      __$$_BranchesCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, BranchesData? data});
 
@@ -107,13 +89,14 @@ abstract class _$BranchesCopyWith<$Res> implements $BranchesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
-    implements _$BranchesCopyWith<$Res> {
-  __$BranchesCopyWithImpl(_Branches _value, $Res Function(_Branches) _then)
-      : super(_value, (v) => _then(v as _Branches));
+class __$$_BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
+    implements _$$_BranchesCopyWith<$Res> {
+  __$$_BranchesCopyWithImpl(
+      _$_Branches _value, $Res Function(_$_Branches) _then)
+      : super(_value, (v) => _then(v as _$_Branches));
 
   @override
-  _Branches get _value => super._value as _Branches;
+  _$_Branches get _value => super._value as _$_Branches;
 
   @override
   $Res call({
@@ -121,7 +104,7 @@ class __$BranchesCopyWithImpl<$Res> extends _$BranchesCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_Branches(
+    return _then(_$_Branches(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -160,7 +143,7 @@ class _$_Branches implements _Branches {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Branches &&
+            other is _$_Branches &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -176,15 +159,15 @@ class _$_Branches implements _Branches {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesCopyWith<_Branches> get copyWith =>
-      __$BranchesCopyWithImpl<_Branches>(this, _$identity);
+  _$$_BranchesCopyWith<_$_Branches> get copyWith =>
+      __$$_BranchesCopyWithImpl<_$_Branches>(this, _$identity);
 }
 
 abstract class _Branches implements Branches {
   const factory _Branches(
-      {required String? message,
-      required int? statusCode,
-      required BranchesData? data}) = _$_Branches;
+      {required final String? message,
+      required final int? statusCode,
+      required final BranchesData? data}) = _$_Branches;
 
   @override
   String? get message;
@@ -194,6 +177,6 @@ abstract class _Branches implements Branches {
   BranchesData? get data;
   @override
   @JsonKey(ignore: true)
-  _$BranchesCopyWith<_Branches> get copyWith =>
+  _$$_BranchesCopyWith<_$_Branches> get copyWith =>
       throw _privateConstructorUsedError;
 }

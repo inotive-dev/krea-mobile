@@ -12,37 +12,11 @@ part of 'contribution_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ContributionResponse _$ContributionResponseFromJson(Map<String, dynamic> json) {
   return _ContributionResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$ContributionResponseTearOff {
-  const _$ContributionResponseTearOff();
-
-  _ContributionResponse call(
-      {@JsonKey(name: 'contribution_wajib')
-          required int contributionWajib,
-      @JsonKey(name: 'contribution_pokok')
-          required int contributionPokok,
-      @JsonKey(name: 'contribution_sukarela')
-          required int contributionSukarela}) {
-    return _ContributionResponse(
-      contributionWajib: contributionWajib,
-      contributionPokok: contributionPokok,
-      contributionSukarela: contributionSukarela,
-    );
-  }
-
-  ContributionResponse fromJson(Map<String, Object?> json) {
-    return ContributionResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ContributionResponse = _$ContributionResponseTearOff();
 
 /// @nodoc
 mixin _$ContributionResponse {
@@ -103,11 +77,11 @@ class _$ContributionResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ContributionResponseCopyWith<$Res>
+abstract class _$$_ContributionResponseCopyWith<$Res>
     implements $ContributionResponseCopyWith<$Res> {
-  factory _$ContributionResponseCopyWith(_ContributionResponse value,
-          $Res Function(_ContributionResponse) then) =
-      __$ContributionResponseCopyWithImpl<$Res>;
+  factory _$$_ContributionResponseCopyWith(_$_ContributionResponse value,
+          $Res Function(_$_ContributionResponse) then) =
+      __$$_ContributionResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'contribution_wajib') int contributionWajib,
@@ -116,15 +90,15 @@ abstract class _$ContributionResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ContributionResponseCopyWithImpl<$Res>
+class __$$_ContributionResponseCopyWithImpl<$Res>
     extends _$ContributionResponseCopyWithImpl<$Res>
-    implements _$ContributionResponseCopyWith<$Res> {
-  __$ContributionResponseCopyWithImpl(
-      _ContributionResponse _value, $Res Function(_ContributionResponse) _then)
-      : super(_value, (v) => _then(v as _ContributionResponse));
+    implements _$$_ContributionResponseCopyWith<$Res> {
+  __$$_ContributionResponseCopyWithImpl(_$_ContributionResponse _value,
+      $Res Function(_$_ContributionResponse) _then)
+      : super(_value, (v) => _then(v as _$_ContributionResponse));
 
   @override
-  _ContributionResponse get _value => super._value as _ContributionResponse;
+  _$_ContributionResponse get _value => super._value as _$_ContributionResponse;
 
   @override
   $Res call({
@@ -132,7 +106,7 @@ class __$ContributionResponseCopyWithImpl<$Res>
     Object? contributionPokok = freezed,
     Object? contributionSukarela = freezed,
   }) {
-    return _then(_ContributionResponse(
+    return _then(_$_ContributionResponse(
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
@@ -183,7 +157,7 @@ class _$_ContributionResponse extends _ContributionResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ContributionResponse &&
+            other is _$_ContributionResponse &&
             const DeepCollectionEquality()
                 .equals(other.contributionWajib, contributionWajib) &&
             const DeepCollectionEquality()
@@ -192,6 +166,7 @@ class _$_ContributionResponse extends _ContributionResponse {
                 .equals(other.contributionSukarela, contributionSukarela));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -201,24 +176,26 @@ class _$_ContributionResponse extends _ContributionResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$ContributionResponseCopyWith<_ContributionResponse> get copyWith =>
-      __$ContributionResponseCopyWithImpl<_ContributionResponse>(
+  _$$_ContributionResponseCopyWith<_$_ContributionResponse> get copyWith =>
+      __$$_ContributionResponseCopyWithImpl<_$_ContributionResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ContributionResponseToJson(this);
+    return _$$_ContributionResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ContributionResponse extends ContributionResponse {
   const factory _ContributionResponse(
       {@JsonKey(name: 'contribution_wajib')
-          required int contributionWajib,
+          required final int contributionWajib,
       @JsonKey(name: 'contribution_pokok')
-          required int contributionPokok,
+          required final int contributionPokok,
       @JsonKey(name: 'contribution_sukarela')
-          required int contributionSukarela}) = _$_ContributionResponse;
+          required final int contributionSukarela}) = _$_ContributionResponse;
   const _ContributionResponse._() : super._();
 
   factory _ContributionResponse.fromJson(Map<String, dynamic> json) =
@@ -235,6 +212,6 @@ abstract class _ContributionResponse extends ContributionResponse {
   int get contributionSukarela;
   @override
   @JsonKey(ignore: true)
-  _$ContributionResponseCopyWith<_ContributionResponse> get copyWith =>
+  _$$_ContributionResponseCopyWith<_$_ContributionResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

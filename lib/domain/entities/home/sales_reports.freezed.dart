@@ -12,26 +12,7 @@ part of 'sales_reports.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SalesReportsTearOff {
-  const _$SalesReportsTearOff();
-
-  _SalesReports call(
-      {required String? message,
-      required int? statusCode,
-      required SalesReportData? data}) {
-    return _SalesReports(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $SalesReports = _$SalesReportsTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SalesReports {
@@ -97,11 +78,11 @@ class _$SalesReportsCopyWithImpl<$Res> implements $SalesReportsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SalesReportsCopyWith<$Res>
+abstract class _$$_SalesReportsCopyWith<$Res>
     implements $SalesReportsCopyWith<$Res> {
-  factory _$SalesReportsCopyWith(
-          _SalesReports value, $Res Function(_SalesReports) then) =
-      __$SalesReportsCopyWithImpl<$Res>;
+  factory _$$_SalesReportsCopyWith(
+          _$_SalesReports value, $Res Function(_$_SalesReports) then) =
+      __$$_SalesReportsCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, SalesReportData? data});
 
@@ -110,14 +91,15 @@ abstract class _$SalesReportsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesReportsCopyWithImpl<$Res> extends _$SalesReportsCopyWithImpl<$Res>
-    implements _$SalesReportsCopyWith<$Res> {
-  __$SalesReportsCopyWithImpl(
-      _SalesReports _value, $Res Function(_SalesReports) _then)
-      : super(_value, (v) => _then(v as _SalesReports));
+class __$$_SalesReportsCopyWithImpl<$Res>
+    extends _$SalesReportsCopyWithImpl<$Res>
+    implements _$$_SalesReportsCopyWith<$Res> {
+  __$$_SalesReportsCopyWithImpl(
+      _$_SalesReports _value, $Res Function(_$_SalesReports) _then)
+      : super(_value, (v) => _then(v as _$_SalesReports));
 
   @override
-  _SalesReports get _value => super._value as _SalesReports;
+  _$_SalesReports get _value => super._value as _$_SalesReports;
 
   @override
   $Res call({
@@ -125,7 +107,7 @@ class __$SalesReportsCopyWithImpl<$Res> extends _$SalesReportsCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_SalesReports(
+    return _then(_$_SalesReports(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -164,7 +146,7 @@ class _$_SalesReports implements _SalesReports {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesReports &&
+            other is _$_SalesReports &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -180,15 +162,15 @@ class _$_SalesReports implements _SalesReports {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesReportsCopyWith<_SalesReports> get copyWith =>
-      __$SalesReportsCopyWithImpl<_SalesReports>(this, _$identity);
+  _$$_SalesReportsCopyWith<_$_SalesReports> get copyWith =>
+      __$$_SalesReportsCopyWithImpl<_$_SalesReports>(this, _$identity);
 }
 
 abstract class _SalesReports implements SalesReports {
   const factory _SalesReports(
-      {required String? message,
-      required int? statusCode,
-      required SalesReportData? data}) = _$_SalesReports;
+      {required final String? message,
+      required final int? statusCode,
+      required final SalesReportData? data}) = _$_SalesReports;
 
   @override
   String? get message;
@@ -198,6 +180,6 @@ abstract class _SalesReports implements SalesReports {
   SalesReportData? get data;
   @override
   @JsonKey(ignore: true)
-  _$SalesReportsCopyWith<_SalesReports> get copyWith =>
+  _$$_SalesReportsCopyWith<_$_SalesReports> get copyWith =>
       throw _privateConstructorUsedError;
 }

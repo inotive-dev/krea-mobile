@@ -12,21 +12,7 @@ part of 'profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProfileTearOff {
-  const _$ProfileTearOff();
-
-  _Profile call({required UserResponse? user}) {
-    return _Profile(
-      user: user,
-    );
-  }
-}
-
-/// @nodoc
-const $Profile = _$ProfileTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Profile {
@@ -78,9 +64,10 @@ class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
-  factory _$ProfileCopyWith(_Profile value, $Res Function(_Profile) then) =
-      __$ProfileCopyWithImpl<$Res>;
+abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
+  factory _$$_ProfileCopyWith(
+          _$_Profile value, $Res Function(_$_Profile) then) =
+      __$$_ProfileCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user});
 
@@ -89,19 +76,19 @@ abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
-    implements _$ProfileCopyWith<$Res> {
-  __$ProfileCopyWithImpl(_Profile _value, $Res Function(_Profile) _then)
-      : super(_value, (v) => _then(v as _Profile));
+class __$$_ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
+    implements _$$_ProfileCopyWith<$Res> {
+  __$$_ProfileCopyWithImpl(_$_Profile _value, $Res Function(_$_Profile) _then)
+      : super(_value, (v) => _then(v as _$_Profile));
 
   @override
-  _Profile get _value => super._value as _Profile;
+  _$_Profile get _value => super._value as _$_Profile;
 
   @override
   $Res call({
     Object? user = freezed,
   }) {
-    return _then(_Profile(
+    return _then(_$_Profile(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -127,7 +114,7 @@ class _$_Profile implements _Profile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Profile &&
+            other is _$_Profile &&
             const DeepCollectionEquality().equals(other.user, user));
   }
 
@@ -137,17 +124,17 @@ class _$_Profile implements _Profile {
 
   @JsonKey(ignore: true)
   @override
-  _$ProfileCopyWith<_Profile> get copyWith =>
-      __$ProfileCopyWithImpl<_Profile>(this, _$identity);
+  _$$_ProfileCopyWith<_$_Profile> get copyWith =>
+      __$$_ProfileCopyWithImpl<_$_Profile>(this, _$identity);
 }
 
 abstract class _Profile implements Profile {
-  const factory _Profile({required UserResponse? user}) = _$_Profile;
+  const factory _Profile({required final UserResponse? user}) = _$_Profile;
 
   @override
   UserResponse? get user;
   @override
   @JsonKey(ignore: true)
-  _$ProfileCopyWith<_Profile> get copyWith =>
+  _$$_ProfileCopyWith<_$_Profile> get copyWith =>
       throw _privateConstructorUsedError;
 }

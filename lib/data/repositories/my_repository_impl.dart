@@ -159,17 +159,12 @@ class MyRepositoryImpl implements MyRepository {
         );
       }
 
-      // Save to local storage
-      await Future.wait([
-        _localDataSource.saveHomeAdminLabaRugi(_data.data?.toEntity()),
-      ]);
-
       return Right(_data.toDomain());
     } else {
       return Right(Branches(
         message: 'Success get local storage home admin laba rugi',
         statusCode: 200,
-        data: _localDataSource.getHomeAdminLabaRugi()?.toDomain(),
+        data: _localDataSource.getQRLabaRugi(params.type)?.toDomain(),
       ));
     }
   }
@@ -185,17 +180,12 @@ class MyRepositoryImpl implements MyRepository {
         );
       }
 
-      // Save to local storage
-      await Future.wait([
-        _localDataSource.saveHomeAdminNeraca(_data.data?.toEntity()),
-      ]);
-
       return Right(_data.toDomain());
     } else {
       return Right(Branches(
         message: 'Success get local storage home admin neraca',
         statusCode: 200,
-        data: _localDataSource.getHomeAdminNeraca()?.toDomain(),
+        data: _localDataSource.getQRAdminNeraca(params.type)?.toDomain(),
       ));
     }
   }
@@ -211,17 +201,17 @@ class MyRepositoryImpl implements MyRepository {
         );
       }
 
-      // Save to local storage
-      await Future.wait([
-        _localDataSource.saveHomeAdminPerubahanModal(_data.data?.toEntity()),
-      ]);
+      // // Save to local storage
+      // await Future.wait([
+      //   _localDataSource.saveHomeAdminPerubahanModal(_data.data?.toEntity()),
+      // ]);
 
       return Right(_data.toDomain());
     } else {
       return Right(PerubahanModal(
         message: 'Success get local storage home admin perubahan modal',
         statusCode: 200,
-        data: _localDataSource.getHomeAdminPerubahanModal()?.toDomain(),
+        data: _localDataSource.getQRPerubahanModal()?.toDomain(),
       ));
     }
   }
@@ -375,6 +365,7 @@ class MyRepositoryImpl implements MyRepository {
         contribution: homeUserDataEntity.contribution,
         totalSaldoSimpananUtang: _data.data?.newestTotalSaldoSimpananUtang,
         totalUtang: _data.data?.newestTotalSaldoUtang,
+        totalSaldoSimpananPokok: homeUserDataEntity.totalSaldoSimpananPokok,
       );
 
       // Save to local storage

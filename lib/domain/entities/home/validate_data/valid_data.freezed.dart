@@ -12,38 +12,7 @@ part of 'valid_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ValidDataTearOff {
-  const _$ValidDataTearOff();
-
-  _ValidData call(
-      {required List<Map<String, dynamic>> newestTotalSaldoSimpananWajibAll,
-      required List<Map<String, dynamic>> newestAllDebt,
-      required int newestTotalSaldoSimpananWajibSudahBayar,
-      required int newestTotalSaldoSimpananPokokSudahBayar,
-      required int newestTotalSaldoSimpananUtang,
-      required int newestTotalSaldoUtang,
-      required List<Map<String, dynamic>> newestThisWeekHistory,
-      required List<Map<String, dynamic>> newestLastMonthHistory}) {
-    return _ValidData(
-      newestTotalSaldoSimpananWajibAll: newestTotalSaldoSimpananWajibAll,
-      newestAllDebt: newestAllDebt,
-      newestTotalSaldoSimpananWajibSudahBayar:
-          newestTotalSaldoSimpananWajibSudahBayar,
-      newestTotalSaldoSimpananPokokSudahBayar:
-          newestTotalSaldoSimpananPokokSudahBayar,
-      newestTotalSaldoSimpananUtang: newestTotalSaldoSimpananUtang,
-      newestTotalSaldoUtang: newestTotalSaldoUtang,
-      newestThisWeekHistory: newestThisWeekHistory,
-      newestLastMonthHistory: newestLastMonthHistory,
-    );
-  }
-}
-
-/// @nodoc
-const $ValidData = _$ValidDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ValidData {
@@ -142,10 +111,10 @@ class _$ValidDataCopyWithImpl<$Res> implements $ValidDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ValidDataCopyWith<$Res> implements $ValidDataCopyWith<$Res> {
-  factory _$ValidDataCopyWith(
-          _ValidData value, $Res Function(_ValidData) then) =
-      __$ValidDataCopyWithImpl<$Res>;
+abstract class _$$_ValidDataCopyWith<$Res> implements $ValidDataCopyWith<$Res> {
+  factory _$$_ValidDataCopyWith(
+          _$_ValidData value, $Res Function(_$_ValidData) then) =
+      __$$_ValidDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<Map<String, dynamic>> newestTotalSaldoSimpananWajibAll,
@@ -159,13 +128,14 @@ abstract class _$ValidDataCopyWith<$Res> implements $ValidDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ValidDataCopyWithImpl<$Res> extends _$ValidDataCopyWithImpl<$Res>
-    implements _$ValidDataCopyWith<$Res> {
-  __$ValidDataCopyWithImpl(_ValidData _value, $Res Function(_ValidData) _then)
-      : super(_value, (v) => _then(v as _ValidData));
+class __$$_ValidDataCopyWithImpl<$Res> extends _$ValidDataCopyWithImpl<$Res>
+    implements _$$_ValidDataCopyWith<$Res> {
+  __$$_ValidDataCopyWithImpl(
+      _$_ValidData _value, $Res Function(_$_ValidData) _then)
+      : super(_value, (v) => _then(v as _$_ValidData));
 
   @override
-  _ValidData get _value => super._value as _ValidData;
+  _$_ValidData get _value => super._value as _$_ValidData;
 
   @override
   $Res call({
@@ -178,14 +148,14 @@ class __$ValidDataCopyWithImpl<$Res> extends _$ValidDataCopyWithImpl<$Res>
     Object? newestThisWeekHistory = freezed,
     Object? newestLastMonthHistory = freezed,
   }) {
-    return _then(_ValidData(
+    return _then(_$_ValidData(
       newestTotalSaldoSimpananWajibAll: newestTotalSaldoSimpananWajibAll ==
               freezed
-          ? _value.newestTotalSaldoSimpananWajibAll
+          ? _value._newestTotalSaldoSimpananWajibAll
           : newestTotalSaldoSimpananWajibAll // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
       newestAllDebt: newestAllDebt == freezed
-          ? _value.newestAllDebt
+          ? _value._newestAllDebt
           : newestAllDebt // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
       newestTotalSaldoSimpananWajibSudahBayar:
@@ -207,11 +177,11 @@ class __$ValidDataCopyWithImpl<$Res> extends _$ValidDataCopyWithImpl<$Res>
           : newestTotalSaldoUtang // ignore: cast_nullable_to_non_nullable
               as int,
       newestThisWeekHistory: newestThisWeekHistory == freezed
-          ? _value.newestThisWeekHistory
+          ? _value._newestThisWeekHistory
           : newestThisWeekHistory // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
       newestLastMonthHistory: newestLastMonthHistory == freezed
-          ? _value.newestLastMonthHistory
+          ? _value._newestLastMonthHistory
           : newestLastMonthHistory // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
     ));
@@ -222,19 +192,34 @@ class __$ValidDataCopyWithImpl<$Res> extends _$ValidDataCopyWithImpl<$Res>
 
 class _$_ValidData implements _ValidData {
   const _$_ValidData(
-      {required this.newestTotalSaldoSimpananWajibAll,
-      required this.newestAllDebt,
+      {required final List<Map<String, dynamic>>
+          newestTotalSaldoSimpananWajibAll,
+      required final List<Map<String, dynamic>> newestAllDebt,
       required this.newestTotalSaldoSimpananWajibSudahBayar,
       required this.newestTotalSaldoSimpananPokokSudahBayar,
       required this.newestTotalSaldoSimpananUtang,
       required this.newestTotalSaldoUtang,
-      required this.newestThisWeekHistory,
-      required this.newestLastMonthHistory});
+      required final List<Map<String, dynamic>> newestThisWeekHistory,
+      required final List<Map<String, dynamic>> newestLastMonthHistory})
+      : _newestTotalSaldoSimpananWajibAll = newestTotalSaldoSimpananWajibAll,
+        _newestAllDebt = newestAllDebt,
+        _newestThisWeekHistory = newestThisWeekHistory,
+        _newestLastMonthHistory = newestLastMonthHistory;
 
+  final List<Map<String, dynamic>> _newestTotalSaldoSimpananWajibAll;
   @override
-  final List<Map<String, dynamic>> newestTotalSaldoSimpananWajibAll;
+  List<Map<String, dynamic>> get newestTotalSaldoSimpananWajibAll {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newestTotalSaldoSimpananWajibAll);
+  }
+
+  final List<Map<String, dynamic>> _newestAllDebt;
   @override
-  final List<Map<String, dynamic>> newestAllDebt;
+  List<Map<String, dynamic>> get newestAllDebt {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newestAllDebt);
+  }
+
   @override
   final int newestTotalSaldoSimpananWajibSudahBayar;
   @override
@@ -243,10 +228,19 @@ class _$_ValidData implements _ValidData {
   final int newestTotalSaldoSimpananUtang;
   @override
   final int newestTotalSaldoUtang;
+  final List<Map<String, dynamic>> _newestThisWeekHistory;
   @override
-  final List<Map<String, dynamic>> newestThisWeekHistory;
+  List<Map<String, dynamic>> get newestThisWeekHistory {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newestThisWeekHistory);
+  }
+
+  final List<Map<String, dynamic>> _newestLastMonthHistory;
   @override
-  final List<Map<String, dynamic>> newestLastMonthHistory;
+  List<Map<String, dynamic>> get newestLastMonthHistory {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_newestLastMonthHistory);
+  }
 
   @override
   String toString() {
@@ -257,12 +251,12 @@ class _$_ValidData implements _ValidData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidData &&
+            other is _$_ValidData &&
             const DeepCollectionEquality().equals(
-                other.newestTotalSaldoSimpananWajibAll,
-                newestTotalSaldoSimpananWajibAll) &&
+                other._newestTotalSaldoSimpananWajibAll,
+                _newestTotalSaldoSimpananWajibAll) &&
             const DeepCollectionEquality()
-                .equals(other.newestAllDebt, newestAllDebt) &&
+                .equals(other._newestAllDebt, _newestAllDebt) &&
             const DeepCollectionEquality().equals(
                 other.newestTotalSaldoSimpananWajibSudahBayar,
                 newestTotalSaldoSimpananWajibSudahBayar) &&
@@ -275,41 +269,42 @@ class _$_ValidData implements _ValidData {
             const DeepCollectionEquality()
                 .equals(other.newestTotalSaldoUtang, newestTotalSaldoUtang) &&
             const DeepCollectionEquality()
-                .equals(other.newestThisWeekHistory, newestThisWeekHistory) &&
-            const DeepCollectionEquality()
-                .equals(other.newestLastMonthHistory, newestLastMonthHistory));
+                .equals(other._newestThisWeekHistory, _newestThisWeekHistory) &&
+            const DeepCollectionEquality().equals(
+                other._newestLastMonthHistory, _newestLastMonthHistory));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(newestTotalSaldoSimpananWajibAll),
-      const DeepCollectionEquality().hash(newestAllDebt),
+      const DeepCollectionEquality().hash(_newestTotalSaldoSimpananWajibAll),
+      const DeepCollectionEquality().hash(_newestAllDebt),
       const DeepCollectionEquality()
           .hash(newestTotalSaldoSimpananWajibSudahBayar),
       const DeepCollectionEquality()
           .hash(newestTotalSaldoSimpananPokokSudahBayar),
       const DeepCollectionEquality().hash(newestTotalSaldoSimpananUtang),
       const DeepCollectionEquality().hash(newestTotalSaldoUtang),
-      const DeepCollectionEquality().hash(newestThisWeekHistory),
-      const DeepCollectionEquality().hash(newestLastMonthHistory));
+      const DeepCollectionEquality().hash(_newestThisWeekHistory),
+      const DeepCollectionEquality().hash(_newestLastMonthHistory));
 
   @JsonKey(ignore: true)
   @override
-  _$ValidDataCopyWith<_ValidData> get copyWith =>
-      __$ValidDataCopyWithImpl<_ValidData>(this, _$identity);
+  _$$_ValidDataCopyWith<_$_ValidData> get copyWith =>
+      __$$_ValidDataCopyWithImpl<_$_ValidData>(this, _$identity);
 }
 
 abstract class _ValidData implements ValidData {
   const factory _ValidData(
-          {required List<Map<String, dynamic>> newestTotalSaldoSimpananWajibAll,
-          required List<Map<String, dynamic>> newestAllDebt,
-          required int newestTotalSaldoSimpananWajibSudahBayar,
-          required int newestTotalSaldoSimpananPokokSudahBayar,
-          required int newestTotalSaldoSimpananUtang,
-          required int newestTotalSaldoUtang,
-          required List<Map<String, dynamic>> newestThisWeekHistory,
-          required List<Map<String, dynamic>> newestLastMonthHistory}) =
+          {required final List<Map<String, dynamic>>
+              newestTotalSaldoSimpananWajibAll,
+          required final List<Map<String, dynamic>> newestAllDebt,
+          required final int newestTotalSaldoSimpananWajibSudahBayar,
+          required final int newestTotalSaldoSimpananPokokSudahBayar,
+          required final int newestTotalSaldoSimpananUtang,
+          required final int newestTotalSaldoUtang,
+          required final List<Map<String, dynamic>> newestThisWeekHistory,
+          required final List<Map<String, dynamic>> newestLastMonthHistory}) =
       _$_ValidData;
 
   @override
@@ -330,6 +325,6 @@ abstract class _ValidData implements ValidData {
   List<Map<String, dynamic>> get newestLastMonthHistory;
   @override
   @JsonKey(ignore: true)
-  _$ValidDataCopyWith<_ValidData> get copyWith =>
+  _$$_ValidDataCopyWith<_$_ValidData> get copyWith =>
       throw _privateConstructorUsedError;
 }

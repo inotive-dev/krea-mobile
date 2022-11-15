@@ -12,28 +12,7 @@ part of 'home_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeDataTearOff {
-  const _$HomeDataTearOff();
-
-  _HomeData call(
-      {required List<Transaction>? produkCepatTerjual,
-      required List<Transaction>? produkLamaTerjual,
-      required double? totalSaldoSimpananUtang,
-      required double? totalUtang}) {
-    return _HomeData(
-      produkCepatTerjual: produkCepatTerjual,
-      produkLamaTerjual: produkLamaTerjual,
-      totalSaldoSimpananUtang: totalSaldoSimpananUtang,
-      totalUtang: totalUtang,
-    );
-  }
-}
-
-/// @nodoc
-const $HomeData = _$HomeDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomeData {
@@ -97,9 +76,10 @@ class _$HomeDataCopyWithImpl<$Res> implements $HomeDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeDataCopyWith<$Res> implements $HomeDataCopyWith<$Res> {
-  factory _$HomeDataCopyWith(_HomeData value, $Res Function(_HomeData) then) =
-      __$HomeDataCopyWithImpl<$Res>;
+abstract class _$$_HomeDataCopyWith<$Res> implements $HomeDataCopyWith<$Res> {
+  factory _$$_HomeDataCopyWith(
+          _$_HomeData value, $Res Function(_$_HomeData) then) =
+      __$$_HomeDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<Transaction>? produkCepatTerjual,
@@ -109,13 +89,14 @@ abstract class _$HomeDataCopyWith<$Res> implements $HomeDataCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
-    implements _$HomeDataCopyWith<$Res> {
-  __$HomeDataCopyWithImpl(_HomeData _value, $Res Function(_HomeData) _then)
-      : super(_value, (v) => _then(v as _HomeData));
+class __$$_HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
+    implements _$$_HomeDataCopyWith<$Res> {
+  __$$_HomeDataCopyWithImpl(
+      _$_HomeData _value, $Res Function(_$_HomeData) _then)
+      : super(_value, (v) => _then(v as _$_HomeData));
 
   @override
-  _HomeData get _value => super._value as _HomeData;
+  _$_HomeData get _value => super._value as _$_HomeData;
 
   @override
   $Res call({
@@ -124,13 +105,13 @@ class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
     Object? totalSaldoSimpananUtang = freezed,
     Object? totalUtang = freezed,
   }) {
-    return _then(_HomeData(
+    return _then(_$_HomeData(
       produkCepatTerjual: produkCepatTerjual == freezed
-          ? _value.produkCepatTerjual
+          ? _value._produkCepatTerjual
           : produkCepatTerjual // ignore: cast_nullable_to_non_nullable
               as List<Transaction>?,
       produkLamaTerjual: produkLamaTerjual == freezed
-          ? _value.produkLamaTerjual
+          ? _value._produkLamaTerjual
           : produkLamaTerjual // ignore: cast_nullable_to_non_nullable
               as List<Transaction>?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
@@ -149,15 +130,31 @@ class __$HomeDataCopyWithImpl<$Res> extends _$HomeDataCopyWithImpl<$Res>
 
 class _$_HomeData implements _HomeData {
   const _$_HomeData(
-      {required this.produkCepatTerjual,
-      required this.produkLamaTerjual,
+      {required final List<Transaction>? produkCepatTerjual,
+      required final List<Transaction>? produkLamaTerjual,
       required this.totalSaldoSimpananUtang,
-      required this.totalUtang});
+      required this.totalUtang})
+      : _produkCepatTerjual = produkCepatTerjual,
+        _produkLamaTerjual = produkLamaTerjual;
 
+  final List<Transaction>? _produkCepatTerjual;
   @override
-  final List<Transaction>? produkCepatTerjual;
+  List<Transaction>? get produkCepatTerjual {
+    final value = _produkCepatTerjual;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Transaction>? _produkLamaTerjual;
   @override
-  final List<Transaction>? produkLamaTerjual;
+  List<Transaction>? get produkLamaTerjual {
+    final value = _produkLamaTerjual;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final double? totalSaldoSimpananUtang;
   @override
@@ -172,11 +169,11 @@ class _$_HomeData implements _HomeData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeData &&
+            other is _$_HomeData &&
             const DeepCollectionEquality()
-                .equals(other.produkCepatTerjual, produkCepatTerjual) &&
+                .equals(other._produkCepatTerjual, _produkCepatTerjual) &&
             const DeepCollectionEquality()
-                .equals(other.produkLamaTerjual, produkLamaTerjual) &&
+                .equals(other._produkLamaTerjual, _produkLamaTerjual) &&
             const DeepCollectionEquality().equals(
                 other.totalSaldoSimpananUtang, totalSaldoSimpananUtang) &&
             const DeepCollectionEquality()
@@ -186,23 +183,23 @@ class _$_HomeData implements _HomeData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(produkCepatTerjual),
-      const DeepCollectionEquality().hash(produkLamaTerjual),
+      const DeepCollectionEquality().hash(_produkCepatTerjual),
+      const DeepCollectionEquality().hash(_produkLamaTerjual),
       const DeepCollectionEquality().hash(totalSaldoSimpananUtang),
       const DeepCollectionEquality().hash(totalUtang));
 
   @JsonKey(ignore: true)
   @override
-  _$HomeDataCopyWith<_HomeData> get copyWith =>
-      __$HomeDataCopyWithImpl<_HomeData>(this, _$identity);
+  _$$_HomeDataCopyWith<_$_HomeData> get copyWith =>
+      __$$_HomeDataCopyWithImpl<_$_HomeData>(this, _$identity);
 }
 
 abstract class _HomeData implements HomeData {
   const factory _HomeData(
-      {required List<Transaction>? produkCepatTerjual,
-      required List<Transaction>? produkLamaTerjual,
-      required double? totalSaldoSimpananUtang,
-      required double? totalUtang}) = _$_HomeData;
+      {required final List<Transaction>? produkCepatTerjual,
+      required final List<Transaction>? produkLamaTerjual,
+      required final double? totalSaldoSimpananUtang,
+      required final double? totalUtang}) = _$_HomeData;
 
   @override
   List<Transaction>? get produkCepatTerjual;
@@ -214,6 +211,6 @@ abstract class _HomeData implements HomeData {
   double? get totalUtang;
   @override
   @JsonKey(ignore: true)
-  _$HomeDataCopyWith<_HomeData> get copyWith =>
+  _$$_HomeDataCopyWith<_$_HomeData> get copyWith =>
       throw _privateConstructorUsedError;
 }

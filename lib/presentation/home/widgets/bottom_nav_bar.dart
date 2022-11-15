@@ -49,6 +49,25 @@ class BottomNavBar extends StatelessWidget {
         BottomNavigationBarItem(
           icon: Padding(
             padding: EdgeInsets.all(Sizes.width5),
+            child: Icon(
+              Icons.qr_code,
+              color: Colors.grey,
+              size: Sizes.height24,
+            ),
+          ),
+          activeIcon: Padding(
+            padding: EdgeInsets.all(Sizes.width5),
+            child: Icon(
+              Icons.qr_code,
+              color: ColorPalettes.primary,
+              size: Sizes.height24,
+            ),
+          ),
+          label: Strings.stockOpname,
+        ),
+        BottomNavigationBarItem(
+          icon: Padding(
+            padding: EdgeInsets.all(Sizes.width5),
             child: SvgPicture.asset('assets/icons/icProfileOff.svg'),
           ),
           activeIcon: Padding(

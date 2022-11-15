@@ -12,30 +12,11 @@ part of 'base_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
   return _BaseResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$BaseResponseTearOff {
-  const _$BaseResponseTearOff();
-
-  _BaseResponse call({required int? statusCode, required String? message}) {
-    return _BaseResponse(
-      statusCode: statusCode,
-      message: message,
-    );
-  }
-
-  BaseResponse fromJson(Map<String, Object?> json) {
-    return BaseResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $BaseResponse = _$BaseResponseTearOff();
 
 /// @nodoc
 mixin _$BaseResponse {
@@ -83,31 +64,32 @@ class _$BaseResponseCopyWithImpl<$Res> implements $BaseResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BaseResponseCopyWith<$Res>
+abstract class _$$_BaseResponseCopyWith<$Res>
     implements $BaseResponseCopyWith<$Res> {
-  factory _$BaseResponseCopyWith(
-          _BaseResponse value, $Res Function(_BaseResponse) then) =
-      __$BaseResponseCopyWithImpl<$Res>;
+  factory _$$_BaseResponseCopyWith(
+          _$_BaseResponse value, $Res Function(_$_BaseResponse) then) =
+      __$$_BaseResponseCopyWithImpl<$Res>;
   @override
   $Res call({int? statusCode, String? message});
 }
 
 /// @nodoc
-class __$BaseResponseCopyWithImpl<$Res> extends _$BaseResponseCopyWithImpl<$Res>
-    implements _$BaseResponseCopyWith<$Res> {
-  __$BaseResponseCopyWithImpl(
-      _BaseResponse _value, $Res Function(_BaseResponse) _then)
-      : super(_value, (v) => _then(v as _BaseResponse));
+class __$$_BaseResponseCopyWithImpl<$Res>
+    extends _$BaseResponseCopyWithImpl<$Res>
+    implements _$$_BaseResponseCopyWith<$Res> {
+  __$$_BaseResponseCopyWithImpl(
+      _$_BaseResponse _value, $Res Function(_$_BaseResponse) _then)
+      : super(_value, (v) => _then(v as _$_BaseResponse));
 
   @override
-  _BaseResponse get _value => super._value as _BaseResponse;
+  _$_BaseResponse get _value => super._value as _$_BaseResponse;
 
   @override
   $Res call({
     Object? statusCode = freezed,
     Object? message = freezed,
   }) {
-    return _then(_BaseResponse(
+    return _then(_$_BaseResponse(
       statusCode: statusCode == freezed
           ? _value.statusCode
           : statusCode // ignore: cast_nullable_to_non_nullable
@@ -143,12 +125,13 @@ class _$_BaseResponse extends _BaseResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BaseResponse &&
+            other is _$_BaseResponse &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -157,18 +140,21 @@ class _$_BaseResponse extends _BaseResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$BaseResponseCopyWith<_BaseResponse> get copyWith =>
-      __$BaseResponseCopyWithImpl<_BaseResponse>(this, _$identity);
+  _$$_BaseResponseCopyWith<_$_BaseResponse> get copyWith =>
+      __$$_BaseResponseCopyWithImpl<_$_BaseResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BaseResponseToJson(this);
+    return _$$_BaseResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _BaseResponse extends BaseResponse {
   const factory _BaseResponse(
-      {required int? statusCode, required String? message}) = _$_BaseResponse;
+      {required final int? statusCode,
+      required final String? message}) = _$_BaseResponse;
   const _BaseResponse._() : super._();
 
   factory _BaseResponse.fromJson(Map<String, dynamic> json) =
@@ -180,6 +166,6 @@ abstract class _BaseResponse extends BaseResponse {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$BaseResponseCopyWith<_BaseResponse> get copyWith =>
+  _$$_BaseResponseCopyWith<_$_BaseResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

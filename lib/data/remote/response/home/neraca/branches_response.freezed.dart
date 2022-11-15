@@ -12,34 +12,11 @@ part of 'branches_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BranchesResponse _$BranchesResponseFromJson(Map<String, dynamic> json) {
   return _BranchesResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$BranchesResponseTearOff {
-  const _$BranchesResponseTearOff();
-
-  _BranchesResponse call(
-      {required String? message,
-      required int? statusCode,
-      required BranchesDataResponse? data}) {
-    return _BranchesResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  BranchesResponse fromJson(Map<String, Object?> json) {
-    return BranchesResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $BranchesResponse = _$BranchesResponseTearOff();
 
 /// @nodoc
 mixin _$BranchesResponse {
@@ -107,11 +84,11 @@ class _$BranchesResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$BranchesResponseCopyWith<$Res>
+abstract class _$$_BranchesResponseCopyWith<$Res>
     implements $BranchesResponseCopyWith<$Res> {
-  factory _$BranchesResponseCopyWith(
-          _BranchesResponse value, $Res Function(_BranchesResponse) then) =
-      __$BranchesResponseCopyWithImpl<$Res>;
+  factory _$$_BranchesResponseCopyWith(
+          _$_BranchesResponse value, $Res Function(_$_BranchesResponse) then) =
+      __$$_BranchesResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, BranchesDataResponse? data});
 
@@ -120,15 +97,15 @@ abstract class _$BranchesResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$BranchesResponseCopyWithImpl<$Res>
+class __$$_BranchesResponseCopyWithImpl<$Res>
     extends _$BranchesResponseCopyWithImpl<$Res>
-    implements _$BranchesResponseCopyWith<$Res> {
-  __$BranchesResponseCopyWithImpl(
-      _BranchesResponse _value, $Res Function(_BranchesResponse) _then)
-      : super(_value, (v) => _then(v as _BranchesResponse));
+    implements _$$_BranchesResponseCopyWith<$Res> {
+  __$$_BranchesResponseCopyWithImpl(
+      _$_BranchesResponse _value, $Res Function(_$_BranchesResponse) _then)
+      : super(_value, (v) => _then(v as _$_BranchesResponse));
 
   @override
-  _BranchesResponse get _value => super._value as _BranchesResponse;
+  _$_BranchesResponse get _value => super._value as _$_BranchesResponse;
 
   @override
   $Res call({
@@ -136,7 +113,7 @@ class __$BranchesResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_BranchesResponse(
+    return _then(_$_BranchesResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -179,13 +156,14 @@ class _$_BranchesResponse extends _BranchesResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BranchesResponse &&
+            other is _$_BranchesResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,20 +173,22 @@ class _$_BranchesResponse extends _BranchesResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
-      __$BranchesResponseCopyWithImpl<_BranchesResponse>(this, _$identity);
+  _$$_BranchesResponseCopyWith<_$_BranchesResponse> get copyWith =>
+      __$$_BranchesResponseCopyWithImpl<_$_BranchesResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BranchesResponseToJson(this);
+    return _$$_BranchesResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _BranchesResponse extends BranchesResponse {
   const factory _BranchesResponse(
-      {required String? message,
-      required int? statusCode,
-      required BranchesDataResponse? data}) = _$_BranchesResponse;
+      {required final String? message,
+      required final int? statusCode,
+      required final BranchesDataResponse? data}) = _$_BranchesResponse;
   const _BranchesResponse._() : super._();
 
   factory _BranchesResponse.fromJson(Map<String, dynamic> json) =
@@ -222,6 +202,6 @@ abstract class _BranchesResponse extends BranchesResponse {
   BranchesDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$BranchesResponseCopyWith<_BranchesResponse> get copyWith =>
+  _$$_BranchesResponseCopyWith<_$_BranchesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

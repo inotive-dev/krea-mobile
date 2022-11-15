@@ -12,24 +12,7 @@ part of 'link.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LinkTearOff {
-  const _$LinkTearOff();
-
-  _Link call(
-      {required String? url, required String? label, required bool? active}) {
-    return _Link(
-      url: url,
-      label: label,
-      active: active,
-    );
-  }
-}
-
-/// @nodoc
-const $Link = _$LinkTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Link {
@@ -80,21 +63,21 @@ class _$LinkCopyWithImpl<$Res> implements $LinkCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LinkCopyWith<$Res> implements $LinkCopyWith<$Res> {
-  factory _$LinkCopyWith(_Link value, $Res Function(_Link) then) =
-      __$LinkCopyWithImpl<$Res>;
+abstract class _$$_LinkCopyWith<$Res> implements $LinkCopyWith<$Res> {
+  factory _$$_LinkCopyWith(_$_Link value, $Res Function(_$_Link) then) =
+      __$$_LinkCopyWithImpl<$Res>;
   @override
   $Res call({String? url, String? label, bool? active});
 }
 
 /// @nodoc
-class __$LinkCopyWithImpl<$Res> extends _$LinkCopyWithImpl<$Res>
-    implements _$LinkCopyWith<$Res> {
-  __$LinkCopyWithImpl(_Link _value, $Res Function(_Link) _then)
-      : super(_value, (v) => _then(v as _Link));
+class __$$_LinkCopyWithImpl<$Res> extends _$LinkCopyWithImpl<$Res>
+    implements _$$_LinkCopyWith<$Res> {
+  __$$_LinkCopyWithImpl(_$_Link _value, $Res Function(_$_Link) _then)
+      : super(_value, (v) => _then(v as _$_Link));
 
   @override
-  _Link get _value => super._value as _Link;
+  _$_Link get _value => super._value as _$_Link;
 
   @override
   $Res call({
@@ -102,7 +85,7 @@ class __$LinkCopyWithImpl<$Res> extends _$LinkCopyWithImpl<$Res>
     Object? label = freezed,
     Object? active = freezed,
   }) {
-    return _then(_Link(
+    return _then(_$_Link(
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -140,7 +123,7 @@ class _$_Link implements _Link {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Link &&
+            other is _$_Link &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.label, label) &&
             const DeepCollectionEquality().equals(other.active, active));
@@ -155,15 +138,15 @@ class _$_Link implements _Link {
 
   @JsonKey(ignore: true)
   @override
-  _$LinkCopyWith<_Link> get copyWith =>
-      __$LinkCopyWithImpl<_Link>(this, _$identity);
+  _$$_LinkCopyWith<_$_Link> get copyWith =>
+      __$$_LinkCopyWithImpl<_$_Link>(this, _$identity);
 }
 
 abstract class _Link implements Link {
   const factory _Link(
-      {required String? url,
-      required String? label,
-      required bool? active}) = _$_Link;
+      {required final String? url,
+      required final String? label,
+      required final bool? active}) = _$_Link;
 
   @override
   String? get url;
@@ -173,5 +156,5 @@ abstract class _Link implements Link {
   bool? get active;
   @override
   @JsonKey(ignore: true)
-  _$LinkCopyWith<_Link> get copyWith => throw _privateConstructorUsedError;
+  _$$_LinkCopyWith<_$_Link> get copyWith => throw _privateConstructorUsedError;
 }

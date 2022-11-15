@@ -12,54 +12,11 @@ part of 'branches_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 BranchesDataResponse _$BranchesDataResponseFromJson(Map<String, dynamic> json) {
   return _BranchesDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$BranchesDataResponseTearOff {
-  const _$BranchesDataResponseTearOff();
-
-  _BranchesDataResponse call(
-      {@JsonKey(name: 'current_page') required int? currentPage,
-      required List<BranchResponse>? data,
-      @JsonKey(name: 'first_page_url') required String? firstPageUrl,
-      required int? from,
-      @JsonKey(name: 'last_page') required int? lastPage,
-      @JsonKey(name: 'last_page_url') required String? lastPageUrl,
-      required List<LinkResponse> links,
-      @JsonKey(name: 'next_page_url') required String? nextPageUrl,
-      required String? path,
-      @JsonKey(name: 'per_page') required int? perPage,
-      @JsonKey(name: 'prev_page_url') required String? prevPageUrl,
-      required int? to,
-      required int? total}) {
-    return _BranchesDataResponse(
-      currentPage: currentPage,
-      data: data,
-      firstPageUrl: firstPageUrl,
-      from: from,
-      lastPage: lastPage,
-      lastPageUrl: lastPageUrl,
-      links: links,
-      nextPageUrl: nextPageUrl,
-      path: path,
-      perPage: perPage,
-      prevPageUrl: prevPageUrl,
-      to: to,
-      total: total,
-    );
-  }
-
-  BranchesDataResponse fromJson(Map<String, Object?> json) {
-    return BranchesDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $BranchesDataResponse = _$BranchesDataResponseTearOff();
 
 /// @nodoc
 mixin _$BranchesDataResponse {
@@ -194,11 +151,11 @@ class _$BranchesDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$BranchesDataResponseCopyWith<$Res>
+abstract class _$$_BranchesDataResponseCopyWith<$Res>
     implements $BranchesDataResponseCopyWith<$Res> {
-  factory _$BranchesDataResponseCopyWith(_BranchesDataResponse value,
-          $Res Function(_BranchesDataResponse) then) =
-      __$BranchesDataResponseCopyWithImpl<$Res>;
+  factory _$$_BranchesDataResponseCopyWith(_$_BranchesDataResponse value,
+          $Res Function(_$_BranchesDataResponse) then) =
+      __$$_BranchesDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'current_page') int? currentPage,
@@ -217,15 +174,15 @@ abstract class _$BranchesDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$BranchesDataResponseCopyWithImpl<$Res>
+class __$$_BranchesDataResponseCopyWithImpl<$Res>
     extends _$BranchesDataResponseCopyWithImpl<$Res>
-    implements _$BranchesDataResponseCopyWith<$Res> {
-  __$BranchesDataResponseCopyWithImpl(
-      _BranchesDataResponse _value, $Res Function(_BranchesDataResponse) _then)
-      : super(_value, (v) => _then(v as _BranchesDataResponse));
+    implements _$$_BranchesDataResponseCopyWith<$Res> {
+  __$$_BranchesDataResponseCopyWithImpl(_$_BranchesDataResponse _value,
+      $Res Function(_$_BranchesDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_BranchesDataResponse));
 
   @override
-  _BranchesDataResponse get _value => super._value as _BranchesDataResponse;
+  _$_BranchesDataResponse get _value => super._value as _$_BranchesDataResponse;
 
   @override
   $Res call({
@@ -243,13 +200,13 @@ class __$BranchesDataResponseCopyWithImpl<$Res>
     Object? to = freezed,
     Object? total = freezed,
   }) {
-    return _then(_BranchesDataResponse(
+    return _then(_$_BranchesDataResponse(
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int?,
       data: data == freezed
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<BranchResponse>?,
       firstPageUrl: firstPageUrl == freezed
@@ -269,7 +226,7 @@ class __$BranchesDataResponseCopyWithImpl<$Res>
           : lastPageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       links: links == freezed
-          ? _value.links
+          ? _value._links
           : links // ignore: cast_nullable_to_non_nullable
               as List<LinkResponse>,
       nextPageUrl: nextPageUrl == freezed
@@ -305,19 +262,21 @@ class __$BranchesDataResponseCopyWithImpl<$Res>
 class _$_BranchesDataResponse extends _BranchesDataResponse {
   const _$_BranchesDataResponse(
       {@JsonKey(name: 'current_page') required this.currentPage,
-      required this.data,
+      required final List<BranchResponse>? data,
       @JsonKey(name: 'first_page_url') required this.firstPageUrl,
       required this.from,
       @JsonKey(name: 'last_page') required this.lastPage,
       @JsonKey(name: 'last_page_url') required this.lastPageUrl,
-      required this.links,
+      required final List<LinkResponse> links,
       @JsonKey(name: 'next_page_url') required this.nextPageUrl,
       required this.path,
       @JsonKey(name: 'per_page') required this.perPage,
       @JsonKey(name: 'prev_page_url') required this.prevPageUrl,
       required this.to,
       required this.total})
-      : super._();
+      : _data = data,
+        _links = links,
+        super._();
 
   factory _$_BranchesDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_BranchesDataResponseFromJson(json);
@@ -325,8 +284,15 @@ class _$_BranchesDataResponse extends _BranchesDataResponse {
   @override
   @JsonKey(name: 'current_page')
   final int? currentPage;
+  final List<BranchResponse>? _data;
   @override
-  final List<BranchResponse>? data;
+  List<BranchResponse>? get data {
+    final value = _data;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: 'first_page_url')
   final String? firstPageUrl;
@@ -338,8 +304,13 @@ class _$_BranchesDataResponse extends _BranchesDataResponse {
   @override
   @JsonKey(name: 'last_page_url')
   final String? lastPageUrl;
+  final List<LinkResponse> _links;
   @override
-  final List<LinkResponse> links;
+  List<LinkResponse> get links {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_links);
+  }
+
   @override
   @JsonKey(name: 'next_page_url')
   final String? nextPageUrl;
@@ -365,17 +336,17 @@ class _$_BranchesDataResponse extends _BranchesDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BranchesDataResponse &&
+            other is _$_BranchesDataResponse &&
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality()
                 .equals(other.firstPageUrl, firstPageUrl) &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.lastPage, lastPage) &&
             const DeepCollectionEquality()
                 .equals(other.lastPageUrl, lastPageUrl) &&
-            const DeepCollectionEquality().equals(other.links, links) &&
+            const DeepCollectionEquality().equals(other._links, _links) &&
             const DeepCollectionEquality()
                 .equals(other.nextPageUrl, nextPageUrl) &&
             const DeepCollectionEquality().equals(other.path, path) &&
@@ -386,16 +357,17 @@ class _$_BranchesDataResponse extends _BranchesDataResponse {
             const DeepCollectionEquality().equals(other.total, total));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(firstPageUrl),
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(lastPage),
       const DeepCollectionEquality().hash(lastPageUrl),
-      const DeepCollectionEquality().hash(links),
+      const DeepCollectionEquality().hash(_links),
       const DeepCollectionEquality().hash(nextPageUrl),
       const DeepCollectionEquality().hash(path),
       const DeepCollectionEquality().hash(perPage),
@@ -405,31 +377,33 @@ class _$_BranchesDataResponse extends _BranchesDataResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesDataResponseCopyWith<_BranchesDataResponse> get copyWith =>
-      __$BranchesDataResponseCopyWithImpl<_BranchesDataResponse>(
+  _$$_BranchesDataResponseCopyWith<_$_BranchesDataResponse> get copyWith =>
+      __$$_BranchesDataResponseCopyWithImpl<_$_BranchesDataResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BranchesDataResponseToJson(this);
+    return _$$_BranchesDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _BranchesDataResponse extends BranchesDataResponse {
   const factory _BranchesDataResponse(
-      {@JsonKey(name: 'current_page') required int? currentPage,
-      required List<BranchResponse>? data,
-      @JsonKey(name: 'first_page_url') required String? firstPageUrl,
-      required int? from,
-      @JsonKey(name: 'last_page') required int? lastPage,
-      @JsonKey(name: 'last_page_url') required String? lastPageUrl,
-      required List<LinkResponse> links,
-      @JsonKey(name: 'next_page_url') required String? nextPageUrl,
-      required String? path,
-      @JsonKey(name: 'per_page') required int? perPage,
-      @JsonKey(name: 'prev_page_url') required String? prevPageUrl,
-      required int? to,
-      required int? total}) = _$_BranchesDataResponse;
+      {@JsonKey(name: 'current_page') required final int? currentPage,
+      required final List<BranchResponse>? data,
+      @JsonKey(name: 'first_page_url') required final String? firstPageUrl,
+      required final int? from,
+      @JsonKey(name: 'last_page') required final int? lastPage,
+      @JsonKey(name: 'last_page_url') required final String? lastPageUrl,
+      required final List<LinkResponse> links,
+      @JsonKey(name: 'next_page_url') required final String? nextPageUrl,
+      required final String? path,
+      @JsonKey(name: 'per_page') required final int? perPage,
+      @JsonKey(name: 'prev_page_url') required final String? prevPageUrl,
+      required final int? to,
+      required final int? total}) = _$_BranchesDataResponse;
   const _BranchesDataResponse._() : super._();
 
   factory _BranchesDataResponse.fromJson(Map<String, dynamic> json) =
@@ -470,6 +444,6 @@ abstract class _BranchesDataResponse extends BranchesDataResponse {
   int? get total;
   @override
   @JsonKey(ignore: true)
-  _$BranchesDataResponseCopyWith<_BranchesDataResponse> get copyWith =>
+  _$$_BranchesDataResponseCopyWith<_$_BranchesDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

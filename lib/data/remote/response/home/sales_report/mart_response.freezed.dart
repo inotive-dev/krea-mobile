@@ -12,38 +12,11 @@ part of 'mart_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 MartResponse _$MartResponseFromJson(Map<String, dynamic> json) {
   return _MartResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$MartResponseTearOff {
-  const _$MartResponseTearOff();
-
-  _MartResponse call(
-      {required int? id,
-      required String? name,
-      required String? address,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt}) {
-    return _MartResponse(
-      id: id,
-      name: name,
-      address: address,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  MartResponse fromJson(Map<String, Object?> json) {
-    return MartResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $MartResponse = _$MartResponseTearOff();
 
 /// @nodoc
 mixin _$MartResponse {
@@ -116,11 +89,11 @@ class _$MartResponseCopyWithImpl<$Res> implements $MartResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$MartResponseCopyWith<$Res>
+abstract class _$$_MartResponseCopyWith<$Res>
     implements $MartResponseCopyWith<$Res> {
-  factory _$MartResponseCopyWith(
-          _MartResponse value, $Res Function(_MartResponse) then) =
-      __$MartResponseCopyWithImpl<$Res>;
+  factory _$$_MartResponseCopyWith(
+          _$_MartResponse value, $Res Function(_$_MartResponse) then) =
+      __$$_MartResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -131,14 +104,15 @@ abstract class _$MartResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$MartResponseCopyWithImpl<$Res> extends _$MartResponseCopyWithImpl<$Res>
-    implements _$MartResponseCopyWith<$Res> {
-  __$MartResponseCopyWithImpl(
-      _MartResponse _value, $Res Function(_MartResponse) _then)
-      : super(_value, (v) => _then(v as _MartResponse));
+class __$$_MartResponseCopyWithImpl<$Res>
+    extends _$MartResponseCopyWithImpl<$Res>
+    implements _$$_MartResponseCopyWith<$Res> {
+  __$$_MartResponseCopyWithImpl(
+      _$_MartResponse _value, $Res Function(_$_MartResponse) _then)
+      : super(_value, (v) => _then(v as _$_MartResponse));
 
   @override
-  _MartResponse get _value => super._value as _MartResponse;
+  _$_MartResponse get _value => super._value as _$_MartResponse;
 
   @override
   $Res call({
@@ -148,7 +122,7 @@ class __$MartResponseCopyWithImpl<$Res> extends _$MartResponseCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_MartResponse(
+    return _then(_$_MartResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -209,7 +183,7 @@ class _$_MartResponse extends _MartResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _MartResponse &&
+            other is _$_MartResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.address, address) &&
@@ -217,6 +191,7 @@ class _$_MartResponse extends _MartResponse {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -228,22 +203,24 @@ class _$_MartResponse extends _MartResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$MartResponseCopyWith<_MartResponse> get copyWith =>
-      __$MartResponseCopyWithImpl<_MartResponse>(this, _$identity);
+  _$$_MartResponseCopyWith<_$_MartResponse> get copyWith =>
+      __$$_MartResponseCopyWithImpl<_$_MartResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MartResponseToJson(this);
+    return _$$_MartResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _MartResponse extends MartResponse {
   const factory _MartResponse(
-          {required int? id,
-          required String? name,
-          required String? address,
-          @JsonKey(name: 'created_at') required DateTime? createdAt,
-          @JsonKey(name: 'updated_at') required DateTime? updatedAt}) =
+          {required final int? id,
+          required final String? name,
+          required final String? address,
+          @JsonKey(name: 'created_at') required final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') required final DateTime? updatedAt}) =
       _$_MartResponse;
   const _MartResponse._() : super._();
 
@@ -264,6 +241,6 @@ abstract class _MartResponse extends MartResponse {
   DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$MartResponseCopyWith<_MartResponse> get copyWith =>
+  _$$_MartResponseCopyWith<_$_MartResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

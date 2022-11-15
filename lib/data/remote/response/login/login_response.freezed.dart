@@ -12,31 +12,11 @@ part of 'login_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
   return _LoginResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$LoginResponseTearOff {
-  const _$LoginResponseTearOff();
-
-  _LoginResponse call({UserResponse? user, String? message, String? token}) {
-    return _LoginResponse(
-      user: user,
-      message: message,
-      token: token,
-    );
-  }
-
-  LoginResponse fromJson(Map<String, Object?> json) {
-    return LoginResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $LoginResponse = _$LoginResponseTearOff();
 
 /// @nodoc
 mixin _$LoginResponse {
@@ -104,11 +84,11 @@ class _$LoginResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$LoginResponseCopyWith<$Res>
+abstract class _$$_LoginResponseCopyWith<$Res>
     implements $LoginResponseCopyWith<$Res> {
-  factory _$LoginResponseCopyWith(
-          _LoginResponse value, $Res Function(_LoginResponse) then) =
-      __$LoginResponseCopyWithImpl<$Res>;
+  factory _$$_LoginResponseCopyWith(
+          _$_LoginResponse value, $Res Function(_$_LoginResponse) then) =
+      __$$_LoginResponseCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user, String? message, String? token});
 
@@ -117,15 +97,15 @@ abstract class _$LoginResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$LoginResponseCopyWithImpl<$Res>
+class __$$_LoginResponseCopyWithImpl<$Res>
     extends _$LoginResponseCopyWithImpl<$Res>
-    implements _$LoginResponseCopyWith<$Res> {
-  __$LoginResponseCopyWithImpl(
-      _LoginResponse _value, $Res Function(_LoginResponse) _then)
-      : super(_value, (v) => _then(v as _LoginResponse));
+    implements _$$_LoginResponseCopyWith<$Res> {
+  __$$_LoginResponseCopyWithImpl(
+      _$_LoginResponse _value, $Res Function(_$_LoginResponse) _then)
+      : super(_value, (v) => _then(v as _$_LoginResponse));
 
   @override
-  _LoginResponse get _value => super._value as _LoginResponse;
+  _$_LoginResponse get _value => super._value as _$_LoginResponse;
 
   @override
   $Res call({
@@ -133,7 +113,7 @@ class __$LoginResponseCopyWithImpl<$Res>
     Object? message = freezed,
     Object? token = freezed,
   }) {
-    return _then(_LoginResponse(
+    return _then(_$_LoginResponse(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -174,12 +154,13 @@ class _$_LoginResponse extends _LoginResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LoginResponse &&
+            other is _$_LoginResponse &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.token, token));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -189,18 +170,22 @@ class _$_LoginResponse extends _LoginResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$LoginResponseCopyWith<_LoginResponse> get copyWith =>
-      __$LoginResponseCopyWithImpl<_LoginResponse>(this, _$identity);
+  _$$_LoginResponseCopyWith<_$_LoginResponse> get copyWith =>
+      __$$_LoginResponseCopyWithImpl<_$_LoginResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoginResponseToJson(this);
+    return _$$_LoginResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _LoginResponse extends LoginResponse {
   const factory _LoginResponse(
-      {UserResponse? user, String? message, String? token}) = _$_LoginResponse;
+      {final UserResponse? user,
+      final String? message,
+      final String? token}) = _$_LoginResponse;
   const _LoginResponse._() : super._();
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
@@ -214,6 +199,6 @@ abstract class _LoginResponse extends LoginResponse {
   String? get token;
   @override
   @JsonKey(ignore: true)
-  _$LoginResponseCopyWith<_LoginResponse> get copyWith =>
+  _$$_LoginResponseCopyWith<_$_LoginResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

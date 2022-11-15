@@ -12,22 +12,7 @@ part of 'update_profile.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$UpdateProfileTearOff {
-  const _$UpdateProfileTearOff();
-
-  _UpdateProfile call({required UserResponse? user, required String? message}) {
-    return _UpdateProfile(
-      user: user,
-      message: message,
-    );
-  }
-}
-
-/// @nodoc
-const $UpdateProfile = _$UpdateProfileTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$UpdateProfile {
@@ -88,11 +73,11 @@ class _$UpdateProfileCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UpdateProfileCopyWith<$Res>
+abstract class _$$_UpdateProfileCopyWith<$Res>
     implements $UpdateProfileCopyWith<$Res> {
-  factory _$UpdateProfileCopyWith(
-          _UpdateProfile value, $Res Function(_UpdateProfile) then) =
-      __$UpdateProfileCopyWithImpl<$Res>;
+  factory _$$_UpdateProfileCopyWith(
+          _$_UpdateProfile value, $Res Function(_$_UpdateProfile) then) =
+      __$$_UpdateProfileCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user, String? message});
 
@@ -101,22 +86,22 @@ abstract class _$UpdateProfileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateProfileCopyWithImpl<$Res>
+class __$$_UpdateProfileCopyWithImpl<$Res>
     extends _$UpdateProfileCopyWithImpl<$Res>
-    implements _$UpdateProfileCopyWith<$Res> {
-  __$UpdateProfileCopyWithImpl(
-      _UpdateProfile _value, $Res Function(_UpdateProfile) _then)
-      : super(_value, (v) => _then(v as _UpdateProfile));
+    implements _$$_UpdateProfileCopyWith<$Res> {
+  __$$_UpdateProfileCopyWithImpl(
+      _$_UpdateProfile _value, $Res Function(_$_UpdateProfile) _then)
+      : super(_value, (v) => _then(v as _$_UpdateProfile));
 
   @override
-  _UpdateProfile get _value => super._value as _UpdateProfile;
+  _$_UpdateProfile get _value => super._value as _$_UpdateProfile;
 
   @override
   $Res call({
     Object? user = freezed,
     Object? message = freezed,
   }) {
-    return _then(_UpdateProfile(
+    return _then(_$_UpdateProfile(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -148,7 +133,7 @@ class _$_UpdateProfile implements _UpdateProfile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdateProfile &&
+            other is _$_UpdateProfile &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
@@ -161,14 +146,14 @@ class _$_UpdateProfile implements _UpdateProfile {
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateProfileCopyWith<_UpdateProfile> get copyWith =>
-      __$UpdateProfileCopyWithImpl<_UpdateProfile>(this, _$identity);
+  _$$_UpdateProfileCopyWith<_$_UpdateProfile> get copyWith =>
+      __$$_UpdateProfileCopyWithImpl<_$_UpdateProfile>(this, _$identity);
 }
 
 abstract class _UpdateProfile implements UpdateProfile {
   const factory _UpdateProfile(
-      {required UserResponse? user,
-      required String? message}) = _$_UpdateProfile;
+      {required final UserResponse? user,
+      required final String? message}) = _$_UpdateProfile;
 
   @override
   UserResponse? get user;
@@ -176,6 +161,6 @@ abstract class _UpdateProfile implements UpdateProfile {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$UpdateProfileCopyWith<_UpdateProfile> get copyWith =>
+  _$$_UpdateProfileCopyWith<_$_UpdateProfile> get copyWith =>
       throw _privateConstructorUsedError;
 }

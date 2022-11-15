@@ -12,31 +12,12 @@ part of 'update_profile_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UpdateProfileResponse _$UpdateProfileResponseFromJson(
     Map<String, dynamic> json) {
   return _UpdateProfileResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$UpdateProfileResponseTearOff {
-  const _$UpdateProfileResponseTearOff();
-
-  _UpdateProfileResponse call({UserResponse? user, String? message}) {
-    return _UpdateProfileResponse(
-      user: user,
-      message: message,
-    );
-  }
-
-  UpdateProfileResponse fromJson(Map<String, Object?> json) {
-    return UpdateProfileResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UpdateProfileResponse = _$UpdateProfileResponseTearOff();
 
 /// @nodoc
 mixin _$UpdateProfileResponse {
@@ -98,11 +79,11 @@ class _$UpdateProfileResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UpdateProfileResponseCopyWith<$Res>
+abstract class _$$_UpdateProfileResponseCopyWith<$Res>
     implements $UpdateProfileResponseCopyWith<$Res> {
-  factory _$UpdateProfileResponseCopyWith(_UpdateProfileResponse value,
-          $Res Function(_UpdateProfileResponse) then) =
-      __$UpdateProfileResponseCopyWithImpl<$Res>;
+  factory _$$_UpdateProfileResponseCopyWith(_$_UpdateProfileResponse value,
+          $Res Function(_$_UpdateProfileResponse) then) =
+      __$$_UpdateProfileResponseCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user, String? message});
 
@@ -111,22 +92,23 @@ abstract class _$UpdateProfileResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UpdateProfileResponseCopyWithImpl<$Res>
+class __$$_UpdateProfileResponseCopyWithImpl<$Res>
     extends _$UpdateProfileResponseCopyWithImpl<$Res>
-    implements _$UpdateProfileResponseCopyWith<$Res> {
-  __$UpdateProfileResponseCopyWithImpl(_UpdateProfileResponse _value,
-      $Res Function(_UpdateProfileResponse) _then)
-      : super(_value, (v) => _then(v as _UpdateProfileResponse));
+    implements _$$_UpdateProfileResponseCopyWith<$Res> {
+  __$$_UpdateProfileResponseCopyWithImpl(_$_UpdateProfileResponse _value,
+      $Res Function(_$_UpdateProfileResponse) _then)
+      : super(_value, (v) => _then(v as _$_UpdateProfileResponse));
 
   @override
-  _UpdateProfileResponse get _value => super._value as _UpdateProfileResponse;
+  _$_UpdateProfileResponse get _value =>
+      super._value as _$_UpdateProfileResponse;
 
   @override
   $Res call({
     Object? user = freezed,
     Object? message = freezed,
   }) {
-    return _then(_UpdateProfileResponse(
+    return _then(_$_UpdateProfileResponse(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -161,11 +143,12 @@ class _$_UpdateProfileResponse extends _UpdateProfileResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UpdateProfileResponse &&
+            other is _$_UpdateProfileResponse &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -174,19 +157,22 @@ class _$_UpdateProfileResponse extends _UpdateProfileResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateProfileResponseCopyWith<_UpdateProfileResponse> get copyWith =>
-      __$UpdateProfileResponseCopyWithImpl<_UpdateProfileResponse>(
+  _$$_UpdateProfileResponseCopyWith<_$_UpdateProfileResponse> get copyWith =>
+      __$$_UpdateProfileResponseCopyWithImpl<_$_UpdateProfileResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateProfileResponseToJson(this);
+    return _$$_UpdateProfileResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _UpdateProfileResponse extends UpdateProfileResponse {
-  const factory _UpdateProfileResponse({UserResponse? user, String? message}) =
-      _$_UpdateProfileResponse;
+  const factory _UpdateProfileResponse(
+      {final UserResponse? user,
+      final String? message}) = _$_UpdateProfileResponse;
   const _UpdateProfileResponse._() : super._();
 
   factory _UpdateProfileResponse.fromJson(Map<String, dynamic> json) =
@@ -198,6 +184,6 @@ abstract class _UpdateProfileResponse extends UpdateProfileResponse {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$UpdateProfileResponseCopyWith<_UpdateProfileResponse> get copyWith =>
+  _$$_UpdateProfileResponseCopyWith<_$_UpdateProfileResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

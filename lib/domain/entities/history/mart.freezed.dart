@@ -12,30 +12,7 @@ part of 'mart.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$MartTearOff {
-  const _$MartTearOff();
-
-  _Mart call(
-      {required int? id,
-      required String? name,
-      required String? address,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) {
-    return _Mart(
-      id: id,
-      name: name,
-      address: address,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-}
-
-/// @nodoc
-const $Mart = _$MartTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Mart {
@@ -103,9 +80,9 @@ class _$MartCopyWithImpl<$Res> implements $MartCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$MartCopyWith<$Res> implements $MartCopyWith<$Res> {
-  factory _$MartCopyWith(_Mart value, $Res Function(_Mart) then) =
-      __$MartCopyWithImpl<$Res>;
+abstract class _$$_MartCopyWith<$Res> implements $MartCopyWith<$Res> {
+  factory _$$_MartCopyWith(_$_Mart value, $Res Function(_$_Mart) then) =
+      __$$_MartCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -116,13 +93,13 @@ abstract class _$MartCopyWith<$Res> implements $MartCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$MartCopyWithImpl<$Res> extends _$MartCopyWithImpl<$Res>
-    implements _$MartCopyWith<$Res> {
-  __$MartCopyWithImpl(_Mart _value, $Res Function(_Mart) _then)
-      : super(_value, (v) => _then(v as _Mart));
+class __$$_MartCopyWithImpl<$Res> extends _$MartCopyWithImpl<$Res>
+    implements _$$_MartCopyWith<$Res> {
+  __$$_MartCopyWithImpl(_$_Mart _value, $Res Function(_$_Mart) _then)
+      : super(_value, (v) => _then(v as _$_Mart));
 
   @override
-  _Mart get _value => super._value as _Mart;
+  _$_Mart get _value => super._value as _$_Mart;
 
   @override
   $Res call({
@@ -132,7 +109,7 @@ class __$MartCopyWithImpl<$Res> extends _$MartCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_Mart(
+    return _then(_$_Mart(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -187,7 +164,7 @@ class _$_Mart implements _Mart {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Mart &&
+            other is _$_Mart &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.address, address) &&
@@ -206,17 +183,17 @@ class _$_Mart implements _Mart {
 
   @JsonKey(ignore: true)
   @override
-  _$MartCopyWith<_Mart> get copyWith =>
-      __$MartCopyWithImpl<_Mart>(this, _$identity);
+  _$$_MartCopyWith<_$_Mart> get copyWith =>
+      __$$_MartCopyWithImpl<_$_Mart>(this, _$identity);
 }
 
 abstract class _Mart implements Mart {
   const factory _Mart(
-      {required int? id,
-      required String? name,
-      required String? address,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) = _$_Mart;
+      {required final int? id,
+      required final String? name,
+      required final String? address,
+      required final DateTime? createdAt,
+      required final DateTime? updatedAt}) = _$_Mart;
 
   @override
   int? get id;
@@ -230,5 +207,5 @@ abstract class _Mart implements Mart {
   DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$MartCopyWith<_Mart> get copyWith => throw _privateConstructorUsedError;
+  _$$_MartCopyWith<_$_Mart> get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,34 +12,11 @@ part of 'home_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HomeResponse _$HomeResponseFromJson(Map<String, dynamic> json) {
   return _HomeResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HomeResponseTearOff {
-  const _$HomeResponseTearOff();
-
-  _HomeResponse call(
-      {required String? message,
-      required int? statusCode,
-      required HomeDataResponse? data}) {
-    return _HomeResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  HomeResponse fromJson(Map<String, Object?> json) {
-    return HomeResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HomeResponse = _$HomeResponseTearOff();
 
 /// @nodoc
 mixin _$HomeResponse {
@@ -106,11 +83,11 @@ class _$HomeResponseCopyWithImpl<$Res> implements $HomeResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeResponseCopyWith<$Res>
+abstract class _$$_HomeResponseCopyWith<$Res>
     implements $HomeResponseCopyWith<$Res> {
-  factory _$HomeResponseCopyWith(
-          _HomeResponse value, $Res Function(_HomeResponse) then) =
-      __$HomeResponseCopyWithImpl<$Res>;
+  factory _$$_HomeResponseCopyWith(
+          _$_HomeResponse value, $Res Function(_$_HomeResponse) then) =
+      __$$_HomeResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HomeDataResponse? data});
 
@@ -119,14 +96,15 @@ abstract class _$HomeResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HomeResponseCopyWithImpl<$Res> extends _$HomeResponseCopyWithImpl<$Res>
-    implements _$HomeResponseCopyWith<$Res> {
-  __$HomeResponseCopyWithImpl(
-      _HomeResponse _value, $Res Function(_HomeResponse) _then)
-      : super(_value, (v) => _then(v as _HomeResponse));
+class __$$_HomeResponseCopyWithImpl<$Res>
+    extends _$HomeResponseCopyWithImpl<$Res>
+    implements _$$_HomeResponseCopyWith<$Res> {
+  __$$_HomeResponseCopyWithImpl(
+      _$_HomeResponse _value, $Res Function(_$_HomeResponse) _then)
+      : super(_value, (v) => _then(v as _$_HomeResponse));
 
   @override
-  _HomeResponse get _value => super._value as _HomeResponse;
+  _$_HomeResponse get _value => super._value as _$_HomeResponse;
 
   @override
   $Res call({
@@ -134,7 +112,7 @@ class __$HomeResponseCopyWithImpl<$Res> extends _$HomeResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_HomeResponse(
+    return _then(_$_HomeResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -177,13 +155,14 @@ class _$_HomeResponse extends _HomeResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeResponse &&
+            other is _$_HomeResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -193,20 +172,22 @@ class _$_HomeResponse extends _HomeResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$HomeResponseCopyWith<_HomeResponse> get copyWith =>
-      __$HomeResponseCopyWithImpl<_HomeResponse>(this, _$identity);
+  _$$_HomeResponseCopyWith<_$_HomeResponse> get copyWith =>
+      __$$_HomeResponseCopyWithImpl<_$_HomeResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HomeResponseToJson(this);
+    return _$$_HomeResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HomeResponse extends HomeResponse {
   const factory _HomeResponse(
-      {required String? message,
-      required int? statusCode,
-      required HomeDataResponse? data}) = _$_HomeResponse;
+      {required final String? message,
+      required final int? statusCode,
+      required final HomeDataResponse? data}) = _$_HomeResponse;
   const _HomeResponse._() : super._();
 
   factory _HomeResponse.fromJson(Map<String, dynamic> json) =
@@ -220,6 +201,6 @@ abstract class _HomeResponse extends HomeResponse {
   HomeDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$HomeResponseCopyWith<_HomeResponse> get copyWith =>
+  _$$_HomeResponseCopyWith<_$_HomeResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

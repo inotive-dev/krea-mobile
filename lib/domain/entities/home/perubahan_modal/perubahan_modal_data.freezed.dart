@@ -12,36 +12,7 @@ part of 'perubahan_modal_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PerubahanModalDataTearOff {
-  const _$PerubahanModalDataTearOff();
-
-  _PerubahanModalData call(
-      {required double? modalAwal,
-      required double? modalAkhir,
-      required double? labaBersih,
-      required double? labaDitahan,
-      required double? total1,
-      required double? total2,
-      required double? prive,
-      required double? koreksi}) {
-    return _PerubahanModalData(
-      modalAwal: modalAwal,
-      modalAkhir: modalAkhir,
-      labaBersih: labaBersih,
-      labaDitahan: labaDitahan,
-      total1: total1,
-      total2: total2,
-      prive: prive,
-      koreksi: koreksi,
-    );
-  }
-}
-
-/// @nodoc
-const $PerubahanModalData = _$PerubahanModalDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PerubahanModalData {
@@ -133,11 +104,11 @@ class _$PerubahanModalDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PerubahanModalDataCopyWith<$Res>
+abstract class _$$_PerubahanModalDataCopyWith<$Res>
     implements $PerubahanModalDataCopyWith<$Res> {
-  factory _$PerubahanModalDataCopyWith(
-          _PerubahanModalData value, $Res Function(_PerubahanModalData) then) =
-      __$PerubahanModalDataCopyWithImpl<$Res>;
+  factory _$$_PerubahanModalDataCopyWith(_$_PerubahanModalData value,
+          $Res Function(_$_PerubahanModalData) then) =
+      __$$_PerubahanModalDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {double? modalAwal,
@@ -151,15 +122,15 @@ abstract class _$PerubahanModalDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PerubahanModalDataCopyWithImpl<$Res>
+class __$$_PerubahanModalDataCopyWithImpl<$Res>
     extends _$PerubahanModalDataCopyWithImpl<$Res>
-    implements _$PerubahanModalDataCopyWith<$Res> {
-  __$PerubahanModalDataCopyWithImpl(
-      _PerubahanModalData _value, $Res Function(_PerubahanModalData) _then)
-      : super(_value, (v) => _then(v as _PerubahanModalData));
+    implements _$$_PerubahanModalDataCopyWith<$Res> {
+  __$$_PerubahanModalDataCopyWithImpl(
+      _$_PerubahanModalData _value, $Res Function(_$_PerubahanModalData) _then)
+      : super(_value, (v) => _then(v as _$_PerubahanModalData));
 
   @override
-  _PerubahanModalData get _value => super._value as _PerubahanModalData;
+  _$_PerubahanModalData get _value => super._value as _$_PerubahanModalData;
 
   @override
   $Res call({
@@ -172,7 +143,7 @@ class __$PerubahanModalDataCopyWithImpl<$Res>
     Object? prive = freezed,
     Object? koreksi = freezed,
   }) {
-    return _then(_PerubahanModalData(
+    return _then(_$_PerubahanModalData(
       modalAwal: modalAwal == freezed
           ? _value.modalAwal
           : modalAwal // ignore: cast_nullable_to_non_nullable
@@ -248,7 +219,7 @@ class _$_PerubahanModalData implements _PerubahanModalData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PerubahanModalData &&
+            other is _$_PerubahanModalData &&
             const DeepCollectionEquality().equals(other.modalAwal, modalAwal) &&
             const DeepCollectionEquality()
                 .equals(other.modalAkhir, modalAkhir) &&
@@ -276,20 +247,21 @@ class _$_PerubahanModalData implements _PerubahanModalData {
 
   @JsonKey(ignore: true)
   @override
-  _$PerubahanModalDataCopyWith<_PerubahanModalData> get copyWith =>
-      __$PerubahanModalDataCopyWithImpl<_PerubahanModalData>(this, _$identity);
+  _$$_PerubahanModalDataCopyWith<_$_PerubahanModalData> get copyWith =>
+      __$$_PerubahanModalDataCopyWithImpl<_$_PerubahanModalData>(
+          this, _$identity);
 }
 
 abstract class _PerubahanModalData implements PerubahanModalData {
   const factory _PerubahanModalData(
-      {required double? modalAwal,
-      required double? modalAkhir,
-      required double? labaBersih,
-      required double? labaDitahan,
-      required double? total1,
-      required double? total2,
-      required double? prive,
-      required double? koreksi}) = _$_PerubahanModalData;
+      {required final double? modalAwal,
+      required final double? modalAkhir,
+      required final double? labaBersih,
+      required final double? labaDitahan,
+      required final double? total1,
+      required final double? total2,
+      required final double? prive,
+      required final double? koreksi}) = _$_PerubahanModalData;
 
   @override
   double? get modalAwal;
@@ -309,6 +281,6 @@ abstract class _PerubahanModalData implements PerubahanModalData {
   double? get koreksi;
   @override
   @JsonKey(ignore: true)
-  _$PerubahanModalDataCopyWith<_PerubahanModalData> get copyWith =>
+  _$$_PerubahanModalDataCopyWith<_$_PerubahanModalData> get copyWith =>
       throw _privateConstructorUsedError;
 }

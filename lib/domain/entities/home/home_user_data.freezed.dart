@@ -12,31 +12,13 @@ part of 'home_user_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeUserDataTearOff {
-  const _$HomeUserDataTearOff();
-
-  _HomeUserData call(
-      {required Contribution contribution,
-      required int totalSaldoSimpananUtang,
-      required int totalUtang}) {
-    return _HomeUserData(
-      contribution: contribution,
-      totalSaldoSimpananUtang: totalSaldoSimpananUtang,
-      totalUtang: totalUtang,
-    );
-  }
-}
-
-/// @nodoc
-const $HomeUserData = _$HomeUserDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomeUserData {
   Contribution get contribution => throw _privateConstructorUsedError;
   int get totalSaldoSimpananUtang => throw _privateConstructorUsedError;
+  int? get totalSaldoSimpananPokok => throw _privateConstructorUsedError;
   int get totalUtang => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,7 +32,10 @@ abstract class $HomeUserDataCopyWith<$Res> {
           HomeUserData value, $Res Function(HomeUserData) then) =
       _$HomeUserDataCopyWithImpl<$Res>;
   $Res call(
-      {Contribution contribution, int totalSaldoSimpananUtang, int totalUtang});
+      {Contribution contribution,
+      int totalSaldoSimpananUtang,
+      int? totalSaldoSimpananPokok,
+      int totalUtang});
 
   $ContributionCopyWith<$Res> get contribution;
 }
@@ -67,6 +52,7 @@ class _$HomeUserDataCopyWithImpl<$Res> implements $HomeUserDataCopyWith<$Res> {
   $Res call({
     Object? contribution = freezed,
     Object? totalSaldoSimpananUtang = freezed,
+    Object? totalSaldoSimpananPokok = freezed,
     Object? totalUtang = freezed,
   }) {
     return _then(_value.copyWith(
@@ -78,6 +64,10 @@ class _$HomeUserDataCopyWithImpl<$Res> implements $HomeUserDataCopyWith<$Res> {
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
               as int,
+      totalSaldoSimpananPokok: totalSaldoSimpananPokok == freezed
+          ? _value.totalSaldoSimpananPokok
+          : totalSaldoSimpananPokok // ignore: cast_nullable_to_non_nullable
+              as int?,
       totalUtang: totalUtang == freezed
           ? _value.totalUtang
           : totalUtang // ignore: cast_nullable_to_non_nullable
@@ -94,36 +84,41 @@ class _$HomeUserDataCopyWithImpl<$Res> implements $HomeUserDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeUserDataCopyWith<$Res>
+abstract class _$$_HomeUserDataCopyWith<$Res>
     implements $HomeUserDataCopyWith<$Res> {
-  factory _$HomeUserDataCopyWith(
-          _HomeUserData value, $Res Function(_HomeUserData) then) =
-      __$HomeUserDataCopyWithImpl<$Res>;
+  factory _$$_HomeUserDataCopyWith(
+          _$_HomeUserData value, $Res Function(_$_HomeUserData) then) =
+      __$$_HomeUserDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Contribution contribution, int totalSaldoSimpananUtang, int totalUtang});
+      {Contribution contribution,
+      int totalSaldoSimpananUtang,
+      int? totalSaldoSimpananPokok,
+      int totalUtang});
 
   @override
   $ContributionCopyWith<$Res> get contribution;
 }
 
 /// @nodoc
-class __$HomeUserDataCopyWithImpl<$Res> extends _$HomeUserDataCopyWithImpl<$Res>
-    implements _$HomeUserDataCopyWith<$Res> {
-  __$HomeUserDataCopyWithImpl(
-      _HomeUserData _value, $Res Function(_HomeUserData) _then)
-      : super(_value, (v) => _then(v as _HomeUserData));
+class __$$_HomeUserDataCopyWithImpl<$Res>
+    extends _$HomeUserDataCopyWithImpl<$Res>
+    implements _$$_HomeUserDataCopyWith<$Res> {
+  __$$_HomeUserDataCopyWithImpl(
+      _$_HomeUserData _value, $Res Function(_$_HomeUserData) _then)
+      : super(_value, (v) => _then(v as _$_HomeUserData));
 
   @override
-  _HomeUserData get _value => super._value as _HomeUserData;
+  _$_HomeUserData get _value => super._value as _$_HomeUserData;
 
   @override
   $Res call({
     Object? contribution = freezed,
     Object? totalSaldoSimpananUtang = freezed,
+    Object? totalSaldoSimpananPokok = freezed,
     Object? totalUtang = freezed,
   }) {
-    return _then(_HomeUserData(
+    return _then(_$_HomeUserData(
       contribution: contribution == freezed
           ? _value.contribution
           : contribution // ignore: cast_nullable_to_non_nullable
@@ -132,6 +127,10 @@ class __$HomeUserDataCopyWithImpl<$Res> extends _$HomeUserDataCopyWithImpl<$Res>
           ? _value.totalSaldoSimpananUtang
           : totalSaldoSimpananUtang // ignore: cast_nullable_to_non_nullable
               as int,
+      totalSaldoSimpananPokok: totalSaldoSimpananPokok == freezed
+          ? _value.totalSaldoSimpananPokok
+          : totalSaldoSimpananPokok // ignore: cast_nullable_to_non_nullable
+              as int?,
       totalUtang: totalUtang == freezed
           ? _value.totalUtang
           : totalUtang // ignore: cast_nullable_to_non_nullable
@@ -146,6 +145,7 @@ class _$_HomeUserData implements _HomeUserData {
   const _$_HomeUserData(
       {required this.contribution,
       required this.totalSaldoSimpananUtang,
+      required this.totalSaldoSimpananPokok,
       required this.totalUtang});
 
   @override
@@ -153,22 +153,26 @@ class _$_HomeUserData implements _HomeUserData {
   @override
   final int totalSaldoSimpananUtang;
   @override
+  final int? totalSaldoSimpananPokok;
+  @override
   final int totalUtang;
 
   @override
   String toString() {
-    return 'HomeUserData(contribution: $contribution, totalSaldoSimpananUtang: $totalSaldoSimpananUtang, totalUtang: $totalUtang)';
+    return 'HomeUserData(contribution: $contribution, totalSaldoSimpananUtang: $totalSaldoSimpananUtang, totalSaldoSimpananPokok: $totalSaldoSimpananPokok, totalUtang: $totalUtang)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeUserData &&
+            other is _$_HomeUserData &&
             const DeepCollectionEquality()
                 .equals(other.contribution, contribution) &&
             const DeepCollectionEquality().equals(
                 other.totalSaldoSimpananUtang, totalSaldoSimpananUtang) &&
+            const DeepCollectionEquality().equals(
+                other.totalSaldoSimpananPokok, totalSaldoSimpananPokok) &&
             const DeepCollectionEquality()
                 .equals(other.totalUtang, totalUtang));
   }
@@ -178,28 +182,32 @@ class _$_HomeUserData implements _HomeUserData {
       runtimeType,
       const DeepCollectionEquality().hash(contribution),
       const DeepCollectionEquality().hash(totalSaldoSimpananUtang),
+      const DeepCollectionEquality().hash(totalSaldoSimpananPokok),
       const DeepCollectionEquality().hash(totalUtang));
 
   @JsonKey(ignore: true)
   @override
-  _$HomeUserDataCopyWith<_HomeUserData> get copyWith =>
-      __$HomeUserDataCopyWithImpl<_HomeUserData>(this, _$identity);
+  _$$_HomeUserDataCopyWith<_$_HomeUserData> get copyWith =>
+      __$$_HomeUserDataCopyWithImpl<_$_HomeUserData>(this, _$identity);
 }
 
 abstract class _HomeUserData implements HomeUserData {
   const factory _HomeUserData(
-      {required Contribution contribution,
-      required int totalSaldoSimpananUtang,
-      required int totalUtang}) = _$_HomeUserData;
+      {required final Contribution contribution,
+      required final int totalSaldoSimpananUtang,
+      required final int? totalSaldoSimpananPokok,
+      required final int totalUtang}) = _$_HomeUserData;
 
   @override
   Contribution get contribution;
   @override
   int get totalSaldoSimpananUtang;
   @override
+  int? get totalSaldoSimpananPokok;
+  @override
   int get totalUtang;
   @override
   @JsonKey(ignore: true)
-  _$HomeUserDataCopyWith<_HomeUserData> get copyWith =>
+  _$$_HomeUserDataCopyWith<_$_HomeUserData> get copyWith =>
       throw _privateConstructorUsedError;
 }

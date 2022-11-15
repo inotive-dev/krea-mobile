@@ -12,67 +12,11 @@ part of 'transaction_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 TransactionResponse _$TransactionResponseFromJson(Map<String, dynamic> json) {
   return _TransactionResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$TransactionResponseTearOff {
-  const _$TransactionResponseTearOff();
-
-  _TransactionResponse call(
-      {required int? id,
-      @JsonKey(name: 'transaction_id')
-          required int? transactionId,
-      @JsonKey(name: 'product_id')
-          required int? productId,
-      @JsonKey(name: 'consignment_product_id')
-          required int? consignmentProdutId,
-      @JsonKey(name: 'sell_price')
-          required double? sellPrice,
-      @JsonKey(name: 'buy_price')
-          required double? buyPrice,
-      required int? qty,
-      required double? discount,
-      required double? ppn,
-      required double? subtotal,
-      @JsonKey(name: 'is_consignment_paid')
-          required double? isConsignmentPaid,
-      @JsonKey(name: 'created_at')
-          required DateTime? createdAt,
-      @JsonKey(name: 'updated_at')
-          required DateTime? updatedAt,
-      @JsonKey(name: 'total_quantity')
-          required String? totalQty,
-      required ProductResponse? product}) {
-    return _TransactionResponse(
-      id: id,
-      transactionId: transactionId,
-      productId: productId,
-      consignmentProdutId: consignmentProdutId,
-      sellPrice: sellPrice,
-      buyPrice: buyPrice,
-      qty: qty,
-      discount: discount,
-      ppn: ppn,
-      subtotal: subtotal,
-      isConsignmentPaid: isConsignmentPaid,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      totalQty: totalQty,
-      product: product,
-    );
-  }
-
-  TransactionResponse fromJson(Map<String, Object?> json) {
-    return TransactionResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $TransactionResponse = _$TransactionResponseTearOff();
 
 /// @nodoc
 mixin _$TransactionResponse {
@@ -236,11 +180,11 @@ class _$TransactionResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TransactionResponseCopyWith<$Res>
+abstract class _$$_TransactionResponseCopyWith<$Res>
     implements $TransactionResponseCopyWith<$Res> {
-  factory _$TransactionResponseCopyWith(_TransactionResponse value,
-          $Res Function(_TransactionResponse) then) =
-      __$TransactionResponseCopyWithImpl<$Res>;
+  factory _$$_TransactionResponseCopyWith(_$_TransactionResponse value,
+          $Res Function(_$_TransactionResponse) then) =
+      __$$_TransactionResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -264,15 +208,15 @@ abstract class _$TransactionResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$TransactionResponseCopyWithImpl<$Res>
+class __$$_TransactionResponseCopyWithImpl<$Res>
     extends _$TransactionResponseCopyWithImpl<$Res>
-    implements _$TransactionResponseCopyWith<$Res> {
-  __$TransactionResponseCopyWithImpl(
-      _TransactionResponse _value, $Res Function(_TransactionResponse) _then)
-      : super(_value, (v) => _then(v as _TransactionResponse));
+    implements _$$_TransactionResponseCopyWith<$Res> {
+  __$$_TransactionResponseCopyWithImpl(_$_TransactionResponse _value,
+      $Res Function(_$_TransactionResponse) _then)
+      : super(_value, (v) => _then(v as _$_TransactionResponse));
 
   @override
-  _TransactionResponse get _value => super._value as _TransactionResponse;
+  _$_TransactionResponse get _value => super._value as _$_TransactionResponse;
 
   @override
   $Res call({
@@ -292,7 +236,7 @@ class __$TransactionResponseCopyWithImpl<$Res>
     Object? totalQty = freezed,
     Object? product = freezed,
   }) {
-    return _then(_TransactionResponse(
+    return _then(_$_TransactionResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -439,7 +383,7 @@ class _$_TransactionResponse extends _TransactionResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TransactionResponse &&
+            other is _$_TransactionResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.transactionId, transactionId) &&
@@ -460,6 +404,7 @@ class _$_TransactionResponse extends _TransactionResponse {
             const DeepCollectionEquality().equals(other.product, product));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -481,42 +426,44 @@ class _$_TransactionResponse extends _TransactionResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$TransactionResponseCopyWith<_TransactionResponse> get copyWith =>
-      __$TransactionResponseCopyWithImpl<_TransactionResponse>(
+  _$$_TransactionResponseCopyWith<_$_TransactionResponse> get copyWith =>
+      __$$_TransactionResponseCopyWithImpl<_$_TransactionResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TransactionResponseToJson(this);
+    return _$$_TransactionResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _TransactionResponse extends TransactionResponse {
   const factory _TransactionResponse(
-      {required int? id,
+      {required final int? id,
       @JsonKey(name: 'transaction_id')
-          required int? transactionId,
+          required final int? transactionId,
       @JsonKey(name: 'product_id')
-          required int? productId,
+          required final int? productId,
       @JsonKey(name: 'consignment_product_id')
-          required int? consignmentProdutId,
+          required final int? consignmentProdutId,
       @JsonKey(name: 'sell_price')
-          required double? sellPrice,
+          required final double? sellPrice,
       @JsonKey(name: 'buy_price')
-          required double? buyPrice,
-      required int? qty,
-      required double? discount,
-      required double? ppn,
-      required double? subtotal,
+          required final double? buyPrice,
+      required final int? qty,
+      required final double? discount,
+      required final double? ppn,
+      required final double? subtotal,
       @JsonKey(name: 'is_consignment_paid')
-          required double? isConsignmentPaid,
+          required final double? isConsignmentPaid,
       @JsonKey(name: 'created_at')
-          required DateTime? createdAt,
+          required final DateTime? createdAt,
       @JsonKey(name: 'updated_at')
-          required DateTime? updatedAt,
+          required final DateTime? updatedAt,
       @JsonKey(name: 'total_quantity')
-          required String? totalQty,
-      required ProductResponse? product}) = _$_TransactionResponse;
+          required final String? totalQty,
+      required final ProductResponse? product}) = _$_TransactionResponse;
   const _TransactionResponse._() : super._();
 
   factory _TransactionResponse.fromJson(Map<String, dynamic> json) =
@@ -563,6 +510,6 @@ abstract class _TransactionResponse extends TransactionResponse {
   ProductResponse? get product;
   @override
   @JsonKey(ignore: true)
-  _$TransactionResponseCopyWith<_TransactionResponse> get copyWith =>
+  _$$_TransactionResponseCopyWith<_$_TransactionResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

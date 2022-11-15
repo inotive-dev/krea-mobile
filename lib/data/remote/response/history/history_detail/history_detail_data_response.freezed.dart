@@ -12,33 +12,12 @@ part of 'history_detail_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HistoryDetailDataResponse _$HistoryDetailDataResponseFromJson(
     Map<String, dynamic> json) {
   return _HistoryDetailDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HistoryDetailDataResponseTearOff {
-  const _$HistoryDetailDataResponseTearOff();
-
-  _HistoryDetailDataResponse call(
-      {required SalesResponse transaction,
-      required List<HistoryDetailDataProductResponse> transactionProduct}) {
-    return _HistoryDetailDataResponse(
-      transaction: transaction,
-      transactionProduct: transactionProduct,
-    );
-  }
-
-  HistoryDetailDataResponse fromJson(Map<String, Object?> json) {
-    return HistoryDetailDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HistoryDetailDataResponse = _$HistoryDetailDataResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryDetailDataResponse {
@@ -99,11 +78,12 @@ class _$HistoryDetailDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailDataResponseCopyWith<$Res>
+abstract class _$$_HistoryDetailDataResponseCopyWith<$Res>
     implements $HistoryDetailDataResponseCopyWith<$Res> {
-  factory _$HistoryDetailDataResponseCopyWith(_HistoryDetailDataResponse value,
-          $Res Function(_HistoryDetailDataResponse) then) =
-      __$HistoryDetailDataResponseCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailDataResponseCopyWith(
+          _$_HistoryDetailDataResponse value,
+          $Res Function(_$_HistoryDetailDataResponse) then) =
+      __$$_HistoryDetailDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {SalesResponse transaction,
@@ -114,29 +94,30 @@ abstract class _$HistoryDetailDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailDataResponseCopyWithImpl<$Res>
+class __$$_HistoryDetailDataResponseCopyWithImpl<$Res>
     extends _$HistoryDetailDataResponseCopyWithImpl<$Res>
-    implements _$HistoryDetailDataResponseCopyWith<$Res> {
-  __$HistoryDetailDataResponseCopyWithImpl(_HistoryDetailDataResponse _value,
-      $Res Function(_HistoryDetailDataResponse) _then)
-      : super(_value, (v) => _then(v as _HistoryDetailDataResponse));
+    implements _$$_HistoryDetailDataResponseCopyWith<$Res> {
+  __$$_HistoryDetailDataResponseCopyWithImpl(
+      _$_HistoryDetailDataResponse _value,
+      $Res Function(_$_HistoryDetailDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetailDataResponse));
 
   @override
-  _HistoryDetailDataResponse get _value =>
-      super._value as _HistoryDetailDataResponse;
+  _$_HistoryDetailDataResponse get _value =>
+      super._value as _$_HistoryDetailDataResponse;
 
   @override
   $Res call({
     Object? transaction = freezed,
     Object? transactionProduct = freezed,
   }) {
-    return _then(_HistoryDetailDataResponse(
+    return _then(_$_HistoryDetailDataResponse(
       transaction: transaction == freezed
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as SalesResponse,
       transactionProduct: transactionProduct == freezed
-          ? _value.transactionProduct
+          ? _value._transactionProduct
           : transactionProduct // ignore: cast_nullable_to_non_nullable
               as List<HistoryDetailDataProductResponse>,
     ));
@@ -147,16 +128,22 @@ class __$HistoryDetailDataResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HistoryDetailDataResponse extends _HistoryDetailDataResponse {
   const _$_HistoryDetailDataResponse(
-      {required this.transaction, required this.transactionProduct})
-      : super._();
+      {required this.transaction,
+      required final List<HistoryDetailDataProductResponse> transactionProduct})
+      : _transactionProduct = transactionProduct,
+        super._();
 
   factory _$_HistoryDetailDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryDetailDataResponseFromJson(json);
 
   @override
   final SalesResponse transaction;
+  final List<HistoryDetailDataProductResponse> _transactionProduct;
   @override
-  final List<HistoryDetailDataProductResponse> transactionProduct;
+  List<HistoryDetailDataProductResponse> get transactionProduct {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_transactionProduct);
+  }
 
   @override
   String toString() {
@@ -167,37 +154,39 @@ class _$_HistoryDetailDataResponse extends _HistoryDetailDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetailDataResponse &&
+            other is _$_HistoryDetailDataResponse &&
             const DeepCollectionEquality()
                 .equals(other.transaction, transaction) &&
             const DeepCollectionEquality()
-                .equals(other.transactionProduct, transactionProduct));
+                .equals(other._transactionProduct, _transactionProduct));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(transactionProduct));
+      const DeepCollectionEquality().hash(_transactionProduct));
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailDataResponseCopyWith<_HistoryDetailDataResponse>
-      get copyWith =>
-          __$HistoryDetailDataResponseCopyWithImpl<_HistoryDetailDataResponse>(
-              this, _$identity);
+  _$$_HistoryDetailDataResponseCopyWith<_$_HistoryDetailDataResponse>
+      get copyWith => __$$_HistoryDetailDataResponseCopyWithImpl<
+          _$_HistoryDetailDataResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HistoryDetailDataResponseToJson(this);
+    return _$$_HistoryDetailDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HistoryDetailDataResponse extends HistoryDetailDataResponse {
   const factory _HistoryDetailDataResponse(
-          {required SalesResponse transaction,
-          required List<HistoryDetailDataProductResponse> transactionProduct}) =
-      _$_HistoryDetailDataResponse;
+      {required final SalesResponse transaction,
+      required final List<HistoryDetailDataProductResponse>
+          transactionProduct}) = _$_HistoryDetailDataResponse;
   const _HistoryDetailDataResponse._() : super._();
 
   factory _HistoryDetailDataResponse.fromJson(Map<String, dynamic> json) =
@@ -209,6 +198,6 @@ abstract class _HistoryDetailDataResponse extends HistoryDetailDataResponse {
   List<HistoryDetailDataProductResponse> get transactionProduct;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailDataResponseCopyWith<_HistoryDetailDataResponse>
+  _$$_HistoryDetailDataResponseCopyWith<_$_HistoryDetailDataResponse>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,22 +12,7 @@ part of 'branch.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$BranchTearOff {
-  const _$BranchTearOff();
-
-  _Branch call({required String? martName, required double? total}) {
-    return _Branch(
-      martName: martName,
-      total: total,
-    );
-  }
-}
-
-/// @nodoc
-const $Branch = _$BranchTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Branch {
@@ -72,28 +57,28 @@ class _$BranchCopyWithImpl<$Res> implements $BranchCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BranchCopyWith<$Res> implements $BranchCopyWith<$Res> {
-  factory _$BranchCopyWith(_Branch value, $Res Function(_Branch) then) =
-      __$BranchCopyWithImpl<$Res>;
+abstract class _$$_BranchCopyWith<$Res> implements $BranchCopyWith<$Res> {
+  factory _$$_BranchCopyWith(_$_Branch value, $Res Function(_$_Branch) then) =
+      __$$_BranchCopyWithImpl<$Res>;
   @override
   $Res call({String? martName, double? total});
 }
 
 /// @nodoc
-class __$BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
-    implements _$BranchCopyWith<$Res> {
-  __$BranchCopyWithImpl(_Branch _value, $Res Function(_Branch) _then)
-      : super(_value, (v) => _then(v as _Branch));
+class __$$_BranchCopyWithImpl<$Res> extends _$BranchCopyWithImpl<$Res>
+    implements _$$_BranchCopyWith<$Res> {
+  __$$_BranchCopyWithImpl(_$_Branch _value, $Res Function(_$_Branch) _then)
+      : super(_value, (v) => _then(v as _$_Branch));
 
   @override
-  _Branch get _value => super._value as _Branch;
+  _$_Branch get _value => super._value as _$_Branch;
 
   @override
   $Res call({
     Object? martName = freezed,
     Object? total = freezed,
   }) {
-    return _then(_Branch(
+    return _then(_$_Branch(
       martName: martName == freezed
           ? _value.martName
           : martName // ignore: cast_nullable_to_non_nullable
@@ -125,7 +110,7 @@ class _$_Branch implements _Branch {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Branch &&
+            other is _$_Branch &&
             const DeepCollectionEquality().equals(other.martName, martName) &&
             const DeepCollectionEquality().equals(other.total, total));
   }
@@ -138,13 +123,14 @@ class _$_Branch implements _Branch {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchCopyWith<_Branch> get copyWith =>
-      __$BranchCopyWithImpl<_Branch>(this, _$identity);
+  _$$_BranchCopyWith<_$_Branch> get copyWith =>
+      __$$_BranchCopyWithImpl<_$_Branch>(this, _$identity);
 }
 
 abstract class _Branch implements Branch {
-  const factory _Branch({required String? martName, required double? total}) =
-      _$_Branch;
+  const factory _Branch(
+      {required final String? martName,
+      required final double? total}) = _$_Branch;
 
   @override
   String? get martName;
@@ -152,5 +138,6 @@ abstract class _Branch implements Branch {
   double? get total;
   @override
   @JsonKey(ignore: true)
-  _$BranchCopyWith<_Branch> get copyWith => throw _privateConstructorUsedError;
+  _$$_BranchCopyWith<_$_Branch> get copyWith =>
+      throw _privateConstructorUsedError;
 }

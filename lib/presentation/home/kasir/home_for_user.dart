@@ -47,6 +47,11 @@ class HomeForUser extends StatelessWidget {
     );
   }
 
+  Future<void> actionRefresh(BuildContext context) {
+    context.read<ProfileCubit>().getProfile();
+    return context.read<HomeCubit>().getHomeUserData();
+  }
+
   @override
   Widget build(BuildContext context) {
     context.read<HomeCubit>().getHomeUserData();
@@ -80,63 +85,64 @@ class HomeForUser extends StatelessWidget {
       body: Column(
         children: [
           const UserAppBar(),
-          RefreshIndicator(
-            onRefresh: () {
-              context.read<ProfileCubit>().getProfile();
-              return context.read<HomeCubit>().getHomeUserData();
-            },
-            child: SingleChildScrollView(
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  return state.getHomeUserResultState.when(
-                    initial: () => const SizedBox.shrink(),
-                    loading: () => Container(
-                      height: 200,
-                      alignment: Alignment.center,
-                      child: const CircularProgressIndicator(),
-                    ),
-                    error: (error) => RefreshIndicator(
-                      onRefresh: () {
-                        context.read<ProfileCubit>().getProfile();
-                        return context.read<HomeCubit>().getHomeUserData();
-                      },
-                      child: SingleChildScrollView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        child: Container(
-                          height: 200,
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width,
-                          child: Text(
-                            Failure.getErrorMessage(error),
+          Expanded(
+            child: RefreshIndicator(
+              onRefresh: () => actionRefresh(context),
+              child: SingleChildScrollView(
+                child: BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    return state.getHomeUserResultState.when(
+                      initial: () => const SizedBox.shrink(),
+                      loading: () => Container(
+                        height: 200,
+                        alignment: Alignment.center,
+                        child: const CircularProgressIndicator(),
+                      ),
+                      error: (error) => RefreshIndicator(
+                        onRefresh: () => actionRefresh(context),
+                        child: SingleChildScrollView(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          child: Container(
+                            height: 200,
+                            alignment: Alignment.center,
+                            width: MediaQuery.of(context).size.width,
+                            child: Text(Failure.getErrorMessage(error)),
                           ),
                         ),
                       ),
-                    ),
-                    success: (data) {
-                      return Column(
-                        children: [
-                          SizedBox(height: Sizes.height47),
-                          HomeSummaryCard(
-                            title: Strings.totalSimpananWajib,
-                            amount: state.homeUserData.contribution.contributionWajib.toString(),
-                          ),
-                          HomeSummaryCard(
-                            title: Strings.totalSimpananAnda,
-                            amount: state.homeUserData.totalSaldoSimpananUtang.toString(),
-                          ),
-                          HomeSummaryCard(
-                            title: Strings.totalUtang,
-                            amount: state.homeUserData.totalUtang.toString(),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                },
+                      success: (data) {
+                        return Column(
+                          children: [
+                            SizedBox(height: Sizes.height20),
+                            HomeSummaryCard(
+                              title: Strings.totalSimpananWajib,
+                              amount: state.homeUserData.contribution.contributionWajib.toString(),
+                            ),
+                            HomeSummaryCard(
+                              title: Strings.totalSimpananAnda,
+                              amount: state.homeUserData.totalSaldoSimpananUtang.toString(),
+                            ),
+                            HomeSummaryCard(
+                              title: Strings.totalSimpananPokok,
+                              amount: state.homeUserData.contribution.contributionPokok.toString(),
+                            ),
+                            HomeSummaryCard(
+                              title: Strings.totalSimpananSukarela,
+                              amount: state.homeUserData.contribution.contributionSukarela.toString(),
+                            ),
+                            HomeSummaryCard(
+                              title: Strings.totalUtang,
+                              amount: state.homeUserData.totalUtang.toString(),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

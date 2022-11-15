@@ -5,6 +5,7 @@ import 'package:koperasi/presentation/history/history_page.dart';
 import 'package:koperasi/presentation/home/admin/home_admin_page.dart';
 import 'package:koperasi/presentation/home/kasir/home_for_user.dart';
 import 'package:koperasi/presentation/home/widgets/bottom_nav_bar.dart';
+import 'package:koperasi/presentation/stock_opname/stock_opname.dart';
 
 import '../../core/const/strings.dart';
 import '../../core/style/color_palettes.dart';
@@ -47,7 +48,8 @@ class _HomePageState extends State<HomePage> {
       _widgetOptions = <Widget>[
         role == 'admin' ? const HomeAdminPage() : const HomeForUser(),
         HistoryPage(role: role ?? ''),
-        const ProfilePage()
+        const StockOpnamePage(),
+        const ProfilePage(),
       ];
     });
 
@@ -60,6 +62,18 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: ColorPalettes.greyAppBar,
         title: Text(
           Strings.history,
+          style: TextStyle(
+            color: ColorPalettes.darkBlue,
+            fontSize: Sizes.sp20,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      AppBar(
+        backgroundColor: ColorPalettes.greyAppBar,
+        title: Text(
+          Strings.stockOpname,
           style: TextStyle(
             color: ColorPalettes.darkBlue,
             fontSize: Sizes.sp20,

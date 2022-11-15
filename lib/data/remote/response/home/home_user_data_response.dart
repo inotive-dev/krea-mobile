@@ -14,6 +14,7 @@ class HomeUserDataResponse with _$HomeUserDataResponse {
   const factory HomeUserDataResponse({
     @JsonKey(name: 'contribution') required ContributionResponse contribution,
     @JsonKey(name: 'total_saldo_simpanan_utang') required int totalSaldoSimpananUtang,
+    @JsonKey(name: 'total_saldo_simpanan_pokok') required int? totalSaldoSimpananPokok,
     @JsonKey(name: 'total_utang') required int totalUtang,
   }) = _HomeUserDataResponse;
 
@@ -22,12 +23,14 @@ class HomeUserDataResponse with _$HomeUserDataResponse {
   HomeUserData toDomain() => HomeUserData(
         contribution: contribution.toDomain(),
         totalSaldoSimpananUtang: totalSaldoSimpananUtang,
+        totalSaldoSimpananPokok: totalSaldoSimpananPokok,
         totalUtang: totalUtang,
       );
 
   HomeUserDataEntity toEntity() => HomeUserDataEntity(
         contribution: contribution.toEntity(),
         totalSaldoSimpananUtang: totalSaldoSimpananUtang,
+        totalSaldoSimpananPokok: totalSaldoSimpananPokok,
         totalUtang: totalUtang,
       );
 }

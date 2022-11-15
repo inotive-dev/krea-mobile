@@ -1,7 +1,13 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:koperasi/core/base/usecase/no_param.dart';
+import 'package:koperasi/core/utils/get_util.dart';
+import 'package:koperasi/data/local/local_data_source.dart';
 import 'package:koperasi/domain/entities/home/branches_data.dart';
 import 'package:koperasi/domain/entities/home/home_data.dart';
 import 'package:koperasi/domain/entities/home/home_user_data.dart';
@@ -16,6 +22,7 @@ import 'package:koperasi/domain/usecases/get_home_user_usecase.dart';
 import 'package:koperasi/domain/usecases/validate_data_usecase.dart';
 
 import '../../../../../core/unions/result_state.dart';
+import '../../../data/remote/response/home/perubahan_modal/perubahan_modal_data_response.dart';
 
 part 'home_cubit.freezed.dart';
 part 'home_state.dart';
@@ -29,6 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
   final GetHomeAdminSalesReports _getHomeAdminSalesReports;
   final GetHomeAdminPerubahanModal _getHomeAdminPerubahanModal;
   final ValidateDataUseCase _validateDataUseCase;
+  final LocalDataSource _localDataSource;
 
   HomeCubit(
     this._getHomeAdminUseCase,
@@ -38,6 +46,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._getHomeAdminSalesReports,
     this._getHomeAdminPerubahanModal,
     this._validateDataUseCase,
+    this._localDataSource,
   ) : super(HomeState.initial());
 
   updateMartId(int id) {
@@ -116,6 +125,7 @@ class HomeCubit extends Cubit<HomeState> {
       year: state.year,
       page: page,
     ));
+
     _result.fold(
       (l) {
         emit(
@@ -143,6 +153,7 @@ class HomeCubit extends Cubit<HomeState> {
       year: state.year,
       page: page,
     ));
+
     _result.fold(
       (l) {
         emit(
@@ -170,6 +181,7 @@ class HomeCubit extends Cubit<HomeState> {
       year: state.year,
       page: page,
     ));
+
     _result.fold(
       (l) {
         emit(
@@ -192,7 +204,6 @@ class HomeCubit extends Cubit<HomeState> {
 // SALES REPORTS
   getHomeAdminSalesReports(int page) async {
     bool _isUpdate = state.salesReportData.currentPage! >= 1;
-    print('ISUPDATE $_isUpdate - $page');
 
     if (_isUpdate) {
       emit(state.copyWith(updateSalesReportState: const ResultState.loading()));
@@ -214,7 +225,6 @@ class HomeCubit extends Cubit<HomeState> {
       },
       (r) {
         if (_isUpdate) {
-          print('ISUPDATE ${r.data}');
           return emit(
             state.copyWith(
               updateSalesReportState: ResultState.success(data: r),
@@ -295,5 +305,68 @@ class HomeCubit extends Cubit<HomeState> {
         );
       },
     );
+  }
+
+  // QR
+  getQRPerubahanModal(Map<String, dynamic> jsonMap) async {
+    // emit(state.copyWith(getHomeAdminPerubahanModalReportState: const ResultState.loading()));
+
+    // PerubahanModalDataResponse dataResponse = PerubahanModalDataResponse.fromJson(jsonMap);
+    // PerubahanModalData data = dataResponse.toDomain();
+
+    // AlertDialog alert = AlertDialog(
+    //   title: const Text("Perubahan Modal Data"),
+    //   content: Text(jsonEncode(jsonMap)),
+    // );
+
+    // // show the dialog
+    // GetUtil.showDialog(
+    //   alert,
+    // );
+
+    // Timer(const Duration(seconds: 1), () {
+    //   return emit(
+    //     state.copyWith(
+    //       getHomeAdminPerubahanModalReportState: ResultState.success(data: data),
+    //       perubahanModalData: data,
+    //     ),
+    //   );
+    // });
+    _localDataSource.saveQRPerubahanModal(jsonEncode(jsonMap));
+    getHomeDataPerubahanModal(1);
+  }
+
+  getQRNeraca(Map<String, dynamic> jsonMap) async {
+    _localDataSource.saveQRAdminNeraca(jsonEncode(jsonMap));
+    getHomeDataNeraca(1);
+  }
+
+  getQRLabaRugi(Map<String, dynamic> jsonMap) async {
+    _localDataSource.saveQRLabaRugi(jsonEncode(jsonMap));
+    getHomeDataLabaRugi(1);
+  }
+
+  getQRProductDetail(Map<String, dynamic> jsonMap) async {
+    emit(state.copyWith(getHomeAdminNeracaResultState: const ResultState.loading()));
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: const Text("Product Detail"),
+      content: Text(jsonEncode(jsonMap)),
+    );
+
+    // show the dialog
+    GetUtil.showDialog(
+      alert,
+    );
+
+    Timer(const Duration(seconds: 1), () {
+      return emit(
+        state.copyWith(
+          getHomeAdminNeracaResultState: const ResultState.success(data: 'data'),
+          // neracaData: data,
+        ),
+      );
+    });
   }
 }

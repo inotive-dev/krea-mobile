@@ -12,34 +12,11 @@ part of 'validate_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ValidateDataResponse _$ValidateDataResponseFromJson(Map<String, dynamic> json) {
   return _ValidateDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$ValidateDataResponseTearOff {
-  const _$ValidateDataResponseTearOff();
-
-  _ValidateDataResponse call(
-      {required String? message,
-      required int? statusCode,
-      required ValidDataResponse? data}) {
-    return _ValidateDataResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  ValidateDataResponse fromJson(Map<String, Object?> json) {
-    return ValidateDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ValidateDataResponse = _$ValidateDataResponseTearOff();
 
 /// @nodoc
 mixin _$ValidateDataResponse {
@@ -107,11 +84,11 @@ class _$ValidateDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ValidateDataResponseCopyWith<$Res>
+abstract class _$$_ValidateDataResponseCopyWith<$Res>
     implements $ValidateDataResponseCopyWith<$Res> {
-  factory _$ValidateDataResponseCopyWith(_ValidateDataResponse value,
-          $Res Function(_ValidateDataResponse) then) =
-      __$ValidateDataResponseCopyWithImpl<$Res>;
+  factory _$$_ValidateDataResponseCopyWith(_$_ValidateDataResponse value,
+          $Res Function(_$_ValidateDataResponse) then) =
+      __$$_ValidateDataResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, ValidDataResponse? data});
 
@@ -120,15 +97,15 @@ abstract class _$ValidateDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ValidateDataResponseCopyWithImpl<$Res>
+class __$$_ValidateDataResponseCopyWithImpl<$Res>
     extends _$ValidateDataResponseCopyWithImpl<$Res>
-    implements _$ValidateDataResponseCopyWith<$Res> {
-  __$ValidateDataResponseCopyWithImpl(
-      _ValidateDataResponse _value, $Res Function(_ValidateDataResponse) _then)
-      : super(_value, (v) => _then(v as _ValidateDataResponse));
+    implements _$$_ValidateDataResponseCopyWith<$Res> {
+  __$$_ValidateDataResponseCopyWithImpl(_$_ValidateDataResponse _value,
+      $Res Function(_$_ValidateDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_ValidateDataResponse));
 
   @override
-  _ValidateDataResponse get _value => super._value as _ValidateDataResponse;
+  _$_ValidateDataResponse get _value => super._value as _$_ValidateDataResponse;
 
   @override
   $Res call({
@@ -136,7 +113,7 @@ class __$ValidateDataResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_ValidateDataResponse(
+    return _then(_$_ValidateDataResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -179,13 +156,14 @@ class _$_ValidateDataResponse extends _ValidateDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidateDataResponse &&
+            other is _$_ValidateDataResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,21 +173,23 @@ class _$_ValidateDataResponse extends _ValidateDataResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$ValidateDataResponseCopyWith<_ValidateDataResponse> get copyWith =>
-      __$ValidateDataResponseCopyWithImpl<_ValidateDataResponse>(
+  _$$_ValidateDataResponseCopyWith<_$_ValidateDataResponse> get copyWith =>
+      __$$_ValidateDataResponseCopyWithImpl<_$_ValidateDataResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ValidateDataResponseToJson(this);
+    return _$$_ValidateDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ValidateDataResponse extends ValidateDataResponse {
   const factory _ValidateDataResponse(
-      {required String? message,
-      required int? statusCode,
-      required ValidDataResponse? data}) = _$_ValidateDataResponse;
+      {required final String? message,
+      required final int? statusCode,
+      required final ValidDataResponse? data}) = _$_ValidateDataResponse;
   const _ValidateDataResponse._() : super._();
 
   factory _ValidateDataResponse.fromJson(Map<String, dynamic> json) =
@@ -223,6 +203,6 @@ abstract class _ValidateDataResponse extends ValidateDataResponse {
   ValidDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$ValidateDataResponseCopyWith<_ValidateDataResponse> get copyWith =>
+  _$$_ValidateDataResponseCopyWith<_$_ValidateDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

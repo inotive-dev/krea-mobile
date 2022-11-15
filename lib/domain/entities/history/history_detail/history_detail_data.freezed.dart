@@ -12,24 +12,7 @@ part of 'history_detail_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryDetailDataTearOff {
-  const _$HistoryDetailDataTearOff();
-
-  _HistoryDetailData call(
-      {required SalesReport transaction,
-      required List<HistoryDetailDataProduct> transactionProduct}) {
-    return _HistoryDetailData(
-      transaction: transaction,
-      transactionProduct: transactionProduct,
-    );
-  }
-}
-
-/// @nodoc
-const $HistoryDetailData = _$HistoryDetailDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HistoryDetailData {
@@ -89,11 +72,11 @@ class _$HistoryDetailDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailDataCopyWith<$Res>
+abstract class _$$_HistoryDetailDataCopyWith<$Res>
     implements $HistoryDetailDataCopyWith<$Res> {
-  factory _$HistoryDetailDataCopyWith(
-          _HistoryDetailData value, $Res Function(_HistoryDetailData) then) =
-      __$HistoryDetailDataCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailDataCopyWith(_$_HistoryDetailData value,
+          $Res Function(_$_HistoryDetailData) then) =
+      __$$_HistoryDetailDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {SalesReport transaction,
@@ -104,28 +87,28 @@ abstract class _$HistoryDetailDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailDataCopyWithImpl<$Res>
+class __$$_HistoryDetailDataCopyWithImpl<$Res>
     extends _$HistoryDetailDataCopyWithImpl<$Res>
-    implements _$HistoryDetailDataCopyWith<$Res> {
-  __$HistoryDetailDataCopyWithImpl(
-      _HistoryDetailData _value, $Res Function(_HistoryDetailData) _then)
-      : super(_value, (v) => _then(v as _HistoryDetailData));
+    implements _$$_HistoryDetailDataCopyWith<$Res> {
+  __$$_HistoryDetailDataCopyWithImpl(
+      _$_HistoryDetailData _value, $Res Function(_$_HistoryDetailData) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetailData));
 
   @override
-  _HistoryDetailData get _value => super._value as _HistoryDetailData;
+  _$_HistoryDetailData get _value => super._value as _$_HistoryDetailData;
 
   @override
   $Res call({
     Object? transaction = freezed,
     Object? transactionProduct = freezed,
   }) {
-    return _then(_HistoryDetailData(
+    return _then(_$_HistoryDetailData(
       transaction: transaction == freezed
           ? _value.transaction
           : transaction // ignore: cast_nullable_to_non_nullable
               as SalesReport,
       transactionProduct: transactionProduct == freezed
-          ? _value.transactionProduct
+          ? _value._transactionProduct
           : transactionProduct // ignore: cast_nullable_to_non_nullable
               as List<HistoryDetailDataProduct>,
     ));
@@ -136,12 +119,18 @@ class __$HistoryDetailDataCopyWithImpl<$Res>
 
 class _$_HistoryDetailData implements _HistoryDetailData {
   const _$_HistoryDetailData(
-      {required this.transaction, required this.transactionProduct});
+      {required this.transaction,
+      required final List<HistoryDetailDataProduct> transactionProduct})
+      : _transactionProduct = transactionProduct;
 
   @override
   final SalesReport transaction;
+  final List<HistoryDetailDataProduct> _transactionProduct;
   @override
-  final List<HistoryDetailDataProduct> transactionProduct;
+  List<HistoryDetailDataProduct> get transactionProduct {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_transactionProduct);
+  }
 
   @override
   String toString() {
@@ -152,29 +141,30 @@ class _$_HistoryDetailData implements _HistoryDetailData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetailData &&
+            other is _$_HistoryDetailData &&
             const DeepCollectionEquality()
                 .equals(other.transaction, transaction) &&
             const DeepCollectionEquality()
-                .equals(other.transactionProduct, transactionProduct));
+                .equals(other._transactionProduct, _transactionProduct));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(transaction),
-      const DeepCollectionEquality().hash(transactionProduct));
+      const DeepCollectionEquality().hash(_transactionProduct));
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailDataCopyWith<_HistoryDetailData> get copyWith =>
-      __$HistoryDetailDataCopyWithImpl<_HistoryDetailData>(this, _$identity);
+  _$$_HistoryDetailDataCopyWith<_$_HistoryDetailData> get copyWith =>
+      __$$_HistoryDetailDataCopyWithImpl<_$_HistoryDetailData>(
+          this, _$identity);
 }
 
 abstract class _HistoryDetailData implements HistoryDetailData {
   const factory _HistoryDetailData(
-          {required SalesReport transaction,
-          required List<HistoryDetailDataProduct> transactionProduct}) =
+          {required final SalesReport transaction,
+          required final List<HistoryDetailDataProduct> transactionProduct}) =
       _$_HistoryDetailData;
 
   @override
@@ -183,6 +173,6 @@ abstract class _HistoryDetailData implements HistoryDetailData {
   List<HistoryDetailDataProduct> get transactionProduct;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailDataCopyWith<_HistoryDetailData> get copyWith =>
+  _$$_HistoryDetailDataCopyWith<_$_HistoryDetailData> get copyWith =>
       throw _privateConstructorUsedError;
 }

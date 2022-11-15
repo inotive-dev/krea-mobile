@@ -12,50 +12,7 @@ part of 'transaction.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TransactionTearOff {
-  const _$TransactionTearOff();
-
-  _Transaction call(
-      {required int? id,
-      required int? transactionId,
-      required int? productId,
-      required int? consignmentProdutId,
-      required double? sellPrice,
-      required double? buyPrice,
-      required int? qty,
-      required double? discount,
-      required double? ppn,
-      required double? subtotal,
-      required double? isConsignmentPaid,
-      required DateTime? createdAt,
-      required DateTime? updatedAt,
-      required String? totalQty,
-      required Product? product}) {
-    return _Transaction(
-      id: id,
-      transactionId: transactionId,
-      productId: productId,
-      consignmentProdutId: consignmentProdutId,
-      sellPrice: sellPrice,
-      buyPrice: buyPrice,
-      qty: qty,
-      discount: discount,
-      ppn: ppn,
-      subtotal: subtotal,
-      isConsignmentPaid: isConsignmentPaid,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      totalQty: totalQty,
-      product: product,
-    );
-  }
-}
-
-/// @nodoc
-const $Transaction = _$TransactionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Transaction {
@@ -208,11 +165,11 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TransactionCopyWith<$Res>
+abstract class _$$_TransactionCopyWith<$Res>
     implements $TransactionCopyWith<$Res> {
-  factory _$TransactionCopyWith(
-          _Transaction value, $Res Function(_Transaction) then) =
-      __$TransactionCopyWithImpl<$Res>;
+  factory _$$_TransactionCopyWith(
+          _$_Transaction value, $Res Function(_$_Transaction) then) =
+      __$$_TransactionCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -236,14 +193,14 @@ abstract class _$TransactionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
-    implements _$TransactionCopyWith<$Res> {
-  __$TransactionCopyWithImpl(
-      _Transaction _value, $Res Function(_Transaction) _then)
-      : super(_value, (v) => _then(v as _Transaction));
+class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
+    implements _$$_TransactionCopyWith<$Res> {
+  __$$_TransactionCopyWithImpl(
+      _$_Transaction _value, $Res Function(_$_Transaction) _then)
+      : super(_value, (v) => _then(v as _$_Transaction));
 
   @override
-  _Transaction get _value => super._value as _Transaction;
+  _$_Transaction get _value => super._value as _$_Transaction;
 
   @override
   $Res call({
@@ -263,7 +220,7 @@ class __$TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
     Object? totalQty = freezed,
     Object? product = freezed,
   }) {
-    return _then(_Transaction(
+    return _then(_$_Transaction(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -388,7 +345,7 @@ class _$_Transaction implements _Transaction {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Transaction &&
+            other is _$_Transaction &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.transactionId, transactionId) &&
@@ -430,27 +387,27 @@ class _$_Transaction implements _Transaction {
 
   @JsonKey(ignore: true)
   @override
-  _$TransactionCopyWith<_Transaction> get copyWith =>
-      __$TransactionCopyWithImpl<_Transaction>(this, _$identity);
+  _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
+      __$$_TransactionCopyWithImpl<_$_Transaction>(this, _$identity);
 }
 
 abstract class _Transaction implements Transaction {
   const factory _Transaction(
-      {required int? id,
-      required int? transactionId,
-      required int? productId,
-      required int? consignmentProdutId,
-      required double? sellPrice,
-      required double? buyPrice,
-      required int? qty,
-      required double? discount,
-      required double? ppn,
-      required double? subtotal,
-      required double? isConsignmentPaid,
-      required DateTime? createdAt,
-      required DateTime? updatedAt,
-      required String? totalQty,
-      required Product? product}) = _$_Transaction;
+      {required final int? id,
+      required final int? transactionId,
+      required final int? productId,
+      required final int? consignmentProdutId,
+      required final double? sellPrice,
+      required final double? buyPrice,
+      required final int? qty,
+      required final double? discount,
+      required final double? ppn,
+      required final double? subtotal,
+      required final double? isConsignmentPaid,
+      required final DateTime? createdAt,
+      required final DateTime? updatedAt,
+      required final String? totalQty,
+      required final Product? product}) = _$_Transaction;
 
   @override
   int? get id;
@@ -484,6 +441,6 @@ abstract class _Transaction implements Transaction {
   Product? get product;
   @override
   @JsonKey(ignore: true)
-  _$TransactionCopyWith<_Transaction> get copyWith =>
+  _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
       throw _privateConstructorUsedError;
 }

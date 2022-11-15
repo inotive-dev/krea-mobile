@@ -12,34 +12,7 @@ part of 'history_detail_data_product.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryDetailDataProductTearOff {
-  const _$HistoryDetailDataProductTearOff();
-
-  _HistoryDetailDataProduct call(
-      {required int? subtotal,
-      required int? id,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) {
-    return _HistoryDetailDataProduct(
-      subtotal: subtotal,
-      id: id,
-      name: name,
-      code: code,
-      thumbnail: thumbnail,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-}
-
-/// @nodoc
-const $HistoryDetailDataProduct = _$HistoryDetailDataProductTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HistoryDetailDataProduct {
@@ -124,11 +97,12 @@ class _$HistoryDetailDataProductCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailDataProductCopyWith<$Res>
+abstract class _$$_HistoryDetailDataProductCopyWith<$Res>
     implements $HistoryDetailDataProductCopyWith<$Res> {
-  factory _$HistoryDetailDataProductCopyWith(_HistoryDetailDataProduct value,
-          $Res Function(_HistoryDetailDataProduct) then) =
-      __$HistoryDetailDataProductCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailDataProductCopyWith(
+          _$_HistoryDetailDataProduct value,
+          $Res Function(_$_HistoryDetailDataProduct) then) =
+      __$$_HistoryDetailDataProductCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? subtotal,
@@ -141,16 +115,16 @@ abstract class _$HistoryDetailDataProductCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailDataProductCopyWithImpl<$Res>
+class __$$_HistoryDetailDataProductCopyWithImpl<$Res>
     extends _$HistoryDetailDataProductCopyWithImpl<$Res>
-    implements _$HistoryDetailDataProductCopyWith<$Res> {
-  __$HistoryDetailDataProductCopyWithImpl(_HistoryDetailDataProduct _value,
-      $Res Function(_HistoryDetailDataProduct) _then)
-      : super(_value, (v) => _then(v as _HistoryDetailDataProduct));
+    implements _$$_HistoryDetailDataProductCopyWith<$Res> {
+  __$$_HistoryDetailDataProductCopyWithImpl(_$_HistoryDetailDataProduct _value,
+      $Res Function(_$_HistoryDetailDataProduct) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetailDataProduct));
 
   @override
-  _HistoryDetailDataProduct get _value =>
-      super._value as _HistoryDetailDataProduct;
+  _$_HistoryDetailDataProduct get _value =>
+      super._value as _$_HistoryDetailDataProduct;
 
   @override
   $Res call({
@@ -162,7 +136,7 @@ class __$HistoryDetailDataProductCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_HistoryDetailDataProduct(
+    return _then(_$_HistoryDetailDataProduct(
       subtotal: subtotal == freezed
           ? _value.subtotal
           : subtotal // ignore: cast_nullable_to_non_nullable
@@ -231,7 +205,7 @@ class _$_HistoryDetailDataProduct implements _HistoryDetailDataProduct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetailDataProduct &&
+            other is _$_HistoryDetailDataProduct &&
             const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -254,20 +228,20 @@ class _$_HistoryDetailDataProduct implements _HistoryDetailDataProduct {
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailDataProductCopyWith<_HistoryDetailDataProduct> get copyWith =>
-      __$HistoryDetailDataProductCopyWithImpl<_HistoryDetailDataProduct>(
-          this, _$identity);
+  _$$_HistoryDetailDataProductCopyWith<_$_HistoryDetailDataProduct>
+      get copyWith => __$$_HistoryDetailDataProductCopyWithImpl<
+          _$_HistoryDetailDataProduct>(this, _$identity);
 }
 
 abstract class _HistoryDetailDataProduct implements HistoryDetailDataProduct {
   const factory _HistoryDetailDataProduct(
-      {required int? subtotal,
-      required int? id,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      required DateTime? createdAt,
-      required DateTime? updatedAt}) = _$_HistoryDetailDataProduct;
+      {required final int? subtotal,
+      required final int? id,
+      required final String? name,
+      required final String? code,
+      required final String? thumbnail,
+      required final DateTime? createdAt,
+      required final DateTime? updatedAt}) = _$_HistoryDetailDataProduct;
 
   @override
   int? get subtotal;
@@ -285,6 +259,6 @@ abstract class _HistoryDetailDataProduct implements HistoryDetailDataProduct {
   DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailDataProductCopyWith<_HistoryDetailDataProduct> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_HistoryDetailDataProductCopyWith<_$_HistoryDetailDataProduct>
+      get copyWith => throw _privateConstructorUsedError;
 }

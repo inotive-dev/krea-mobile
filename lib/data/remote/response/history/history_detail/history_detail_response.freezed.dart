@@ -12,35 +12,12 @@ part of 'history_detail_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HistoryDetailResponse _$HistoryDetailResponseFromJson(
     Map<String, dynamic> json) {
   return _HistoryDetailResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HistoryDetailResponseTearOff {
-  const _$HistoryDetailResponseTearOff();
-
-  _HistoryDetailResponse call(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDetailDataResponse data}) {
-    return _HistoryDetailResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  HistoryDetailResponse fromJson(Map<String, Object?> json) {
-    return HistoryDetailResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HistoryDetailResponse = _$HistoryDetailResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryDetailResponse {
@@ -104,11 +81,11 @@ class _$HistoryDetailResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailResponseCopyWith<$Res>
+abstract class _$$_HistoryDetailResponseCopyWith<$Res>
     implements $HistoryDetailResponseCopyWith<$Res> {
-  factory _$HistoryDetailResponseCopyWith(_HistoryDetailResponse value,
-          $Res Function(_HistoryDetailResponse) then) =
-      __$HistoryDetailResponseCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailResponseCopyWith(_$_HistoryDetailResponse value,
+          $Res Function(_$_HistoryDetailResponse) then) =
+      __$$_HistoryDetailResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HistoryDetailDataResponse data});
 
@@ -117,15 +94,16 @@ abstract class _$HistoryDetailResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailResponseCopyWithImpl<$Res>
+class __$$_HistoryDetailResponseCopyWithImpl<$Res>
     extends _$HistoryDetailResponseCopyWithImpl<$Res>
-    implements _$HistoryDetailResponseCopyWith<$Res> {
-  __$HistoryDetailResponseCopyWithImpl(_HistoryDetailResponse _value,
-      $Res Function(_HistoryDetailResponse) _then)
-      : super(_value, (v) => _then(v as _HistoryDetailResponse));
+    implements _$$_HistoryDetailResponseCopyWith<$Res> {
+  __$$_HistoryDetailResponseCopyWithImpl(_$_HistoryDetailResponse _value,
+      $Res Function(_$_HistoryDetailResponse) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetailResponse));
 
   @override
-  _HistoryDetailResponse get _value => super._value as _HistoryDetailResponse;
+  _$_HistoryDetailResponse get _value =>
+      super._value as _$_HistoryDetailResponse;
 
   @override
   $Res call({
@@ -133,7 +111,7 @@ class __$HistoryDetailResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_HistoryDetailResponse(
+    return _then(_$_HistoryDetailResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -176,13 +154,14 @@ class _$_HistoryDetailResponse extends _HistoryDetailResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetailResponse &&
+            other is _$_HistoryDetailResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -192,21 +171,24 @@ class _$_HistoryDetailResponse extends _HistoryDetailResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailResponseCopyWith<_HistoryDetailResponse> get copyWith =>
-      __$HistoryDetailResponseCopyWithImpl<_HistoryDetailResponse>(
+  _$$_HistoryDetailResponseCopyWith<_$_HistoryDetailResponse> get copyWith =>
+      __$$_HistoryDetailResponseCopyWithImpl<_$_HistoryDetailResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HistoryDetailResponseToJson(this);
+    return _$$_HistoryDetailResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HistoryDetailResponse extends HistoryDetailResponse {
   const factory _HistoryDetailResponse(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDetailDataResponse data}) = _$_HistoryDetailResponse;
+          {required final String? message,
+          required final int? statusCode,
+          required final HistoryDetailDataResponse data}) =
+      _$_HistoryDetailResponse;
   const _HistoryDetailResponse._() : super._();
 
   factory _HistoryDetailResponse.fromJson(Map<String, dynamic> json) =
@@ -220,6 +202,6 @@ abstract class _HistoryDetailResponse extends HistoryDetailResponse {
   HistoryDetailDataResponse get data;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailResponseCopyWith<_HistoryDetailResponse> get copyWith =>
+  _$$_HistoryDetailResponseCopyWith<_$_HistoryDetailResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

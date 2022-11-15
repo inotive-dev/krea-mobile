@@ -12,44 +12,12 @@ part of 'history_detail_data_product_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HistoryDetailDataProductResponse _$HistoryDetailDataProductResponseFromJson(
     Map<String, dynamic> json) {
   return _HistoryDetailDataProductResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HistoryDetailDataProductResponseTearOff {
-  const _$HistoryDetailDataProductResponseTearOff();
-
-  _HistoryDetailDataProductResponse call(
-      {required int? id,
-      required int? subtotal,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt}) {
-    return _HistoryDetailDataProductResponse(
-      id: id,
-      subtotal: subtotal,
-      name: name,
-      code: code,
-      thumbnail: thumbnail,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  HistoryDetailDataProductResponse fromJson(Map<String, Object?> json) {
-    return HistoryDetailDataProductResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HistoryDetailDataProductResponse =
-    _$HistoryDetailDataProductResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryDetailDataProductResponse {
@@ -138,12 +106,12 @@ class _$HistoryDetailDataProductResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailDataProductResponseCopyWith<$Res>
+abstract class _$$_HistoryDetailDataProductResponseCopyWith<$Res>
     implements $HistoryDetailDataProductResponseCopyWith<$Res> {
-  factory _$HistoryDetailDataProductResponseCopyWith(
-          _HistoryDetailDataProductResponse value,
-          $Res Function(_HistoryDetailDataProductResponse) then) =
-      __$HistoryDetailDataProductResponseCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailDataProductResponseCopyWith(
+          _$_HistoryDetailDataProductResponse value,
+          $Res Function(_$_HistoryDetailDataProductResponse) then) =
+      __$$_HistoryDetailDataProductResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -156,17 +124,17 @@ abstract class _$HistoryDetailDataProductResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailDataProductResponseCopyWithImpl<$Res>
+class __$$_HistoryDetailDataProductResponseCopyWithImpl<$Res>
     extends _$HistoryDetailDataProductResponseCopyWithImpl<$Res>
-    implements _$HistoryDetailDataProductResponseCopyWith<$Res> {
-  __$HistoryDetailDataProductResponseCopyWithImpl(
-      _HistoryDetailDataProductResponse _value,
-      $Res Function(_HistoryDetailDataProductResponse) _then)
-      : super(_value, (v) => _then(v as _HistoryDetailDataProductResponse));
+    implements _$$_HistoryDetailDataProductResponseCopyWith<$Res> {
+  __$$_HistoryDetailDataProductResponseCopyWithImpl(
+      _$_HistoryDetailDataProductResponse _value,
+      $Res Function(_$_HistoryDetailDataProductResponse) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetailDataProductResponse));
 
   @override
-  _HistoryDetailDataProductResponse get _value =>
-      super._value as _HistoryDetailDataProductResponse;
+  _$_HistoryDetailDataProductResponse get _value =>
+      super._value as _$_HistoryDetailDataProductResponse;
 
   @override
   $Res call({
@@ -178,7 +146,7 @@ class __$HistoryDetailDataProductResponseCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_HistoryDetailDataProductResponse(
+    return _then(_$_HistoryDetailDataProductResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -255,7 +223,7 @@ class _$_HistoryDetailDataProductResponse
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetailDataProductResponse &&
+            other is _$_HistoryDetailDataProductResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -265,6 +233,7 @@ class _$_HistoryDetailDataProductResponse
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -278,26 +247,29 @@ class _$_HistoryDetailDataProductResponse
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailDataProductResponseCopyWith<_HistoryDetailDataProductResponse>
-      get copyWith => __$HistoryDetailDataProductResponseCopyWithImpl<
-          _HistoryDetailDataProductResponse>(this, _$identity);
+  _$$_HistoryDetailDataProductResponseCopyWith<
+          _$_HistoryDetailDataProductResponse>
+      get copyWith => __$$_HistoryDetailDataProductResponseCopyWithImpl<
+          _$_HistoryDetailDataProductResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HistoryDetailDataProductResponseToJson(this);
+    return _$$_HistoryDetailDataProductResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HistoryDetailDataProductResponse
     extends HistoryDetailDataProductResponse {
   const factory _HistoryDetailDataProductResponse(
-          {required int? id,
-          required int? subtotal,
-          required String? name,
-          required String? code,
-          required String? thumbnail,
-          @JsonKey(name: 'created_at') required DateTime? createdAt,
-          @JsonKey(name: 'updated_at') required DateTime? updatedAt}) =
+          {required final int? id,
+          required final int? subtotal,
+          required final String? name,
+          required final String? code,
+          required final String? thumbnail,
+          @JsonKey(name: 'created_at') required final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') required final DateTime? updatedAt}) =
       _$_HistoryDetailDataProductResponse;
   const _HistoryDetailDataProductResponse._() : super._();
 
@@ -322,6 +294,7 @@ abstract class _HistoryDetailDataProductResponse
   DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailDataProductResponseCopyWith<_HistoryDetailDataProductResponse>
+  _$$_HistoryDetailDataProductResponseCopyWith<
+          _$_HistoryDetailDataProductResponse>
       get copyWith => throw _privateConstructorUsedError;
 }

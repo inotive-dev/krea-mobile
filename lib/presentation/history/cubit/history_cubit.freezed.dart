@@ -12,35 +12,7 @@ part of 'history_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryStateTearOff {
-  const _$HistoryStateTearOff();
-
-  _HistoryState call(
-      {ResultState<dynamic> getHistoryAdminResultState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHistoryUserResultState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHistoryDetailResultState =
-          const ResultState.initial(),
-      Map<dynamic, dynamic> selectedMart = const {'id': 1, 'name': 'Mart Alfa'},
-      required HistoryData historyData,
-      required HistoryDetailData? historyDetailData}) {
-    return _HistoryState(
-      getHistoryAdminResultState: getHistoryAdminResultState,
-      getHistoryUserResultState: getHistoryUserResultState,
-      getHistoryDetailResultState: getHistoryDetailResultState,
-      selectedMart: selectedMart,
-      historyData: historyData,
-      historyDetailData: historyDetailData,
-    );
-  }
-}
-
-/// @nodoc
-const $HistoryState = _$HistoryStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HistoryState {
@@ -169,11 +141,11 @@ class _$HistoryStateCopyWithImpl<$Res> implements $HistoryStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HistoryStateCopyWith<$Res>
+abstract class _$$_HistoryStateCopyWith<$Res>
     implements $HistoryStateCopyWith<$Res> {
-  factory _$HistoryStateCopyWith(
-          _HistoryState value, $Res Function(_HistoryState) then) =
-      __$HistoryStateCopyWithImpl<$Res>;
+  factory _$$_HistoryStateCopyWith(
+          _$_HistoryState value, $Res Function(_$_HistoryState) then) =
+      __$$_HistoryStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {ResultState<dynamic> getHistoryAdminResultState,
@@ -196,14 +168,15 @@ abstract class _$HistoryStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
-    implements _$HistoryStateCopyWith<$Res> {
-  __$HistoryStateCopyWithImpl(
-      _HistoryState _value, $Res Function(_HistoryState) _then)
-      : super(_value, (v) => _then(v as _HistoryState));
+class __$$_HistoryStateCopyWithImpl<$Res>
+    extends _$HistoryStateCopyWithImpl<$Res>
+    implements _$$_HistoryStateCopyWith<$Res> {
+  __$$_HistoryStateCopyWithImpl(
+      _$_HistoryState _value, $Res Function(_$_HistoryState) _then)
+      : super(_value, (v) => _then(v as _$_HistoryState));
 
   @override
-  _HistoryState get _value => super._value as _HistoryState;
+  _$_HistoryState get _value => super._value as _$_HistoryState;
 
   @override
   $Res call({
@@ -214,7 +187,7 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
     Object? historyData = freezed,
     Object? historyDetailData = freezed,
   }) {
-    return _then(_HistoryState(
+    return _then(_$_HistoryState(
       getHistoryAdminResultState: getHistoryAdminResultState == freezed
           ? _value.getHistoryAdminResultState
           : getHistoryAdminResultState // ignore: cast_nullable_to_non_nullable
@@ -228,7 +201,7 @@ class __$HistoryStateCopyWithImpl<$Res> extends _$HistoryStateCopyWithImpl<$Res>
           : getHistoryDetailResultState // ignore: cast_nullable_to_non_nullable
               as ResultState<dynamic>,
       selectedMart: selectedMart == freezed
-          ? _value.selectedMart
+          ? _value._selectedMart
           : selectedMart // ignore: cast_nullable_to_non_nullable
               as Map<dynamic, dynamic>,
       historyData: historyData == freezed
@@ -250,22 +223,31 @@ class _$_HistoryState implements _HistoryState {
       {this.getHistoryAdminResultState = const ResultState.initial(),
       this.getHistoryUserResultState = const ResultState.initial(),
       this.getHistoryDetailResultState = const ResultState.initial(),
-      this.selectedMart = const {'id': 1, 'name': 'Mart Alfa'},
+      final Map<dynamic, dynamic> selectedMart = const {
+        'id': 1,
+        'name': 'Mart Alfa'
+      },
       required this.historyData,
-      required this.historyDetailData});
+      required this.historyDetailData})
+      : _selectedMart = selectedMart;
 
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHistoryAdminResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHistoryUserResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHistoryDetailResultState;
-  @JsonKey()
+  final Map<dynamic, dynamic> _selectedMart;
   @override
-  final Map<dynamic, dynamic> selectedMart;
+  @JsonKey()
+  Map<dynamic, dynamic> get selectedMart {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_selectedMart);
+  }
+
   @override
   final HistoryData historyData;
   @override
@@ -280,7 +262,7 @@ class _$_HistoryState implements _HistoryState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryState &&
+            other is _$_HistoryState &&
             const DeepCollectionEquality().equals(
                 other.getHistoryAdminResultState, getHistoryAdminResultState) &&
             const DeepCollectionEquality().equals(
@@ -289,7 +271,7 @@ class _$_HistoryState implements _HistoryState {
                 other.getHistoryDetailResultState,
                 getHistoryDetailResultState) &&
             const DeepCollectionEquality()
-                .equals(other.selectedMart, selectedMart) &&
+                .equals(other._selectedMart, _selectedMart) &&
             const DeepCollectionEquality()
                 .equals(other.historyData, historyData) &&
             const DeepCollectionEquality()
@@ -302,24 +284,24 @@ class _$_HistoryState implements _HistoryState {
       const DeepCollectionEquality().hash(getHistoryAdminResultState),
       const DeepCollectionEquality().hash(getHistoryUserResultState),
       const DeepCollectionEquality().hash(getHistoryDetailResultState),
-      const DeepCollectionEquality().hash(selectedMart),
+      const DeepCollectionEquality().hash(_selectedMart),
       const DeepCollectionEquality().hash(historyData),
       const DeepCollectionEquality().hash(historyDetailData));
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryStateCopyWith<_HistoryState> get copyWith =>
-      __$HistoryStateCopyWithImpl<_HistoryState>(this, _$identity);
+  _$$_HistoryStateCopyWith<_$_HistoryState> get copyWith =>
+      __$$_HistoryStateCopyWithImpl<_$_HistoryState>(this, _$identity);
 }
 
 abstract class _HistoryState implements HistoryState {
   const factory _HistoryState(
-      {ResultState<dynamic> getHistoryAdminResultState,
-      ResultState<dynamic> getHistoryUserResultState,
-      ResultState<dynamic> getHistoryDetailResultState,
-      Map<dynamic, dynamic> selectedMart,
-      required HistoryData historyData,
-      required HistoryDetailData? historyDetailData}) = _$_HistoryState;
+      {final ResultState<dynamic> getHistoryAdminResultState,
+      final ResultState<dynamic> getHistoryUserResultState,
+      final ResultState<dynamic> getHistoryDetailResultState,
+      final Map<dynamic, dynamic> selectedMart,
+      required final HistoryData historyData,
+      required final HistoryDetailData? historyDetailData}) = _$_HistoryState;
 
   @override
   ResultState<dynamic> get getHistoryAdminResultState;
@@ -335,6 +317,6 @@ abstract class _HistoryState implements HistoryState {
   HistoryDetailData? get historyDetailData;
   @override
   @JsonKey(ignore: true)
-  _$HistoryStateCopyWith<_HistoryState> get copyWith =>
+  _$$_HistoryStateCopyWith<_$_HistoryState> get copyWith =>
       throw _privateConstructorUsedError;
 }

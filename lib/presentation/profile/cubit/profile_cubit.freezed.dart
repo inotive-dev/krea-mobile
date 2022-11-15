@@ -12,39 +12,7 @@ part of 'profile_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProfileStateTearOff {
-  const _$ProfileStateTearOff();
-
-  _ProfileState call(
-      {ResultState<dynamic> logoutResultState = const ResultState.initial(),
-      ResultState<dynamic> getProfileResultState = const ResultState.initial(),
-      ResultState<dynamic> updateProfileResultState =
-          const ResultState.initial(),
-      UserResponse? user,
-      String name = '',
-      String email = '',
-      String phoneNumber = '',
-      String password = '',
-      File? pickedImageFile}) {
-    return _ProfileState(
-      logoutResultState: logoutResultState,
-      getProfileResultState: getProfileResultState,
-      updateProfileResultState: updateProfileResultState,
-      user: user,
-      name: name,
-      email: email,
-      phoneNumber: phoneNumber,
-      password: password,
-      pickedImageFile: pickedImageFile,
-    );
-  }
-}
-
-/// @nodoc
-const $ProfileState = _$ProfileStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProfileState {
@@ -185,11 +153,11 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ProfileStateCopyWith<$Res>
+abstract class _$$_ProfileStateCopyWith<$Res>
     implements $ProfileStateCopyWith<$Res> {
-  factory _$ProfileStateCopyWith(
-          _ProfileState value, $Res Function(_ProfileState) then) =
-      __$ProfileStateCopyWithImpl<$Res>;
+  factory _$$_ProfileStateCopyWith(
+          _$_ProfileState value, $Res Function(_$_ProfileState) then) =
+      __$$_ProfileStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {ResultState<dynamic> logoutResultState,
@@ -213,14 +181,15 @@ abstract class _$ProfileStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
-    implements _$ProfileStateCopyWith<$Res> {
-  __$ProfileStateCopyWithImpl(
-      _ProfileState _value, $Res Function(_ProfileState) _then)
-      : super(_value, (v) => _then(v as _ProfileState));
+class __$$_ProfileStateCopyWithImpl<$Res>
+    extends _$ProfileStateCopyWithImpl<$Res>
+    implements _$$_ProfileStateCopyWith<$Res> {
+  __$$_ProfileStateCopyWithImpl(
+      _$_ProfileState _value, $Res Function(_$_ProfileState) _then)
+      : super(_value, (v) => _then(v as _$_ProfileState));
 
   @override
-  _ProfileState get _value => super._value as _ProfileState;
+  _$_ProfileState get _value => super._value as _$_ProfileState;
 
   @override
   $Res call({
@@ -234,7 +203,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? pickedImageFile = freezed,
   }) {
-    return _then(_ProfileState(
+    return _then(_$_ProfileState(
       logoutResultState: logoutResultState == freezed
           ? _value.logoutResultState
           : logoutResultState // ignore: cast_nullable_to_non_nullable
@@ -289,28 +258,28 @@ class _$_ProfileState implements _ProfileState {
       this.password = '',
       this.pickedImageFile});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> logoutResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getProfileResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> updateProfileResultState;
   @override
   final UserResponse? user;
-  @JsonKey()
   @override
+  @JsonKey()
   final String name;
-  @JsonKey()
   @override
+  @JsonKey()
   final String email;
-  @JsonKey()
   @override
+  @JsonKey()
   final String phoneNumber;
-  @JsonKey()
   @override
+  @JsonKey()
   final String password;
   @override
   final File? pickedImageFile;
@@ -324,7 +293,7 @@ class _$_ProfileState implements _ProfileState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProfileState &&
+            other is _$_ProfileState &&
             const DeepCollectionEquality()
                 .equals(other.logoutResultState, logoutResultState) &&
             const DeepCollectionEquality()
@@ -356,21 +325,21 @@ class _$_ProfileState implements _ProfileState {
 
   @JsonKey(ignore: true)
   @override
-  _$ProfileStateCopyWith<_ProfileState> get copyWith =>
-      __$ProfileStateCopyWithImpl<_ProfileState>(this, _$identity);
+  _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
+      __$$_ProfileStateCopyWithImpl<_$_ProfileState>(this, _$identity);
 }
 
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
-      {ResultState<dynamic> logoutResultState,
-      ResultState<dynamic> getProfileResultState,
-      ResultState<dynamic> updateProfileResultState,
-      UserResponse? user,
-      String name,
-      String email,
-      String phoneNumber,
-      String password,
-      File? pickedImageFile}) = _$_ProfileState;
+      {final ResultState<dynamic> logoutResultState,
+      final ResultState<dynamic> getProfileResultState,
+      final ResultState<dynamic> updateProfileResultState,
+      final UserResponse? user,
+      final String name,
+      final String email,
+      final String phoneNumber,
+      final String password,
+      final File? pickedImageFile}) = _$_ProfileState;
 
   @override
   ResultState<dynamic> get logoutResultState;
@@ -392,6 +361,6 @@ abstract class _ProfileState implements ProfileState {
   File? get pickedImageFile;
   @override
   @JsonKey(ignore: true)
-  _$ProfileStateCopyWith<_ProfileState> get copyWith =>
+  _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
       throw _privateConstructorUsedError;
 }

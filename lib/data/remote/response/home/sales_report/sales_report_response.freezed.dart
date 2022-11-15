@@ -12,34 +12,11 @@ part of 'sales_report_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SalesReportResponse _$SalesReportResponseFromJson(Map<String, dynamic> json) {
   return _SalesReportResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$SalesReportResponseTearOff {
-  const _$SalesReportResponseTearOff();
-
-  _SalesReportResponse call(
-      {required String? message,
-      required int? statusCode,
-      required SalesReportDataResponse? data}) {
-    return _SalesReportResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  SalesReportResponse fromJson(Map<String, Object?> json) {
-    return SalesReportResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SalesReportResponse = _$SalesReportResponseTearOff();
 
 /// @nodoc
 mixin _$SalesReportResponse {
@@ -107,11 +84,11 @@ class _$SalesReportResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SalesReportResponseCopyWith<$Res>
+abstract class _$$_SalesReportResponseCopyWith<$Res>
     implements $SalesReportResponseCopyWith<$Res> {
-  factory _$SalesReportResponseCopyWith(_SalesReportResponse value,
-          $Res Function(_SalesReportResponse) then) =
-      __$SalesReportResponseCopyWithImpl<$Res>;
+  factory _$$_SalesReportResponseCopyWith(_$_SalesReportResponse value,
+          $Res Function(_$_SalesReportResponse) then) =
+      __$$_SalesReportResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, SalesReportDataResponse? data});
 
@@ -120,15 +97,15 @@ abstract class _$SalesReportResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesReportResponseCopyWithImpl<$Res>
+class __$$_SalesReportResponseCopyWithImpl<$Res>
     extends _$SalesReportResponseCopyWithImpl<$Res>
-    implements _$SalesReportResponseCopyWith<$Res> {
-  __$SalesReportResponseCopyWithImpl(
-      _SalesReportResponse _value, $Res Function(_SalesReportResponse) _then)
-      : super(_value, (v) => _then(v as _SalesReportResponse));
+    implements _$$_SalesReportResponseCopyWith<$Res> {
+  __$$_SalesReportResponseCopyWithImpl(_$_SalesReportResponse _value,
+      $Res Function(_$_SalesReportResponse) _then)
+      : super(_value, (v) => _then(v as _$_SalesReportResponse));
 
   @override
-  _SalesReportResponse get _value => super._value as _SalesReportResponse;
+  _$_SalesReportResponse get _value => super._value as _$_SalesReportResponse;
 
   @override
   $Res call({
@@ -136,7 +113,7 @@ class __$SalesReportResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_SalesReportResponse(
+    return _then(_$_SalesReportResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -179,13 +156,14 @@ class _$_SalesReportResponse extends _SalesReportResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesReportResponse &&
+            other is _$_SalesReportResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,21 +173,23 @@ class _$_SalesReportResponse extends _SalesReportResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesReportResponseCopyWith<_SalesReportResponse> get copyWith =>
-      __$SalesReportResponseCopyWithImpl<_SalesReportResponse>(
+  _$$_SalesReportResponseCopyWith<_$_SalesReportResponse> get copyWith =>
+      __$$_SalesReportResponseCopyWithImpl<_$_SalesReportResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SalesReportResponseToJson(this);
+    return _$$_SalesReportResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _SalesReportResponse extends SalesReportResponse {
   const factory _SalesReportResponse(
-      {required String? message,
-      required int? statusCode,
-      required SalesReportDataResponse? data}) = _$_SalesReportResponse;
+      {required final String? message,
+      required final int? statusCode,
+      required final SalesReportDataResponse? data}) = _$_SalesReportResponse;
   const _SalesReportResponse._() : super._();
 
   factory _SalesReportResponse.fromJson(Map<String, dynamic> json) =
@@ -223,6 +203,6 @@ abstract class _SalesReportResponse extends SalesReportResponse {
   SalesReportDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$SalesReportResponseCopyWith<_SalesReportResponse> get copyWith =>
+  _$$_SalesReportResponseCopyWith<_$_SalesReportResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

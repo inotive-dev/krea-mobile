@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:koperasi/core/utils/network_info/network_info.dart';
+import 'package:koperasi/data/local/hive/hive_manager.dart';
 
 import '../core/const/constants.dart';
 import '../data/local/hive/hive_key.dart';
@@ -39,6 +40,9 @@ abstract class RegisterModule {
 
   @lazySingleton
   Box<dynamic> hiveBoxKoperasi() => Hive.box(HiveKey.boxKoperasi);
+
+  @lazySingleton
+  HiveManager hiveManager() => HiveManager(hiveBoxKoperasi());
 
   @lazySingleton
   NetworkInfoImpl networkInfoImpl() => NetworkInfoImpl(InternetConnectionChecker());

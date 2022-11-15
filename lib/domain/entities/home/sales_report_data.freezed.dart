@@ -12,46 +12,7 @@ part of 'sales_report_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SalesReportDataTearOff {
-  const _$SalesReportDataTearOff();
-
-  _SalesReportData call(
-      {required int? currentPage,
-      required List<SalesResponse>? data,
-      required String? firstPageUrl,
-      required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
-      required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
-      required int? to,
-      required int? total}) {
-    return _SalesReportData(
-      currentPage: currentPage,
-      data: data,
-      firstPageUrl: firstPageUrl,
-      from: from,
-      lastPage: lastPage,
-      lastPageUrl: lastPageUrl,
-      links: links,
-      nextPageUrl: nextPageUrl,
-      path: path,
-      perPage: perPage,
-      prevPageUrl: prevPageUrl,
-      to: to,
-      total: total,
-    );
-  }
-}
-
-/// @nodoc
-const $SalesReportData = _$SalesReportDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SalesReportData {
@@ -178,11 +139,11 @@ class _$SalesReportDataCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SalesReportDataCopyWith<$Res>
+abstract class _$$_SalesReportDataCopyWith<$Res>
     implements $SalesReportDataCopyWith<$Res> {
-  factory _$SalesReportDataCopyWith(
-          _SalesReportData value, $Res Function(_SalesReportData) then) =
-      __$SalesReportDataCopyWithImpl<$Res>;
+  factory _$$_SalesReportDataCopyWith(
+          _$_SalesReportData value, $Res Function(_$_SalesReportData) then) =
+      __$$_SalesReportDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? currentPage,
@@ -201,15 +162,15 @@ abstract class _$SalesReportDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesReportDataCopyWithImpl<$Res>
+class __$$_SalesReportDataCopyWithImpl<$Res>
     extends _$SalesReportDataCopyWithImpl<$Res>
-    implements _$SalesReportDataCopyWith<$Res> {
-  __$SalesReportDataCopyWithImpl(
-      _SalesReportData _value, $Res Function(_SalesReportData) _then)
-      : super(_value, (v) => _then(v as _SalesReportData));
+    implements _$$_SalesReportDataCopyWith<$Res> {
+  __$$_SalesReportDataCopyWithImpl(
+      _$_SalesReportData _value, $Res Function(_$_SalesReportData) _then)
+      : super(_value, (v) => _then(v as _$_SalesReportData));
 
   @override
-  _SalesReportData get _value => super._value as _SalesReportData;
+  _$_SalesReportData get _value => super._value as _$_SalesReportData;
 
   @override
   $Res call({
@@ -227,13 +188,13 @@ class __$SalesReportDataCopyWithImpl<$Res>
     Object? to = freezed,
     Object? total = freezed,
   }) {
-    return _then(_SalesReportData(
+    return _then(_$_SalesReportData(
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int?,
       data: data == freezed
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<SalesResponse>?,
       firstPageUrl: firstPageUrl == freezed
@@ -253,7 +214,7 @@ class __$SalesReportDataCopyWithImpl<$Res>
           : lastPageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       links: links == freezed
-          ? _value.links
+          ? _value._links
           : links // ignore: cast_nullable_to_non_nullable
               as List<Link>?,
       nextPageUrl: nextPageUrl == freezed
@@ -289,23 +250,32 @@ class __$SalesReportDataCopyWithImpl<$Res>
 class _$_SalesReportData implements _SalesReportData {
   const _$_SalesReportData(
       {required this.currentPage,
-      required this.data,
+      required final List<SalesResponse>? data,
       required this.firstPageUrl,
       required this.from,
       required this.lastPage,
       required this.lastPageUrl,
-      required this.links,
+      required final List<Link>? links,
       required this.nextPageUrl,
       required this.path,
       required this.perPage,
       required this.prevPageUrl,
       required this.to,
-      required this.total});
+      required this.total})
+      : _data = data,
+        _links = links;
 
   @override
   final int? currentPage;
+  final List<SalesResponse>? _data;
   @override
-  final List<SalesResponse>? data;
+  List<SalesResponse>? get data {
+    final value = _data;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? firstPageUrl;
   @override
@@ -314,8 +284,15 @@ class _$_SalesReportData implements _SalesReportData {
   final int? lastPage;
   @override
   final String? lastPageUrl;
+  final List<Link>? _links;
   @override
-  final List<Link>? links;
+  List<Link>? get links {
+    final value = _links;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? nextPageUrl;
   @override
@@ -338,17 +315,17 @@ class _$_SalesReportData implements _SalesReportData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesReportData &&
+            other is _$_SalesReportData &&
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality()
                 .equals(other.firstPageUrl, firstPageUrl) &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.lastPage, lastPage) &&
             const DeepCollectionEquality()
                 .equals(other.lastPageUrl, lastPageUrl) &&
-            const DeepCollectionEquality().equals(other.links, links) &&
+            const DeepCollectionEquality().equals(other._links, _links) &&
             const DeepCollectionEquality()
                 .equals(other.nextPageUrl, nextPageUrl) &&
             const DeepCollectionEquality().equals(other.path, path) &&
@@ -363,12 +340,12 @@ class _$_SalesReportData implements _SalesReportData {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(firstPageUrl),
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(lastPage),
       const DeepCollectionEquality().hash(lastPageUrl),
-      const DeepCollectionEquality().hash(links),
+      const DeepCollectionEquality().hash(_links),
       const DeepCollectionEquality().hash(nextPageUrl),
       const DeepCollectionEquality().hash(path),
       const DeepCollectionEquality().hash(perPage),
@@ -378,25 +355,25 @@ class _$_SalesReportData implements _SalesReportData {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesReportDataCopyWith<_SalesReportData> get copyWith =>
-      __$SalesReportDataCopyWithImpl<_SalesReportData>(this, _$identity);
+  _$$_SalesReportDataCopyWith<_$_SalesReportData> get copyWith =>
+      __$$_SalesReportDataCopyWithImpl<_$_SalesReportData>(this, _$identity);
 }
 
 abstract class _SalesReportData implements SalesReportData {
   const factory _SalesReportData(
-      {required int? currentPage,
-      required List<SalesResponse>? data,
-      required String? firstPageUrl,
-      required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
-      required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
-      required int? to,
-      required int? total}) = _$_SalesReportData;
+      {required final int? currentPage,
+      required final List<SalesResponse>? data,
+      required final String? firstPageUrl,
+      required final int? from,
+      required final int? lastPage,
+      required final String? lastPageUrl,
+      required final List<Link>? links,
+      required final String? nextPageUrl,
+      required final String? path,
+      required final int? perPage,
+      required final String? prevPageUrl,
+      required final int? to,
+      required final int? total}) = _$_SalesReportData;
 
   @override
   int? get currentPage;
@@ -426,6 +403,6 @@ abstract class _SalesReportData implements SalesReportData {
   int? get total;
   @override
   @JsonKey(ignore: true)
-  _$SalesReportDataCopyWith<_SalesReportData> get copyWith =>
+  _$$_SalesReportDataCopyWith<_$_SalesReportData> get copyWith =>
       throw _privateConstructorUsedError;
 }

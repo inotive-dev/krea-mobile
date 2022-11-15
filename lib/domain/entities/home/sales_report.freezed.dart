@@ -12,56 +12,7 @@ part of 'sales_report.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SalesReportTearOff {
-  const _$SalesReportTearOff();
-
-  _SalesReport call(
-      {required int? id,
-      required int? martId,
-      required int? userId,
-      required double? total,
-      required double? totalDiscount,
-      required double? totalPpn,
-      required double? hpp,
-      required double? grandTotal,
-      required String? paymentMethod,
-      required String? bankName,
-      required double? totalPayment,
-      required double? totalChange,
-      required DateTime? createdAt,
-      required DateTime? updatedAt,
-      required DateTime? updatedAtMobile,
-      required int? isMatched,
-      required UserResponse? user,
-      required Mart? mart}) {
-    return _SalesReport(
-      id: id,
-      martId: martId,
-      userId: userId,
-      total: total,
-      totalDiscount: totalDiscount,
-      totalPpn: totalPpn,
-      hpp: hpp,
-      grandTotal: grandTotal,
-      paymentMethod: paymentMethod,
-      bankName: bankName,
-      totalPayment: totalPayment,
-      totalChange: totalChange,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      updatedAtMobile: updatedAtMobile,
-      isMatched: isMatched,
-      user: user,
-      mart: mart,
-    );
-  }
-}
-
-/// @nodoc
-const $SalesReport = _$SalesReportTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SalesReport {
@@ -247,11 +198,11 @@ class _$SalesReportCopyWithImpl<$Res> implements $SalesReportCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SalesReportCopyWith<$Res>
+abstract class _$$_SalesReportCopyWith<$Res>
     implements $SalesReportCopyWith<$Res> {
-  factory _$SalesReportCopyWith(
-          _SalesReport value, $Res Function(_SalesReport) then) =
-      __$SalesReportCopyWithImpl<$Res>;
+  factory _$$_SalesReportCopyWith(
+          _$_SalesReport value, $Res Function(_$_SalesReport) then) =
+      __$$_SalesReportCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -280,14 +231,14 @@ abstract class _$SalesReportCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
-    implements _$SalesReportCopyWith<$Res> {
-  __$SalesReportCopyWithImpl(
-      _SalesReport _value, $Res Function(_SalesReport) _then)
-      : super(_value, (v) => _then(v as _SalesReport));
+class __$$_SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
+    implements _$$_SalesReportCopyWith<$Res> {
+  __$$_SalesReportCopyWithImpl(
+      _$_SalesReport _value, $Res Function(_$_SalesReport) _then)
+      : super(_value, (v) => _then(v as _$_SalesReport));
 
   @override
-  _SalesReport get _value => super._value as _SalesReport;
+  _$_SalesReport get _value => super._value as _$_SalesReport;
 
   @override
   $Res call({
@@ -310,7 +261,7 @@ class __$SalesReportCopyWithImpl<$Res> extends _$SalesReportCopyWithImpl<$Res>
     Object? user = freezed,
     Object? mart = freezed,
   }) {
-    return _then(_SalesReport(
+    return _then(_$_SalesReport(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -456,7 +407,7 @@ class _$_SalesReport implements _SalesReport {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesReport &&
+            other is _$_SalesReport &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.martId, martId) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
@@ -507,30 +458,30 @@ class _$_SalesReport implements _SalesReport {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesReportCopyWith<_SalesReport> get copyWith =>
-      __$SalesReportCopyWithImpl<_SalesReport>(this, _$identity);
+  _$$_SalesReportCopyWith<_$_SalesReport> get copyWith =>
+      __$$_SalesReportCopyWithImpl<_$_SalesReport>(this, _$identity);
 }
 
 abstract class _SalesReport implements SalesReport {
   const factory _SalesReport(
-      {required int? id,
-      required int? martId,
-      required int? userId,
-      required double? total,
-      required double? totalDiscount,
-      required double? totalPpn,
-      required double? hpp,
-      required double? grandTotal,
-      required String? paymentMethod,
-      required String? bankName,
-      required double? totalPayment,
-      required double? totalChange,
-      required DateTime? createdAt,
-      required DateTime? updatedAt,
-      required DateTime? updatedAtMobile,
-      required int? isMatched,
-      required UserResponse? user,
-      required Mart? mart}) = _$_SalesReport;
+      {required final int? id,
+      required final int? martId,
+      required final int? userId,
+      required final double? total,
+      required final double? totalDiscount,
+      required final double? totalPpn,
+      required final double? hpp,
+      required final double? grandTotal,
+      required final String? paymentMethod,
+      required final String? bankName,
+      required final double? totalPayment,
+      required final double? totalChange,
+      required final DateTime? createdAt,
+      required final DateTime? updatedAt,
+      required final DateTime? updatedAtMobile,
+      required final int? isMatched,
+      required final UserResponse? user,
+      required final Mart? mart}) = _$_SalesReport;
 
   @override
   int? get id;
@@ -570,6 +521,6 @@ abstract class _SalesReport implements SalesReport {
   Mart? get mart;
   @override
   @JsonKey(ignore: true)
-  _$SalesReportCopyWith<_SalesReport> get copyWith =>
+  _$$_SalesReportCopyWith<_$_SalesReport> get copyWith =>
       throw _privateConstructorUsedError;
 }

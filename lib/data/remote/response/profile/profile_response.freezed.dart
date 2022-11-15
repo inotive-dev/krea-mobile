@@ -12,29 +12,11 @@ part of 'profile_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) {
   return _ProfileResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$ProfileResponseTearOff {
-  const _$ProfileResponseTearOff();
-
-  _ProfileResponse call({UserResponse? user}) {
-    return _ProfileResponse(
-      user: user,
-    );
-  }
-
-  ProfileResponse fromJson(Map<String, Object?> json) {
-    return ProfileResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ProfileResponse = _$ProfileResponseTearOff();
 
 /// @nodoc
 mixin _$ProfileResponse {
@@ -90,11 +72,11 @@ class _$ProfileResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProfileResponseCopyWith<$Res>
+abstract class _$$_ProfileResponseCopyWith<$Res>
     implements $ProfileResponseCopyWith<$Res> {
-  factory _$ProfileResponseCopyWith(
-          _ProfileResponse value, $Res Function(_ProfileResponse) then) =
-      __$ProfileResponseCopyWithImpl<$Res>;
+  factory _$$_ProfileResponseCopyWith(
+          _$_ProfileResponse value, $Res Function(_$_ProfileResponse) then) =
+      __$$_ProfileResponseCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user});
 
@@ -103,21 +85,21 @@ abstract class _$ProfileResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProfileResponseCopyWithImpl<$Res>
+class __$$_ProfileResponseCopyWithImpl<$Res>
     extends _$ProfileResponseCopyWithImpl<$Res>
-    implements _$ProfileResponseCopyWith<$Res> {
-  __$ProfileResponseCopyWithImpl(
-      _ProfileResponse _value, $Res Function(_ProfileResponse) _then)
-      : super(_value, (v) => _then(v as _ProfileResponse));
+    implements _$$_ProfileResponseCopyWith<$Res> {
+  __$$_ProfileResponseCopyWithImpl(
+      _$_ProfileResponse _value, $Res Function(_$_ProfileResponse) _then)
+      : super(_value, (v) => _then(v as _$_ProfileResponse));
 
   @override
-  _ProfileResponse get _value => super._value as _ProfileResponse;
+  _$_ProfileResponse get _value => super._value as _$_ProfileResponse;
 
   @override
   $Res call({
     Object? user = freezed,
   }) {
-    return _then(_ProfileResponse(
+    return _then(_$_ProfileResponse(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -146,27 +128,31 @@ class _$_ProfileResponse extends _ProfileResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProfileResponse &&
+            other is _$_ProfileResponse &&
             const DeepCollectionEquality().equals(other.user, user));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
 
   @JsonKey(ignore: true)
   @override
-  _$ProfileResponseCopyWith<_ProfileResponse> get copyWith =>
-      __$ProfileResponseCopyWithImpl<_ProfileResponse>(this, _$identity);
+  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
+      __$$_ProfileResponseCopyWithImpl<_$_ProfileResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileResponseToJson(this);
+    return _$$_ProfileResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ProfileResponse extends ProfileResponse {
-  const factory _ProfileResponse({UserResponse? user}) = _$_ProfileResponse;
+  const factory _ProfileResponse({final UserResponse? user}) =
+      _$_ProfileResponse;
   const _ProfileResponse._() : super._();
 
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
@@ -176,6 +162,6 @@ abstract class _ProfileResponse extends ProfileResponse {
   UserResponse? get user;
   @override
   @JsonKey(ignore: true)
-  _$ProfileResponseCopyWith<_ProfileResponse> get copyWith =>
+  _$$_ProfileResponseCopyWith<_$_ProfileResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -12,31 +12,7 @@ part of 'reset_password_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResetPasswordStateTearOff {
-  const _$ResetPasswordStateTearOff();
-
-  _ResetPasswordState call(
-      {ResultState<dynamic> sendEmailResultState = const ResultState.initial(),
-      ResultState<dynamic> sendOTPResultState = const ResultState.initial(),
-      ResultState<dynamic> sendResetPasswordResultState =
-          const ResultState.initial(),
-      required ResetPasswordSteps? resetStep,
-      required String validOtp}) {
-    return _ResetPasswordState(
-      sendEmailResultState: sendEmailResultState,
-      sendOTPResultState: sendOTPResultState,
-      sendResetPasswordResultState: sendResetPasswordResultState,
-      resetStep: resetStep,
-      validOtp: validOtp,
-    );
-  }
-}
-
-/// @nodoc
-const $ResetPasswordState = _$ResetPasswordStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ResetPasswordState {
@@ -138,11 +114,11 @@ class _$ResetPasswordStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResetPasswordStateCopyWith<$Res>
+abstract class _$$_ResetPasswordStateCopyWith<$Res>
     implements $ResetPasswordStateCopyWith<$Res> {
-  factory _$ResetPasswordStateCopyWith(
-          _ResetPasswordState value, $Res Function(_ResetPasswordState) then) =
-      __$ResetPasswordStateCopyWithImpl<$Res>;
+  factory _$$_ResetPasswordStateCopyWith(_$_ResetPasswordState value,
+          $Res Function(_$_ResetPasswordState) then) =
+      __$$_ResetPasswordStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {ResultState<dynamic> sendEmailResultState,
@@ -160,15 +136,15 @@ abstract class _$ResetPasswordStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResetPasswordStateCopyWithImpl<$Res>
+class __$$_ResetPasswordStateCopyWithImpl<$Res>
     extends _$ResetPasswordStateCopyWithImpl<$Res>
-    implements _$ResetPasswordStateCopyWith<$Res> {
-  __$ResetPasswordStateCopyWithImpl(
-      _ResetPasswordState _value, $Res Function(_ResetPasswordState) _then)
-      : super(_value, (v) => _then(v as _ResetPasswordState));
+    implements _$$_ResetPasswordStateCopyWith<$Res> {
+  __$$_ResetPasswordStateCopyWithImpl(
+      _$_ResetPasswordState _value, $Res Function(_$_ResetPasswordState) _then)
+      : super(_value, (v) => _then(v as _$_ResetPasswordState));
 
   @override
-  _ResetPasswordState get _value => super._value as _ResetPasswordState;
+  _$_ResetPasswordState get _value => super._value as _$_ResetPasswordState;
 
   @override
   $Res call({
@@ -178,7 +154,7 @@ class __$ResetPasswordStateCopyWithImpl<$Res>
     Object? resetStep = freezed,
     Object? validOtp = freezed,
   }) {
-    return _then(_ResetPasswordState(
+    return _then(_$_ResetPasswordState(
       sendEmailResultState: sendEmailResultState == freezed
           ? _value.sendEmailResultState
           : sendEmailResultState // ignore: cast_nullable_to_non_nullable
@@ -213,14 +189,14 @@ class _$_ResetPasswordState implements _ResetPasswordState {
       required this.resetStep,
       required this.validOtp});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> sendEmailResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> sendOTPResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> sendResetPasswordResultState;
   @override
   final ResetPasswordSteps? resetStep;
@@ -236,7 +212,7 @@ class _$_ResetPasswordState implements _ResetPasswordState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResetPasswordState &&
+            other is _$_ResetPasswordState &&
             const DeepCollectionEquality()
                 .equals(other.sendEmailResultState, sendEmailResultState) &&
             const DeepCollectionEquality()
@@ -259,17 +235,18 @@ class _$_ResetPasswordState implements _ResetPasswordState {
 
   @JsonKey(ignore: true)
   @override
-  _$ResetPasswordStateCopyWith<_ResetPasswordState> get copyWith =>
-      __$ResetPasswordStateCopyWithImpl<_ResetPasswordState>(this, _$identity);
+  _$$_ResetPasswordStateCopyWith<_$_ResetPasswordState> get copyWith =>
+      __$$_ResetPasswordStateCopyWithImpl<_$_ResetPasswordState>(
+          this, _$identity);
 }
 
 abstract class _ResetPasswordState implements ResetPasswordState {
   const factory _ResetPasswordState(
-      {ResultState<dynamic> sendEmailResultState,
-      ResultState<dynamic> sendOTPResultState,
-      ResultState<dynamic> sendResetPasswordResultState,
-      required ResetPasswordSteps? resetStep,
-      required String validOtp}) = _$_ResetPasswordState;
+      {final ResultState<dynamic> sendEmailResultState,
+      final ResultState<dynamic> sendOTPResultState,
+      final ResultState<dynamic> sendResetPasswordResultState,
+      required final ResetPasswordSteps? resetStep,
+      required final String validOtp}) = _$_ResetPasswordState;
 
   @override
   ResultState<dynamic> get sendEmailResultState;
@@ -283,6 +260,6 @@ abstract class _ResetPasswordState implements ResetPasswordState {
   String get validOtp;
   @override
   @JsonKey(ignore: true)
-  _$ResetPasswordStateCopyWith<_ResetPasswordState> get copyWith =>
+  _$$_ResetPasswordStateCopyWith<_$_ResetPasswordState> get copyWith =>
       throw _privateConstructorUsedError;
 }

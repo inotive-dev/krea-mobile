@@ -12,6 +12,7 @@ class HomeUserDataEntity extends Equatable {
   const HomeUserDataEntity({
     required this.contribution,
     required this.totalSaldoSimpananUtang,
+    required this.totalSaldoSimpananPokok,
     required this.totalUtang,
   });
 
@@ -21,12 +22,15 @@ class HomeUserDataEntity extends Equatable {
   final int? totalSaldoSimpananUtang;
   @HiveField(2)
   final int? totalUtang;
+  @HiveField(3)
+  final int? totalSaldoSimpananPokok;
 
   @override
   List<Object?> get props {
     return [
       contribution,
       totalSaldoSimpananUtang,
+      totalSaldoSimpananPokok,
       totalUtang,
     ];
   }
@@ -34,6 +38,7 @@ class HomeUserDataEntity extends Equatable {
   HomeUserData toDomain() => HomeUserData(
         contribution: contribution?.toDomain() ?? Contribution.initial(),
         totalSaldoSimpananUtang: totalSaldoSimpananUtang ?? 0,
+        totalSaldoSimpananPokok: totalSaldoSimpananPokok ?? 0,
         totalUtang: totalUtang ?? 0,
       );
 }

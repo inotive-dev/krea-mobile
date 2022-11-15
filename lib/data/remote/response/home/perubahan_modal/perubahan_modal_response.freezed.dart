@@ -12,35 +12,12 @@ part of 'perubahan_modal_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PerubahanModalResponse _$PerubahanModalResponseFromJson(
     Map<String, dynamic> json) {
   return _PerubahanModalResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$PerubahanModalResponseTearOff {
-  const _$PerubahanModalResponseTearOff();
-
-  _PerubahanModalResponse call(
-      {required String? message,
-      required int? statusCode,
-      required PerubahanModalDataResponse? data}) {
-    return _PerubahanModalResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  PerubahanModalResponse fromJson(Map<String, Object?> json) {
-    return PerubahanModalResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PerubahanModalResponse = _$PerubahanModalResponseTearOff();
 
 /// @nodoc
 mixin _$PerubahanModalResponse {
@@ -109,11 +86,11 @@ class _$PerubahanModalResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PerubahanModalResponseCopyWith<$Res>
+abstract class _$$_PerubahanModalResponseCopyWith<$Res>
     implements $PerubahanModalResponseCopyWith<$Res> {
-  factory _$PerubahanModalResponseCopyWith(_PerubahanModalResponse value,
-          $Res Function(_PerubahanModalResponse) then) =
-      __$PerubahanModalResponseCopyWithImpl<$Res>;
+  factory _$$_PerubahanModalResponseCopyWith(_$_PerubahanModalResponse value,
+          $Res Function(_$_PerubahanModalResponse) then) =
+      __$$_PerubahanModalResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? message, int? statusCode, PerubahanModalDataResponse? data});
@@ -123,15 +100,16 @@ abstract class _$PerubahanModalResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PerubahanModalResponseCopyWithImpl<$Res>
+class __$$_PerubahanModalResponseCopyWithImpl<$Res>
     extends _$PerubahanModalResponseCopyWithImpl<$Res>
-    implements _$PerubahanModalResponseCopyWith<$Res> {
-  __$PerubahanModalResponseCopyWithImpl(_PerubahanModalResponse _value,
-      $Res Function(_PerubahanModalResponse) _then)
-      : super(_value, (v) => _then(v as _PerubahanModalResponse));
+    implements _$$_PerubahanModalResponseCopyWith<$Res> {
+  __$$_PerubahanModalResponseCopyWithImpl(_$_PerubahanModalResponse _value,
+      $Res Function(_$_PerubahanModalResponse) _then)
+      : super(_value, (v) => _then(v as _$_PerubahanModalResponse));
 
   @override
-  _PerubahanModalResponse get _value => super._value as _PerubahanModalResponse;
+  _$_PerubahanModalResponse get _value =>
+      super._value as _$_PerubahanModalResponse;
 
   @override
   $Res call({
@@ -139,7 +117,7 @@ class __$PerubahanModalResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_PerubahanModalResponse(
+    return _then(_$_PerubahanModalResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -182,13 +160,14 @@ class _$_PerubahanModalResponse extends _PerubahanModalResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PerubahanModalResponse &&
+            other is _$_PerubahanModalResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -198,21 +177,24 @@ class _$_PerubahanModalResponse extends _PerubahanModalResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$PerubahanModalResponseCopyWith<_PerubahanModalResponse> get copyWith =>
-      __$PerubahanModalResponseCopyWithImpl<_PerubahanModalResponse>(
+  _$$_PerubahanModalResponseCopyWith<_$_PerubahanModalResponse> get copyWith =>
+      __$$_PerubahanModalResponseCopyWithImpl<_$_PerubahanModalResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PerubahanModalResponseToJson(this);
+    return _$$_PerubahanModalResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _PerubahanModalResponse extends PerubahanModalResponse {
   const factory _PerubahanModalResponse(
-      {required String? message,
-      required int? statusCode,
-      required PerubahanModalDataResponse? data}) = _$_PerubahanModalResponse;
+          {required final String? message,
+          required final int? statusCode,
+          required final PerubahanModalDataResponse? data}) =
+      _$_PerubahanModalResponse;
   const _PerubahanModalResponse._() : super._();
 
   factory _PerubahanModalResponse.fromJson(Map<String, dynamic> json) =
@@ -226,6 +208,6 @@ abstract class _PerubahanModalResponse extends PerubahanModalResponse {
   PerubahanModalDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$PerubahanModalResponseCopyWith<_PerubahanModalResponse> get copyWith =>
+  _$$_PerubahanModalResponseCopyWith<_$_PerubahanModalResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

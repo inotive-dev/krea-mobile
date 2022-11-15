@@ -12,46 +12,7 @@ part of 'branches_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$BranchesDataTearOff {
-  const _$BranchesDataTearOff();
-
-  _BranchesData call(
-      {required int? currentPage,
-      required List<Branch>? data,
-      required String? firstPageUrl,
-      required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
-      required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
-      required int? to,
-      required int? total}) {
-    return _BranchesData(
-      currentPage: currentPage,
-      data: data,
-      firstPageUrl: firstPageUrl,
-      from: from,
-      lastPage: lastPage,
-      lastPageUrl: lastPageUrl,
-      links: links,
-      nextPageUrl: nextPageUrl,
-      path: path,
-      perPage: perPage,
-      prevPageUrl: prevPageUrl,
-      to: to,
-      total: total,
-    );
-  }
-}
-
-/// @nodoc
-const $BranchesData = _$BranchesDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$BranchesData {
@@ -177,11 +138,11 @@ class _$BranchesDataCopyWithImpl<$Res> implements $BranchesDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$BranchesDataCopyWith<$Res>
+abstract class _$$_BranchesDataCopyWith<$Res>
     implements $BranchesDataCopyWith<$Res> {
-  factory _$BranchesDataCopyWith(
-          _BranchesData value, $Res Function(_BranchesData) then) =
-      __$BranchesDataCopyWithImpl<$Res>;
+  factory _$$_BranchesDataCopyWith(
+          _$_BranchesData value, $Res Function(_$_BranchesData) then) =
+      __$$_BranchesDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? currentPage,
@@ -200,14 +161,15 @@ abstract class _$BranchesDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$BranchesDataCopyWithImpl<$Res> extends _$BranchesDataCopyWithImpl<$Res>
-    implements _$BranchesDataCopyWith<$Res> {
-  __$BranchesDataCopyWithImpl(
-      _BranchesData _value, $Res Function(_BranchesData) _then)
-      : super(_value, (v) => _then(v as _BranchesData));
+class __$$_BranchesDataCopyWithImpl<$Res>
+    extends _$BranchesDataCopyWithImpl<$Res>
+    implements _$$_BranchesDataCopyWith<$Res> {
+  __$$_BranchesDataCopyWithImpl(
+      _$_BranchesData _value, $Res Function(_$_BranchesData) _then)
+      : super(_value, (v) => _then(v as _$_BranchesData));
 
   @override
-  _BranchesData get _value => super._value as _BranchesData;
+  _$_BranchesData get _value => super._value as _$_BranchesData;
 
   @override
   $Res call({
@@ -225,13 +187,13 @@ class __$BranchesDataCopyWithImpl<$Res> extends _$BranchesDataCopyWithImpl<$Res>
     Object? to = freezed,
     Object? total = freezed,
   }) {
-    return _then(_BranchesData(
+    return _then(_$_BranchesData(
       currentPage: currentPage == freezed
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int?,
       data: data == freezed
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
               as List<Branch>?,
       firstPageUrl: firstPageUrl == freezed
@@ -251,7 +213,7 @@ class __$BranchesDataCopyWithImpl<$Res> extends _$BranchesDataCopyWithImpl<$Res>
           : lastPageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       links: links == freezed
-          ? _value.links
+          ? _value._links
           : links // ignore: cast_nullable_to_non_nullable
               as List<Link>?,
       nextPageUrl: nextPageUrl == freezed
@@ -287,23 +249,32 @@ class __$BranchesDataCopyWithImpl<$Res> extends _$BranchesDataCopyWithImpl<$Res>
 class _$_BranchesData implements _BranchesData {
   const _$_BranchesData(
       {required this.currentPage,
-      required this.data,
+      required final List<Branch>? data,
       required this.firstPageUrl,
       required this.from,
       required this.lastPage,
       required this.lastPageUrl,
-      required this.links,
+      required final List<Link>? links,
       required this.nextPageUrl,
       required this.path,
       required this.perPage,
       required this.prevPageUrl,
       required this.to,
-      required this.total});
+      required this.total})
+      : _data = data,
+        _links = links;
 
   @override
   final int? currentPage;
+  final List<Branch>? _data;
   @override
-  final List<Branch>? data;
+  List<Branch>? get data {
+    final value = _data;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? firstPageUrl;
   @override
@@ -312,8 +283,15 @@ class _$_BranchesData implements _BranchesData {
   final int? lastPage;
   @override
   final String? lastPageUrl;
+  final List<Link>? _links;
   @override
-  final List<Link>? links;
+  List<Link>? get links {
+    final value = _links;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? nextPageUrl;
   @override
@@ -336,17 +314,17 @@ class _$_BranchesData implements _BranchesData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BranchesData &&
+            other is _$_BranchesData &&
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
-            const DeepCollectionEquality().equals(other.data, data) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality()
                 .equals(other.firstPageUrl, firstPageUrl) &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.lastPage, lastPage) &&
             const DeepCollectionEquality()
                 .equals(other.lastPageUrl, lastPageUrl) &&
-            const DeepCollectionEquality().equals(other.links, links) &&
+            const DeepCollectionEquality().equals(other._links, _links) &&
             const DeepCollectionEquality()
                 .equals(other.nextPageUrl, nextPageUrl) &&
             const DeepCollectionEquality().equals(other.path, path) &&
@@ -361,12 +339,12 @@ class _$_BranchesData implements _BranchesData {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(data),
+      const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(firstPageUrl),
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(lastPage),
       const DeepCollectionEquality().hash(lastPageUrl),
-      const DeepCollectionEquality().hash(links),
+      const DeepCollectionEquality().hash(_links),
       const DeepCollectionEquality().hash(nextPageUrl),
       const DeepCollectionEquality().hash(path),
       const DeepCollectionEquality().hash(perPage),
@@ -376,25 +354,25 @@ class _$_BranchesData implements _BranchesData {
 
   @JsonKey(ignore: true)
   @override
-  _$BranchesDataCopyWith<_BranchesData> get copyWith =>
-      __$BranchesDataCopyWithImpl<_BranchesData>(this, _$identity);
+  _$$_BranchesDataCopyWith<_$_BranchesData> get copyWith =>
+      __$$_BranchesDataCopyWithImpl<_$_BranchesData>(this, _$identity);
 }
 
 abstract class _BranchesData implements BranchesData {
   const factory _BranchesData(
-      {required int? currentPage,
-      required List<Branch>? data,
-      required String? firstPageUrl,
-      required int? from,
-      required int? lastPage,
-      required String? lastPageUrl,
-      required List<Link>? links,
-      required String? nextPageUrl,
-      required String? path,
-      required int? perPage,
-      required String? prevPageUrl,
-      required int? to,
-      required int? total}) = _$_BranchesData;
+      {required final int? currentPage,
+      required final List<Branch>? data,
+      required final String? firstPageUrl,
+      required final int? from,
+      required final int? lastPage,
+      required final String? lastPageUrl,
+      required final List<Link>? links,
+      required final String? nextPageUrl,
+      required final String? path,
+      required final int? perPage,
+      required final String? prevPageUrl,
+      required final int? to,
+      required final int? total}) = _$_BranchesData;
 
   @override
   int? get currentPage;
@@ -424,6 +402,6 @@ abstract class _BranchesData implements BranchesData {
   int? get total;
   @override
   @JsonKey(ignore: true)
-  _$BranchesDataCopyWith<_BranchesData> get copyWith =>
+  _$$_BranchesDataCopyWith<_$_BranchesData> get copyWith =>
       throw _privateConstructorUsedError;
 }

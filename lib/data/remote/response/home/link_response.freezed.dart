@@ -12,32 +12,11 @@ part of 'link_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 LinkResponse _$LinkResponseFromJson(Map<String, dynamic> json) {
   return _LinkResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$LinkResponseTearOff {
-  const _$LinkResponseTearOff();
-
-  _LinkResponse call(
-      {required String? url, required String? label, required bool? active}) {
-    return _LinkResponse(
-      url: url,
-      label: label,
-      active: active,
-    );
-  }
-
-  LinkResponse fromJson(Map<String, Object?> json) {
-    return LinkResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $LinkResponse = _$LinkResponseTearOff();
 
 /// @nodoc
 mixin _$LinkResponse {
@@ -91,24 +70,25 @@ class _$LinkResponseCopyWithImpl<$Res> implements $LinkResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LinkResponseCopyWith<$Res>
+abstract class _$$_LinkResponseCopyWith<$Res>
     implements $LinkResponseCopyWith<$Res> {
-  factory _$LinkResponseCopyWith(
-          _LinkResponse value, $Res Function(_LinkResponse) then) =
-      __$LinkResponseCopyWithImpl<$Res>;
+  factory _$$_LinkResponseCopyWith(
+          _$_LinkResponse value, $Res Function(_$_LinkResponse) then) =
+      __$$_LinkResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? url, String? label, bool? active});
 }
 
 /// @nodoc
-class __$LinkResponseCopyWithImpl<$Res> extends _$LinkResponseCopyWithImpl<$Res>
-    implements _$LinkResponseCopyWith<$Res> {
-  __$LinkResponseCopyWithImpl(
-      _LinkResponse _value, $Res Function(_LinkResponse) _then)
-      : super(_value, (v) => _then(v as _LinkResponse));
+class __$$_LinkResponseCopyWithImpl<$Res>
+    extends _$LinkResponseCopyWithImpl<$Res>
+    implements _$$_LinkResponseCopyWith<$Res> {
+  __$$_LinkResponseCopyWithImpl(
+      _$_LinkResponse _value, $Res Function(_$_LinkResponse) _then)
+      : super(_value, (v) => _then(v as _$_LinkResponse));
 
   @override
-  _LinkResponse get _value => super._value as _LinkResponse;
+  _$_LinkResponse get _value => super._value as _$_LinkResponse;
 
   @override
   $Res call({
@@ -116,7 +96,7 @@ class __$LinkResponseCopyWithImpl<$Res> extends _$LinkResponseCopyWithImpl<$Res>
     Object? label = freezed,
     Object? active = freezed,
   }) {
-    return _then(_LinkResponse(
+    return _then(_$_LinkResponse(
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -159,12 +139,13 @@ class _$_LinkResponse extends _LinkResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LinkResponse &&
+            other is _$_LinkResponse &&
             const DeepCollectionEquality().equals(other.url, url) &&
             const DeepCollectionEquality().equals(other.label, label) &&
             const DeepCollectionEquality().equals(other.active, active));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -174,20 +155,22 @@ class _$_LinkResponse extends _LinkResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$LinkResponseCopyWith<_LinkResponse> get copyWith =>
-      __$LinkResponseCopyWithImpl<_LinkResponse>(this, _$identity);
+  _$$_LinkResponseCopyWith<_$_LinkResponse> get copyWith =>
+      __$$_LinkResponseCopyWithImpl<_$_LinkResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LinkResponseToJson(this);
+    return _$$_LinkResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _LinkResponse extends LinkResponse {
   const factory _LinkResponse(
-      {required String? url,
-      required String? label,
-      required bool? active}) = _$_LinkResponse;
+      {required final String? url,
+      required final String? label,
+      required final bool? active}) = _$_LinkResponse;
   const _LinkResponse._() : super._();
 
   factory _LinkResponse.fromJson(Map<String, dynamic> json) =
@@ -201,6 +184,6 @@ abstract class _LinkResponse extends LinkResponse {
   bool? get active;
   @override
   @JsonKey(ignore: true)
-  _$LinkResponseCopyWith<_LinkResponse> get copyWith =>
+  _$$_LinkResponseCopyWith<_$_LinkResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

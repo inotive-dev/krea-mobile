@@ -1,5 +1,4 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:injectable/injectable.dart';
 import 'package:koperasi/data/local/entities/history/history_data_entity.dart';
 import 'package:koperasi/data/local/entities/history/user_response_entity.dart';
 import 'package:koperasi/data/local/entities/home/home_data_entity.dart';
@@ -10,7 +9,6 @@ import 'package:koperasi/data/local/entities/home/user/home_user_data_entity.dar
 
 import 'hive_key.dart';
 
-@lazySingleton
 class HiveManager {
   final Box<dynamic> _box;
 
@@ -72,6 +70,16 @@ class HiveManager {
     return _box.get(HiveKey.homeAdminLabaRugi);
   }
 
+  // QR LABA RUGI
+  Future<void> saveQRLabaRugi(String? labaRugi) async {
+    await _box.put(HiveKey.homeAdminLabaRugi, labaRugi);
+  }
+
+  String? getQRLabaRugi() {
+    return _box.get(HiveKey.homeAdminLabaRugi);
+  }
+  // END QR LABA RUGI
+
   Future<void> saveHomeAdminNeraca(BranchesDataEntity? neraca) async {
     await _box.put(HiveKey.homeAdminNeraca, neraca);
   }
@@ -80,6 +88,16 @@ class HiveManager {
     return _box.get(HiveKey.homeAdminNeraca);
   }
 
+  // QR NERACA
+  Future<void> saveQRAdminNeraca(String neraca) async {
+    await _box.put(HiveKey.homeAdminNeraca, neraca);
+  }
+
+  String? getQRAdminNeraca() {
+    return _box.get(HiveKey.homeAdminNeraca);
+  }
+  // END QR NERACA
+
   Future<void> saveHomeAdminPerubahanModal(PerubahanModalDataEntity? perubahanModal) async {
     await _box.put(HiveKey.homeAdminPerubahanModal, perubahanModal);
   }
@@ -87,6 +105,16 @@ class HiveManager {
   PerubahanModalDataEntity? getHomeAdminPerubahanModal() {
     return _box.get(HiveKey.homeAdminPerubahanModal);
   }
+
+  // QR PERUBAHAN MODAL
+  Future<void> saveQRPerubahanModal(String? perubahanModal) async {
+    await _box.put(HiveKey.homeAdminPerubahanModal, perubahanModal);
+  }
+
+  String? getQRPerubahanModal() {
+    return _box.get(HiveKey.homeAdminPerubahanModal);
+  }
+  // END QR PERUBAHAN MODAL
 
   // Home User
   Future<void> saveHomeUser(HomeUserDataEntity? home) async {

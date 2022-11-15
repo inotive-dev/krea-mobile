@@ -12,26 +12,7 @@ part of 'perubahan_modal.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PerubahanModalTearOff {
-  const _$PerubahanModalTearOff();
-
-  _PerubahanModal call(
-      {required String? message,
-      required int? statusCode,
-      required PerubahanModalData? data}) {
-    return _PerubahanModal(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $PerubahanModal = _$PerubahanModalTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PerubahanModal {
@@ -98,11 +79,11 @@ class _$PerubahanModalCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PerubahanModalCopyWith<$Res>
+abstract class _$$_PerubahanModalCopyWith<$Res>
     implements $PerubahanModalCopyWith<$Res> {
-  factory _$PerubahanModalCopyWith(
-          _PerubahanModal value, $Res Function(_PerubahanModal) then) =
-      __$PerubahanModalCopyWithImpl<$Res>;
+  factory _$$_PerubahanModalCopyWith(
+          _$_PerubahanModal value, $Res Function(_$_PerubahanModal) then) =
+      __$$_PerubahanModalCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, PerubahanModalData? data});
 
@@ -111,15 +92,15 @@ abstract class _$PerubahanModalCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PerubahanModalCopyWithImpl<$Res>
+class __$$_PerubahanModalCopyWithImpl<$Res>
     extends _$PerubahanModalCopyWithImpl<$Res>
-    implements _$PerubahanModalCopyWith<$Res> {
-  __$PerubahanModalCopyWithImpl(
-      _PerubahanModal _value, $Res Function(_PerubahanModal) _then)
-      : super(_value, (v) => _then(v as _PerubahanModal));
+    implements _$$_PerubahanModalCopyWith<$Res> {
+  __$$_PerubahanModalCopyWithImpl(
+      _$_PerubahanModal _value, $Res Function(_$_PerubahanModal) _then)
+      : super(_value, (v) => _then(v as _$_PerubahanModal));
 
   @override
-  _PerubahanModal get _value => super._value as _PerubahanModal;
+  _$_PerubahanModal get _value => super._value as _$_PerubahanModal;
 
   @override
   $Res call({
@@ -127,7 +108,7 @@ class __$PerubahanModalCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_PerubahanModal(
+    return _then(_$_PerubahanModal(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -166,7 +147,7 @@ class _$_PerubahanModal implements _PerubahanModal {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PerubahanModal &&
+            other is _$_PerubahanModal &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -182,15 +163,15 @@ class _$_PerubahanModal implements _PerubahanModal {
 
   @JsonKey(ignore: true)
   @override
-  _$PerubahanModalCopyWith<_PerubahanModal> get copyWith =>
-      __$PerubahanModalCopyWithImpl<_PerubahanModal>(this, _$identity);
+  _$$_PerubahanModalCopyWith<_$_PerubahanModal> get copyWith =>
+      __$$_PerubahanModalCopyWithImpl<_$_PerubahanModal>(this, _$identity);
 }
 
 abstract class _PerubahanModal implements PerubahanModal {
   const factory _PerubahanModal(
-      {required String? message,
-      required int? statusCode,
-      required PerubahanModalData? data}) = _$_PerubahanModal;
+      {required final String? message,
+      required final int? statusCode,
+      required final PerubahanModalData? data}) = _$_PerubahanModal;
 
   @override
   String? get message;
@@ -200,6 +181,6 @@ abstract class _PerubahanModal implements PerubahanModal {
   PerubahanModalData? get data;
   @override
   @JsonKey(ignore: true)
-  _$PerubahanModalCopyWith<_PerubahanModal> get copyWith =>
+  _$$_PerubahanModalCopyWith<_$_PerubahanModal> get copyWith =>
       throw _privateConstructorUsedError;
 }

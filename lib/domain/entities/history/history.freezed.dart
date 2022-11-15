@@ -12,26 +12,7 @@ part of 'history.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryTearOff {
-  const _$HistoryTearOff();
-
-  _History call(
-      {required String? message,
-      required int? statusCode,
-      required HistoryData? data}) {
-    return _History(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $History = _$HistoryTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$History {
@@ -95,9 +76,10 @@ class _$HistoryCopyWithImpl<$Res> implements $HistoryCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HistoryCopyWith<$Res> implements $HistoryCopyWith<$Res> {
-  factory _$HistoryCopyWith(_History value, $Res Function(_History) then) =
-      __$HistoryCopyWithImpl<$Res>;
+abstract class _$$_HistoryCopyWith<$Res> implements $HistoryCopyWith<$Res> {
+  factory _$$_HistoryCopyWith(
+          _$_History value, $Res Function(_$_History) then) =
+      __$$_HistoryCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HistoryData? data});
 
@@ -106,13 +88,13 @@ abstract class _$HistoryCopyWith<$Res> implements $HistoryCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HistoryCopyWithImpl<$Res> extends _$HistoryCopyWithImpl<$Res>
-    implements _$HistoryCopyWith<$Res> {
-  __$HistoryCopyWithImpl(_History _value, $Res Function(_History) _then)
-      : super(_value, (v) => _then(v as _History));
+class __$$_HistoryCopyWithImpl<$Res> extends _$HistoryCopyWithImpl<$Res>
+    implements _$$_HistoryCopyWith<$Res> {
+  __$$_HistoryCopyWithImpl(_$_History _value, $Res Function(_$_History) _then)
+      : super(_value, (v) => _then(v as _$_History));
 
   @override
-  _History get _value => super._value as _History;
+  _$_History get _value => super._value as _$_History;
 
   @override
   $Res call({
@@ -120,7 +102,7 @@ class __$HistoryCopyWithImpl<$Res> extends _$HistoryCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_History(
+    return _then(_$_History(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -159,7 +141,7 @@ class _$_History implements _History {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _History &&
+            other is _$_History &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -175,15 +157,15 @@ class _$_History implements _History {
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryCopyWith<_History> get copyWith =>
-      __$HistoryCopyWithImpl<_History>(this, _$identity);
+  _$$_HistoryCopyWith<_$_History> get copyWith =>
+      __$$_HistoryCopyWithImpl<_$_History>(this, _$identity);
 }
 
 abstract class _History implements History {
   const factory _History(
-      {required String? message,
-      required int? statusCode,
-      required HistoryData? data}) = _$_History;
+      {required final String? message,
+      required final int? statusCode,
+      required final HistoryData? data}) = _$_History;
 
   @override
   String? get message;
@@ -193,6 +175,6 @@ abstract class _History implements History {
   HistoryData? get data;
   @override
   @JsonKey(ignore: true)
-  _$HistoryCopyWith<_History> get copyWith =>
+  _$$_HistoryCopyWith<_$_History> get copyWith =>
       throw _privateConstructorUsedError;
 }

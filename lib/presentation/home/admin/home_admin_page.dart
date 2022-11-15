@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -97,16 +99,33 @@ class _HomeAdminPageState extends State<HomeAdminPage> with TickerProviderStateM
         );
 
         if (result != null || result != '') {
-          final hist = getIt.get<LocalDataSource>().getHistoryAdmin();
-          final List<Map<String, dynamic>> listHist = [];
-          for (SalesResponseEntity element in hist?.lastMonthHistory ?? []) {
-            listHist.add(element.toJson());
-          }
-          for (SalesResponseEntity element in hist?.thisWeekHistory ?? []) {
-            listHist.add(element.toJson());
-          }
+          final datajson = jsonDecode(result.toString());
 
-          context.read<HomeCubit>().validateDataAdmin(result.toString(), listHist);
+          try {
+            final neraca = datajson['neraca'];
+            final laba = datajson['laba'];
+            final modal = datajson['modal'];
+
+            if (neraca != null) {
+              context.read<HomeCubit>().getQRNeraca(neraca);
+            } else if (laba != null) {
+              context.read<HomeCubit>().getQRLabaRugi(laba);
+            } else if (modal != null) {
+              context.read<HomeCubit>().getQRPerubahanModal(modal);
+            }
+            // final hist = getIt.get<LocalDataSource>().getHistoryAdmin();
+            // final List<Map<String, dynamic>> listHist = [];
+            // for (SalesResponseEntity element in hist?.lastMonthHistory ?? []) {
+            //   listHist.add(element.toJson());
+            // }
+            // for (SalesResponseEntity element in hist?.thisWeekHistory ?? []) {
+            //   listHist.add(element.toJson());
+            // }
+
+            // context.read<HomeCubit>().validateDataAdmin(result.toString(), listHist);
+          } catch (e) {
+            print('ADUH ERROR $e');
+          }
         }
       },
       onDenied: () {

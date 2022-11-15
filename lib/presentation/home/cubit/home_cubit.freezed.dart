@@ -12,62 +12,7 @@ part of 'home_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeStateTearOff {
-  const _$HomeStateTearOff();
-
-  _HomeState call(
-      {ResultState<dynamic> getHomeAdminResultState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHomeUserResultState = const ResultState.initial(),
-      ResultState<dynamic> updateSalesReportState = const ResultState.initial(),
-      ResultState<dynamic> getHomeAdminNeracaResultState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHomeAdminLabaRugiResultState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHomeAdminPerubahanModalReportState =
-          const ResultState.initial(),
-      ResultState<dynamic> getHomeAdminSalesReportState =
-          const ResultState.initial(),
-      ResultState<dynamic> validateDataState = const ResultState.initial(),
-      required HomeData homeData,
-      required BranchesData neracaData,
-      required BranchesData labaRugiData,
-      required PerubahanModalData perubahanModalData,
-      required HomeUserData homeUserData,
-      required SalesReportData salesReportData,
-      required DateTime lastUpdated,
-      required int martId,
-      required String year,
-      required String type}) {
-    return _HomeState(
-      getHomeAdminResultState: getHomeAdminResultState,
-      getHomeUserResultState: getHomeUserResultState,
-      updateSalesReportState: updateSalesReportState,
-      getHomeAdminNeracaResultState: getHomeAdminNeracaResultState,
-      getHomeAdminLabaRugiResultState: getHomeAdminLabaRugiResultState,
-      getHomeAdminPerubahanModalReportState:
-          getHomeAdminPerubahanModalReportState,
-      getHomeAdminSalesReportState: getHomeAdminSalesReportState,
-      validateDataState: validateDataState,
-      homeData: homeData,
-      neracaData: neracaData,
-      labaRugiData: labaRugiData,
-      perubahanModalData: perubahanModalData,
-      homeUserData: homeUserData,
-      salesReportData: salesReportData,
-      lastUpdated: lastUpdated,
-      martId: martId,
-      year: year,
-      type: type,
-    );
-  }
-}
-
-/// @nodoc
-const $HomeState = _$HomeStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomeState {
@@ -362,10 +307,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$HomeStateCopyWith(
-          _HomeState value, $Res Function(_HomeState) then) =
-      __$HomeStateCopyWithImpl<$Res>;
+abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory _$$_HomeStateCopyWith(
+          _$_HomeState value, $Res Function(_$_HomeState) then) =
+      __$$_HomeStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {ResultState<dynamic> getHomeAdminResultState,
@@ -418,13 +363,14 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$HomeStateCopyWith<$Res> {
-  __$HomeStateCopyWithImpl(_HomeState _value, $Res Function(_HomeState) _then)
-      : super(_value, (v) => _then(v as _HomeState));
+class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$$_HomeStateCopyWith<$Res> {
+  __$$_HomeStateCopyWithImpl(
+      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+      : super(_value, (v) => _then(v as _$_HomeState));
 
   @override
-  _HomeState get _value => super._value as _HomeState;
+  _$_HomeState get _value => super._value as _$_HomeState;
 
   @override
   $Res call({
@@ -447,7 +393,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? year = freezed,
     Object? type = freezed,
   }) {
-    return _then(_HomeState(
+    return _then(_$_HomeState(
       getHomeAdminResultState: getHomeAdminResultState == freezed
           ? _value.getHomeAdminResultState
           : getHomeAdminResultState // ignore: cast_nullable_to_non_nullable
@@ -549,29 +495,29 @@ class _$_HomeState implements _HomeState {
       required this.year,
       required this.type});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeAdminResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeUserResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> updateSalesReportState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeAdminNeracaResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeAdminLabaRugiResultState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeAdminPerubahanModalReportState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> getHomeAdminSalesReportState;
-  @JsonKey()
   @override
+  @JsonKey()
   final ResultState<dynamic> validateDataState;
   @override
   final HomeData homeData;
@@ -603,7 +549,7 @@ class _$_HomeState implements _HomeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeState &&
+            other is _$_HomeState &&
             const DeepCollectionEquality().equals(
                 other.getHomeAdminResultState, getHomeAdminResultState) &&
             const DeepCollectionEquality()
@@ -667,30 +613,30 @@ class _$_HomeState implements _HomeState {
 
   @JsonKey(ignore: true)
   @override
-  _$HomeStateCopyWith<_HomeState> get copyWith =>
-      __$HomeStateCopyWithImpl<_HomeState>(this, _$identity);
+  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
 }
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {ResultState<dynamic> getHomeAdminResultState,
-      ResultState<dynamic> getHomeUserResultState,
-      ResultState<dynamic> updateSalesReportState,
-      ResultState<dynamic> getHomeAdminNeracaResultState,
-      ResultState<dynamic> getHomeAdminLabaRugiResultState,
-      ResultState<dynamic> getHomeAdminPerubahanModalReportState,
-      ResultState<dynamic> getHomeAdminSalesReportState,
-      ResultState<dynamic> validateDataState,
-      required HomeData homeData,
-      required BranchesData neracaData,
-      required BranchesData labaRugiData,
-      required PerubahanModalData perubahanModalData,
-      required HomeUserData homeUserData,
-      required SalesReportData salesReportData,
-      required DateTime lastUpdated,
-      required int martId,
-      required String year,
-      required String type}) = _$_HomeState;
+      {final ResultState<dynamic> getHomeAdminResultState,
+      final ResultState<dynamic> getHomeUserResultState,
+      final ResultState<dynamic> updateSalesReportState,
+      final ResultState<dynamic> getHomeAdminNeracaResultState,
+      final ResultState<dynamic> getHomeAdminLabaRugiResultState,
+      final ResultState<dynamic> getHomeAdminPerubahanModalReportState,
+      final ResultState<dynamic> getHomeAdminSalesReportState,
+      final ResultState<dynamic> validateDataState,
+      required final HomeData homeData,
+      required final BranchesData neracaData,
+      required final BranchesData labaRugiData,
+      required final PerubahanModalData perubahanModalData,
+      required final HomeUserData homeUserData,
+      required final SalesReportData salesReportData,
+      required final DateTime lastUpdated,
+      required final int martId,
+      required final String year,
+      required final String type}) = _$_HomeState;
 
   @override
   ResultState<dynamic> get getHomeAdminResultState;
@@ -730,6 +676,6 @@ abstract class _HomeState implements HomeState {
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$HomeStateCopyWith<_HomeState> get copyWith =>
+  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }

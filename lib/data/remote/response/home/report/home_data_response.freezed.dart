@@ -12,40 +12,11 @@ part of 'home_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HomeDataResponse _$HomeDataResponseFromJson(Map<String, dynamic> json) {
   return _HomeDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HomeDataResponseTearOff {
-  const _$HomeDataResponseTearOff();
-
-  _HomeDataResponse call(
-      {@JsonKey(name: 'produk_cepat_terjual')
-          required List<TransactionResponse>? produkCepatTerjual,
-      @JsonKey(name: 'produk_lama_terjual')
-          required List<TransactionResponse>? produkLamaTerjual,
-      @JsonKey(name: 'total_saldo_simpanan_utang')
-          required double? totalSaldoSimpananUtang,
-      @JsonKey(name: 'total_utang')
-          required double? totalUtang}) {
-    return _HomeDataResponse(
-      produkCepatTerjual: produkCepatTerjual,
-      produkLamaTerjual: produkLamaTerjual,
-      totalSaldoSimpananUtang: totalSaldoSimpananUtang,
-      totalUtang: totalUtang,
-    );
-  }
-
-  HomeDataResponse fromJson(Map<String, Object?> json) {
-    return HomeDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HomeDataResponse = _$HomeDataResponseTearOff();
 
 /// @nodoc
 mixin _$HomeDataResponse {
@@ -120,11 +91,11 @@ class _$HomeDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HomeDataResponseCopyWith<$Res>
+abstract class _$$_HomeDataResponseCopyWith<$Res>
     implements $HomeDataResponseCopyWith<$Res> {
-  factory _$HomeDataResponseCopyWith(
-          _HomeDataResponse value, $Res Function(_HomeDataResponse) then) =
-      __$HomeDataResponseCopyWithImpl<$Res>;
+  factory _$$_HomeDataResponseCopyWith(
+          _$_HomeDataResponse value, $Res Function(_$_HomeDataResponse) then) =
+      __$$_HomeDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'produk_cepat_terjual')
@@ -138,15 +109,15 @@ abstract class _$HomeDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HomeDataResponseCopyWithImpl<$Res>
+class __$$_HomeDataResponseCopyWithImpl<$Res>
     extends _$HomeDataResponseCopyWithImpl<$Res>
-    implements _$HomeDataResponseCopyWith<$Res> {
-  __$HomeDataResponseCopyWithImpl(
-      _HomeDataResponse _value, $Res Function(_HomeDataResponse) _then)
-      : super(_value, (v) => _then(v as _HomeDataResponse));
+    implements _$$_HomeDataResponseCopyWith<$Res> {
+  __$$_HomeDataResponseCopyWithImpl(
+      _$_HomeDataResponse _value, $Res Function(_$_HomeDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_HomeDataResponse));
 
   @override
-  _HomeDataResponse get _value => super._value as _HomeDataResponse;
+  _$_HomeDataResponse get _value => super._value as _$_HomeDataResponse;
 
   @override
   $Res call({
@@ -155,13 +126,13 @@ class __$HomeDataResponseCopyWithImpl<$Res>
     Object? totalSaldoSimpananUtang = freezed,
     Object? totalUtang = freezed,
   }) {
-    return _then(_HomeDataResponse(
+    return _then(_$_HomeDataResponse(
       produkCepatTerjual: produkCepatTerjual == freezed
-          ? _value.produkCepatTerjual
+          ? _value._produkCepatTerjual
           : produkCepatTerjual // ignore: cast_nullable_to_non_nullable
               as List<TransactionResponse>?,
       produkLamaTerjual: produkLamaTerjual == freezed
-          ? _value.produkLamaTerjual
+          ? _value._produkLamaTerjual
           : produkLamaTerjual // ignore: cast_nullable_to_non_nullable
               as List<TransactionResponse>?,
       totalSaldoSimpananUtang: totalSaldoSimpananUtang == freezed
@@ -181,24 +152,40 @@ class __$HomeDataResponseCopyWithImpl<$Res>
 class _$_HomeDataResponse extends _HomeDataResponse {
   const _$_HomeDataResponse(
       {@JsonKey(name: 'produk_cepat_terjual')
-          required this.produkCepatTerjual,
+          required final List<TransactionResponse>? produkCepatTerjual,
       @JsonKey(name: 'produk_lama_terjual')
-          required this.produkLamaTerjual,
+          required final List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'total_saldo_simpanan_utang')
           required this.totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
           required this.totalUtang})
-      : super._();
+      : _produkCepatTerjual = produkCepatTerjual,
+        _produkLamaTerjual = produkLamaTerjual,
+        super._();
 
   factory _$_HomeDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_HomeDataResponseFromJson(json);
 
+  final List<TransactionResponse>? _produkCepatTerjual;
   @override
   @JsonKey(name: 'produk_cepat_terjual')
-  final List<TransactionResponse>? produkCepatTerjual;
+  List<TransactionResponse>? get produkCepatTerjual {
+    final value = _produkCepatTerjual;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<TransactionResponse>? _produkLamaTerjual;
   @override
   @JsonKey(name: 'produk_lama_terjual')
-  final List<TransactionResponse>? produkLamaTerjual;
+  List<TransactionResponse>? get produkLamaTerjual {
+    final value = _produkLamaTerjual;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: 'total_saldo_simpanan_utang')
   final double? totalSaldoSimpananUtang;
@@ -215,46 +202,49 @@ class _$_HomeDataResponse extends _HomeDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeDataResponse &&
+            other is _$_HomeDataResponse &&
             const DeepCollectionEquality()
-                .equals(other.produkCepatTerjual, produkCepatTerjual) &&
+                .equals(other._produkCepatTerjual, _produkCepatTerjual) &&
             const DeepCollectionEquality()
-                .equals(other.produkLamaTerjual, produkLamaTerjual) &&
+                .equals(other._produkLamaTerjual, _produkLamaTerjual) &&
             const DeepCollectionEquality().equals(
                 other.totalSaldoSimpananUtang, totalSaldoSimpananUtang) &&
             const DeepCollectionEquality()
                 .equals(other.totalUtang, totalUtang));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(produkCepatTerjual),
-      const DeepCollectionEquality().hash(produkLamaTerjual),
+      const DeepCollectionEquality().hash(_produkCepatTerjual),
+      const DeepCollectionEquality().hash(_produkLamaTerjual),
       const DeepCollectionEquality().hash(totalSaldoSimpananUtang),
       const DeepCollectionEquality().hash(totalUtang));
 
   @JsonKey(ignore: true)
   @override
-  _$HomeDataResponseCopyWith<_HomeDataResponse> get copyWith =>
-      __$HomeDataResponseCopyWithImpl<_HomeDataResponse>(this, _$identity);
+  _$$_HomeDataResponseCopyWith<_$_HomeDataResponse> get copyWith =>
+      __$$_HomeDataResponseCopyWithImpl<_$_HomeDataResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HomeDataResponseToJson(this);
+    return _$$_HomeDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HomeDataResponse extends HomeDataResponse {
   const factory _HomeDataResponse(
       {@JsonKey(name: 'produk_cepat_terjual')
-          required List<TransactionResponse>? produkCepatTerjual,
+          required final List<TransactionResponse>? produkCepatTerjual,
       @JsonKey(name: 'produk_lama_terjual')
-          required List<TransactionResponse>? produkLamaTerjual,
+          required final List<TransactionResponse>? produkLamaTerjual,
       @JsonKey(name: 'total_saldo_simpanan_utang')
-          required double? totalSaldoSimpananUtang,
+          required final double? totalSaldoSimpananUtang,
       @JsonKey(name: 'total_utang')
-          required double? totalUtang}) = _$_HomeDataResponse;
+          required final double? totalUtang}) = _$_HomeDataResponse;
   const _HomeDataResponse._() : super._();
 
   factory _HomeDataResponse.fromJson(Map<String, dynamic> json) =
@@ -274,6 +264,6 @@ abstract class _HomeDataResponse extends HomeDataResponse {
   double? get totalUtang;
   @override
   @JsonKey(ignore: true)
-  _$HomeDataResponseCopyWith<_HomeDataResponse> get copyWith =>
+  _$$_HomeDataResponseCopyWith<_$_HomeDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

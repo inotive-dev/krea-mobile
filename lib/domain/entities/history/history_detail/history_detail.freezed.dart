@@ -12,26 +12,7 @@ part of 'history_detail.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryDetailTearOff {
-  const _$HistoryDetailTearOff();
-
-  _HistoryDetail call(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDetailData data}) {
-    return _HistoryDetail(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $HistoryDetail = _$HistoryDetailTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HistoryDetail {
@@ -94,11 +75,11 @@ class _$HistoryDetailCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDetailCopyWith<$Res>
+abstract class _$$_HistoryDetailCopyWith<$Res>
     implements $HistoryDetailCopyWith<$Res> {
-  factory _$HistoryDetailCopyWith(
-          _HistoryDetail value, $Res Function(_HistoryDetail) then) =
-      __$HistoryDetailCopyWithImpl<$Res>;
+  factory _$$_HistoryDetailCopyWith(
+          _$_HistoryDetail value, $Res Function(_$_HistoryDetail) then) =
+      __$$_HistoryDetailCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HistoryDetailData data});
 
@@ -107,15 +88,15 @@ abstract class _$HistoryDetailCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDetailCopyWithImpl<$Res>
+class __$$_HistoryDetailCopyWithImpl<$Res>
     extends _$HistoryDetailCopyWithImpl<$Res>
-    implements _$HistoryDetailCopyWith<$Res> {
-  __$HistoryDetailCopyWithImpl(
-      _HistoryDetail _value, $Res Function(_HistoryDetail) _then)
-      : super(_value, (v) => _then(v as _HistoryDetail));
+    implements _$$_HistoryDetailCopyWith<$Res> {
+  __$$_HistoryDetailCopyWithImpl(
+      _$_HistoryDetail _value, $Res Function(_$_HistoryDetail) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDetail));
 
   @override
-  _HistoryDetail get _value => super._value as _HistoryDetail;
+  _$_HistoryDetail get _value => super._value as _$_HistoryDetail;
 
   @override
   $Res call({
@@ -123,7 +104,7 @@ class __$HistoryDetailCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_HistoryDetail(
+    return _then(_$_HistoryDetail(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -162,7 +143,7 @@ class _$_HistoryDetail implements _HistoryDetail {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDetail &&
+            other is _$_HistoryDetail &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -178,15 +159,15 @@ class _$_HistoryDetail implements _HistoryDetail {
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDetailCopyWith<_HistoryDetail> get copyWith =>
-      __$HistoryDetailCopyWithImpl<_HistoryDetail>(this, _$identity);
+  _$$_HistoryDetailCopyWith<_$_HistoryDetail> get copyWith =>
+      __$$_HistoryDetailCopyWithImpl<_$_HistoryDetail>(this, _$identity);
 }
 
 abstract class _HistoryDetail implements HistoryDetail {
   const factory _HistoryDetail(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDetailData data}) = _$_HistoryDetail;
+      {required final String? message,
+      required final int? statusCode,
+      required final HistoryDetailData data}) = _$_HistoryDetail;
 
   @override
   String? get message;
@@ -196,6 +177,6 @@ abstract class _HistoryDetail implements HistoryDetail {
   HistoryDetailData get data;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDetailCopyWith<_HistoryDetail> get copyWith =>
+  _$$_HistoryDetailCopyWith<_$_HistoryDetail> get copyWith =>
       throw _privateConstructorUsedError;
 }

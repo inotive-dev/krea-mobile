@@ -12,34 +12,11 @@ part of 'history_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HistoryDataResponse _$HistoryDataResponseFromJson(Map<String, dynamic> json) {
   return _HistoryDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HistoryDataResponseTearOff {
-  const _$HistoryDataResponseTearOff();
-
-  _HistoryDataResponse call(
-      {@JsonKey(name: 'this_week_history')
-          required List<SalesResponse>? thisWeekHistory,
-      @JsonKey(name: 'last_month_history')
-          required List<SalesResponse>? lastMonthHistory}) {
-    return _HistoryDataResponse(
-      thisWeekHistory: thisWeekHistory,
-      lastMonthHistory: lastMonthHistory,
-    );
-  }
-
-  HistoryDataResponse fromJson(Map<String, Object?> json) {
-    return HistoryDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HistoryDataResponse = _$HistoryDataResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryDataResponse {
@@ -96,11 +73,11 @@ class _$HistoryDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryDataResponseCopyWith<$Res>
+abstract class _$$_HistoryDataResponseCopyWith<$Res>
     implements $HistoryDataResponseCopyWith<$Res> {
-  factory _$HistoryDataResponseCopyWith(_HistoryDataResponse value,
-          $Res Function(_HistoryDataResponse) then) =
-      __$HistoryDataResponseCopyWithImpl<$Res>;
+  factory _$$_HistoryDataResponseCopyWith(_$_HistoryDataResponse value,
+          $Res Function(_$_HistoryDataResponse) then) =
+      __$$_HistoryDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'this_week_history')
@@ -110,28 +87,28 @@ abstract class _$HistoryDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDataResponseCopyWithImpl<$Res>
+class __$$_HistoryDataResponseCopyWithImpl<$Res>
     extends _$HistoryDataResponseCopyWithImpl<$Res>
-    implements _$HistoryDataResponseCopyWith<$Res> {
-  __$HistoryDataResponseCopyWithImpl(
-      _HistoryDataResponse _value, $Res Function(_HistoryDataResponse) _then)
-      : super(_value, (v) => _then(v as _HistoryDataResponse));
+    implements _$$_HistoryDataResponseCopyWith<$Res> {
+  __$$_HistoryDataResponseCopyWithImpl(_$_HistoryDataResponse _value,
+      $Res Function(_$_HistoryDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_HistoryDataResponse));
 
   @override
-  _HistoryDataResponse get _value => super._value as _HistoryDataResponse;
+  _$_HistoryDataResponse get _value => super._value as _$_HistoryDataResponse;
 
   @override
   $Res call({
     Object? thisWeekHistory = freezed,
     Object? lastMonthHistory = freezed,
   }) {
-    return _then(_HistoryDataResponse(
+    return _then(_$_HistoryDataResponse(
       thisWeekHistory: thisWeekHistory == freezed
-          ? _value.thisWeekHistory
+          ? _value._thisWeekHistory
           : thisWeekHistory // ignore: cast_nullable_to_non_nullable
               as List<SalesResponse>?,
       lastMonthHistory: lastMonthHistory == freezed
-          ? _value.lastMonthHistory
+          ? _value._lastMonthHistory
           : lastMonthHistory // ignore: cast_nullable_to_non_nullable
               as List<SalesResponse>?,
     ));
@@ -142,19 +119,36 @@ class __$HistoryDataResponseCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_HistoryDataResponse extends _HistoryDataResponse {
   const _$_HistoryDataResponse(
-      {@JsonKey(name: 'this_week_history') required this.thisWeekHistory,
-      @JsonKey(name: 'last_month_history') required this.lastMonthHistory})
-      : super._();
+      {@JsonKey(name: 'this_week_history')
+          required final List<SalesResponse>? thisWeekHistory,
+      @JsonKey(name: 'last_month_history')
+          required final List<SalesResponse>? lastMonthHistory})
+      : _thisWeekHistory = thisWeekHistory,
+        _lastMonthHistory = lastMonthHistory,
+        super._();
 
   factory _$_HistoryDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_HistoryDataResponseFromJson(json);
 
+  final List<SalesResponse>? _thisWeekHistory;
   @override
   @JsonKey(name: 'this_week_history')
-  final List<SalesResponse>? thisWeekHistory;
+  List<SalesResponse>? get thisWeekHistory {
+    final value = _thisWeekHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<SalesResponse>? _lastMonthHistory;
   @override
   @JsonKey(name: 'last_month_history')
-  final List<SalesResponse>? lastMonthHistory;
+  List<SalesResponse>? get lastMonthHistory {
+    final value = _lastMonthHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -165,37 +159,40 @@ class _$_HistoryDataResponse extends _HistoryDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryDataResponse &&
+            other is _$_HistoryDataResponse &&
             const DeepCollectionEquality()
-                .equals(other.thisWeekHistory, thisWeekHistory) &&
+                .equals(other._thisWeekHistory, _thisWeekHistory) &&
             const DeepCollectionEquality()
-                .equals(other.lastMonthHistory, lastMonthHistory));
+                .equals(other._lastMonthHistory, _lastMonthHistory));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(thisWeekHistory),
-      const DeepCollectionEquality().hash(lastMonthHistory));
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDataResponseCopyWith<_HistoryDataResponse> get copyWith =>
-      __$HistoryDataResponseCopyWithImpl<_HistoryDataResponse>(
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_thisWeekHistory),
+      const DeepCollectionEquality().hash(_lastMonthHistory));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_HistoryDataResponseCopyWith<_$_HistoryDataResponse> get copyWith =>
+      __$$_HistoryDataResponseCopyWithImpl<_$_HistoryDataResponse>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HistoryDataResponseToJson(this);
+    return _$$_HistoryDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HistoryDataResponse extends HistoryDataResponse {
   const factory _HistoryDataResponse(
           {@JsonKey(name: 'this_week_history')
-              required List<SalesResponse>? thisWeekHistory,
+              required final List<SalesResponse>? thisWeekHistory,
           @JsonKey(name: 'last_month_history')
-              required List<SalesResponse>? lastMonthHistory}) =
+              required final List<SalesResponse>? lastMonthHistory}) =
       _$_HistoryDataResponse;
   const _HistoryDataResponse._() : super._();
 
@@ -210,6 +207,6 @@ abstract class _HistoryDataResponse extends HistoryDataResponse {
   List<SalesResponse>? get lastMonthHistory;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDataResponseCopyWith<_HistoryDataResponse> get copyWith =>
+  _$$_HistoryDataResponseCopyWith<_$_HistoryDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

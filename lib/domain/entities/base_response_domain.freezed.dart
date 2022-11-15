@@ -12,23 +12,7 @@ part of 'base_response_domain.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$BaseResponseDomainTearOff {
-  const _$BaseResponseDomainTearOff();
-
-  _BaseResponseDomain call(
-      {required String? message, required int? statusCode}) {
-    return _BaseResponseDomain(
-      message: message,
-      statusCode: statusCode,
-    );
-  }
-}
-
-/// @nodoc
-const $BaseResponseDomain = _$BaseResponseDomainTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$BaseResponseDomain {
@@ -76,32 +60,32 @@ class _$BaseResponseDomainCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$BaseResponseDomainCopyWith<$Res>
+abstract class _$$_BaseResponseDomainCopyWith<$Res>
     implements $BaseResponseDomainCopyWith<$Res> {
-  factory _$BaseResponseDomainCopyWith(
-          _BaseResponseDomain value, $Res Function(_BaseResponseDomain) then) =
-      __$BaseResponseDomainCopyWithImpl<$Res>;
+  factory _$$_BaseResponseDomainCopyWith(_$_BaseResponseDomain value,
+          $Res Function(_$_BaseResponseDomain) then) =
+      __$$_BaseResponseDomainCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode});
 }
 
 /// @nodoc
-class __$BaseResponseDomainCopyWithImpl<$Res>
+class __$$_BaseResponseDomainCopyWithImpl<$Res>
     extends _$BaseResponseDomainCopyWithImpl<$Res>
-    implements _$BaseResponseDomainCopyWith<$Res> {
-  __$BaseResponseDomainCopyWithImpl(
-      _BaseResponseDomain _value, $Res Function(_BaseResponseDomain) _then)
-      : super(_value, (v) => _then(v as _BaseResponseDomain));
+    implements _$$_BaseResponseDomainCopyWith<$Res> {
+  __$$_BaseResponseDomainCopyWithImpl(
+      _$_BaseResponseDomain _value, $Res Function(_$_BaseResponseDomain) _then)
+      : super(_value, (v) => _then(v as _$_BaseResponseDomain));
 
   @override
-  _BaseResponseDomain get _value => super._value as _BaseResponseDomain;
+  _$_BaseResponseDomain get _value => super._value as _$_BaseResponseDomain;
 
   @override
   $Res call({
     Object? message = freezed,
     Object? statusCode = freezed,
   }) {
-    return _then(_BaseResponseDomain(
+    return _then(_$_BaseResponseDomain(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -134,7 +118,7 @@ class _$_BaseResponseDomain implements _BaseResponseDomain {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _BaseResponseDomain &&
+            other is _$_BaseResponseDomain &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode));
@@ -148,14 +132,15 @@ class _$_BaseResponseDomain implements _BaseResponseDomain {
 
   @JsonKey(ignore: true)
   @override
-  _$BaseResponseDomainCopyWith<_BaseResponseDomain> get copyWith =>
-      __$BaseResponseDomainCopyWithImpl<_BaseResponseDomain>(this, _$identity);
+  _$$_BaseResponseDomainCopyWith<_$_BaseResponseDomain> get copyWith =>
+      __$$_BaseResponseDomainCopyWithImpl<_$_BaseResponseDomain>(
+          this, _$identity);
 }
 
 abstract class _BaseResponseDomain implements BaseResponseDomain {
   const factory _BaseResponseDomain(
-      {required String? message,
-      required int? statusCode}) = _$_BaseResponseDomain;
+      {required final String? message,
+      required final int? statusCode}) = _$_BaseResponseDomain;
 
   @override
   String? get message;
@@ -163,6 +148,6 @@ abstract class _BaseResponseDomain implements BaseResponseDomain {
   int? get statusCode;
   @override
   @JsonKey(ignore: true)
-  _$BaseResponseDomainCopyWith<_BaseResponseDomain> get copyWith =>
+  _$$_BaseResponseDomainCopyWith<_$_BaseResponseDomain> get copyWith =>
       throw _privateConstructorUsedError;
 }

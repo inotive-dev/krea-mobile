@@ -12,26 +12,7 @@ part of 'home_user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeUserTearOff {
-  const _$HomeUserTearOff();
-
-  _HomeUser call(
-      {required String? message,
-      required int? statusCode,
-      required HomeUserData? data}) {
-    return _HomeUser(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $HomeUser = _$HomeUserTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomeUser {
@@ -96,9 +77,10 @@ class _$HomeUserCopyWithImpl<$Res> implements $HomeUserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HomeUserCopyWith<$Res> implements $HomeUserCopyWith<$Res> {
-  factory _$HomeUserCopyWith(_HomeUser value, $Res Function(_HomeUser) then) =
-      __$HomeUserCopyWithImpl<$Res>;
+abstract class _$$_HomeUserCopyWith<$Res> implements $HomeUserCopyWith<$Res> {
+  factory _$$_HomeUserCopyWith(
+          _$_HomeUser value, $Res Function(_$_HomeUser) then) =
+      __$$_HomeUserCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HomeUserData? data});
 
@@ -107,13 +89,14 @@ abstract class _$HomeUserCopyWith<$Res> implements $HomeUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$HomeUserCopyWithImpl<$Res> extends _$HomeUserCopyWithImpl<$Res>
-    implements _$HomeUserCopyWith<$Res> {
-  __$HomeUserCopyWithImpl(_HomeUser _value, $Res Function(_HomeUser) _then)
-      : super(_value, (v) => _then(v as _HomeUser));
+class __$$_HomeUserCopyWithImpl<$Res> extends _$HomeUserCopyWithImpl<$Res>
+    implements _$$_HomeUserCopyWith<$Res> {
+  __$$_HomeUserCopyWithImpl(
+      _$_HomeUser _value, $Res Function(_$_HomeUser) _then)
+      : super(_value, (v) => _then(v as _$_HomeUser));
 
   @override
-  _HomeUser get _value => super._value as _HomeUser;
+  _$_HomeUser get _value => super._value as _$_HomeUser;
 
   @override
   $Res call({
@@ -121,7 +104,7 @@ class __$HomeUserCopyWithImpl<$Res> extends _$HomeUserCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_HomeUser(
+    return _then(_$_HomeUser(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -160,7 +143,7 @@ class _$_HomeUser implements _HomeUser {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeUser &&
+            other is _$_HomeUser &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -176,15 +159,15 @@ class _$_HomeUser implements _HomeUser {
 
   @JsonKey(ignore: true)
   @override
-  _$HomeUserCopyWith<_HomeUser> get copyWith =>
-      __$HomeUserCopyWithImpl<_HomeUser>(this, _$identity);
+  _$$_HomeUserCopyWith<_$_HomeUser> get copyWith =>
+      __$$_HomeUserCopyWithImpl<_$_HomeUser>(this, _$identity);
 }
 
 abstract class _HomeUser implements HomeUser {
   const factory _HomeUser(
-      {required String? message,
-      required int? statusCode,
-      required HomeUserData? data}) = _$_HomeUser;
+      {required final String? message,
+      required final int? statusCode,
+      required final HomeUserData? data}) = _$_HomeUser;
 
   @override
   String? get message;
@@ -194,6 +177,6 @@ abstract class _HomeUser implements HomeUser {
   HomeUserData? get data;
   @override
   @JsonKey(ignore: true)
-  _$HomeUserCopyWith<_HomeUser> get copyWith =>
+  _$$_HomeUserCopyWith<_$_HomeUser> get copyWith =>
       throw _privateConstructorUsedError;
 }

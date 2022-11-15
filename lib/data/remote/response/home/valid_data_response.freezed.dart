@@ -12,54 +12,11 @@ part of 'valid_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ValidDataResponse _$ValidDataResponseFromJson(Map<String, dynamic> json) {
   return _ValidDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$ValidDataResponseTearOff {
-  const _$ValidDataResponseTearOff();
-
-  _ValidDataResponse call(
-      {@JsonKey(name: 'newest_saldo_simpanan_wajib_all')
-          required List<Map<String, dynamic>>? newestTotalSaldoSimpananWajibAll,
-      @JsonKey(name: 'newest_all_debt')
-          required List<Map<String, dynamic>>? newestAllDebt,
-      @JsonKey(name: 'newest_total_saldo_simpanan_wajib_sudah_bayar')
-          required int? newestTotalSaldoSimpananWajibSudahBayar,
-      @JsonKey(name: 'newest_total_saldo_simpanan_pokok_sudah_bayar')
-          required int? newestTotalSaldoSimpananPokokSudahBayar,
-      @JsonKey(name: 'newest_total_saldo_simpanan_utang')
-          required int? newestTotalSaldoSimpananUtang,
-      @JsonKey(name: 'newest_total_saldo_utang')
-          required int? newestTotalSaldoUtang,
-      @JsonKey(name: 'newest_this_week_history')
-          required List<Map<String, dynamic>>? newestThisWeekHistory,
-      @JsonKey(name: 'newest_last_month_history')
-          required List<Map<String, dynamic>>? newestLastMonthHistory}) {
-    return _ValidDataResponse(
-      newestTotalSaldoSimpananWajibAll: newestTotalSaldoSimpananWajibAll,
-      newestAllDebt: newestAllDebt,
-      newestTotalSaldoSimpananWajibSudahBayar:
-          newestTotalSaldoSimpananWajibSudahBayar,
-      newestTotalSaldoSimpananPokokSudahBayar:
-          newestTotalSaldoSimpananPokokSudahBayar,
-      newestTotalSaldoSimpananUtang: newestTotalSaldoSimpananUtang,
-      newestTotalSaldoUtang: newestTotalSaldoUtang,
-      newestThisWeekHistory: newestThisWeekHistory,
-      newestLastMonthHistory: newestLastMonthHistory,
-    );
-  }
-
-  ValidDataResponse fromJson(Map<String, Object?> json) {
-    return ValidDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ValidDataResponse = _$ValidDataResponseTearOff();
 
 /// @nodoc
 mixin _$ValidDataResponse {
@@ -177,11 +134,11 @@ class _$ValidDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ValidDataResponseCopyWith<$Res>
+abstract class _$$_ValidDataResponseCopyWith<$Res>
     implements $ValidDataResponseCopyWith<$Res> {
-  factory _$ValidDataResponseCopyWith(
-          _ValidDataResponse value, $Res Function(_ValidDataResponse) then) =
-      __$ValidDataResponseCopyWithImpl<$Res>;
+  factory _$$_ValidDataResponseCopyWith(_$_ValidDataResponse value,
+          $Res Function(_$_ValidDataResponse) then) =
+      __$$_ValidDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'newest_saldo_simpanan_wajib_all')
@@ -203,15 +160,15 @@ abstract class _$ValidDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ValidDataResponseCopyWithImpl<$Res>
+class __$$_ValidDataResponseCopyWithImpl<$Res>
     extends _$ValidDataResponseCopyWithImpl<$Res>
-    implements _$ValidDataResponseCopyWith<$Res> {
-  __$ValidDataResponseCopyWithImpl(
-      _ValidDataResponse _value, $Res Function(_ValidDataResponse) _then)
-      : super(_value, (v) => _then(v as _ValidDataResponse));
+    implements _$$_ValidDataResponseCopyWith<$Res> {
+  __$$_ValidDataResponseCopyWithImpl(
+      _$_ValidDataResponse _value, $Res Function(_$_ValidDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_ValidDataResponse));
 
   @override
-  _ValidDataResponse get _value => super._value as _ValidDataResponse;
+  _$_ValidDataResponse get _value => super._value as _$_ValidDataResponse;
 
   @override
   $Res call({
@@ -224,14 +181,14 @@ class __$ValidDataResponseCopyWithImpl<$Res>
     Object? newestThisWeekHistory = freezed,
     Object? newestLastMonthHistory = freezed,
   }) {
-    return _then(_ValidDataResponse(
+    return _then(_$_ValidDataResponse(
       newestTotalSaldoSimpananWajibAll: newestTotalSaldoSimpananWajibAll ==
               freezed
-          ? _value.newestTotalSaldoSimpananWajibAll
+          ? _value._newestTotalSaldoSimpananWajibAll
           : newestTotalSaldoSimpananWajibAll // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>?,
       newestAllDebt: newestAllDebt == freezed
-          ? _value.newestAllDebt
+          ? _value._newestAllDebt
           : newestAllDebt // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>?,
       newestTotalSaldoSimpananWajibSudahBayar:
@@ -253,11 +210,11 @@ class __$ValidDataResponseCopyWithImpl<$Res>
           : newestTotalSaldoUtang // ignore: cast_nullable_to_non_nullable
               as int?,
       newestThisWeekHistory: newestThisWeekHistory == freezed
-          ? _value.newestThisWeekHistory
+          ? _value._newestThisWeekHistory
           : newestThisWeekHistory // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>?,
       newestLastMonthHistory: newestLastMonthHistory == freezed
-          ? _value.newestLastMonthHistory
+          ? _value._newestLastMonthHistory
           : newestLastMonthHistory // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>?,
     ));
@@ -269,9 +226,10 @@ class __$ValidDataResponseCopyWithImpl<$Res>
 class _$_ValidDataResponse extends _ValidDataResponse {
   const _$_ValidDataResponse(
       {@JsonKey(name: 'newest_saldo_simpanan_wajib_all')
-          required this.newestTotalSaldoSimpananWajibAll,
+          required final List<Map<String, dynamic>>?
+              newestTotalSaldoSimpananWajibAll,
       @JsonKey(name: 'newest_all_debt')
-          required this.newestAllDebt,
+          required final List<Map<String, dynamic>>? newestAllDebt,
       @JsonKey(name: 'newest_total_saldo_simpanan_wajib_sudah_bayar')
           required this.newestTotalSaldoSimpananWajibSudahBayar,
       @JsonKey(name: 'newest_total_saldo_simpanan_pokok_sudah_bayar')
@@ -281,20 +239,38 @@ class _$_ValidDataResponse extends _ValidDataResponse {
       @JsonKey(name: 'newest_total_saldo_utang')
           required this.newestTotalSaldoUtang,
       @JsonKey(name: 'newest_this_week_history')
-          required this.newestThisWeekHistory,
+          required final List<Map<String, dynamic>>? newestThisWeekHistory,
       @JsonKey(name: 'newest_last_month_history')
-          required this.newestLastMonthHistory})
-      : super._();
+          required final List<Map<String, dynamic>>? newestLastMonthHistory})
+      : _newestTotalSaldoSimpananWajibAll = newestTotalSaldoSimpananWajibAll,
+        _newestAllDebt = newestAllDebt,
+        _newestThisWeekHistory = newestThisWeekHistory,
+        _newestLastMonthHistory = newestLastMonthHistory,
+        super._();
 
   factory _$_ValidDataResponse.fromJson(Map<String, dynamic> json) =>
       _$$_ValidDataResponseFromJson(json);
 
+  final List<Map<String, dynamic>>? _newestTotalSaldoSimpananWajibAll;
   @override
   @JsonKey(name: 'newest_saldo_simpanan_wajib_all')
-  final List<Map<String, dynamic>>? newestTotalSaldoSimpananWajibAll;
+  List<Map<String, dynamic>>? get newestTotalSaldoSimpananWajibAll {
+    final value = _newestTotalSaldoSimpananWajibAll;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Map<String, dynamic>>? _newestAllDebt;
   @override
   @JsonKey(name: 'newest_all_debt')
-  final List<Map<String, dynamic>>? newestAllDebt;
+  List<Map<String, dynamic>>? get newestAllDebt {
+    final value = _newestAllDebt;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: 'newest_total_saldo_simpanan_wajib_sudah_bayar')
   final int? newestTotalSaldoSimpananWajibSudahBayar;
@@ -307,12 +283,25 @@ class _$_ValidDataResponse extends _ValidDataResponse {
   @override
   @JsonKey(name: 'newest_total_saldo_utang')
   final int? newestTotalSaldoUtang;
+  final List<Map<String, dynamic>>? _newestThisWeekHistory;
   @override
   @JsonKey(name: 'newest_this_week_history')
-  final List<Map<String, dynamic>>? newestThisWeekHistory;
+  List<Map<String, dynamic>>? get newestThisWeekHistory {
+    final value = _newestThisWeekHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Map<String, dynamic>>? _newestLastMonthHistory;
   @override
   @JsonKey(name: 'newest_last_month_history')
-  final List<Map<String, dynamic>>? newestLastMonthHistory;
+  List<Map<String, dynamic>>? get newestLastMonthHistory {
+    final value = _newestLastMonthHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -323,12 +312,12 @@ class _$_ValidDataResponse extends _ValidDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidDataResponse &&
+            other is _$_ValidDataResponse &&
             const DeepCollectionEquality().equals(
-                other.newestTotalSaldoSimpananWajibAll,
-                newestTotalSaldoSimpananWajibAll) &&
+                other._newestTotalSaldoSimpananWajibAll,
+                _newestTotalSaldoSimpananWajibAll) &&
             const DeepCollectionEquality()
-                .equals(other.newestAllDebt, newestAllDebt) &&
+                .equals(other._newestAllDebt, _newestAllDebt) &&
             const DeepCollectionEquality().equals(
                 other.newestTotalSaldoSimpananWajibSudahBayar,
                 newestTotalSaldoSimpananWajibSudahBayar) &&
@@ -341,54 +330,59 @@ class _$_ValidDataResponse extends _ValidDataResponse {
             const DeepCollectionEquality()
                 .equals(other.newestTotalSaldoUtang, newestTotalSaldoUtang) &&
             const DeepCollectionEquality()
-                .equals(other.newestThisWeekHistory, newestThisWeekHistory) &&
-            const DeepCollectionEquality()
-                .equals(other.newestLastMonthHistory, newestLastMonthHistory));
+                .equals(other._newestThisWeekHistory, _newestThisWeekHistory) &&
+            const DeepCollectionEquality().equals(
+                other._newestLastMonthHistory, _newestLastMonthHistory));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(newestTotalSaldoSimpananWajibAll),
-      const DeepCollectionEquality().hash(newestAllDebt),
+      const DeepCollectionEquality().hash(_newestTotalSaldoSimpananWajibAll),
+      const DeepCollectionEquality().hash(_newestAllDebt),
       const DeepCollectionEquality()
           .hash(newestTotalSaldoSimpananWajibSudahBayar),
       const DeepCollectionEquality()
           .hash(newestTotalSaldoSimpananPokokSudahBayar),
       const DeepCollectionEquality().hash(newestTotalSaldoSimpananUtang),
       const DeepCollectionEquality().hash(newestTotalSaldoUtang),
-      const DeepCollectionEquality().hash(newestThisWeekHistory),
-      const DeepCollectionEquality().hash(newestLastMonthHistory));
+      const DeepCollectionEquality().hash(_newestThisWeekHistory),
+      const DeepCollectionEquality().hash(_newestLastMonthHistory));
 
   @JsonKey(ignore: true)
   @override
-  _$ValidDataResponseCopyWith<_ValidDataResponse> get copyWith =>
-      __$ValidDataResponseCopyWithImpl<_ValidDataResponse>(this, _$identity);
+  _$$_ValidDataResponseCopyWith<_$_ValidDataResponse> get copyWith =>
+      __$$_ValidDataResponseCopyWithImpl<_$_ValidDataResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ValidDataResponseToJson(this);
+    return _$$_ValidDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ValidDataResponse extends ValidDataResponse {
   const factory _ValidDataResponse(
       {@JsonKey(name: 'newest_saldo_simpanan_wajib_all')
-          required List<Map<String, dynamic>>? newestTotalSaldoSimpananWajibAll,
+          required final List<Map<String, dynamic>>?
+              newestTotalSaldoSimpananWajibAll,
       @JsonKey(name: 'newest_all_debt')
-          required List<Map<String, dynamic>>? newestAllDebt,
+          required final List<Map<String, dynamic>>? newestAllDebt,
       @JsonKey(name: 'newest_total_saldo_simpanan_wajib_sudah_bayar')
-          required int? newestTotalSaldoSimpananWajibSudahBayar,
+          required final int? newestTotalSaldoSimpananWajibSudahBayar,
       @JsonKey(name: 'newest_total_saldo_simpanan_pokok_sudah_bayar')
-          required int? newestTotalSaldoSimpananPokokSudahBayar,
+          required final int? newestTotalSaldoSimpananPokokSudahBayar,
       @JsonKey(name: 'newest_total_saldo_simpanan_utang')
-          required int? newestTotalSaldoSimpananUtang,
+          required final int? newestTotalSaldoSimpananUtang,
       @JsonKey(name: 'newest_total_saldo_utang')
-          required int? newestTotalSaldoUtang,
+          required final int? newestTotalSaldoUtang,
       @JsonKey(name: 'newest_this_week_history')
-          required List<Map<String, dynamic>>? newestThisWeekHistory,
+          required final List<Map<String, dynamic>>? newestThisWeekHistory,
       @JsonKey(name: 'newest_last_month_history')
-          required List<Map<String, dynamic>>?
+          required final List<Map<String, dynamic>>?
               newestLastMonthHistory}) = _$_ValidDataResponse;
   const _ValidDataResponse._() : super._();
 
@@ -421,6 +415,6 @@ abstract class _ValidDataResponse extends ValidDataResponse {
   List<Map<String, dynamic>>? get newestLastMonthHistory;
   @override
   @JsonKey(ignore: true)
-  _$ValidDataResponseCopyWith<_ValidDataResponse> get copyWith =>
+  _$$_ValidDataResponseCopyWith<_$_ValidDataResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

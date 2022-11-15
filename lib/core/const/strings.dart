@@ -15,9 +15,11 @@ class Strings {
   static const totalSimpananAnda = 'Total Simpanan Anda';
   static const totalSimpananWajib = 'Total Simpanan Wajib';
   static const totalSimpananPokok = 'Total Simpanan Pokok';
+  static const totalSimpananSukarela = 'Total Simpanan Sukarela';
   static const totalUtang = 'Total Utang';
   static const home = 'Home';
   static const history = 'History';
+  static const stockOpname = 'Stock Opname';
   static const detailHistory = 'Detail History';
   static const profile = 'Profile';
   static const successUpdateProfile = 'Data Tersimpan';

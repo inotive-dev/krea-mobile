@@ -12,45 +12,12 @@ part of 'perubahan_modal_data_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PerubahanModalDataResponse _$PerubahanModalDataResponseFromJson(
     Map<String, dynamic> json) {
   return _PerubahanModalDataResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$PerubahanModalDataResponseTearOff {
-  const _$PerubahanModalDataResponseTearOff();
-
-  _PerubahanModalDataResponse call(
-      {@JsonKey(name: 'modal_awal') required double? modalAwal,
-      @JsonKey(name: 'modal_akhir') required double? modalAkhir,
-      @JsonKey(name: 'laba_bersih') required double? labaBersih,
-      @JsonKey(name: 'laba_ditahan') required double? labaDitahan,
-      required double? total1,
-      required double? total2,
-      required double? prive,
-      required double? koreksi}) {
-    return _PerubahanModalDataResponse(
-      modalAwal: modalAwal,
-      modalAkhir: modalAkhir,
-      labaBersih: labaBersih,
-      labaDitahan: labaDitahan,
-      total1: total1,
-      total2: total2,
-      prive: prive,
-      koreksi: koreksi,
-    );
-  }
-
-  PerubahanModalDataResponse fromJson(Map<String, Object?> json) {
-    return PerubahanModalDataResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PerubahanModalDataResponse = _$PerubahanModalDataResponseTearOff();
 
 /// @nodoc
 mixin _$PerubahanModalDataResponse {
@@ -147,12 +114,12 @@ class _$PerubahanModalDataResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PerubahanModalDataResponseCopyWith<$Res>
+abstract class _$$_PerubahanModalDataResponseCopyWith<$Res>
     implements $PerubahanModalDataResponseCopyWith<$Res> {
-  factory _$PerubahanModalDataResponseCopyWith(
-          _PerubahanModalDataResponse value,
-          $Res Function(_PerubahanModalDataResponse) then) =
-      __$PerubahanModalDataResponseCopyWithImpl<$Res>;
+  factory _$$_PerubahanModalDataResponseCopyWith(
+          _$_PerubahanModalDataResponse value,
+          $Res Function(_$_PerubahanModalDataResponse) then) =
+      __$$_PerubahanModalDataResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'modal_awal') double? modalAwal,
@@ -166,16 +133,17 @@ abstract class _$PerubahanModalDataResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PerubahanModalDataResponseCopyWithImpl<$Res>
+class __$$_PerubahanModalDataResponseCopyWithImpl<$Res>
     extends _$PerubahanModalDataResponseCopyWithImpl<$Res>
-    implements _$PerubahanModalDataResponseCopyWith<$Res> {
-  __$PerubahanModalDataResponseCopyWithImpl(_PerubahanModalDataResponse _value,
-      $Res Function(_PerubahanModalDataResponse) _then)
-      : super(_value, (v) => _then(v as _PerubahanModalDataResponse));
+    implements _$$_PerubahanModalDataResponseCopyWith<$Res> {
+  __$$_PerubahanModalDataResponseCopyWithImpl(
+      _$_PerubahanModalDataResponse _value,
+      $Res Function(_$_PerubahanModalDataResponse) _then)
+      : super(_value, (v) => _then(v as _$_PerubahanModalDataResponse));
 
   @override
-  _PerubahanModalDataResponse get _value =>
-      super._value as _PerubahanModalDataResponse;
+  _$_PerubahanModalDataResponse get _value =>
+      super._value as _$_PerubahanModalDataResponse;
 
   @override
   $Res call({
@@ -188,7 +156,7 @@ class __$PerubahanModalDataResponseCopyWithImpl<$Res>
     Object? prive = freezed,
     Object? koreksi = freezed,
   }) {
-    return _then(_PerubahanModalDataResponse(
+    return _then(_$_PerubahanModalDataResponse(
       modalAwal: modalAwal == freezed
           ? _value.modalAwal
           : modalAwal // ignore: cast_nullable_to_non_nullable
@@ -272,7 +240,7 @@ class _$_PerubahanModalDataResponse extends _PerubahanModalDataResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PerubahanModalDataResponse &&
+            other is _$_PerubahanModalDataResponse &&
             const DeepCollectionEquality().equals(other.modalAwal, modalAwal) &&
             const DeepCollectionEquality()
                 .equals(other.modalAkhir, modalAkhir) &&
@@ -286,6 +254,7 @@ class _$_PerubahanModalDataResponse extends _PerubahanModalDataResponse {
             const DeepCollectionEquality().equals(other.koreksi, koreksi));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -300,26 +269,28 @@ class _$_PerubahanModalDataResponse extends _PerubahanModalDataResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$PerubahanModalDataResponseCopyWith<_PerubahanModalDataResponse>
-      get copyWith => __$PerubahanModalDataResponseCopyWithImpl<
-          _PerubahanModalDataResponse>(this, _$identity);
+  _$$_PerubahanModalDataResponseCopyWith<_$_PerubahanModalDataResponse>
+      get copyWith => __$$_PerubahanModalDataResponseCopyWithImpl<
+          _$_PerubahanModalDataResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PerubahanModalDataResponseToJson(this);
+    return _$$_PerubahanModalDataResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _PerubahanModalDataResponse extends PerubahanModalDataResponse {
   const factory _PerubahanModalDataResponse(
-      {@JsonKey(name: 'modal_awal') required double? modalAwal,
-      @JsonKey(name: 'modal_akhir') required double? modalAkhir,
-      @JsonKey(name: 'laba_bersih') required double? labaBersih,
-      @JsonKey(name: 'laba_ditahan') required double? labaDitahan,
-      required double? total1,
-      required double? total2,
-      required double? prive,
-      required double? koreksi}) = _$_PerubahanModalDataResponse;
+      {@JsonKey(name: 'modal_awal') required final double? modalAwal,
+      @JsonKey(name: 'modal_akhir') required final double? modalAkhir,
+      @JsonKey(name: 'laba_bersih') required final double? labaBersih,
+      @JsonKey(name: 'laba_ditahan') required final double? labaDitahan,
+      required final double? total1,
+      required final double? total2,
+      required final double? prive,
+      required final double? koreksi}) = _$_PerubahanModalDataResponse;
   const _PerubahanModalDataResponse._() : super._();
 
   factory _PerubahanModalDataResponse.fromJson(Map<String, dynamic> json) =
@@ -347,6 +318,6 @@ abstract class _PerubahanModalDataResponse extends PerubahanModalDataResponse {
   double? get koreksi;
   @override
   @JsonKey(ignore: true)
-  _$PerubahanModalDataResponseCopyWith<_PerubahanModalDataResponse>
+  _$$_PerubahanModalDataResponseCopyWith<_$_PerubahanModalDataResponse>
       get copyWith => throw _privateConstructorUsedError;
 }

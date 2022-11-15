@@ -12,72 +12,11 @@ part of 'user_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserResponse _$UserResponseFromJson(Map<String, dynamic> json) {
   return _UserResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$UserResponseTearOff {
-  const _$UserResponseTearOff();
-
-  _UserResponse call(
-      {required int? id,
-      @JsonKey(name: 'mart_id') required int? martId,
-      required String? name,
-      @JsonKey(name: 'member_number') required String? memberNumber,
-      required String? nik,
-      required String? gender,
-      required String? birthplace,
-      required String? birthdate,
-      @JsonKey(name: 'marriage_status') required String? marriageStatus,
-      required String? address,
-      @JsonKey(name: 'employee_status') required String? employeeStatus,
-      required String? department,
-      required String? email,
-      required String? phone,
-      @JsonKey(name: 'email_verified_at') required String? emailVerifiedAt,
-      required String? avatar,
-      required String? app,
-      @JsonKey(name: 'reset_token') required String? resetToken,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt,
-      @JsonKey(name: 'deleted_at') required DateTime? deleteAt,
-      required String? status}) {
-    return _UserResponse(
-      id: id,
-      martId: martId,
-      name: name,
-      memberNumber: memberNumber,
-      nik: nik,
-      gender: gender,
-      birthplace: birthplace,
-      birthdate: birthdate,
-      marriageStatus: marriageStatus,
-      address: address,
-      employeeStatus: employeeStatus,
-      department: department,
-      email: email,
-      phone: phone,
-      emailVerifiedAt: emailVerifiedAt,
-      avatar: avatar,
-      app: app,
-      resetToken: resetToken,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      deleteAt: deleteAt,
-      status: status,
-    );
-  }
-
-  UserResponse fromJson(Map<String, Object?> json) {
-    return UserResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserResponse = _$UserResponseTearOff();
 
 /// @nodoc
 mixin _$UserResponse {
@@ -276,11 +215,11 @@ class _$UserResponseCopyWithImpl<$Res> implements $UserResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserResponseCopyWith<$Res>
+abstract class _$$_UserResponseCopyWith<$Res>
     implements $UserResponseCopyWith<$Res> {
-  factory _$UserResponseCopyWith(
-          _UserResponse value, $Res Function(_UserResponse) then) =
-      __$UserResponseCopyWithImpl<$Res>;
+  factory _$$_UserResponseCopyWith(
+          _$_UserResponse value, $Res Function(_$_UserResponse) then) =
+      __$$_UserResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -308,14 +247,15 @@ abstract class _$UserResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UserResponseCopyWithImpl<$Res> extends _$UserResponseCopyWithImpl<$Res>
-    implements _$UserResponseCopyWith<$Res> {
-  __$UserResponseCopyWithImpl(
-      _UserResponse _value, $Res Function(_UserResponse) _then)
-      : super(_value, (v) => _then(v as _UserResponse));
+class __$$_UserResponseCopyWithImpl<$Res>
+    extends _$UserResponseCopyWithImpl<$Res>
+    implements _$$_UserResponseCopyWith<$Res> {
+  __$$_UserResponseCopyWithImpl(
+      _$_UserResponse _value, $Res Function(_$_UserResponse) _then)
+      : super(_value, (v) => _then(v as _$_UserResponse));
 
   @override
-  _UserResponse get _value => super._value as _UserResponse;
+  _$_UserResponse get _value => super._value as _$_UserResponse;
 
   @override
   $Res call({
@@ -342,7 +282,7 @@ class __$UserResponseCopyWithImpl<$Res> extends _$UserResponseCopyWithImpl<$Res>
     Object? deleteAt = freezed,
     Object? status = freezed,
   }) {
-    return _then(_UserResponse(
+    return _then(_$_UserResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -529,7 +469,7 @@ class _$_UserResponse extends _UserResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserResponse &&
+            other is _$_UserResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.martId, martId) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -561,6 +501,7 @@ class _$_UserResponse extends _UserResponse {
             const DeepCollectionEquality().equals(other.status, status));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -590,39 +531,50 @@ class _$_UserResponse extends _UserResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$UserResponseCopyWith<_UserResponse> get copyWith =>
-      __$UserResponseCopyWithImpl<_UserResponse>(this, _$identity);
+  _$$_UserResponseCopyWith<_$_UserResponse> get copyWith =>
+      __$$_UserResponseCopyWithImpl<_$_UserResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserResponseToJson(this);
+    return _$$_UserResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _UserResponse extends UserResponse {
   const factory _UserResponse(
-      {required int? id,
-      @JsonKey(name: 'mart_id') required int? martId,
-      required String? name,
-      @JsonKey(name: 'member_number') required String? memberNumber,
-      required String? nik,
-      required String? gender,
-      required String? birthplace,
-      required String? birthdate,
-      @JsonKey(name: 'marriage_status') required String? marriageStatus,
-      required String? address,
-      @JsonKey(name: 'employee_status') required String? employeeStatus,
-      required String? department,
-      required String? email,
-      required String? phone,
-      @JsonKey(name: 'email_verified_at') required String? emailVerifiedAt,
-      required String? avatar,
-      required String? app,
-      @JsonKey(name: 'reset_token') required String? resetToken,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt,
-      @JsonKey(name: 'deleted_at') required DateTime? deleteAt,
-      required String? status}) = _$_UserResponse;
+      {required final int? id,
+      @JsonKey(name: 'mart_id')
+          required final int? martId,
+      required final String? name,
+      @JsonKey(name: 'member_number')
+          required final String? memberNumber,
+      required final String? nik,
+      required final String? gender,
+      required final String? birthplace,
+      required final String? birthdate,
+      @JsonKey(name: 'marriage_status')
+          required final String? marriageStatus,
+      required final String? address,
+      @JsonKey(name: 'employee_status')
+          required final String? employeeStatus,
+      required final String? department,
+      required final String? email,
+      required final String? phone,
+      @JsonKey(name: 'email_verified_at')
+          required final String? emailVerifiedAt,
+      required final String? avatar,
+      required final String? app,
+      @JsonKey(name: 'reset_token')
+          required final String? resetToken,
+      @JsonKey(name: 'created_at')
+          required final DateTime? createdAt,
+      @JsonKey(name: 'updated_at')
+          required final DateTime? updatedAt,
+      @JsonKey(name: 'deleted_at')
+          required final DateTime? deleteAt,
+      required final String? status}) = _$_UserResponse;
   const _UserResponse._() : super._();
 
   factory _UserResponse.fromJson(Map<String, dynamic> json) =
@@ -683,6 +635,6 @@ abstract class _UserResponse extends UserResponse {
   String? get status;
   @override
   @JsonKey(ignore: true)
-  _$UserResponseCopyWith<_UserResponse> get copyWith =>
+  _$$_UserResponseCopyWith<_$_UserResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

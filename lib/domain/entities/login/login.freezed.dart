@@ -12,26 +12,7 @@ part of 'login.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$LoginTearOff {
-  const _$LoginTearOff();
-
-  _Login call(
-      {required UserResponse? user,
-      required String? message,
-      required String? token}) {
-    return _Login(
-      user: user,
-      message: message,
-      token: token,
-    );
-  }
-}
-
-/// @nodoc
-const $Login = _$LoginTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Login {
@@ -95,9 +76,9 @@ class _$LoginCopyWithImpl<$Res> implements $LoginCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$LoginCopyWith<$Res> implements $LoginCopyWith<$Res> {
-  factory _$LoginCopyWith(_Login value, $Res Function(_Login) then) =
-      __$LoginCopyWithImpl<$Res>;
+abstract class _$$_LoginCopyWith<$Res> implements $LoginCopyWith<$Res> {
+  factory _$$_LoginCopyWith(_$_Login value, $Res Function(_$_Login) then) =
+      __$$_LoginCopyWithImpl<$Res>;
   @override
   $Res call({UserResponse? user, String? message, String? token});
 
@@ -106,13 +87,13 @@ abstract class _$LoginCopyWith<$Res> implements $LoginCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$LoginCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
-    implements _$LoginCopyWith<$Res> {
-  __$LoginCopyWithImpl(_Login _value, $Res Function(_Login) _then)
-      : super(_value, (v) => _then(v as _Login));
+class __$$_LoginCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
+    implements _$$_LoginCopyWith<$Res> {
+  __$$_LoginCopyWithImpl(_$_Login _value, $Res Function(_$_Login) _then)
+      : super(_value, (v) => _then(v as _$_Login));
 
   @override
-  _Login get _value => super._value as _Login;
+  _$_Login get _value => super._value as _$_Login;
 
   @override
   $Res call({
@@ -120,7 +101,7 @@ class __$LoginCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
     Object? message = freezed,
     Object? token = freezed,
   }) {
-    return _then(_Login(
+    return _then(_$_Login(
       user: user == freezed
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -159,7 +140,7 @@ class _$_Login implements _Login {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Login &&
+            other is _$_Login &&
             const DeepCollectionEquality().equals(other.user, user) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.token, token));
@@ -174,15 +155,15 @@ class _$_Login implements _Login {
 
   @JsonKey(ignore: true)
   @override
-  _$LoginCopyWith<_Login> get copyWith =>
-      __$LoginCopyWithImpl<_Login>(this, _$identity);
+  _$$_LoginCopyWith<_$_Login> get copyWith =>
+      __$$_LoginCopyWithImpl<_$_Login>(this, _$identity);
 }
 
 abstract class _Login implements Login {
   const factory _Login(
-      {required UserResponse? user,
-      required String? message,
-      required String? token}) = _$_Login;
+      {required final UserResponse? user,
+      required final String? message,
+      required final String? token}) = _$_Login;
 
   @override
   UserResponse? get user;
@@ -192,5 +173,6 @@ abstract class _Login implements Login {
   String? get token;
   @override
   @JsonKey(ignore: true)
-  _$LoginCopyWith<_Login> get copyWith => throw _privateConstructorUsedError;
+  _$$_LoginCopyWith<_$_Login> get copyWith =>
+      throw _privateConstructorUsedError;
 }

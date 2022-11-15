@@ -12,42 +12,11 @@ part of 'product_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ProductResponse _$ProductResponseFromJson(Map<String, dynamic> json) {
   return _ProductResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$ProductResponseTearOff {
-  const _$ProductResponseTearOff();
-
-  _ProductResponse call(
-      {required int? id,
-      required int? subtotal,
-      required String? name,
-      required String? code,
-      required String? thumbnail,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt}) {
-    return _ProductResponse(
-      id: id,
-      subtotal: subtotal,
-      name: name,
-      code: code,
-      thumbnail: thumbnail,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
-  }
-
-  ProductResponse fromJson(Map<String, Object?> json) {
-    return ProductResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ProductResponse = _$ProductResponseTearOff();
 
 /// @nodoc
 mixin _$ProductResponse {
@@ -135,11 +104,11 @@ class _$ProductResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProductResponseCopyWith<$Res>
+abstract class _$$_ProductResponseCopyWith<$Res>
     implements $ProductResponseCopyWith<$Res> {
-  factory _$ProductResponseCopyWith(
-          _ProductResponse value, $Res Function(_ProductResponse) then) =
-      __$ProductResponseCopyWithImpl<$Res>;
+  factory _$$_ProductResponseCopyWith(
+          _$_ProductResponse value, $Res Function(_$_ProductResponse) then) =
+      __$$_ProductResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -152,15 +121,15 @@ abstract class _$ProductResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProductResponseCopyWithImpl<$Res>
+class __$$_ProductResponseCopyWithImpl<$Res>
     extends _$ProductResponseCopyWithImpl<$Res>
-    implements _$ProductResponseCopyWith<$Res> {
-  __$ProductResponseCopyWithImpl(
-      _ProductResponse _value, $Res Function(_ProductResponse) _then)
-      : super(_value, (v) => _then(v as _ProductResponse));
+    implements _$$_ProductResponseCopyWith<$Res> {
+  __$$_ProductResponseCopyWithImpl(
+      _$_ProductResponse _value, $Res Function(_$_ProductResponse) _then)
+      : super(_value, (v) => _then(v as _$_ProductResponse));
 
   @override
-  _ProductResponse get _value => super._value as _ProductResponse;
+  _$_ProductResponse get _value => super._value as _$_ProductResponse;
 
   @override
   $Res call({
@@ -172,7 +141,7 @@ class __$ProductResponseCopyWithImpl<$Res>
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
-    return _then(_ProductResponse(
+    return _then(_$_ProductResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -247,7 +216,7 @@ class _$_ProductResponse extends _ProductResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProductResponse &&
+            other is _$_ProductResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.subtotal, subtotal) &&
             const DeepCollectionEquality().equals(other.name, name) &&
@@ -257,6 +226,7 @@ class _$_ProductResponse extends _ProductResponse {
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -270,24 +240,26 @@ class _$_ProductResponse extends _ProductResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$ProductResponseCopyWith<_ProductResponse> get copyWith =>
-      __$ProductResponseCopyWithImpl<_ProductResponse>(this, _$identity);
+  _$$_ProductResponseCopyWith<_$_ProductResponse> get copyWith =>
+      __$$_ProductResponseCopyWithImpl<_$_ProductResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductResponseToJson(this);
+    return _$$_ProductResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _ProductResponse extends ProductResponse {
   const factory _ProductResponse(
-          {required int? id,
-          required int? subtotal,
-          required String? name,
-          required String? code,
-          required String? thumbnail,
-          @JsonKey(name: 'created_at') required DateTime? createdAt,
-          @JsonKey(name: 'updated_at') required DateTime? updatedAt}) =
+          {required final int? id,
+          required final int? subtotal,
+          required final String? name,
+          required final String? code,
+          required final String? thumbnail,
+          @JsonKey(name: 'created_at') required final DateTime? createdAt,
+          @JsonKey(name: 'updated_at') required final DateTime? updatedAt}) =
       _$_ProductResponse;
   const _ProductResponse._() : super._();
 
@@ -312,6 +284,6 @@ abstract class _ProductResponse extends ProductResponse {
   DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$ProductResponseCopyWith<_ProductResponse> get copyWith =>
+  _$$_ProductResponseCopyWith<_$_ProductResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

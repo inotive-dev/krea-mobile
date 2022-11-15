@@ -12,26 +12,7 @@ part of 'contribution.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ContributionTearOff {
-  const _$ContributionTearOff();
-
-  _Contribution call(
-      {required int? contributionWajib,
-      required int? contributionPokok,
-      required int? contributionSukarela}) {
-    return _Contribution(
-      contributionWajib: contributionWajib,
-      contributionPokok: contributionPokok,
-      contributionSukarela: contributionSukarela,
-    );
-  }
-}
-
-/// @nodoc
-const $Contribution = _$ContributionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Contribution {
@@ -87,11 +68,11 @@ class _$ContributionCopyWithImpl<$Res> implements $ContributionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ContributionCopyWith<$Res>
+abstract class _$$_ContributionCopyWith<$Res>
     implements $ContributionCopyWith<$Res> {
-  factory _$ContributionCopyWith(
-          _Contribution value, $Res Function(_Contribution) then) =
-      __$ContributionCopyWithImpl<$Res>;
+  factory _$$_ContributionCopyWith(
+          _$_Contribution value, $Res Function(_$_Contribution) then) =
+      __$$_ContributionCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? contributionWajib,
@@ -100,14 +81,15 @@ abstract class _$ContributionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ContributionCopyWithImpl<$Res> extends _$ContributionCopyWithImpl<$Res>
-    implements _$ContributionCopyWith<$Res> {
-  __$ContributionCopyWithImpl(
-      _Contribution _value, $Res Function(_Contribution) _then)
-      : super(_value, (v) => _then(v as _Contribution));
+class __$$_ContributionCopyWithImpl<$Res>
+    extends _$ContributionCopyWithImpl<$Res>
+    implements _$$_ContributionCopyWith<$Res> {
+  __$$_ContributionCopyWithImpl(
+      _$_Contribution _value, $Res Function(_$_Contribution) _then)
+      : super(_value, (v) => _then(v as _$_Contribution));
 
   @override
-  _Contribution get _value => super._value as _Contribution;
+  _$_Contribution get _value => super._value as _$_Contribution;
 
   @override
   $Res call({
@@ -115,7 +97,7 @@ class __$ContributionCopyWithImpl<$Res> extends _$ContributionCopyWithImpl<$Res>
     Object? contributionPokok = freezed,
     Object? contributionSukarela = freezed,
   }) {
-    return _then(_Contribution(
+    return _then(_$_Contribution(
       contributionWajib: contributionWajib == freezed
           ? _value.contributionWajib
           : contributionWajib // ignore: cast_nullable_to_non_nullable
@@ -156,7 +138,7 @@ class _$_Contribution implements _Contribution {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Contribution &&
+            other is _$_Contribution &&
             const DeepCollectionEquality()
                 .equals(other.contributionWajib, contributionWajib) &&
             const DeepCollectionEquality()
@@ -174,15 +156,15 @@ class _$_Contribution implements _Contribution {
 
   @JsonKey(ignore: true)
   @override
-  _$ContributionCopyWith<_Contribution> get copyWith =>
-      __$ContributionCopyWithImpl<_Contribution>(this, _$identity);
+  _$$_ContributionCopyWith<_$_Contribution> get copyWith =>
+      __$$_ContributionCopyWithImpl<_$_Contribution>(this, _$identity);
 }
 
 abstract class _Contribution implements Contribution {
   const factory _Contribution(
-      {required int? contributionWajib,
-      required int? contributionPokok,
-      required int? contributionSukarela}) = _$_Contribution;
+      {required final int? contributionWajib,
+      required final int? contributionPokok,
+      required final int? contributionSukarela}) = _$_Contribution;
 
   @override
   int? get contributionWajib;
@@ -192,6 +174,6 @@ abstract class _Contribution implements Contribution {
   int? get contributionSukarela;
   @override
   @JsonKey(ignore: true)
-  _$ContributionCopyWith<_Contribution> get copyWith =>
+  _$$_ContributionCopyWith<_$_Contribution> get copyWith =>
       throw _privateConstructorUsedError;
 }

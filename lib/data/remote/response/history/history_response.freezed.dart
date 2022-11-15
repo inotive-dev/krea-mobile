@@ -12,34 +12,11 @@ part of 'history_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 HistoryResponse _$HistoryResponseFromJson(Map<String, dynamic> json) {
   return _HistoryResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$HistoryResponseTearOff {
-  const _$HistoryResponseTearOff();
-
-  _HistoryResponse call(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDataResponse? data}) {
-    return _HistoryResponse(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-
-  HistoryResponse fromJson(Map<String, Object?> json) {
-    return HistoryResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $HistoryResponse = _$HistoryResponseTearOff();
 
 /// @nodoc
 mixin _$HistoryResponse {
@@ -107,11 +84,11 @@ class _$HistoryResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HistoryResponseCopyWith<$Res>
+abstract class _$$_HistoryResponseCopyWith<$Res>
     implements $HistoryResponseCopyWith<$Res> {
-  factory _$HistoryResponseCopyWith(
-          _HistoryResponse value, $Res Function(_HistoryResponse) then) =
-      __$HistoryResponseCopyWithImpl<$Res>;
+  factory _$$_HistoryResponseCopyWith(
+          _$_HistoryResponse value, $Res Function(_$_HistoryResponse) then) =
+      __$$_HistoryResponseCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, HistoryDataResponse? data});
 
@@ -120,15 +97,15 @@ abstract class _$HistoryResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryResponseCopyWithImpl<$Res>
+class __$$_HistoryResponseCopyWithImpl<$Res>
     extends _$HistoryResponseCopyWithImpl<$Res>
-    implements _$HistoryResponseCopyWith<$Res> {
-  __$HistoryResponseCopyWithImpl(
-      _HistoryResponse _value, $Res Function(_HistoryResponse) _then)
-      : super(_value, (v) => _then(v as _HistoryResponse));
+    implements _$$_HistoryResponseCopyWith<$Res> {
+  __$$_HistoryResponseCopyWithImpl(
+      _$_HistoryResponse _value, $Res Function(_$_HistoryResponse) _then)
+      : super(_value, (v) => _then(v as _$_HistoryResponse));
 
   @override
-  _HistoryResponse get _value => super._value as _HistoryResponse;
+  _$_HistoryResponse get _value => super._value as _$_HistoryResponse;
 
   @override
   $Res call({
@@ -136,7 +113,7 @@ class __$HistoryResponseCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_HistoryResponse(
+    return _then(_$_HistoryResponse(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -179,13 +156,14 @@ class _$_HistoryResponse extends _HistoryResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryResponse &&
+            other is _$_HistoryResponse &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,20 +173,22 @@ class _$_HistoryResponse extends _HistoryResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryResponseCopyWith<_HistoryResponse> get copyWith =>
-      __$HistoryResponseCopyWithImpl<_HistoryResponse>(this, _$identity);
+  _$$_HistoryResponseCopyWith<_$_HistoryResponse> get copyWith =>
+      __$$_HistoryResponseCopyWithImpl<_$_HistoryResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_HistoryResponseToJson(this);
+    return _$$_HistoryResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _HistoryResponse extends HistoryResponse {
   const factory _HistoryResponse(
-      {required String? message,
-      required int? statusCode,
-      required HistoryDataResponse? data}) = _$_HistoryResponse;
+      {required final String? message,
+      required final int? statusCode,
+      required final HistoryDataResponse? data}) = _$_HistoryResponse;
   const _HistoryResponse._() : super._();
 
   factory _HistoryResponse.fromJson(Map<String, dynamic> json) =
@@ -222,6 +202,6 @@ abstract class _HistoryResponse extends HistoryResponse {
   HistoryDataResponse? get data;
   @override
   @JsonKey(ignore: true)
-  _$HistoryResponseCopyWith<_HistoryResponse> get copyWith =>
+  _$$_HistoryResponseCopyWith<_$_HistoryResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }

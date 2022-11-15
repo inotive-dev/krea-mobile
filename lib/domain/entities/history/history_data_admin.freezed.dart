@@ -12,24 +12,7 @@ part of 'history_data_admin.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HistoryDataTearOff {
-  const _$HistoryDataTearOff();
-
-  _HistoryData call(
-      {required List<SalesResponse>? thisWeekHistory,
-      required List<SalesResponse>? lastMonthHistory}) {
-    return _HistoryData(
-      thisWeekHistory: thisWeekHistory,
-      lastMonthHistory: lastMonthHistory,
-    );
-  }
-}
-
-/// @nodoc
-const $HistoryData = _$HistoryDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HistoryData {
@@ -80,11 +63,11 @@ class _$HistoryDataCopyWithImpl<$Res> implements $HistoryDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$HistoryDataCopyWith<$Res>
+abstract class _$$_HistoryDataCopyWith<$Res>
     implements $HistoryDataCopyWith<$Res> {
-  factory _$HistoryDataCopyWith(
-          _HistoryData value, $Res Function(_HistoryData) then) =
-      __$HistoryDataCopyWithImpl<$Res>;
+  factory _$$_HistoryDataCopyWith(
+          _$_HistoryData value, $Res Function(_$_HistoryData) then) =
+      __$$_HistoryDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {List<SalesResponse>? thisWeekHistory,
@@ -92,27 +75,27 @@ abstract class _$HistoryDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HistoryDataCopyWithImpl<$Res> extends _$HistoryDataCopyWithImpl<$Res>
-    implements _$HistoryDataCopyWith<$Res> {
-  __$HistoryDataCopyWithImpl(
-      _HistoryData _value, $Res Function(_HistoryData) _then)
-      : super(_value, (v) => _then(v as _HistoryData));
+class __$$_HistoryDataCopyWithImpl<$Res> extends _$HistoryDataCopyWithImpl<$Res>
+    implements _$$_HistoryDataCopyWith<$Res> {
+  __$$_HistoryDataCopyWithImpl(
+      _$_HistoryData _value, $Res Function(_$_HistoryData) _then)
+      : super(_value, (v) => _then(v as _$_HistoryData));
 
   @override
-  _HistoryData get _value => super._value as _HistoryData;
+  _$_HistoryData get _value => super._value as _$_HistoryData;
 
   @override
   $Res call({
     Object? thisWeekHistory = freezed,
     Object? lastMonthHistory = freezed,
   }) {
-    return _then(_HistoryData(
+    return _then(_$_HistoryData(
       thisWeekHistory: thisWeekHistory == freezed
-          ? _value.thisWeekHistory
+          ? _value._thisWeekHistory
           : thisWeekHistory // ignore: cast_nullable_to_non_nullable
               as List<SalesResponse>?,
       lastMonthHistory: lastMonthHistory == freezed
-          ? _value.lastMonthHistory
+          ? _value._lastMonthHistory
           : lastMonthHistory // ignore: cast_nullable_to_non_nullable
               as List<SalesResponse>?,
     ));
@@ -123,12 +106,28 @@ class __$HistoryDataCopyWithImpl<$Res> extends _$HistoryDataCopyWithImpl<$Res>
 
 class _$_HistoryData implements _HistoryData {
   const _$_HistoryData(
-      {required this.thisWeekHistory, required this.lastMonthHistory});
+      {required final List<SalesResponse>? thisWeekHistory,
+      required final List<SalesResponse>? lastMonthHistory})
+      : _thisWeekHistory = thisWeekHistory,
+        _lastMonthHistory = lastMonthHistory;
 
+  final List<SalesResponse>? _thisWeekHistory;
   @override
-  final List<SalesResponse>? thisWeekHistory;
+  List<SalesResponse>? get thisWeekHistory {
+    final value = _thisWeekHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<SalesResponse>? _lastMonthHistory;
   @override
-  final List<SalesResponse>? lastMonthHistory;
+  List<SalesResponse>? get lastMonthHistory {
+    final value = _lastMonthHistory;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
@@ -139,29 +138,29 @@ class _$_HistoryData implements _HistoryData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HistoryData &&
+            other is _$_HistoryData &&
             const DeepCollectionEquality()
-                .equals(other.thisWeekHistory, thisWeekHistory) &&
+                .equals(other._thisWeekHistory, _thisWeekHistory) &&
             const DeepCollectionEquality()
-                .equals(other.lastMonthHistory, lastMonthHistory));
+                .equals(other._lastMonthHistory, _lastMonthHistory));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(thisWeekHistory),
-      const DeepCollectionEquality().hash(lastMonthHistory));
+      const DeepCollectionEquality().hash(_thisWeekHistory),
+      const DeepCollectionEquality().hash(_lastMonthHistory));
 
   @JsonKey(ignore: true)
   @override
-  _$HistoryDataCopyWith<_HistoryData> get copyWith =>
-      __$HistoryDataCopyWithImpl<_HistoryData>(this, _$identity);
+  _$$_HistoryDataCopyWith<_$_HistoryData> get copyWith =>
+      __$$_HistoryDataCopyWithImpl<_$_HistoryData>(this, _$identity);
 }
 
 abstract class _HistoryData implements HistoryData {
   const factory _HistoryData(
-      {required List<SalesResponse>? thisWeekHistory,
-      required List<SalesResponse>? lastMonthHistory}) = _$_HistoryData;
+      {required final List<SalesResponse>? thisWeekHistory,
+      required final List<SalesResponse>? lastMonthHistory}) = _$_HistoryData;
 
   @override
   List<SalesResponse>? get thisWeekHistory;
@@ -169,6 +168,6 @@ abstract class _HistoryData implements HistoryData {
   List<SalesResponse>? get lastMonthHistory;
   @override
   @JsonKey(ignore: true)
-  _$HistoryDataCopyWith<_HistoryData> get copyWith =>
+  _$$_HistoryDataCopyWith<_$_HistoryData> get copyWith =>
       throw _privateConstructorUsedError;
 }

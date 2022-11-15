@@ -12,26 +12,7 @@ part of 'validate_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ValidateDataTearOff {
-  const _$ValidateDataTearOff();
-
-  _ValidateData call(
-      {required String? message,
-      required int? statusCode,
-      required ValidData? data}) {
-    return _ValidateData(
-      message: message,
-      statusCode: statusCode,
-      data: data,
-    );
-  }
-}
-
-/// @nodoc
-const $ValidateData = _$ValidateDataTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ValidateData {
@@ -97,11 +78,11 @@ class _$ValidateDataCopyWithImpl<$Res> implements $ValidateDataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ValidateDataCopyWith<$Res>
+abstract class _$$_ValidateDataCopyWith<$Res>
     implements $ValidateDataCopyWith<$Res> {
-  factory _$ValidateDataCopyWith(
-          _ValidateData value, $Res Function(_ValidateData) then) =
-      __$ValidateDataCopyWithImpl<$Res>;
+  factory _$$_ValidateDataCopyWith(
+          _$_ValidateData value, $Res Function(_$_ValidateData) then) =
+      __$$_ValidateDataCopyWithImpl<$Res>;
   @override
   $Res call({String? message, int? statusCode, ValidData? data});
 
@@ -110,14 +91,15 @@ abstract class _$ValidateDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ValidateDataCopyWithImpl<$Res> extends _$ValidateDataCopyWithImpl<$Res>
-    implements _$ValidateDataCopyWith<$Res> {
-  __$ValidateDataCopyWithImpl(
-      _ValidateData _value, $Res Function(_ValidateData) _then)
-      : super(_value, (v) => _then(v as _ValidateData));
+class __$$_ValidateDataCopyWithImpl<$Res>
+    extends _$ValidateDataCopyWithImpl<$Res>
+    implements _$$_ValidateDataCopyWith<$Res> {
+  __$$_ValidateDataCopyWithImpl(
+      _$_ValidateData _value, $Res Function(_$_ValidateData) _then)
+      : super(_value, (v) => _then(v as _$_ValidateData));
 
   @override
-  _ValidateData get _value => super._value as _ValidateData;
+  _$_ValidateData get _value => super._value as _$_ValidateData;
 
   @override
   $Res call({
@@ -125,7 +107,7 @@ class __$ValidateDataCopyWithImpl<$Res> extends _$ValidateDataCopyWithImpl<$Res>
     Object? statusCode = freezed,
     Object? data = freezed,
   }) {
-    return _then(_ValidateData(
+    return _then(_$_ValidateData(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -164,7 +146,7 @@ class _$_ValidateData implements _ValidateData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ValidateData &&
+            other is _$_ValidateData &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality()
                 .equals(other.statusCode, statusCode) &&
@@ -180,15 +162,15 @@ class _$_ValidateData implements _ValidateData {
 
   @JsonKey(ignore: true)
   @override
-  _$ValidateDataCopyWith<_ValidateData> get copyWith =>
-      __$ValidateDataCopyWithImpl<_ValidateData>(this, _$identity);
+  _$$_ValidateDataCopyWith<_$_ValidateData> get copyWith =>
+      __$$_ValidateDataCopyWithImpl<_$_ValidateData>(this, _$identity);
 }
 
 abstract class _ValidateData implements ValidateData {
   const factory _ValidateData(
-      {required String? message,
-      required int? statusCode,
-      required ValidData? data}) = _$_ValidateData;
+      {required final String? message,
+      required final int? statusCode,
+      required final ValidData? data}) = _$_ValidateData;
 
   @override
   String? get message;
@@ -198,6 +180,6 @@ abstract class _ValidateData implements ValidateData {
   ValidData? get data;
   @override
   @JsonKey(ignore: true)
-  _$ValidateDataCopyWith<_ValidateData> get copyWith =>
+  _$$_ValidateDataCopyWith<_$_ValidateData> get copyWith =>
       throw _privateConstructorUsedError;
 }

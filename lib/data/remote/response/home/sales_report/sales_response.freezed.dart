@@ -12,64 +12,11 @@ part of 'sales_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SalesResponse _$SalesResponseFromJson(Map<String, dynamic> json) {
   return _SalesResponse.fromJson(json);
 }
-
-/// @nodoc
-class _$SalesResponseTearOff {
-  const _$SalesResponseTearOff();
-
-  _SalesResponse call(
-      {required int? id,
-      @JsonKey(name: 'mart_id') required int? martId,
-      @JsonKey(name: 'user_id') required int? userId,
-      required double? total,
-      @JsonKey(name: 'total_discount') required double? totalDiscount,
-      @JsonKey(name: 'total_ppn') required double? totalPpn,
-      required double? hpp,
-      @JsonKey(name: 'grand_total') required double? grandTotal,
-      @JsonKey(name: 'payment_method') required String? paymentMethod,
-      @JsonKey(name: 'bank_name') required String? bankName,
-      @JsonKey(name: 'total_payment') required double? totalPayment,
-      @JsonKey(name: 'total_change') required double? totalChange,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt,
-      @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
-      @JsonKey(name: 'is_matched') required int? isMatched,
-      required UserResponse? user,
-      required MartResponse? mart}) {
-    return _SalesResponse(
-      id: id,
-      martId: martId,
-      userId: userId,
-      total: total,
-      totalDiscount: totalDiscount,
-      totalPpn: totalPpn,
-      hpp: hpp,
-      grandTotal: grandTotal,
-      paymentMethod: paymentMethod,
-      bankName: bankName,
-      totalPayment: totalPayment,
-      totalChange: totalChange,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      updatedAtMobile: updatedAtMobile,
-      isMatched: isMatched,
-      user: user,
-      mart: mart,
-    );
-  }
-
-  SalesResponse fromJson(Map<String, Object?> json) {
-    return SalesResponse.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $SalesResponse = _$SalesResponseTearOff();
 
 /// @nodoc
 mixin _$SalesResponse {
@@ -270,11 +217,11 @@ class _$SalesResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SalesResponseCopyWith<$Res>
+abstract class _$$_SalesResponseCopyWith<$Res>
     implements $SalesResponseCopyWith<$Res> {
-  factory _$SalesResponseCopyWith(
-          _SalesResponse value, $Res Function(_SalesResponse) then) =
-      __$SalesResponseCopyWithImpl<$Res>;
+  factory _$$_SalesResponseCopyWith(
+          _$_SalesResponse value, $Res Function(_$_SalesResponse) then) =
+      __$$_SalesResponseCopyWithImpl<$Res>;
   @override
   $Res call(
       {int? id,
@@ -303,15 +250,15 @@ abstract class _$SalesResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SalesResponseCopyWithImpl<$Res>
+class __$$_SalesResponseCopyWithImpl<$Res>
     extends _$SalesResponseCopyWithImpl<$Res>
-    implements _$SalesResponseCopyWith<$Res> {
-  __$SalesResponseCopyWithImpl(
-      _SalesResponse _value, $Res Function(_SalesResponse) _then)
-      : super(_value, (v) => _then(v as _SalesResponse));
+    implements _$$_SalesResponseCopyWith<$Res> {
+  __$$_SalesResponseCopyWithImpl(
+      _$_SalesResponse _value, $Res Function(_$_SalesResponse) _then)
+      : super(_value, (v) => _then(v as _$_SalesResponse));
 
   @override
-  _SalesResponse get _value => super._value as _SalesResponse;
+  _$_SalesResponse get _value => super._value as _$_SalesResponse;
 
   @override
   $Res call({
@@ -334,7 +281,7 @@ class __$SalesResponseCopyWithImpl<$Res>
     Object? user = freezed,
     Object? mart = freezed,
   }) {
-    return _then(_SalesResponse(
+    return _then(_$_SalesResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -497,7 +444,7 @@ class _$_SalesResponse extends _SalesResponse {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SalesResponse &&
+            other is _$_SalesResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.martId, martId) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
@@ -524,6 +471,7 @@ class _$_SalesResponse extends _SalesResponse {
             const DeepCollectionEquality().equals(other.mart, mart));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -548,35 +496,50 @@ class _$_SalesResponse extends _SalesResponse {
 
   @JsonKey(ignore: true)
   @override
-  _$SalesResponseCopyWith<_SalesResponse> get copyWith =>
-      __$SalesResponseCopyWithImpl<_SalesResponse>(this, _$identity);
+  _$$_SalesResponseCopyWith<_$_SalesResponse> get copyWith =>
+      __$$_SalesResponseCopyWithImpl<_$_SalesResponse>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SalesResponseToJson(this);
+    return _$$_SalesResponseToJson(
+      this,
+    );
   }
 }
 
 abstract class _SalesResponse extends SalesResponse {
   const factory _SalesResponse(
-      {required int? id,
-      @JsonKey(name: 'mart_id') required int? martId,
-      @JsonKey(name: 'user_id') required int? userId,
-      required double? total,
-      @JsonKey(name: 'total_discount') required double? totalDiscount,
-      @JsonKey(name: 'total_ppn') required double? totalPpn,
-      required double? hpp,
-      @JsonKey(name: 'grand_total') required double? grandTotal,
-      @JsonKey(name: 'payment_method') required String? paymentMethod,
-      @JsonKey(name: 'bank_name') required String? bankName,
-      @JsonKey(name: 'total_payment') required double? totalPayment,
-      @JsonKey(name: 'total_change') required double? totalChange,
-      @JsonKey(name: 'created_at') required DateTime? createdAt,
-      @JsonKey(name: 'updated_at') required DateTime? updatedAt,
-      @JsonKey(name: 'update_at_mobile') required DateTime? updatedAtMobile,
-      @JsonKey(name: 'is_matched') required int? isMatched,
-      required UserResponse? user,
-      required MartResponse? mart}) = _$_SalesResponse;
+      {required final int? id,
+      @JsonKey(name: 'mart_id')
+          required final int? martId,
+      @JsonKey(name: 'user_id')
+          required final int? userId,
+      required final double? total,
+      @JsonKey(name: 'total_discount')
+          required final double? totalDiscount,
+      @JsonKey(name: 'total_ppn')
+          required final double? totalPpn,
+      required final double? hpp,
+      @JsonKey(name: 'grand_total')
+          required final double? grandTotal,
+      @JsonKey(name: 'payment_method')
+          required final String? paymentMethod,
+      @JsonKey(name: 'bank_name')
+          required final String? bankName,
+      @JsonKey(name: 'total_payment')
+          required final double? totalPayment,
+      @JsonKey(name: 'total_change')
+          required final double? totalChange,
+      @JsonKey(name: 'created_at')
+          required final DateTime? createdAt,
+      @JsonKey(name: 'updated_at')
+          required final DateTime? updatedAt,
+      @JsonKey(name: 'update_at_mobile')
+          required final DateTime? updatedAtMobile,
+      @JsonKey(name: 'is_matched')
+          required final int? isMatched,
+      required final UserResponse? user,
+      required final MartResponse? mart}) = _$_SalesResponse;
   const _SalesResponse._() : super._();
 
   factory _SalesResponse.fromJson(Map<String, dynamic> json) =
@@ -633,6 +596,6 @@ abstract class _SalesResponse extends SalesResponse {
   MartResponse? get mart;
   @override
   @JsonKey(ignore: true)
-  _$SalesResponseCopyWith<_SalesResponse> get copyWith =>
+  _$$_SalesResponseCopyWith<_$_SalesResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
