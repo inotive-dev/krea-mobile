@@ -1,6 +1,9 @@
+import 'package:data_table_2/data_table_2.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:koperasi/core/style/color_palettes.dart';
 
+import '../../core/style/custom_widget_style.dart';
 import '../../core/style/sizes.dart';
 
 class StockOpnamePage extends StatefulWidget {
@@ -27,6 +30,19 @@ _onTapFilterDate(BuildContext context, DateTime? previousDate) async {
 }
 
 class _StockOpnamePageState extends State<StockOpnamePage> {
+  final TextEditingController queryController = TextEditingController();
+
+  _onChangeQuantity(String value) {
+    final _debounceDurationInMs = value.isEmpty ? 1000 : 500;
+    EasyDebounce.debounce(
+      'change-query',
+      Duration(milliseconds: _debounceDurationInMs),
+      () {
+        print('INI: $value');
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +56,7 @@ class _StockOpnamePageState extends State<StockOpnamePage> {
           color: Colors.white,
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(Sizes.width12),
         child: Column(
           children: [
@@ -152,120 +168,55 @@ class _StockOpnamePageState extends State<StockOpnamePage> {
                           color: ColorPalettes.blackText,
                         ),
                       ),
-                      Container(
-                        color: ColorPalettes.greyForm,
-                        height: Sizes.height50,
-                        width: Sizes.width108,
-                      )
+                      SizedBox(
+                        width: 150,
+                        child: TextFormField(
+                          controller: queryController,
+                          style: TextStyle(
+                            color: ColorPalettes.textNeutral,
+                            fontSize: Sizes.sp14,
+                          ),
+                          decoration: CustomWidgetStyle.formInputDecoration,
+                          onChanged: (value) => _onChangeQuantity(value),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: Sizes.height24),
                   SizedBox(
                     height: MediaQuery.of(context).size.height - Sizes.height355,
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.vertical,
-                        physics: const BouncingScrollPhysics(),
-                        child: DataTable(
-                          columns: const [
-                            DataColumn(label: Text("No")),
-                            DataColumn(label: Text("Nama")),
-                            DataColumn(label: Text("SKU")),
-                            DataColumn(label: Text("Opname Gudang")),
-                            DataColumn(label: Text("Opname Display")),
-                          ],
-                          rows: const [
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("1")),
-                                DataCell(Text("Kacang")),
-                                DataCell(Text("K002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("2")),
-                                DataCell(Text("Minyak")),
-                                DataCell(Text("M002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("1")),
-                                DataCell(Text("Kacang")),
-                                DataCell(Text("K002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("2")),
-                                DataCell(Text("Minyak")),
-                                DataCell(Text("M002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("1")),
-                                DataCell(Text("Kacang")),
-                                DataCell(Text("K002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("2")),
-                                DataCell(Text("Minyak")),
-                                DataCell(Text("M002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("1")),
-                                DataCell(Text("Kacang")),
-                                DataCell(Text("K002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("2")),
-                                DataCell(Text("Minyak")),
-                                DataCell(Text("M002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("1")),
-                                DataCell(Text("Kacang")),
-                                DataCell(Text("K002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text("2")),
-                                DataCell(Text("Minyak")),
-                                DataCell(Text("M002C")),
-                                DataCell(Text("4")),
-                                DataCell(Text("4")),
-                              ],
-                            ),
+                    child: DataTable2(
+                      columnSpacing: 1,
+                      horizontalMargin: 12,
+                      minWidth: 650,
+                      columns: const [
+                        DataColumn2(label: Text("No"), fixedWidth: 50),
+                        DataColumn2(label: Text("Nama"), fixedWidth: 100),
+                        DataColumn2(label: Text("SKU"), fixedWidth: 100),
+                        DataColumn2(label: Text("Opname Gudang"), fixedWidth: 125),
+                        DataColumn2(label: Text("Opname Display"), fixedWidth: 125),
+                        DataColumn2(label: Text("Variance"), fixedWidth: 100),
+                      ],
+                      rows: List<DataRow>.generate(
+                        20,
+                        (index) => DataRow(
+                          selected: index == 2,
+                          color: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                            if (states.contains(MaterialState.selected)) {
+                              return Theme.of(context).colorScheme.primary.withOpacity(0.3);
+                            }
+                            if (index % 2 == 0) {
+                              return Theme.of(context).colorScheme.primary.withOpacity(0.08);
+                            }
+                            return null; // Use the default value.
+                          }),
+                          cells: [
+                            DataCell(Text("${index + 1}")),
+                            DataCell(Text('Produk ${index + 1} MURAH')),
+                            DataCell(Text('P00$index')),
+                            DataCell(Text('${(15 - (index + 10) % 10)}')),
+                            DataCell(Text('${(15 - (index + 10) % 10)}')),
+                            DataCell(Text('${(15 - (index + 10) % 10)}')),
                           ],
                         ),
                       ),

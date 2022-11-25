@@ -17,10 +17,13 @@ dependencies:
   # Cached network image
   cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
+  # In-place substitute for Flutter's DataTable and PaginatedDataTable with fixed/sticky headers and few extra features
+  data_table_2: ^2.3.8
   # Functional programming thingies
   dartz: ^0.10.1
   #http tools
   dio: ^4.0.6
+  easy_debounce: ^2.0.2+1
   # equatable for bloc
   equatable: ^2.0.5
   #for screen util (responsive)
